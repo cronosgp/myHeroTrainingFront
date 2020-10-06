@@ -1,0 +1,46 @@
+<div class="container">
+    <div class="text-center">
+        <h1>Cadastro </h1>
+    </div>
+    <form novalidate name="formulario">
+        <div ng-class="form-group">
+            <div class="row">
+                <div class="col-md-6">
+                    <label>Nome</label>
+                    <input type="nome" name="nome" ng-model="model.nome" class="form-control" name="nome"
+                           placeholder="Digite seu nome" required maxlength="40" minlength="5">
+                    <span ng-show="formulario.$submitted && formulario.nome.$error.required"
+                          class="form-control alert-danger">
+                    Nome obrigatório
+                </span>
+                    <span ng-show="formulario.$submitted && formulario.nome.$error.maxlength||formulario.nome.$error.minlength"
+                          class="form-control alert-danger">
+                    Nome inválido
+                </span>
+                    <label>Descrição</label>
+                    <input type="nome" name="nome" ng-model="model.nome" class="form-control" name="nome"
+                           placeholder="Digite seu nome" required maxlength="40" minlength="5">
+                    <span ng-show="formulario.$submitted && formulario.nome.$error.required"
+                          class="form-control alert-danger">
+                    Nome obrigatório
+                </span>
+                    <label>Tempo</label>
+                    <input type="nome" name="nome" ng-model="model.nome" class="form-control" name="nome"
+                           placeholder="Digite seu nome" required maxlength="40" minlength="5">
+                    <span ng-show="formulario.$submitted && formulario.nome.$error.required"
+                          class="form-control alert-danger">
+                    Nome obrigatório
+                </span>
+                    <label>Intendidade</label>
+                    <input type="nome" name="nome" ng-model="model.nome" class="form-control" name="nome"
+                           placeholder="Digite seu nome" required maxlength="40" minlength="5">
+                    <span ng-show="formulario.$submitted && formulario.nome.$error.required"
+                          class="form-control alert-danger">
+                    Nome obrigatório
+                </span>
+                </div>
+                <button type="submit" class="btn btn-dark" ng-click="salvar()">Cadastrar</button>
+            </div>
+        </div>
+    </form>
+</div>
