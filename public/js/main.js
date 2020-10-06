@@ -125,6 +125,9 @@ angular
       templateUrl: './view/login.html',
       controller: 'login-controller',
     });
+    $routeProvider.when('/teste', {
+      templateUrl: './view/teste.html',
+    });
     $routeProvider.when('/dados_login', {
       templateUrl: './view/dadosLogin.html',
       controller: 'login-controller',
