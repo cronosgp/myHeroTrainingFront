@@ -17,34 +17,24 @@
     #login-form{
         margin-left: 35%;
         margin-top: 60px;
-
     }
 </style>
-
 <div class="container">
     <body>
     <div class="text-center">
         <h2>Login </h2 >
     </div>
-
     <form class="form-signin"id="login-form" >
-
         <div class="col-md-6">
-
         <label for="inputEmail" class="sr-only" >Email </label>
-        <input  type="email" id="inputEmail" class="form-control" ng-model="model.email" placeholder="Email " required autofocus>
-        <label  for="inputPassword" class="sr-only" >Senha</label>
-        <input translate translate-attr-placeholder="HEADER.LOGIN.PLACEHOLDER.SENHA" type="password" id="inputPassword" ng-model="model.senha "class="form-control" placeholder="Senha" required>
+        <input type="email" id="inputEmail" class="form-control" ng-model="model.email" placeholder="Email " required autofocus>
+        <label for="inputPassword" class="sr-only" >Senha</label>
+        <input type="password" id="inputPassword" ng-model="model.senha "class="form-control" placeholder="Senha" required>
         <div class="checkbox mb-3">
-            <label >
-            
-                <input translate="HEADER.LOGIN.PLACEHOLDER.LEMBRAR" type="checkbox" value="remember-me" >    <label translate="HEADER.LOGIN.PLACEHOLDER.LEMBRAR">Lembrar-me </label> </input>
-            </label>
         </div>
-        <button translate="HEADER.LOGIN.PLACEHOLDER.BOTAOL" class="btn btn-lg btn-dark btn-block" type="submit" ng-click="logar()">Entrar</button>
+        <button class="btn btn-lg btn-dark btn-block" type="submit" ng-click="logar()">Entrar</button>
         </div>
     </form>
     </body>
-
 </div>
 </html>

@@ -1,16 +1,28 @@
 angular.module('myHeroTraining').factory('loginService', function ($http) {
   var autenticar = function (dadosUsuario) {
-    return $http.post('http://localhost:8080/auth', dadosUsuario);
+    return $http.post(
+      'https://myherotraining.herokuapp.com/auth',
+      dadosUsuario
+    );
   };
-  var dadosCadastro = function (email) {
-    return $http.get('http://localhost:8080/cadastro-usuario', {
-      params: {
-        email: email,
-      },
-    });
+
+  var dadosLogin = function (email) {
+    return $http.get(
+      'https://myherotraining.herokuapp.com/cadastro-usuario/id',
+      {
+        params: {
+          email: email,
+        },
+      }
+    );
   };
+  var atualizaToken = function (id, token) {
+    return $http.put('https://myherotraining.herokuapp.com/auth/' + id, token);
+  };
+
   return {
     autenticar: autenticar,
-    dadosCadastro: dadosCadastro,
+    atualizaToken: atualizaToken,
+    dadosLogin: dadosLogin,
   };
 });

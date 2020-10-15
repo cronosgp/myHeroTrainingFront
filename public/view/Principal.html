@@ -1,81 +1,123 @@
-<div class="container">
-    <div class="card bg-dark text-white" ng-repeat="foto in fotoP">
-        <img src="{{foto.url}}" class="card-img" alt="...">
-        <div class="card-img-overlay">
-            <h4 class="card-text font-italic">Treine com a gente no seu ritmo!</h4>
-            <h3 class="font-italic">100% Gratuito</h3>
-        </div>
-    </div>
-    <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-        <h1 class="display-6">Treinos Diários</h1>
-        <p class="lead">Escolha o treino de acordo com sua rotina e garanta resultados</p>
-    </div>
+<style>
+    #imgTreino {
+        margin-left: 0%;
+        width: 100%;
+        position:relative;
+    }
+</style>
 
-    <div class="row">
-        <div class="col-md-4 my-2"  ng-repeat="foto in fotoX">
-            <div class="card mb-4 m-1 shadow-sm">
-                <img src="{{foto.url}}" class="card-img-top"  alt="" height="200" width="180">
-                <div class="card-body"  >
-                    <h4 class="card-text">teste</h4>
-                    <p class="card-text">teste</p>
-                    <p class="card-text">teste</p>
-                    <p class="card-text">teste</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div class="btn-group">
-                            <a class="btn btn-sm btn-outline-primary" type="button" href="#/treinos/id" >Iniciar</a>
-                            <button type="button" class="btn btn-sm btn-outline-primary">Ver</button>
-                        </div>
 
-                    </div>
+<div class="container-fluid">
+
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active" >
+                <img id="imgTreino"src="./imagem/22.jpeg" class="d-block w-100" alt="..." height="500px" width="500px" >
+                <div class="carousel-caption d-none d-md-block">
+                    <h2>Treinos funcionais</h2>
+                    <p>Faça os treinos de acordo com sua rotina e melhore sua saúde!</p>
                 </div>
             </div>
         </div>
-</div>
-</div>
-<footer class="container py-5">
-    <div class="row">
-        <div class="col-12 col-md">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="d-block mb-2"><circle cx="12" cy="12" r="10"></circle><line x1="14.31" y1="8" x2="20.05" y2="17.94"></line><line x1="9.69" y1="8" x2="21.17" y2="8"></line><line x1="7.38" y1="12" x2="13.12" y2="2.06"></line><line x1="9.69" y1="16" x2="3.95" y2="6.06"></line><line x1="14.31" y1="16" x2="2.83" y2="16"></line><line x1="16.62" y1="12" x2="10.88" y2="21.94"></line></svg>
-            <small class="d-block mb-3 text-muted">&copy; 2017-2018</small>
+    </div>
+    <div class="container">
+        <div class="row text-center">
+            <div>
+                <br>
+                <h4 class="name">Crie uma rotina para praticar exercícios:</h4>
+                <p class="text-muted">Praticar exercícios físiscos regularmente pode ajudar em diversos aspectos da sua
+                    saúde,
+                    reduz risco de hipertensão, doenças cardíacas, AVC, diabetes, câncer, depressão, reduz ansiedade e
+                    estresse, melhora disposição.</p>
+                </br>
+            </div>
         </div>
-        <div class="col-6 col-md">
-            <h5>Features</h5>
-            <ul class="list-unstyled text-small">
-                <li><a class="text-muted" href="#">Cool stuff</a></li>
-                <li><a class="text-muted" href="#">Random feature</a></li>
-                <li><a class="text-muted" href="#">Team feature</a></li>
-                <li><a class="text-muted" href="#">Stuff for developers</a></li>
-                <li><a class="text-muted" href="#">Another one</a></li>
-                <li><a class="text-muted" href="#">Last time</a></li>
-            </ul>
-        </div>
-        <div class="col-6 col-md">
-            <h5>Resources</h5>
-            <ul class="list-unstyled text-small">
-                <li><a class="text-muted" href="#">Resource</a></li>
-                <li><a class="text-muted" href="#">Resource name</a></li>
-                <li><a class="text-muted" href="#">Another resource</a></li>
-                <li><a class="text-muted" href="#">Final resource</a></li>
-            </ul>
-        </div>
-        <div class="col-6 col-md">
-            <h5>Resources</h5>
-            <ul class="list-unstyled text-small">
-                <li><a class="text-muted" href="#">Nome</a></li>
-                <li><a class="text-muted" href="#">Empresa</a></li>
-                <li><a class="text-muted" href="#">teste</a></li>
-                <li><a class="text-muted" href="#">teste</a></li>
-            </ul>
-        </div>
-        <div class="col-6 col-md">
-            <h5>About</h5>
-            <ul class="list-unstyled text-small">
-                <li><a class="text-muted" href="#">Team</a></li>
-                <li><a class="text-muted" href="#">Locations</a></li>
-                <li><a class="text-muted" href="#">Privacy</a></li>
-                <li><a class="text-muted" href="#">Terms</a></li>
-            </ul>
+        <b>
+            <section class="page-section" id="sobreMyHeroTrainning">
+                <div class="container" id="container-sobreNos">
+                    <div class="row">
+                        <div class="col-lg-12 text-center">
+                            <br>
+                            <h2 class="section-heading text-uppercase">Sobre</h2>
+                            <b><h3 class="section-subheading text-muted">MyHeroTraining</h3></b></br>
+                        </div>
+                        <div class="row text-center">
+                            <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+                            <i class="fas fa-flask"></i>
+                        </span>
+                                <h4 class="service-heading">Experiência</h4>
+                                <p class="text-muted">Queremos que os nossos usuários tenham a melhor experiência na
+                                    prática
+                                    de exercícios físicos, de forma autônoma, prática e motivadora.</p>
+                            </div>
+                            <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+                            <i class="fas fa-infinity"></i>
+                        </span>
+                                <h4 class="service-heading">Nossa Estratégia</h4>
+                                <p class="text-muted">Com a MyHeroTrainig qualquer pessoa pode começar a praticar
+                                    exercícios
+                                    físicos e evoluir nos treinos melhorarando sua saúde.</p>
+                            </div>
+                            <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+                            <i class="fas fa-microphone-alt"></i>
+                        </span>
+                                <h4 class="service-heading">Missão</h4>
+                                <p class="text-muted">Nossa missão é contrubuir para manutenção e melhora da saúde da
+                                    população, facilitando o acesso a atividade física e incentivo da
+                                    mesma.<br/><br/><br/><br/></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </b>
+        <div id="como-aplicacao">
+            <div id="comoUsar" class="como">
+                <br>
+                <b><h4>Como usar:</h4></b>
+                <p><b>1:</b> Cadastrando-se na aplicação você terá disponível treinos que começam no nível 0 iniciante.
+                </p>
+                <p><b>2:</b> Inicie os treinos, conforme você os realiza, ganha pontuação e libera mais treinos. </p>
+                <p><b>3:</b> Suba cada vez mais de nível e tenha acesso a treinos mais avançados.</p>
+                </a></p>
+                <a class="btn-link" href="#/Cadastro">Cadastre-se agora e já comece a treinar!</a>
+                </b>
+            </div>
+            </div-->
         </div>
     </div>
+    <footer class="container py-5" >
+        <div class="row">
+            <div class="col-12 col-md">
+                <img src="./imagem/logo.png">
+                <small class="d-block mb-3 text-muted"> 2020-2021
+                </small>
+            </div>
+            <div class="col-6 col-md">
+                <h5>Facebook</h5>
+                <ul class="list-unstyled text-small">
+                    <li><a class="text-muted" href="">Cool stuff</a></li>
 
-</footer>
+                </ul>
+            </div>
+            <div class="col-6 col-md">
+                <h5>Instagram</h5>
+                <ul class="list-unstyled text-small">
+                    <li><a class="text-muted" href="">Resource</a></li>
+
+                </ul>
+            </div>
+            <div class="col-6 col-md">
+                <h5>Contato</h5>
+                <ul class="list-unstyled text-small">
+                    <li><a class="text-muted" href="">Nome</a></li>
+
+                </ul>
+            </div>
+        </div>
+
+    </footer>
+</div>

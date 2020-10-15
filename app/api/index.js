@@ -74,5 +74,4 @@ api.listaGrupos = function(req, res) {
         
 };
 
-
 module.exports = api;

@@ -16,13 +16,12 @@
     "fetchSpec": "1.3.15"
   },
   "_requiredBy": [
-    "#DEV:/",
-    "#USER"
+    "#DEV:/"
   ],
   "_resolved": "https://registry.npmjs.org/angular-sanitize/-/angular-sanitize-1.3.15.tgz",
   "_shasum": "d154ab4f3d1d263f63f1e20c06b71ac172a0fe6c",
   "_spec": "angular-sanitize@1.3.15",
-  "_where": "C:\\Users\\rpitta\\eclipse-workspace\\myHeroTraining\\src\\main\\resources\\static\\angular",
+  "_where": "C:\\Users\\rpitta\\eclipse-workspace\\myhtraining\\angular",
   "author": {
     "name": "Angular Core Team",
     "email": "angular-core+npm@google.com"

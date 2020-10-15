@@ -1,6 +1,7 @@
 angular
   .module('myHeroTraining', ['ngRoute', 'ngSanitize', 'pascalprecht.translate'])
   .config(function ($routeProvider, $translateProvider) {
+    //  $locationProvider.html5Mode(true);
     $translateProvider.translations('pt-BR', {
       HEADER: {
         MENU: {
@@ -12,16 +13,45 @@ angular
           SAIR: 'Sair',
           SEUSTREINOS: 'Treinos Para Você',
           MEUSDADOS: 'Meus Dados',
+          EXERCICIOS: 'Exercicíos',
         },
         LOGIN: {
           PLACEHOLDER: {
             SENHA: 'Digite Sua Senha',
             LEMBRAR: 'Lembrar-me',
             BOTAOL: 'Entrar',
+            PRINCIPALLABEL: 'Treinos Funcionais',
+            SUBLABEL:
+              'Faça os treinos de acordo com sua rotina e melhore sua saúde!',
+            ROTINELABEL: 'Crie uma rotina para praticar exercícios:',
+            ABOUT: 'SOBRE',
+            SAUDE: `Praticar exercícios físiscos regularmente pode ajudar em diversos aspectos da sua
+            saúde,
+            reduz risco de hipertensão, doenças cardíacas, AVC, diabetes, câncer, depressão, reduz ansiedade e
+            estresse, melhora disposição.`,
+            EXPERIENCIA: 'Experiência',
+            ESTRATEGIA: 'Nossa Estratégia',
+            ESTRATEGIATEXT:
+              'Com a MyHeroTrainig qualquer pessoa pode começar a praticar exercícios' +
+              'físicos e evoluir nos treinos melhorarando sua saúde.',
+            MISSAO: 'Missão',
+            MISSAOTEXT:
+              'Nossa missão é contrubuir para manutenção e melhora da saúde da' +
+              'população, facilitando o acesso a atividade física e incentivo da' +
+              'mesma.',
+            COMOUSAR: 'Como usar:',
+            FRASE1:
+              'na aplicação você terá disponível treinos que começam no nível 0 iniciante.',
+            FRASE2:
+              'Inicie os treinos, conforme você os realiza, ganha pontuação e libera mais treinos.',
+            FRASE3:
+              'Suba cada vez mais de nível e tenha acesso a treinos mais avançados.',
+            CADASTRESEAQUI: 'Cadastre-se agora e já comece a treinar!',
           },
         },
 
         CADASTRO: {
+          LCADASTRO: 'Cadastro',
           NOME: 'Nome',
           PNOME: 'Digite seu nome',
           ENOME: 'Nome é um campo obrigatório',
@@ -32,7 +62,7 @@ angular
           ESENHA1: 'Senha é obrigatória',
           ESENHA2:
             'Senha inválida, por favor digite uma senha com no mínimo 6 caracteres',
-          PSENHA: 'Mínimo 6 caracteres',
+          PSENHA: 'Padrão de Senha incoorreto',
           CSENHA: 'Confirme sua Senha',
           CESENHA:
             'Senha inválida, por favor digite uma senha com no mínimo 6 caracteres',
@@ -66,16 +96,46 @@ angular
           SAIR: 'Logout',
           SEUSTREINOS: 'Workouts for you',
           MEUSDADOS: 'My datas',
+          EXERCICIOS: 'Exercises',
         },
         LOGIN: {
           PLACEHOLDER: {
             SENHA: 'Type your password here',
             LEMBRAR: 'Remember me',
             BOTAOL: 'Login',
+            PRINCIPALLABEL: 'Functional Training',
+            SUBLABEL:
+              'Do the workouts according to your routine and improve your health!',
+            ROTINELABEL: 'Create a routine to practice exercises:',
+            ABOUT: 'ABOUT',
+            SAUDE:
+              'Practicing phosphide exercises regularly can help in various aspects of your' +
+              'Health' +
+              'reduces risk of hypertension, heart disease, stroke, diabetes, cancer, depression, reduces anxiety and' +
+              'stress, improves mood.',
+
+            EXPERIENCIA: 'Experience',
+            ESTRATEGIA: 'Our Strategy',
+            ESTRATEGIATEXT:
+              'With MyHeroTrainig anyone can start exercising' +
+              'and evolve in training by improving your health.',
+            MISSAO: 'Mission',
+            MISSAOTEXT:
+              'Our mission is to build for maintenance and improvement of the health of' +
+              'population, facilitating access to physical activity and encouraging' +
+              'same.',
+            COMOUSAR: 'How to use:',
+            FRASE1:
+              'In the application you will have available workouts that start at level 0 beginner.',
+            FRASE2:
+              'Start the workouts as you perform them, earn scores and release more workouts.',
+            FRASE3: 'Level up and take access to more advanced workouts',
+            CADASTRESEAQUI: 'Sign up now and start training!',
           },
         },
 
         CADASTRO: {
+          LCADASTRO: 'Registration',
           NOME: 'Name',
           PNOME: 'Type your name',
           ENOME: 'Name is required',
@@ -86,7 +146,7 @@ angular
           ESENHA1: 'Password IS required',
           ESENHA2:
             'Password is not valid, please enter a password of at least 6 characters',
-          PSENHA: 'Minimum 6 characters',
+          PSENHA: 'Incorrect password pattern',
           CSENHA: 'Confirm your Password',
           CESENHA:
             'Password is not valid, please enter a password of at least 6 characters',
@@ -114,7 +174,7 @@ angular
       controller: 'HomeController',
     });
     $routeProvider.when('/principal', {
-      templateUrl: './view/principal.html',
+      templateUrl: './view/Principal.html',
       controller: 'TreinoController',
     });
     $routeProvider.when('/Cadastro', {
@@ -127,7 +187,7 @@ angular
     });
     $routeProvider.when('/dados_login', {
       templateUrl: './view/dadosLogin.html',
-      controller: 'login-controller',
+      controller: 'TreinoController',
     });
     $routeProvider.when('/treinos/:id', {
       templateUrl: './view/treino.html',
@@ -141,9 +201,11 @@ angular
       templateUrl: './view/TreinoExecucao.html',
       controller: 'TreinoController',
     });
+    $routeProvider.when('/descricaoTreino/', {
+      templateUrl: './view/descricaoTreino.html',
+    });
 
-    $routeProvider.otherwise({ redirectTo: '/home' });
+    $routeProvider.otherwise({ redirectTo: '/principal' });
     $translateProvider.preferredLanguage('pt-BR');
-    //$translateProvider.preferredLanguage();
     $translateProvider.useSanitizeValueStrategy('escape');
   });

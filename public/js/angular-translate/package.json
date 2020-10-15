@@ -1,37 +1,41 @@
 {
-  "_from": "angular-translate@^2.18.3",
+  "_args": [
+    [
+      "angular-translate@2.18.3",
+      "C:\\Users\\rpitta\\eclipse-workspace\\myhtraining\\angular"
+    ]
+  ],
+  "_development": true,
+  "_from": "angular-translate@2.18.3",
   "_id": "angular-translate@2.18.3",
   "_inBundle": false,
   "_integrity": "sha512-ziEi1nTaNIsdn3iKpcALaSFjM9CjwvoIWE/EKepajB/6qT5oB3K1IU5VcaH7Bd0scNRfaJpW+qUD6nsHWDEZ6A==",
   "_location": "/angular-translate",
   "_phantomChildren": {},
   "_requested": {
-    "type": "range",
+    "type": "version",
     "registry": true,
-    "raw": "angular-translate@^2.18.3",
+    "raw": "angular-translate@2.18.3",
     "name": "angular-translate",
     "escapedName": "angular-translate",
-    "rawSpec": "^2.18.3",
+    "rawSpec": "2.18.3",
     "saveSpec": null,
-    "fetchSpec": "^2.18.3"
+    "fetchSpec": "2.18.3"
   },
   "_requiredBy": [
     "#DEV:/",
-    "#USER",
     "/angular-translate-interpolation-messageformat",
     "/angular-translate-loader-partial"
   ],
   "_resolved": "https://registry.npmjs.org/angular-translate/-/angular-translate-2.18.3.tgz",
-  "_shasum": "e1c1b4e985bb6492063a0ac744e0f6b21a44403c",
-  "_spec": "angular-translate@^2.18.3",
-  "_where": "C:\\Users\\rpitta\\eclipse-workspace\\myHeroTraining\\src\\main\\resources\\static\\angular",
+  "_spec": "2.18.3",
+  "_where": "C:\\Users\\rpitta\\eclipse-workspace\\myhtraining\\angular",
   "author": {
     "name": "Pascal Precht"
   },
   "bugs": {
     "url": "https://github.com/angular-translate/angular-translate/issues"
   },
-  "bundleDependencies": false,
   "contributors": [
     {
       "name": "Jan Philipp",
@@ -48,7 +52,6 @@
   "dependencies": {
     "angular": "^1.8.0"
   },
-  "deprecated": false,
   "description": "A translation module for AngularJS",
   "devDependencies": {
     "adm-zip": "^0.4.13",

@@ -1,34 +1,104 @@
 <style>
-    #card_incio{
-        margin-top: 6px;
-    }
-    .btn{
-<<<<<<< HEAD
-           }
-=======
-       margin-top: 6px;
-        margin-bottom: 6px;
-        text-align: end;
+  .card-body {
+    font-size: 35px;
+    height: 0%;
+  }
+  .card {
+    margin-top: 8%;
+  }
+  .btn {
+    margin-top: 65px;
+    margin-bottom: 6px;
+    margin-left: 200px;
+  }
+  .card-img-top {
+    width: auto;
+  }
+  .card-group {
+    width: 40%;
+    height: 4%;
 
-    }
->>>>>>> criacao-fluxo-treinos
+    position: relative;
+    margin-left: 30%;
+  }
+  #img {
+    width: 100%;
+    height: 100%;
+  }
+  .card-title {
+    font-size: 12px;
+    height: 10%;
+  }
+  .card-text {
+    font-size: 12px;
+    align-items: center;
+    margin-left: 30%;
+  }
+  #dropdownMenuButton {
+    margin-left: 0%;
+    position: fixed;
+    margin-top: 0%;
+  }
+  #btn_inicar {
+    position: absolute;
+    margin-left: 80%;
+    margin-bottom: 40%;
+  }
 </style>
-<div class="container">
-    <div class="card-group" id="card_incio">
-        <div class="card" ng-repeat="exercicio in exercicios">
-            <img src="angular/public/imagem/Squat%20_%20Illustrated%20Exercise%20Guide.gif" class="card-img-top" alt="...">
-            <div class="card-body" >
-                <h5 class="card-title">{{exercicio.descricao}}</h5>
-                <p class="card-text">{{exercicio.nome}}</p>
-                <p class="card-text"><small class="text-muted">15 min</small></p>
-            </div>
-        </div>
+<div class="container" style="height: 30%">
+  <div class="col-md-6 text-center" style="display: none" id="p_cronometro">
+    <p
+      style="
+        color: black;
+        font-size: 45pt;
+        margin-bottom: 0px;
+        font-size: 20px;
+        margin-left: 33%;
+        position: fixed;
+      "
+    >
+      <span id="timer_horas">00 </span>: <span id="timer_minutos">00</span>:
+      <span id="timer_segundos">00 </span>:
+      <span id="timer_decimo">00</span>
+    </p>
+  </div>
 
+  <div class="card-group" id="card">
+    <div class="card" ng-repeat="exercicio in exercicios">
+      <img src="{{exercicio.caminho_gif}}" alt="..." id="img" />
+      <h5 class="card-title">{{exercicio.descricao}}</h5>
+      <h5 class="card-text">{{exercicio.qntd}}</h5>
     </div>
-    <div class="justify-content-end">
-        <button type="button" ng-model="value" class="btn btn-secondary" ng-show="inicia()" ng-click="iniciar()">Iniciar</button>
-        <button type="button" ng-model="model.valor" class="btn btn-secondary" ng-show="prox()" ng-click="proximo()">Proximo</button>
-        <button type="button" ng-model="model.valor" class="btn btn-secondary" ng-show="final()" ng-click="finalizar()">Finalizar</button>
+  </div>
 
-    </div>
-    </div>
+  <div class="" id="btn_inciar" style="margin-left: 28%">
+    <button
+      type="button"
+      ng-model="value"
+      class="btn btn-secondary"
+      ng-show="inicia()"
+      ng-click="iniciar()"
+    >
+      Iniciar
+    </button>
+    <button
+      id="btn_prox"
+      type="button"
+      ng-model="model.valor"
+      class="btn btn-secondary"
+      ng-show="prox()"
+      ng-click="proximo()"
+    >
+      Proximo
+    </button>
+    <button
+      type="button"
+      ng-model="model.valor"
+      class="btn btn-secondary"
+      ng-show="final()"
+      ng-click="finalizar()"
+    >
+      Finalizar
+    </button>
+  </div>
+</div>
