@@ -1,56 +1,49 @@
 <style>
-  .card {
-    margin-top: 2%;
-  }
-  .btn {
-    margin-top: 6px;
-    margin-bottom: 6px;
-    justify-content: center;
-  }
-  .card-img-top {
-    width: auto;
-    
-  }
-  #img{
-      height: 60%;
-  }
+    .card{
+        margin-top: 2%;
+    }
+    .btn{
+        margin-top: 6px;
+        margin-bottom: 6px;
+        justify-content: center;
+    }
+    .card-img-top{
+        width: auto;
+    }
+
+
+
 </style>
 <div class="container">
-  <div class="card-group" id="card">
-    <div class="card" ng-repeat="exercicio in exercicios" 
-      <img
-        src="{{exercicio.caminho_gif}}"
-        class="card-img-top"
-        alt="..."
-        width="100"
-        id="img"
-      />
-      fasfdadfadsfdsfdsfasfsad
-      <div class="card-body">
-        <h5 class="card-title">PORRAAAAA</h5>
-        <p class="card-text">{{exercicio.qntd}}</p>
-      </div>
+    <!--div class="card-group" id="card_incio" >
+        <div class="card-deck" ng-repeat="exercicio in exercicios">
+            <img src="angular/public/imagem/abdominal-remador.gif" class="card-img-top" alt="..." width="20" height="100" id="im">
+            <div class="card-body" >
+                <h5 class="card-title">{{exercicio.descricao}}</h5>
+                <p class="card-text">{{exercicio.nome}}</p>
+                <p class="card-text"><small class   ="text-muted">15 min</small></p>
+            </div>
+        </div>
     </div>
-  </div>
+    <div class="">
+        <button type="button" ng-model="value" class="btn btn-secondary" ng-show="inicia()" ng-click="iniciar()">Iniciar</button>
+        <button type="button" ng-model="model.valor" class="btn btn-secondary" ng-show="prox()" ng-click="proximo()">Proximo</button>
+        <button type="button" ng-model="model.valor" class="btn btn-secondary" ng-show="final()" ng-click="finalizar()">Finalizar</button>
+    </div-->
+    <h2>cu</h2>
+    <div class="card-group" id="card">
+        <div class="card " ng-repeat="exercicio in exercicios">
+            <img src="{{exercicio.caminho_gif}}" class="card-img-top" alt="..." width="100" id="img">
+            <div class="card-body" >
+                <h5 class="card-title">PORRAAAAA</h5>
+                <p class="card-text">{{exercicio.qntd}}</p>
+            </div>
 
-  <div class="">
-    <button
-      type="button"
-      ng-model="model.valor"
-      class="btn btn-secondary"
-      ng-show="prox()"
-      ng-click="proximo()"
-    >
-      Proximo
-    </button>
-    <button
-      type="button"
-      ng-model="model.valor"
-      class="btn btn-secondary"
-      ng-show="final()"
-      ng-click="finalizar()"
-    >
-      Finalizar
-    </button>
-  </div>
+        </div>
+    </div>
+
+    <div class="">
+        <button type="button" ng-model="model.valor" class="btn btn-secondary" ng-show="prox()" ng-click="proximo()">Proximo</button>
+        <button type="button" ng-model="model.valor" class="btn btn-secondary" ng-show="final()" ng-click="finalizar()">Finalizar</button>
+    </div>
 </div>

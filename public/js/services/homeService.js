@@ -1,12 +1,14 @@
-angular.module('myHeroTraining').factory('myHeroTraining', function ($http) {
-  var carregaTreinos = function (id) {
-    return $http.get('https://myherotraining.herokuapp.com/treinos', {
-      params: {
-        id: id,
-      },
+angular.module('myHeroTraining').factory('myHeroTraining',function ($http) {
+
+    var carregaTreinos = function (id) {
+    return  $http.get('/treinos', {
+        params: {
+            id: id,
+        }
     });
-  };
-  return {
-    carregarTreinos: carregaTreinos,
-  };
+    };
+    return{
+    carregarTreinos : carregaTreinos
+
+    }
 });

@@ -1,104 +1,51 @@
 <style>
-  .card-body {
-    font-size: 35px;
-    height: 0%;
-  }
-  .card {
-    margin-top: 8%;
-  }
-  .btn {
-    margin-top: 65px;
-    margin-bottom: 6px;
-    margin-left: 200px;
-  }
-  .card-img-top {
-    width: auto;
-  }
-  .card-group {
-    width: 40%;
-    height: 4%;
-
-    position: relative;
-    margin-left: 30%;
-  }
-  #img {
-    width: 100%;
-    height: 100%;
-  }
-  .card-title {
-    font-size: 12px;
-    height: 10%;
-  }
-  .card-text {
-    font-size: 12px;
-    align-items: center;
-    margin-left: 30%;
-  }
-  #dropdownMenuButton {
-    margin-left: 0%;
-    position: fixed;
-    margin-top: 0%;
-  }
-  #btn_inicar {
-    position: absolute;
-    margin-left: 80%;
-    margin-bottom: 40%;
-  }
+    .card{
+        margin-top: 8%;
+    }
+    .btn{
+        margin-top: 8px;
+        margin-bottom: 6px;
+        margin-left: 200px;
+    }
+    .card-img-top{
+        width: auto;
+    }
+    .card-group{
+        width: 70%;
+        height: auto;
+        margin: auto;
+    }
 </style>
-<div class="container" style="height: 30%">
-  <div class="col-md-6 text-center" style="display: none" id="p_cronometro">
-    <p
-      style="
-        color: black;
-        font-size: 45pt;
-        margin-bottom: 0px;
-        font-size: 20px;
-        margin-left: 33%;
-        position: fixed;
-      "
-    >
-      <span id="timer_horas">00 </span>: <span id="timer_minutos">00</span>:
-      <span id="timer_segundos">00 </span>:
-      <span id="timer_decimo">00</span>
-    </p>
-  </div>
-
-  <div class="card-group" id="card">
-    <div class="card" ng-repeat="exercicio in exercicios">
-      <img src="{{exercicio.caminho_gif}}" alt="..." id="img" />
-      <h5 class="card-title">{{exercicio.descricao}}</h5>
-      <h5 class="card-text">{{exercicio.qntd}}</h5>
+<div class="container">
+    <!--div class="card-group" id="card_incio" >
+        <div class="card-deck" ng-repeat="exercicio in exercicios">
+            <img src="angular/public/imagem/abdominal-remador.gif" class="card-img-top" alt="..." width="20" height="100" id="im">
+            <div class="card-body" >
+                <h5 class="card-title">{{exercicio.descricao}}</h5>
+                <p class="card-text">{{exercicio.nome}}</p>
+                <p class="card-text"><small class   ="text-muted">15 min</small></p>
+            </div>
+        </div>
     </div>
-  </div>
+    <div class="">
+        <button type="button" ng-model="value" class="btn btn-secondary" ng-show="inicia()" ng-click="iniciar()">Iniciar</button>
+        <button type="button" ng-model="model.valor" class="btn btn-secondary" ng-show="prox()" ng-click="proximo()">Proximo</button>
+        <button type="button" ng-model="model.valor" class="btn btn-secondary" ng-show="final()" ng-click="finalizar()">Finalizar</button>
+    </div-->
+    <div class="card-group" id="card">
+        <div class="card " ng-repeat="exercicio in exercicios">
+            <img src="{{exercicio.caminho_gif}}" class="card-img-top" alt="..." width="100" id="img">
+            <div class="card-body" >
+                <h5 class="card-title">{{exercicio.descricao}}</h5>
+                <p class="card-text">{{exercicio.qntd}}</p>
+            </div>
 
-  <div class="" id="btn_inciar" style="margin-left: 28%">
-    <button
-      type="button"
-      ng-model="value"
-      class="btn btn-secondary"
-      ng-show="inicia()"
-      ng-click="iniciar()"
-    >
-      Iniciar
-    </button>
-    <button
-      id="btn_prox"
-      type="button"
-      ng-model="model.valor"
-      class="btn btn-secondary"
-      ng-show="prox()"
-      ng-click="proximo()"
-    >
-      Proximo
-    </button>
-    <button
-      type="button"
-      ng-model="model.valor"
-      class="btn btn-secondary"
-      ng-show="final()"
-      ng-click="finalizar()"
-    >
-      Finalizar
-    </button>
-  </div>
+        </div>
+    </div>
+
+    <div class="">
+        <button type="button" ng-model="value" class="btn btn-secondary" ng-show="inicia()" ng-click="iniciar()">Iniciar</button>
+        <button type="button" ng-model="model.valor" class="btn btn-secondary" ng-show="prox()" ng-click="proximo()">Proximo</button>
+        <button type="button" ng-model="model.valor" class="btn btn-secondary" ng-show="final()" ng-click="finalizar()">Finalizar</button>
+    </div>
 </div>
