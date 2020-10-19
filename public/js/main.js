@@ -181,10 +181,44 @@ angular
       templateUrl: './view/Cadastro.html',
       controller: 'cadastroController',
     });
+
+    $routeProvider.when('/confirm-reset', {
+      templateUrl: './view/trocar-senha/confirmReset.html',
+      controller: 'recoverPassword'
+    });
+
+    $routeProvider.when('/confirm-reset-success', {
+      templateUrl: './view/trocar-senha/confirmResetSucess.html'
+    });
+
+
+    $routeProvider.when('/forgot-password', {
+      templateUrl: './view/trocar-senha/forgotPassword.html',
+      controller: 'recoverPassword'
+    });
+
+    $routeProvider.when('/success-send-reset', {
+      templateUrl: './view/trocar-senha/successForgotPassword.html'
+    });
+
     $routeProvider.when('/login', {
       templateUrl: './view/login.html',
       controller: 'login-controller',
     });
+
+    $routeProvider.when('/account-verified', {
+      templateUrl: './view/confirmar-email/accountVerified.html',
+    });
+
+    $routeProvider.when('/account-verified-error', {
+      templateUrl: './view/confirmar-email/accountVerifiedError.html',
+    });
+
+    $routeProvider.when('/confirm-account', {
+      templateUrl: './view/confirmar-email/accountVerified.html',
+      controller: 'confirmEmail'
+    });
+
     $routeProvider.when('/dados_login', {
       templateUrl: './view/dadosLogin.html',
       controller: 'TreinoController',
