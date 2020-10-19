@@ -27,9 +27,10 @@
                            href="#/treinos/{{treino.id}}">Iniciar</a>
                         <a class="btn btn-sm btn-outline-warning"   ng-model="inicio" type="button"
                            href="#/descricaoTreino">Ver</a>
+                         
                     </div>
-                    <small class="text-muted">Tempo estimado: {{treino.horas}} mins</small>
-                    <small class="text-muted">Tempo feito: {{treino.horas}} mins
+                    <small class="text-muted" id="" >Tempo estimado: {{treino.horas}}</small>
+                     <small class="text-muted" id="id_tempo_feito" style="display: none;" >Tempo feito: {{treino.tempo}}
                         <i class="fa fa-check" aria-hidden="true"></i>
                     </small>
                 </div>
@@ -40,4 +41,5 @@
 </div>
 
 </div>
+
 

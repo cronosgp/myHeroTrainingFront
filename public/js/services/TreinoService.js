@@ -1,6 +1,6 @@
 angular.module('myHeroTraining').factory('TreinoService', function ($http) {
   var carregaTreinos = function (qnt, pg) {
-    //return $http.get('https://myherotraining.herokuapp.com/treinos', qnt, pg);
+    //return $http.get('http://localhost:80880/treinos', qnt, pg);
   };
   var carregaFasesTreino = function (id) {
     return $http.get('https://myherotraining.herokuapp.com/fase', {
@@ -30,10 +30,7 @@ angular.module('myHeroTraining').factory('TreinoService', function ($http) {
     return $http.put('https://myherotraining.herokuapp.com/fase/' + id);
   };
   var atualizaIdusuarioTreino = function (idUsuario, id) {
-    return $http.post(
-      'https://myherotraining.herokuapp.com/usuario/' + idUsuario,
-      id
-    );
+    return $http.post('https://myherotraining.herokuapp.com/usuario/' + idUsuario, id);
   };
 
   /* var buscaIdUsuario = function (token) {
@@ -70,14 +67,16 @@ angular.module('myHeroTraining').factory('TreinoService', function ($http) {
   var salvaTimeCronometroService = function (param) {
     return $http.post('https://myherotraining.herokuapp.com/tempo', param);
   };
-  var getTimeCronometroService = function (id) {
-    return $http.get('https://myherotraining.herokuapp.com/', {
+  var getTimeCronometroService = function (id_usuario, id_fase) {
+    return $http.get('https://myherotraining.herokuapp.com/tempo', {
       params: {
-        id: id,
+        id_usuario: id_usuario,
+        id_fase: id_fase,
       },
     });
   };
   return {
+    getTimeCronometroService: getTimeCronometroService,
     salvaTimeCronometroService: salvaTimeCronometroService,
     carregarTreinos: carregaTreinos,
     carregaFasesTreino: carregaFasesTreino,

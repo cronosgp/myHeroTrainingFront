@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br" ng-app="myHeroTraining">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="./js/lib/angular.min.js"></script>
+    <link href="./css/bootstrap.min.css"></link>
+    <script src="./js/main.js"></script>
+    <script src="./js/services/homeService.js"></script>
+    <script src="./js/services/cadastroUsuarioService.js"></script>
+    <script src="./js/services/loginService.js"></script>
+    <script src="./js/controllers/homeController.js"></script>
+   <script src="./js/controllers/TreinoController.js"></script>
+    <script src="./js/services/TreinoService.js"></script>
+    <script src="./js/controllers/login-controller.js"></script>
+    <script src="./js/controllers/CadastroUsuarioController.js"></script>
+    <script src="./js/lib/angular-route.min.js"></script>
+
+    <link href="./css/homeEstilo.css"></link>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script src="./js/angular-sanitize/angular-sanitize.js"></script>     
+    <script src="./js/angular-sanitize/angular-sanitize.min.js"></script>
+   
+    <script src="./js/angular-translate/dist/angular-translate.min.js"></script>
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-expand-md navbar-dark bg-secondary flex-md-nowrap p-3 px-md-3 mb-3 shadow"
+         ng-controller="HomeController">
+
+        <a href="#/principal" class="navbar-brand" ng-show="exibirSemLogin()" title="home">MyHeroTraining</a>
+        <a href="#/home" class="navbar-brand" ng-show="exibircomLogin()" title="home">MyHeroTraining</a>
+        </dvi>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto" ng-show="exibirSemLogin()">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#/login">Login <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#/Cadastro">Cadastra-se <span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+
+            <div class="collapse navbar-collapse" ng-show="exibirComLogin()">
+                <ul class="navbar-nav mr-auto" >
+                    <li class="nav-item active">
+                        <a class="nav-link" href="">Bem vindo! <span class="sr-only">(current)</span></a>
+                    </li>
+                </ul>
+                    <form class="form-inline mt-2 mt-md-0" ng-show="exibircomLogin()">
+                        <input class="form-control mr-sm-2" type="text" placeholder="digite aqui..."
+                               aria-label="buscar">
+                        <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Pesquisar</button>
+                    </form>
+                    <span ng-show="exibircomLogin()">
+                    <button class="btn btn-dark my-2 my-sm-0" ng-click="logout()" type="submit">
+                        Sair
+                    </button>
+                    </span>
+            </div>
+        </div>
+    </nav>
+
+    <style>
+        .nav-link {
+            color: #3c3c3c;
+        }
+    </style>
+
+    <ul class="nav nav-tabs" ng-show="exibircomLogin()" ng-controller="HomeController">
+        <li class="nav-item">
+            <a class="nav-link active" href="#/home">Treinos Para você</a>
+        </li>
+        <li class="nav-item">
+
+            <a class="nav-link" href="#/dados_login">Login</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="#">Desempenho</a>
+        </li>
+
+    </ul>
+</header>
+<ng-view>
+</ng-view>
+</body>
+</html>

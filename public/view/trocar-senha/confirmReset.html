@@ -1,0 +1,74 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<div class="form-gap"></div>
+<div class="d-flex justify-content-center">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-4 col-md-offset-4">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="text-center">
+                            <h3><i class="fa fa-lock fa-4x"></i></h3>
+                            <h2 class="text-center">Troque sua senha.</h2>
+                            <div class="panel-body">
+                                <form role="form" autocomplete="on" class="form" method="post"
+                                      ng-submit="trocarSenha()">
+                                    <div class="form-group">
+                                        <div class="row justify-content-center">
+                                            <div class="col-md-8">
+                                                <label>Senha</label>
+                                                <input type="password"
+                                                       class="form-control" name="senha1" id="oo" ng-model="model.senha"
+                                                       pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!|@|#|$|%|^|&|*|(|)|-|_]).{8,18}"
+                                                       required>
+                                                <span ng-show="form.$submitted && form.senha1.$error.required "
+                                                      class="form-control alert-danger">
+                                                            Senha obrigatatória
+                                                    </span>
+
+                                                <span ng-show="form.$submitted && form.senha1.$error.pattern"
+                                                      class="form-control alert-danger">
+                                                            Senha não atende aos requisitos
+                                                    </span>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <label>Confirme a Senha</label>
+
+                                                <input type="password"
+                                                       class="form-control" name="senha2" id="vv"
+                                                       ng-model="model.senhac"
+                                                       ng-pattern="model.senha"
+                                                       pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!|@|#|$|%|^|&|*|(|)|-|_]).{8,18}"
+                                                       required>
+
+                                                <span ng-show="form.$submitted && form.senha2.$error.required"
+                                                      class="form-control alert-danger">
+                                                            Confirme a senha
+                                                    </span>
+
+                                                <span ng-show="form.senha2.$error.pattern && form.$submitted "
+                                                      class="form-control alert-danger">
+                                                            Senha não atende aos requisitos
+                                                    </span>
+
+                                                <span ng-show="form.senha2.$error.pattern"
+                                                      class="form-control alert-danger">
+                                                            Senhas divergentes!
+                                                    </span>
+                                            </div>
+                                            <p style="font-size:11px; text-align:center"> *Mínimo de 8 e máximo de 18 de
+                                                caracteres com
+                                                letra maíscula e minuscula, 1 numeral e 1 caractere especial entre
+                                                ?=.*[!|@|#|$|%|^|&|*|(|)|-|_])</p>
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-lg btn-primary btn-block" type="submit">Trocar senha</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</html>
