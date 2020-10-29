@@ -19,17 +19,17 @@
             <div class="card-body" >
                 <h2 class="card-text">{{treino.descricao}}</h2>
                 <p class="card-text">{{treino.nome}}</p>
-                <p class="card-text">Intensidade: {{treino.intensidade}}</p>
-                <p class="card-text">Nível: {{treino.nivel}}</p>
+                <p class="card-text" ><span translate="HEADER.HOME.INTENSIDADE">Intensidade:</span> {{treino.intensidade}}</p>
+                <p class="card-text"> <span translate="HEADER.HOME.NIVEL">Nível:</span>{{treino.nivel}}</p>
                 <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
                         <a class="btn btn-sm btn-outline-success" ng-model="inicio" type="button"
-                           href="#/treinos/{{treino.id}}">Iniciar</a>
+                           href="#/treinos/{{treino.id}}" translate="HEADER.HOME.INICIAR">Iniciar</a>
                         <a class="btn btn-sm btn-outline-warning"   ng-model="inicio" type="button"
-                           href="#/descricaoTreino">Ver</a>
+                           href="#/descricaoTreino" translate="HEADER.HOME.VER" >Ver</a>
                          
                     </div>
-                    <small class="text-muted" id="" >Tempo estimado: {{treino.horas}}</small>
+                    <small class="text-muted" id="" ><span translate="HEADER.HOME.TEMPOESTIMADO">Tempo estimado:</span> {{treino.horas}}</small>
                      <small class="text-muted" id="id_tempo_feito" style="display: none;" >Tempo feito: {{treino.tempo}}
                         <i class="fa fa-check" aria-hidden="true"></i>
                     </small>

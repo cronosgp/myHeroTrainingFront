@@ -15,15 +15,14 @@
             <label for="inputEmail" class="sr-only" >Email </label>
             <input type="email" id="inputEmail" class="form-control" ng-model="model.email" placeholder="Email " required autofocus>
             <label for="inputPassword" class="sr-only" >Senha</label>
-            <input type="password" id="inputPassword" ng-model="model.senha "class="form-control" placeholder="Senha" required>
+            <input translate
+            translate-attr-placeholder="HEADER.CADASTRO.SENHA" type="password" id="inputPassword" ng-model="model.senha "class="form-control" placeholder="Senha" required>
             <div class="checkbox mb-3">
             </div>
-            <div class="d-flex justify-content-center">
-                <button class="btn btn-secondary btn-sm">
-                    <a href="#/forgot-password" class="nav-link" >Esqueci minha senha</a>
-                </button>
-            </div>
-            <button class="btn btn-lg btn-dark btn-block" type="submit" ng-click="logar()">Entrar</button>
+            
+            <button class="btn btn-lg btn-dark btn-block" type="submit" ng-click="logar()" translate="HEADER.LOGIN.PLACEHOLDER.BOTAOL">Entrar</button>
+            <a href="#/forgot-password" class="" translate="HEADER.LOGIN.PLACEHOLDER.ESQUECIS"  >Esqueci minha senha</a>
+       
         </div>
     </form>
     </body>

@@ -29,19 +29,26 @@ angular.module('myHeroTraining').factory('TreinoService', function ($http) {
   var atualizaFaseConcluida = function (id) {
     return $http.put('https://myherotraining.herokuapp.com/fase/' + id);
   };
-  var atualizaIdusuarioTreino = function (idUsuario, id) {
-    return $http.post('https://myherotraining.herokuapp.com/usuario/' + idUsuario, id);
+  var atualizaIdusuarioTreino = function (model) {
+    //console.log('teste' + model.id);
+    return $http.post(
+      'https://myherotraining.herokuapp.com/treinousuario',
+      model
+    );
   };
 
   /* var buscaIdUsuario = function (token) {
          return $http.get('/usuario',token)
      }*/
   var buscaTreinosFeitos = function (IdUsuario) {
-    return $http.get('https://myherotraining.herokuapp.com/treinos/recupera', {
-      params: {
-        IdUsuario: IdUsuario,
-      },
-    });
+    return $http.get(
+      'https://myherotraining.herokuapp.com/treinousuario/recupera',
+      {
+        params: {
+          id: IdUsuario,
+        },
+      }
+    );
   };
   var atualizaIdUsuario = function (faseConcluida) {
     return $http.put('https://myherotraining.herokuapp.com/fase', {

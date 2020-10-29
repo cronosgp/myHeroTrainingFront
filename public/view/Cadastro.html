@@ -28,7 +28,7 @@
           />
           <span
             translate="HEADER.CADASTRO.ENOME"
-            ng-show="formulario.$submitted && formulario.nome.$error.required"
+            ng-show="formulario.nome.$error.required && formulario.$submitted "
             class="form-control alert-danger"
           >
             Nome obrigatório
@@ -55,7 +55,7 @@
           />
           <span
             translate="HEADER.CADASTRO.EEMAIL"
-            ng-show="formulario.$submitted && formulario.email.$error.required"
+            ng-show="formulario.email.$error.required && formulario.email.$invalid"
             class="form-control alert-danger"
           >
             Email obrigatório
@@ -92,14 +92,14 @@
 
               <span
                 translate="HEADER.CADASTRO.ESENHA1"
-                ng-show="formulario.$submitted && formulario.senha1.$error.required "
+                ng-show="formulario.senha1.$error.required && formulario.$submitted"
                 class="form-control alert-danger"
               >
-                Senha obrigatatória
+                Senha obrigatória
               </span>
 
               <span
-                translate="HEADER.CADASTRO.ESENHA"
+                translate="HEADER.CADASTRO.ESENHA2"
                 ng-show="formulario.$submitted && formulario.senha1.$error.pattern"
                 class="form-control alert-danger"
               >
@@ -107,7 +107,7 @@
               </span>
             </div>
 
-            <div class="col-md-5">
+            <div class="col-md-6">
               <label translate="HEADER.CADASTRO.CSENHA">Confirme a Senha</label>
 
               <!-- <input type="password" class="form-control" name="senha2" id="vv" ng-model="model.senhac"  placeholder="Senha" ng-pattern="model.senha"  minlength="6" maxlength="18"  required> -->
@@ -136,7 +136,7 @@
 
               <span
                 translate="HEADER.CADASTRO.ESENHA2"
-                ng-show="formulario.senha2.$error.pattern && formulario.$submitted "
+                ng-show="formulario.senha2.$error.pattern"
                 class="form-control alert-danger"
               >
                 Senha não atende aos requisitos
@@ -151,7 +151,10 @@
               </span>
             </div>
 
-            <p style="font-size: 11px; text-align: center">
+            <p
+              translate="HEADER.CADASTRO.DICASENHA"
+              style="font-size: 11px; text-align: center"
+            >
               *Mínimo de 8 e máximo de 18 de caracteres com letra maíscula e
               <br />
               minuscula, 1 numeral e 1 caractere especial entre
@@ -226,6 +229,7 @@
                 required
               />
               <span
+                translate="HEADER.CADASTRO.EALTURA"
                 ng-show="formulario.$submitted && formulario.altura3.$error.required"
                 class="form-control alert-danger"
               >

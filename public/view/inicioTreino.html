@@ -5,6 +5,7 @@
   }
   .card {
     margin-top: 8%;
+    height: 30%;
   }
   .btn {
     margin-top: 65px;
@@ -16,10 +17,9 @@
   }
   .card-group {
     width: 40%;
-    height: 4%;
 
-    position: relative;
-    margin-left: 30%;
+    position: absolute;
+    margin-left: 18%;
   }
   #img {
     width: 100%;
@@ -39,20 +39,31 @@
     position: fixed;
     margin-top: 0%;
   }
-  #btn_inicar {
+  #btn_iniciar,
+  #btn_prox,
+  #btn_finalizar {
     position: absolute;
-    margin-left: 80%;
-    margin-bottom: 40%;
+    margin-left: 32%;
+    margin-top: 39%;
+    width: 12%;
+    font-size: small;
+
+    opacity: 0.5;
   }
 </style>
-<div class="container" style="height: 30%">
-  <div class="col-md-6 text-center" style="display: none" id="p_cronometro">
+<div class="container">
+  <div
+    class="col-md-6 text-center"
+    style="display: none; position: absolute; z-index: 10"
+    id="p_cronometro"
+  >
     <p
       style="
-        color: black;
+        color: white;
         font-size: 45pt;
         margin-bottom: 0px;
-        font-size: 20px;
+        margin-top: 7%;
+        font-size: 19px;
         margin-left: 33%;
         position: fixed;
       "
@@ -63,19 +74,29 @@
     </p>
   </div>
 
-  <div class="card-group" id="card">
-    <div class="card" ng-repeat="exercicio in exercicios">
-      <img src="{{exercicio.caminho_gif}}" alt="..." id="img" />
+  <div class="card-group">
+    <div
+      class="card"
+      ng-repeat="exercicio in exercicios"
+      style="align-items: center"
+    >
+      <img
+        src="{{exercicio.caminho_gif}}"
+        alt="..."
+        id="img"
+        style="height: 450px; width: 90%"
+      />
       <h5 class="card-title">{{exercicio.descricao}}</h5>
       <h5 class="card-text">{{exercicio.qntd}}</h5>
     </div>
   </div>
 
-  <div class="" id="btn_inciar" style="margin-left: 28%">
+  <div class="">
     <button
+      id="btn_iniciar"
       type="button"
       ng-model="value"
-      class="btn btn-secondary"
+      class="btn btn-success"
       ng-show="inicia()"
       ng-click="iniciar()"
     >
@@ -85,16 +106,17 @@
       id="btn_prox"
       type="button"
       ng-model="model.valor"
-      class="btn btn-secondary"
+      class="btn btn-primary"
       ng-show="prox()"
       ng-click="proximo()"
     >
       Proximo
     </button>
     <button
+      id="btn_finalizar"
       type="button"
       ng-model="model.valor"
-      class="btn btn-secondary"
+      class="btn btn-danger"
       ng-show="final()"
       ng-click="finalizar()"
     >
