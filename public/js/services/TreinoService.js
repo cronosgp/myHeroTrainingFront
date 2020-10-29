@@ -3,14 +3,14 @@ angular.module('myHeroTraining').factory('TreinoService', function ($http) {
     //return $http.get('http://localhost:80880/treinos', qnt, pg);
   };
   var carregaFasesTreino = function (id) {
-    return $http.get('https://myherotraining.herokuapp.com/fase', {
+    return $http.get('https://mhtrainingback.herokuapp.com/fase', {
       params: {
         id: id,
       },
     });
   };
   var carregaExercicios = function (id, pagina, qnt) {
-    return $http.get('https://myherotraining.herokuapp.com/exercicio', {
+    return $http.get('https://mhtrainingback.herokuapp.com/exercicio', {
       params: {
         id: id,
         pagina: pagina,
@@ -19,7 +19,7 @@ angular.module('myHeroTraining').factory('TreinoService', function ($http) {
     });
   };
   var carregaIdTreino = function (id) {
-    return $http.get('https://myherotraining.herokuapp.com/fase/treino', {
+    return $http.get('https://mhtrainingback.herokuapp.com/fase/treino', {
       params: {
         id: id,
       },
@@ -27,12 +27,12 @@ angular.module('myHeroTraining').factory('TreinoService', function ($http) {
   };
 
   var atualizaFaseConcluida = function (id) {
-    return $http.put('https://myherotraining.herokuapp.com/fase/' + id);
+    return $http.put('https://mhtrainingback.herokuapp.com/fase/' + id);
   };
   var atualizaIdusuarioTreino = function (model) {
     //console.log('teste' + model.id);
     return $http.post(
-      'https://myherotraining.herokuapp.com/treinousuario',
+      'https://mhtrainingback.herokuapp.com/treinousuario',
       model
     );
   };
@@ -42,7 +42,7 @@ angular.module('myHeroTraining').factory('TreinoService', function ($http) {
      }*/
   var buscaTreinosFeitos = function (IdUsuario) {
     return $http.get(
-      'https://myherotraining.herokuapp.com/treinousuario/recupera',
+      'https://mhtrainingback.herokuapp.com/treinousuario/recupera',
       {
         params: {
           id: IdUsuario,
@@ -51,31 +51,31 @@ angular.module('myHeroTraining').factory('TreinoService', function ($http) {
     );
   };
   var atualizaIdUsuario = function (faseConcluida) {
-    return $http.put('https://myherotraining.herokuapp.com/fase', {
+    return $http.put('https://mhtrainingback.herokuapp.com/fase', {
       params: {
         faseConcluida: faseConcluida,
       },
     });
   };
   var fotoFase = function (id) {
-    return $http.get('https://myherotraining.herokuapp.com/fase/recupera', {
+    return $http.get('https://mhtrainingback.herokuapp.com/fase/recupera', {
       params: {
         id: id,
       },
     });
   };
   var dadosCadastro = function (id) {
-    return $http.get('https://myherotraining.herokuapp.com/cadastro-usuario', {
+    return $http.get('https://mhtrainingback.herokuapp.com/cadastro-usuario', {
       params: {
         id: id,
       },
     });
   };
   var salvaTimeCronometroService = function (param) {
-    return $http.post('https://myherotraining.herokuapp.com/tempo', param);
+    return $http.post('https://mhtrainingback.herokuapp.com/tempo', param);
   };
   var getTimeCronometroService = function (id_usuario, id_fase) {
-    return $http.get('https://myherotraining.herokuapp.com/tempo', {
+    return $http.get('https://mhtrainingback.herokuapp.com/tempo', {
       params: {
         id_usuario: id_usuario,
         id_fase: id_fase,

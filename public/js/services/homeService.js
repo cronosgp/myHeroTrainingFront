@@ -1,6 +1,6 @@
 angular.module('myHeroTraining').factory('myHeroTraining', function ($http) {
   var carregaTreinos = function (id) {
-    return $http.get('https://myherotraining.herokuapp.com/treinos', {
+    return $http.get('https://mhtrainingback.herokuapp.com/treinos', {
       params: {
         id: id,
       },
@@ -8,7 +8,7 @@ angular.module('myHeroTraining').factory('myHeroTraining', function ($http) {
   };
 
   var getTimeCronometroService = function (id_usuario, id_fase) {
-    return $http.get('https://myherotraining.herokuapp.com/tempo', {
+    return $http.get('https://mhtrainingback.herokuapp.com/tempo', {
       params: {
         id_usuario: id_usuario,
         id_fase: id_fase,
