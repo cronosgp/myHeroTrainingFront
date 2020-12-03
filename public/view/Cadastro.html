@@ -3,6 +3,8 @@
     margin-top: 18px;
   }
 </style>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
 <div class="container">
   <div class="text-center">
     <h1><label translate="HEADER.CADASTRO.LCADASTRO">Cadastro</label></h1>
@@ -55,7 +57,7 @@
           />
           <span
             translate="HEADER.CADASTRO.EEMAIL"
-            ng-show="formulario.email.$error.required && formulario.email.$invalid"
+            ng-show="formulario.email.$error.required && formulario.email.$invalid && formulario.$submitted"
             class="form-control alert-danger"
           >
             Email obrigatório
@@ -73,7 +75,7 @@
       <div>
         <div class="form-group">
           <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-10">
               <label translate="HEADER.CADASTRO.SENHA">Senha </label>
 
               <input
@@ -83,12 +85,12 @@
                 class="form-control"
                 name="senha1"
                 id="oo"
+                ng-pattern="model.passcontrol"
                 ng-model="model.senha"
+                ng-keyup="getkeys()"
                 pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!|@|#|$|%|^|&|*|(|)|-|_]).{8,18}"
                 required
               />
-
-              <!-- <input type="password"  class="form-control" name="senha1" id="oo" ng-model="model.senha"  placeholder="Senha mínimo 8 caracteres com maículculo e minísculo e caractere especial " minlength="8" maxlength="18" required> -->
 
               <span
                 translate="HEADER.CADASTRO.ESENHA1"
@@ -107,10 +109,26 @@
               </span>
             </div>
 
-            <div class="col-md-6">
-              <label translate="HEADER.CADASTRO.CSENHA">Confirme a Senha</label>
+            <div class="input-control">
+              <div>
+                <small><i class="fa fa-check-circle-o icon-confirmation numberP" aria-hidden="true" ng-style="numberC"></i> 01 número</small>
+              </div>
+              <div>
+                <small><i class="fa fa-check-circle-o icon-confirmation 8charactersP" aria-hidden="true" ng-style="m8charactersC"></i> Minimo de 8 caracteres</small>
+              </div>
+              <div>
+                <small><i class="fa fa-check-circle-o icon-confirmation symbolsP" aria-hidden="true" ng-style="symbolsC"></i> 01 caractere especial</small>
+              </div>
+              <div>
+                <small><i class="fa fa-check-circle-o icon-confirmation charactersMaxP" aria-hidden="true" ng-style="charactersMaxC"></i> 01 letra maiuscula</small>
+              </div>
+              <div>
+                <small><i class="fa fa-check-circle-o icon-confirmation charactersMinP" aria-hidden="true" ng-style="charactersMinC"></i> 01 letra minuscula</small>
+              </div>
+            </div>
 
-              <!-- <input type="password" class="form-control" name="senha2" id="vv" ng-model="model.senhac"  placeholder="Senha" ng-pattern="model.senha"  minlength="6" maxlength="18"  required> -->
+            <div class="col-md-10">
+              <label translate="HEADER.CADASTRO.CSENHA">Confirme a Senha</label>
 
               <input
                 translate
@@ -120,14 +138,14 @@
                 class="form-control"
                 name="senha2"
                 id="vv"
-                ng-model="model.senhac"
                 ng-pattern="model.senha"
+                ng-model="model.senhac"
                 pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!|@|#|$|%|^|&|*|(|)|-|_]).{8,18}"
                 required
               />
 
               <span
-                translate="HEADER.CADASTRO.ESENHA2"
+                translate="HEADER.CADASTRO.CESENHA"
                 ng-show="formulario.$submitted && formulario.senha2.$error.required"
                 class="form-control alert-danger"
               >
@@ -135,15 +153,7 @@
               </span>
 
               <span
-                translate="HEADER.CADASTRO.ESENHA2"
-                ng-show="formulario.senha2.$error.pattern"
-                class="form-control alert-danger"
-              >
-                Senha não atende aos requisitos
-              </span>
-
-              <span
-                translate="HEADER.CADASTRO.ESENHA2"
+                translate="HEADER.CADASTRO.CESENHA2"
                 ng-show="formulario.senha2.$error.pattern"
                 class="form-control alert-danger"
               >

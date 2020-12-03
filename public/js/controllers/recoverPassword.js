@@ -27,7 +27,7 @@ angular.module('myHeroTraining').controller('recoverPassword',function ($scope, 
 
         if ($routeParams != null) {
             params = $routeParams.token;
-            pass = $scope.model.senha
+            pass = $scope.model.senha;
             send = {
                 pass: pass,
                 params: params
