@@ -274,7 +274,7 @@ angular
         } else {
           alert('Ops! Estourou as 24h!!!');
         }
-      }, 100);
+      }, 1000);
     };
 
     function zerarCronometro() {

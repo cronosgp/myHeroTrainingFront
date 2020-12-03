@@ -7,19 +7,21 @@ angular
     $location
   ) {
     $scope.model = {};
-
     var id = $routeParams.id;
     var conlusao;
     var exibeBotao = 1;
-
+    var delete_check = 0;
     var faseTerminadas = [];
     var treinosRealizados = [];
     var liberarProxFase;
+    var cronometro_id;
+    var ultimoexercicio = $routeParams.id;
     var idFase;
     var quantidadeFases;
     var liberarTodasFases;
     var primeirafase = [];
     var liberar;
+    var repeticaoExercicio = 0;
 
     var IdUsuario = sessionStorage.getItem('id');
 
@@ -32,8 +34,14 @@ angular
       }
     };
     //função botão iniciar
+
     $scope.iniciar = function () {
-      TreinoService.carregaExercicios(id).success(function (data) {
+      document.getElementById('btn_finalizar').style.display = 'block';
+      document.getElementById('btn_iniciar').style.display = 'none';
+      zerarCronometro();
+      iniciaCronometro();
+
+      /*TreinoService.carregaExercicios(id).success(function (data) {
         var total = data.totalElements;
         var pag = total - 1;
         var qtd = 1;
@@ -42,12 +50,9 @@ angular
         exibeBotao = 0;
         exericioPaginacao(id, pag, qtd);
         liberar = true;
-      }).error(function(data){
-        if(data.status === 403){
-          $location.path('/login');
-        }
       });
-      iniciaCronometro();
+      //iniciaCronometro();
+    */
     };
     //exbibe botão de iniciar
     $scope.inicia = function () {
@@ -79,34 +84,18 @@ angular
         }
         exericioPaginacao(id, pag, qtd);
         pagina += 1;
-      }).error(function(data){
-        if(data.status === 403){
-          $location.path('/login');
-        }
       });
     };
     var exericioPaginacao = function (id, pagina, qnt) {
       TreinoService.carregaExercicios(id, pagina, qnt).success(function (data) {
         $scope.exercicios = data.content;
-      }).error(function(data){
-        if(data.status === 403){
-          $location.path('/login');
-        }
       });
     };
-
-    
     var fasesTreinos = function () {
       TreinoService.carregaFasesTreino(id).success(function (data) {
         $scope.fases = data;
         quantidadeFases = data.length;
         primeirafase = data[0];
-        }).error(function(data){
-        if(data.status === 403){
-          $location.path('/login');
-
-        
-        }
       });
     };
     //falta pegar Id do usuario do banco e passar no parametro, pelo token
@@ -116,11 +105,6 @@ angular
       TreinoService.buscaTreinosFeitos(IdUsuario).success(function (data) {
         for (var j = 0; j < data.length; j++) {
           faseTerminadas.push(data[j].id_fase);
-        
-        }
-       }).error(function(data){
-        if(data.status === 403){
-          $location.path('/login');
         }
       });
     };
@@ -128,10 +112,6 @@ angular
     var exerciciosFase = function () {
       TreinoService.carregaExercicios(id).success(function (data) {
         $scope.exercicios = data.content;
-      }).error(function(data){
-        if(data.status === 403){
-          $location.path('/login');
-        }
       });
     };
     $scope.item = function (valor) {
@@ -144,6 +124,7 @@ angular
 
     //logica de habilitar e desabilitar fases
     $scope.desabilita = function (valor) {
+      //   alert(faseTerminadas)
       var ProximaFase = faseTerminadas[faseTerminadas.length - 1];
       if (
         (valor === 1 && faseTerminadas.indexOf(valor) === -1) ||
@@ -161,117 +142,162 @@ angular
       }
     };
     var atualizaFaseBanco = function (idFase) {
-      TreinoService.atualizaFaseConcluida(idFase).success(function (data) {
-
-      }).error(function(data){
-        if(data.status === 403){
-          $location.path('/login');
-        }
-      });
+      TreinoService.atualizaFaseConcluida(idFase).success(function (data) {});
     };
     var atualizaIdusuarioTreino = function () {
-      let fase_check = $routeParams;
-      console.log('atualizaIdUsuario' + fase_check);
       var idFaseAtual = {
         id_usuario: IdUsuario,
-        id_fase: fase_check.id,
+        id_fase: id,
       };
       TreinoService.atualizaIdusuarioTreino(idFaseAtual).success(function (
         data
-      ) {
-    }).error(function(data){
-      if(data.status === 403){
-        $location.path('/login');
-      }
-    });
+      ) {});
     };
-    $scope.finalizar = function (valor) {
-      var fase_troca;
-      //import swal from 'sweetalert';
-      atualizaFaseBanco(id);
 
-      liberarProxFase = true;
-      idFase = parseInt(id) + parseInt(1);
-      if (quantidadeFases === id) {
-        liberarTodasFases = true;
-      }
+    var carregaIdTreino = function () {
       TreinoService.carregaIdTreino(id).success(function (data) {
         idFase = data[0].id;
-       atualizaIdusuarioTreino();
-        var tempo_corrido = `${
-          document.getElementById('timer_horas').innerText
-        }:${document.getElementById('timer_minutos').innerText}:${
-          document.getElementById('timer_segundos').innerText
-        }`;
-        var id_usuario = IdUsuario,
-          id_fase = idFase,
-          tempo = tempo_corrido;
-        var param = { id_usuario: id_usuario, id_fase: id_fase, tempo: tempo };
-
-        swal(
-          'Parabéns, você concluiu seu treino!',
-          `Tempo de treino:${tempo}`,
-          'success',
-          {
-            buttons: 'Continuar',
-          }
-        ).then(
-          function (isConfirm) {
-            if (isConfirm) {
-              refresh();
-              salvaTimeCronometro(param);
-              $location.path('/treinos/' + idFase);
-              refresh();
-              refresh();
-            }
-          },
-          function () {
-            console.log('BACK');
-          }
-        );
-      }).error(function(data){
-        if(data.status === 403){
-          $location.path('/login');
-        }
       });
-
-      //escondendo cronometro
     };
+    carregaIdTreino();
+    $scope.finalizar = function (valor) {
+      atualizaIdusuarioTreino;
+      repeticaoExercicio++;
+      delete_check++;
 
-    var salvaTimeCronometro = function (parametroTempo) {
-      TreinoService.salvaTimeCronometroService(parametroTempo).success(
-        function (data) {
-          console.log(data);
-        }).error(function(data){
-          if(data.status === 403){
-             $location.path('/login');
+      document.getElementById('p_cronometro').style.display = 'none';
+      document.getElementById('btn_finalizar').style.display = 'none';
+      document.getElementById('btn_iniciar').style.display = 'block';
+      //zerarCronometro();
+
+      var tempo_corrido = `${
+        document.getElementById('timer_horas').innerText
+      }:${document.getElementById('timer_minutos').innerText}:${
+        document.getElementById('timer_segundos').innerText
+      }`;
+
+      document.getElementById(
+        'tempo'
+      ).innerHTML = `Tempo de execução: ${tempo_corrido}`;
+
+      // liberarProxFase = true;
+      // idFase = parseInt(id) + parseInt(1);
+      //  if (quantidadeFases === id) {
+      //    liberarTodasFases = true;
+      //}
+      if (repeticaoExercicio === 1) {
+        var data = {
+          dataTreino: new Date(),
+          idfase: idFase,
+          idUsuario: IdUsuario,
+        };
+
+        TreinoService.salvaData(data).success(function (data) {});
+      }
+      ultimoexercicio = $routeParams.id;
+      //console.log(ultimoexercicio);
+      if (ultimoexercicio >= 6 && repeticaoExercicio == 3) {
+        TreinoService.atualizahistorico(IdUsuario).success(function (data) {});
+        $location.path('/home');
+      }
+
+      if (repeticaoExercicio < 3) {
+        TreinoService.carregaIdTreino(id).success(function (data) {
+          idFase = data[0].id;
+          let timerInterval;
+          document.getElementById('serieFeitas').innerHTML =
+            'Número de séries realizadas: ' + repeticaoExercicio;
+          document.getElementById('img').style.filter = 'grayscale(100%)';
+          Swal.fire({
+            title: 'Descanse!',
+            html:
+              'Você poderá repetir o mesmo exercicío em <b>30</b> segundos.',
+            timer: 30000,
+            allowOutsideClick: false,
+            timerProgressBar: true,
+            willOpen: () => {
+              Swal.showLoading();
+              timerInterval = setInterval(() => {
+                const content = Swal.getContent();
+                if (content) {
+                  const b = content.querySelector('b');
+                  if (b) {
+                    var texto = Swal.getTimerLeft() / 1000;
+                    var resultado = texto.toString().substring(0, 2);
+                    b.textContent = resultado;
+                  }
+                }
+              }, 1000);
+            },
+            onClose: () => {
+              clearInterval(timerInterval);
+              Swal.fire({
+                title: 'Inicar Série',
+                icon: 'info',
+                text:
+                  ' Número de Séries realizadas: ' +
+                  repeticaoExercicio +
+                  ' de 3',
+              });
+
+              document.getElementById('img').style.filter = '';
+              let id_treino = $routeParams.id;
+              $location.path('treino/inicio/' + id_treino);
+            },
+          }).then((result) => {
+            //  Read more about handling dismissals below
+            if (result.dismiss === Swal.DismissReason.timer) {
+              console.log('fechando o timer');
+            }
+          });
+          function refresh() {
+            setTimeout(function () {
+              location.reload();
+            }, 1000);
           }
         });
+      } else {
+        let id_treino = $routeParams.id;
+        TreinoService.carregaIdTreino(id_treino).success(function (data) {
+          idFase = data[0].id;
+          console.log(idFase);
+          //  atualizaFaseBanco(id);
+          atualizaIdusuarioTreino();
+          $location.path('treinos/' + idFase);
+
+          function refresh() {
+            setTimeout(function () {
+              location.reload();
+            }, 200);
+          }
+          refresh();
+          $location.path('treinos/' + idFase);
+          setTimeout(location.reload.bind(location), 2000);
+          // window.location.reload();
+        });
+      }
+    };
+    var atualizData = function () {};
+
+    var salvaTimeCronometro = function (parametroTempo) {
+      TreinoService.salvaTimeCronometroService(
+        parametroTempo
+      ).success(function (data) {});
     };
 
     var carrega = function () {
       TreinoService.fotoFase(id).success(function (data) {
         $scope.treinos = data;
-      }).error(function(data){
-        if(data.status === 403){
-          $location.path('/login');
-         
-        }
       });
     };
 
     var carregaDdos = function () {
       TreinoService.dadosCadastro(IdUsuario).success(function (data) {
         $scope.infos = data;
-      }).error(function(data){
-        if(data.status === 403){
-          $location.path('/login');
-        }
       });
     };
+    carregaDdos();
     var iniciaCronometro = function iniciarCronometro() {
-      var cronometro_id = 0;
-
       // document.getElementById("btnIniciar").style.display = 'none';
       //document.getElementById("btnZerar").style.display = 'inline';
 
@@ -310,28 +336,24 @@ angular
         } else {
           alert('Ops! Estourou as 24h!!!');
         }
-      }, 100);
+      }, 140);
     };
 
-   /* function zerarCronometro() {
-      // document.getElementById("btnIniciar").style.display = 'inline';
-      // document.getElementById("btnZerar").style.display = 'none';
-
+    function zerarCronometro() {
       clearInterval(cronometro_id);
 
       document.getElementById('timer_horas').innerHTML = '00';
       document.getElementById('timer_minutos').innerHTML = '00';
       document.getElementById('timer_segundos').innerHTML = '00';
       document.getElementById('timer_decimo').innerHTML = '00';
-    }*/
+    }
     function refresh() {
       setTimeout(function () {
         location.reload();
-      }, 100);
+      }, 150);
     }
 
     carrega();
     exerciciosFase();
     fasesTreinos();
-    carregaDdos();
   });
