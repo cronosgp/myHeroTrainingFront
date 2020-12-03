@@ -6,7 +6,7 @@ angular
       HEADER: {
         MENU: {
           REGISTER: 'Cadastre-se',
-          DROPDOWN: 'Selecione o Idioma',
+          DROPDOWN: 'Selecione o Idioma 2',
           PORTUGUES: 'Português',
           INGLES: 'Inglês',
           PESQUISA: 'Pesquisar',
@@ -62,7 +62,7 @@ angular
           SENHA: 'Senha',
           ESENHA1: 'Senha é obrigatória',
           ESENHA2:
-            'Digite uma senha com no mínimo 8 caracteres',
+            'Senha inválida, por favor digite uma senha com no mínimo 6 caracteres',
           PSENHA: 'Digite sua senha',
           DICASENHA:
             '*Mínimo de 8 e máximo de 18 de caracteres com letra maíscula e' +
@@ -71,7 +71,7 @@ angular
             '?=.*[!|@|#|$|%|^|&|*|(|)|-|_])',
           CSENHA: 'Confirme sua Senha',
           CESENHA:
-            'Digite uma senha com no mínimo 8 caracteres',
+            'Senha inválida, por favor digite uma senha com no mínimo 6 caracteres',
           CESENHA2: 'Senhas Divergentes',
           PESO: 'Peso',
           EPESO: 'O peso informado não é válido',
@@ -203,11 +203,11 @@ angular
           SENHA: 'Password',
           ESENHA1: 'Password IS required',
           ESENHA2:
-            'Password of at least 8 characters',
+            'Password is not valid, please enter a password of at least 8 characters',
           PSENHA: 'Incorrect password pattern',
           CSENHA: 'Confirm your Password',
           CESENHA:
-            'Password of at least 8 characters',
+            'Password is not valid, please enter a password of at least 8 characters',
           CESENHA2: 'Different passwords',
           DICASENHA:
             '* Minimum of 8 and maximum of 18 characters with a capital letter e' +
