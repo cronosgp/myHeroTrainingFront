@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="pt-br" ng-app="myHeroTraining">
 <head>
+    <script src="">console.log('ola')</script>  <meta charset="UTF-8">
     <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-  
     <meta name="viewport" content="width=device-width">
     <script src="./js/lib/angular.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
@@ -11,15 +11,18 @@
     <link href="./css/bootstrap.min.css"></link>
     <script src="./js/main.js"></script>
     <script src="./js/services/TreinoService.js"></script>
-    <script src="./js/services/homeService.js"></script>
+    <script src="./js/services/homeService.js"></script>    
     <script src="./js/services/cadastroUsuarioService.js"></script>
     <script src="./js/services/loginService.js"></script>
     <script src="./js/controllers/login-controller.js"></script>
     <script src="./js/controllers/homeController.js"></script>
     <script src="./js/controllers/TreinoController.js"></script>
-  
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="./js/controllers/CadastroUsuarioController.js"></script>
     <script src="./js/lib/angular-route.min.js"></script>
+    <link rel="stylesheet" href="./css/internacionalizacao.css">
+    <script src="./js/utilitarios/internacionalizacao.js"></script>
 
     <link href="./css/homeEstilo.css"></link>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -43,10 +46,7 @@
     <script src="./js/controllers/recoverPassword.js"></script>
    <script src="./js/controllers/confirmEmailController.js"></script>
    <!-- <link href="./css/imgs.css"></link>-->
-   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-   
-<link rel="stylesheet" href="./css/internacionalizacao.css">
-   
+   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> 
    
 </head>
 <body>
@@ -91,23 +91,22 @@
                 </ul>
               
                 
-                        <div class="dropdown" ng-controller="PageCtrl">
-                            <button  translate="HEADER.MENU.DROPDOWN"class="btn btn-secondary dropdown-toggle" type="button"
-                                id="dropdownMenuButton" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">Selecione o
-                                Idioma</button>
-                                <div id="google_translate_element"></div>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="combobox_idioma" >
-                                <a href="javascript:trocarIdioma('pt')" class="dropdown-item">Português</a>
-                                <a href="javascript:trocarIdioma('es')" class="dropdown-item">Espanhol</a>
-                                <a href="javascript:trocarIdioma('en')" class="dropdown-item">Inglês</a>
-                           
-                            </div>
-                            
-                         </div>
-
-                        
-                        
+                <div class="dropdown" ng-controller="PageCtrl">
+                    <button class="btn btn-secondary dropdown-toggle" type="button"
+                        id="dropdownMenuButton" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">Selecione o
+                        Idioma</button>
+                        <div id="google_translate_element"></div>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="combobox_idioma" >
+                        <a href="javascript:trocarIdioma('pt')" class="dropdown-item">Português</a>
+                        <a href="javascript:trocarIdioma('es')" class="dropdown-item">Espanhol</a>
+                        <a href="javascript:trocarIdioma('en')" class="dropdown-item">Inglês</a>
+                        <a href="javascript:trocarIdioma('fr')" class="dropdown-item">Francês</a>
+                   
+                    </div>
+                    
+                 </div>
+                         
                 <button translate="HEADER.MENU.SAIR"  id="sair" class="btn btn-dark my-2 my-sm-0" ng-click="logout()" type="submit" ng-show="exibircomLogin()">
                     Sair
                 </button>
@@ -146,6 +145,5 @@
 </header>
 <ng-view>
 </ng-view>
-<script src="./js/utilitarios/internacionalizacao.js"></script>
 </body>
 </html>
