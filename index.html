@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="pt-br" ng-app="myHeroTraining">
 <head>
-    <script src="">console.log('ola')</script>  <meta charset="UTF-8">
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  
     <meta name="viewport" content="width=device-width">
     <script src="./js/lib/angular.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
@@ -42,7 +43,10 @@
     <script src="./js/controllers/recoverPassword.js"></script>
    <script src="./js/controllers/confirmEmailController.js"></script>
    <!-- <link href="./css/imgs.css"></link>-->
-   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> 
+   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+   
+<link rel="stylesheet" href="./css/internacionalizacao.css">
+   
    
 </head>
 <body>
@@ -92,14 +96,18 @@
                                 id="dropdownMenuButton" data-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false">Selecione o
                                 Idioma</button>
-                            <div    class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a translate="HEADER.MENU.PORTUGUES"class="dropdown-item" ng-click="alterarIdioma('pt-BR')" href="">Português</a>
-                                <a translate="HEADER.MENU.INGLES"class="dropdown-item" ng-click="alterarIdioma('en-US')" href="">Inglês</a>
-                                
-
+                                <div id="google_translate_element"></div>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="combobox_idioma" >
+                                <a href="javascript:trocarIdioma('pt')" class="dropdown-item">Português</a>
+                                <a href="javascript:trocarIdioma('es')" class="dropdown-item">Espanhol</a>
+                                <a href="javascript:trocarIdioma('en')" class="dropdown-item">Inglês</a>
+                           
                             </div>
                             
-                         
+                         </div>
+
+                        
+                        
                 <button translate="HEADER.MENU.SAIR"  id="sair" class="btn btn-dark my-2 my-sm-0" ng-click="logout()" type="submit" ng-show="exibircomLogin()">
                     Sair
                 </button>
@@ -138,5 +146,6 @@
 </header>
 <ng-view>
 </ng-view>
+<script src="./js/utilitarios/internacionalizacao.js"></script>
 </body>
 </html>
