@@ -1,14 +1,11 @@
 angular.module('myHeroTraining').factory('loginService', function ($http) {
   var autenticar = function (dadosUsuario) {
-    return $http.post(
-      'https://mhtrainingback.herokuapp.com/auth',
-      dadosUsuario
-    );
+    return $http.post('http://localhost:8080/auth',dadosUsuario);
   };
 
   var dadosLogin = function (email) {
     return $http.get(
-      'https://mhtrainingback.herokuapp.com/cadastro-usuario/id',
+      'http://localhost:8080/id',
       {
         params: {
           email: email,

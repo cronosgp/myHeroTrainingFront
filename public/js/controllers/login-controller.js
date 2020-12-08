@@ -6,6 +6,7 @@ angular
       this.erro = '';
       loginService.autenticar($scope.model).then(success, error);
       function success(response) {
+        alert(response)
         carregaid($scope.model.email);
         localStorage.setItem(response.data.tipo, response.data.token);
 

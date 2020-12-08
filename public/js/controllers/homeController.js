@@ -32,7 +32,7 @@ angular
         carregaTempo(carregaTempoTreino, data);*/
       }).error(function(data){
         if(data.status === 403){
-          alert("oiiiiii")
+         
           $location.path('/login');
         }
       });
