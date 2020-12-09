@@ -7,37 +7,7 @@ angular
     $location
   ) {
     $scope.model = {};
-    $scope.fotos = [
-      {
-        url:
-          'https://cdn.pixabay.com/photo/2017/08/07/14/02/people-2604149_960_720.jpg',
-      },
-    ];
 
-    $scope.fotoP = [
-      {
-        url:
-          'https://gooutside-static-cdn.akamaized.net/wp-content/uploads/sites/3/2020/03/treino-e-dicas-para-se-manter-em-forma-em-casa.jpg',
-      },
-    ];
-    $scope.fotoX = [
-      {
-        url:
-          'https://www.runtastic.com/blog/wp-content/uploads/2019/03/thumbnail_1200x800.jpg',
-      },
-      {
-        url:
-          'https://www.bodynutry.ind.br/images/noticias/grd/71ba53d6fccbc4aeeb2aee3c4dc21281.jpg',
-      },
-      {
-        url:
-          'https://conteudo.imguol.com.br/c/entretenimento/a7/2016/05/30/homem-fazendo-flexao-1464620034199_v2_1920x1279.jpg',
-      },
-    ];
-    $scope.foto = {
-      urlx:
-        './imagem/Chega%20de%20desculpas_%20malhe%20fora%20da%20academia.gif',
-    };
     var id = $routeParams.id;
     var conlusao;
     var exibeBotao = 1;
@@ -72,6 +42,10 @@ angular
         exibeBotao = 0;
         exericioPaginacao(id, pag, qtd);
         liberar = true;
+      }).error(function(data){
+        if(data.status === 403){
+          $location.path('/login');
+        }
       });
       iniciaCronometro();
     };
@@ -105,18 +79,34 @@ angular
         }
         exericioPaginacao(id, pag, qtd);
         pagina += 1;
+      }).error(function(data){
+        if(data.status === 403){
+          $location.path('/login');
+        }
       });
     };
     var exericioPaginacao = function (id, pagina, qnt) {
       TreinoService.carregaExercicios(id, pagina, qnt).success(function (data) {
         $scope.exercicios = data.content;
+      }).error(function(data){
+        if(data.status === 403){
+          $location.path('/login');
+        }
       });
     };
+
+    
     var fasesTreinos = function () {
       TreinoService.carregaFasesTreino(id).success(function (data) {
         $scope.fases = data;
         quantidadeFases = data.length;
         primeirafase = data[0];
+        }).error(function(data){
+        if(data.status === 403){
+          $location.path('/login');
+
+        
+        }
       });
     };
     //falta pegar Id do usuario do banco e passar no parametro, pelo token
@@ -126,7 +116,11 @@ angular
       TreinoService.buscaTreinosFeitos(IdUsuario).success(function (data) {
         for (var j = 0; j < data.length; j++) {
           faseTerminadas.push(data[j].id_fase);
-          console.log('fasesterminadas:' + faseTerminadas);
+        
+        }
+       }).error(function(data){
+        if(data.status === 403){
+          $location.path('/login');
         }
       });
     };
@@ -134,6 +128,10 @@ angular
     var exerciciosFase = function () {
       TreinoService.carregaExercicios(id).success(function (data) {
         $scope.exercicios = data.content;
+      }).error(function(data){
+        if(data.status === 403){
+          $location.path('/login');
+        }
       });
     };
     $scope.item = function (valor) {
@@ -163,7 +161,13 @@ angular
       }
     };
     var atualizaFaseBanco = function (idFase) {
-      TreinoService.atualizaFaseConcluida(idFase).success(function (data) {});
+      TreinoService.atualizaFaseConcluida(idFase).success(function (data) {
+
+      }).error(function(data){
+        if(data.status === 403){
+          $location.path('/login');
+        }
+      });
     };
     var atualizaIdusuarioTreino = function () {
       let fase_check = $routeParams;
@@ -174,7 +178,12 @@ angular
       };
       TreinoService.atualizaIdusuarioTreino(idFaseAtual).success(function (
         data
-      ) {});
+      ) {
+    }).error(function(data){
+      if(data.status === 403){
+        $location.path('/login');
+      }
+    });
     };
     $scope.finalizar = function (valor) {
       var fase_troca;
@@ -188,12 +197,7 @@ angular
       }
       TreinoService.carregaIdTreino(id).success(function (data) {
         idFase = data[0].id;
-        console.log('carregaIdTreino' + idFase);
-        atualizaIdusuarioTreino();
-        // console.log('trieno' + data);
-        /* refresh();
-        $location.path('treinos/' + idFase).reload();
-        refresh();*/
+       atualizaIdusuarioTreino();
         var tempo_corrido = `${
           document.getElementById('timer_horas').innerText
         }:${document.getElementById('timer_minutos').innerText}:${
@@ -225,6 +229,10 @@ angular
             console.log('BACK');
           }
         );
+      }).error(function(data){
+        if(data.status === 403){
+          $location.path('/login');
+        }
       });
 
       //escondendo cronometro
@@ -234,19 +242,31 @@ angular
       TreinoService.salvaTimeCronometroService(parametroTempo).success(
         function (data) {
           console.log(data);
-        }
-      );
+        }).error(function(data){
+          if(data.status === 403){
+             $location.path('/login');
+          }
+        });
     };
 
     var carrega = function () {
       TreinoService.fotoFase(id).success(function (data) {
         $scope.treinos = data;
+      }).error(function(data){
+        if(data.status === 403){
+          $location.path('/login');
+         
+        }
       });
     };
 
     var carregaDdos = function () {
       TreinoService.dadosCadastro(IdUsuario).success(function (data) {
         $scope.infos = data;
+      }).error(function(data){
+        if(data.status === 403){
+          $location.path('/login');
+        }
       });
     };
     var iniciaCronometro = function iniciarCronometro() {
@@ -293,7 +313,7 @@ angular
       }, 100);
     };
 
-    function zerarCronometro() {
+   /* function zerarCronometro() {
       // document.getElementById("btnIniciar").style.display = 'inline';
       // document.getElementById("btnZerar").style.display = 'none';
 
@@ -303,7 +323,7 @@ angular
       document.getElementById('timer_minutos').innerHTML = '00';
       document.getElementById('timer_segundos').innerHTML = '00';
       document.getElementById('timer_decimo').innerHTML = '00';
-    }
+    }*/
     function refresh() {
       setTimeout(function () {
         location.reload();

@@ -6,22 +6,6 @@ angular
     myHeroTraining,
     $location
   ) {
-    let carregaObjetos = [{}];
-    let carregaTempoTreino = [{}];
-    $scope.fotos = [
-      {
-        url:
-          'https://cdn.pixabay.com/photo/2017/08/07/14/02/people-2604149_960_720.jpg',
-      },
-      {
-        url:
-          'https://cdn.pixabay.com/photo/2015/07/02/10/22/training-828726_960_720.jpg',
-      },
-      /* {url:'https://cdn.pixabay.com/photo/2016/03/27/07/08/man-1282232_960_720.jpg'},
-         {url:'https://cdn.pixabay.com/photo/2016/05/27/22/30/workout-1420741_960_720.jpg'},
-         {url:'https://cdn.pixabay.com/photo/2015/04/08/23/53/workout-713658_960_720.jpg'},
-         {url:'https://cdn.pixabay.com/photo/2015/07/02/10/27/training-828764_960_720.jpg'},*/
-    ];
     $scope.model = {};
 
     $scope.exibirSemLogin = function () {
@@ -40,14 +24,20 @@ angular
     };
     var carrega = function () {
       myHeroTraining.carregarTreinos().success(function (data) {
-        carregaObjetos = data;
-        //   $scope.treinos = data;
-        refresh();
+      //  carregaObjetos = data;
+      
+           $scope.treinos = data;
+       /* refresh();
         carregaTempoTreino = carregaObjetos[0].treino;
-        carregaTempo(carregaTempoTreino, data);
+        carregaTempo(carregaTempoTreino, data);*/
+      }).error(function(data){
+        if(data.status === 403){
+          alert("oiiiiii")
+          $location.path('/login');
+        }
       });
     };
-    let objComposto = [];
+ /*   let objComposto = [];
     function carregaTempo(carregaTempoTreino, data2) {
       for (let j = 0; j <= 1; j++) {
         let index = j + 1;
@@ -87,7 +77,7 @@ angular
           });
         $scope.treinos = objComposto;
       }
-    }
+    }*/
 
     $scope.logout = function () {
       localStorage.clear();

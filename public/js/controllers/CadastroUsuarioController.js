@@ -17,6 +17,7 @@ angular
             usuarioCadastro();
           })
           .error(function (data, status) {
+            
             alert('Email já cadastrado!');
             $route.reload();
           });
