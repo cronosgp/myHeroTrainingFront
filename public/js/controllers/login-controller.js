@@ -29,7 +29,6 @@ angular
           );
           $location.path('/login');
         } else {
-          alert(response.status);
           swal(
             'Erro!',
             'Por algum motivo não podemos realizar seu login!',
