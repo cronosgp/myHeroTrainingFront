@@ -352,6 +352,12 @@ angular
     $routeProvider.when("/Amigos/", {
       templateUrl: "./view/Amigos.html",
     });
+    $routeProvider.when("/MeusAmigos/", {
+      templateUrl: "./view/MeusAmigos.html",
+    });
+    $routeProvider.when("/AdicionarAmigos/", {
+      templateUrl: "./view/AdicionarAmigos.html",
+    });
     var lenguage = "pt-BR";
     var lenguage_n = navigator.language || navigator.userLanguage;
 
