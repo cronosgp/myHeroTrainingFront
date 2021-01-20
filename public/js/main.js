@@ -346,17 +346,20 @@ angular
     $routeProvider.when("/descricaoTreino/", {
       templateUrl: "./view/descricaoTreino.html",
     });
-    $routeProvider.when("/Classificacao/", {
+    $routeProvider.when("/classificacao/", {
       templateUrl: "./view/Classificacao.html",
     });
-    $routeProvider.when("/Amigos/", {
-      templateUrl: "./view/Amigos.html",
+    $routeProvider.when("/solicitacoes/", {
+      templateUrl: "./view/Solicitacoes.html",
+      controller: "AmigosController"
     });
-    $routeProvider.when("/MeusAmigos/", {
+    $routeProvider.when("/amigos/", {
       templateUrl: "./view/MeusAmigos.html",
     });
-    $routeProvider.when("/AdicionarAmigos/", {
+    $routeProvider.when("/adicionar-amigos/", {
       templateUrl: "./view/AdicionarAmigos.html",
+      controller: "AdicionarAmigosController"
+
     });
     var lenguage = "pt-BR";
     var lenguage_n = navigator.language || navigator.userLanguage;

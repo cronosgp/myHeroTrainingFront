@@ -77,7 +77,8 @@
       <div class="row">
         <div class="col-md-10">
           <div class="people-nearby">
-            <div class="nearby-user">
+
+            <div class="nearby-user" ng-repeat="usuario in usuarios">
               <div class="row">
                 <div class="col-md-2 col-sm-2">
                   <img
@@ -87,7 +88,7 @@
                   />
                 </div>
                 <div class="col-md-7 col-sm-7">
-                  <h5><a href="#" class="profile-link">Erika Garcia</a></h5>
+                  <h5><a href="#" class="profile-link"> {{usuario.name}}</a></h5>
                   <p>erikagarcia@gmail.com</p>
                   <p class="text-muted">500 pontos</p>
                 </div>
@@ -97,196 +98,10 @@
                 </div>
               </div>
             </div>
-            <div class="nearby-user">
-              <div class="row">
-                <div class="col-md-2 col-sm-2">
-                  <img
-                    src="https://bootdey.com/img/Content/avatar/avatar6.png"
-                    alt="user"
-                    class="profile-photo-lg"
-                  />
-                </div>
-                <div class="col-md-7 col-sm-7">
-                  <h5>
-                    <a href="#" class="profile-link">Natalia Nishimura</a>
-                  </h5>
-                  <p>natalianishumira@gmail.com</p>
-                  <p class="text-muted">800 pontos</p>
-                </div>
-                <div class="col-md-3 col-sm-3">
-                  <button class="btn btn-primary pull-right">Aceitar</button>
-                  <button class="btn btn-danger pull-right">Recusar</button>
-                </div>
-               
 
-              </div>
-            </div>
-            <div class="nearby-user">
-              <div class="row">
-                <div class="col-md-2 col-sm-2">
-                  <img
-                    src="https://bootdey.com/img/Content/avatar/avatar5.png"
-                    alt="user"
-                    class="profile-photo-lg"
-                  />
-                </div>
-                <div class="col-md-7 col-sm-7">
-                  <h5><a href="#" class="profile-link">Gabriel Gomes</a></h5>
-                  <p>gabrielgps@gmail.com</p>
-                  <p class="text-muted">200 pontos</p>
-                </div>
-                <div class="col-md-3 col-sm-3">
-                  <button class="btn btn-primary pull-right">Aceitar</button>
-                  <button class="btn btn-danger pull-right">Recusar</button>
-                </div>
-              </div>
-            </div>
-            <div class="nearby-user">
-              <div class="row">
-                <div class="col-md-2 col-sm-2">
-                  <img
-                    src="https://bootdey.com/img/Content/avatar/avatar4.png"
-                    alt="user"
-                    class="profile-photo-lg"
-                  />
-                </div>
-                <div class="col-md-7 col-sm-7">
-                  <h5><a href="#" class="profile-link">Raphael Pita</a></h5>
-                  <p>raphael@email.com</p>
-                  <p class="text-muted">700 pontos</p>
-                </div>
-                <div class="col-md-3 col-sm-3">
-                  <button class="btn btn-primary pull-right">Aceitar</button>
-                  <button class="btn btn-danger pull-right">Recusar</button>
-                </div>
-              </div>
-            </div>
-            <div class="nearby-user">
-              <div class="row">
-                <div class="col-md-2 col-sm-2">
-                  <img
-                    src="https://bootdey.com/img/Content/avatar/avatar3.png"
-                    alt="user"
-                    class="profile-photo-lg"
-                  />
-                </div>
-                <div class="col-md-7 col-sm-7">
-                  <h5><a href="#" class="profile-link">Larissa Carvalho</a></h5>
-                  <p>larissac@email.com</p>
-                  <p class="text-muted">130 pontos</p>
-                </div>
-                <div class="col-md-3 col-sm-3">
-                  <button class="btn btn-primary pull-right">Aceitar</button>
-                  <button class="btn btn-danger pull-right">Recusar</button>
-                </div>
-              </div>
-            </div>
-            <div class="nearby-user">
-              <div class="row">
-                <div class="col-md-2 col-sm-2">
-                  <img
-                    src="https://bootdey.com/img/Content/avatar/avatar2.png"
-                    alt="user"
-                    class="profile-photo-lg"
-                  />
-                </div>
-                <div class="col-md-7 col-sm-7">
-                  <h5>
-                    <a href="#" class="profile-link">Batata Frita</a>
-                  </h5>
-                  <p>batata@email.com</p>
-                  <p class="text-muted">3040 pontos</p>
-                </div>
-                <div class="col-md-3 col-sm-3">
-                  <button class="btn btn-primary pull-right">Aceitar</button>
-                  <button class="btn btn-danger pull-right">Recusar</button>
-                </div>
-              </div>
-            </div>
-            <div class="nearby-user">
-              <div class="row">
-                <div class="col-md-2 col-sm-2">
-                  <img
-                    src="https://bootdey.com/img/Content/avatar/avatar7.png"
-                    alt="user"
-                    class="profile-photo-lg"
-                  />
-                </div>
-                <div class="col-md-7 col-sm-7">
-                  <h5><a href="#" class="profile-link">Naruto Uzumaki</a></h5>
-                  <p>naruto@email.com</p>
-                  <p class="text-muted">200 pontos</p>
-                </div>
-                <div class="col-md-3 col-sm-3">
-                  <button class="btn btn-primary pull-right">Aceitar</button>
-                  <button class="btn btn-danger pull-right">Recusar</button>
-                </div>
-              </div>
-            </div>
-            <div class="nearby-user">
-              <div class="row">
-                <div class="col-md-2 col-sm-2">
-                  <img
-                    src="https://bootdey.com/img/Content/avatar/avatar6.png"
-                    alt="user"
-                    class="profile-photo-lg"
-                  />
-                </div>
-                <div class="col-md-7 col-sm-7">
-                  <h5><a href="#" class="profile-link">Sasuke Uchiha</a></h5>
-                  <p>sasuke@email.com</p>
-                  <p class="text-muted">420 pontos</p>
-                </div>
-                <div class="col-md-3 col-sm-3">
-                  <button class="btn btn-primary pull-right">Aceitar</button>
-                  <button class="btn btn-danger pull-right">Recusar</button>
-                </div>
-              </div>
-            </div>
-            <div class="nearby-user">
-              <div class="row">
-                <div class="col-md-2 col-sm-2">
-                  <img
-                    src="https://bootdey.com/img/Content/avatar/avatar1.png"
-                    alt="user"
-                    class="profile-photo-lg"
-                  />
-                </div>
-                <div class="col-md-7 col-sm-7">
-                  <h5><a href="#" class="profile-link">Sakura Haruno</a></h5>
-                  <p>sakura@email.com</p>
-                  <p class="text-muted">301 pontos</p>
-                </div>
-                <div class="col-md-3 col-sm-3">
-                  <button class="btn btn-primary pull-right">Aceitar</button>
-                  <button class="btn btn-danger pull-right">Recusar</button>
-                </div>
-              </div>
-            </div>
-            <div class="nearby-user">
-              <div class="row">
-                <div class="col-md-2 col-sm-2">
-                  <img
-                    src="https://bootdey.com/img/Content/avatar/avatar7.png"
-                    alt="user"
-                    class="profile-photo-lg"
-                  />
-                </div>
-                <div class="col-md-7 col-sm-7">
-                  <h5><a href="#" class="profile-link">Madara Uchiha</a></h5>
-                  <p>madara@email.com</p>
-                  <p class="text-muted">10 pontos</p>
-                </div>
-                <div class="col-md-3 col-sm-3">
-                  <button class="btn btn-primary pull-right">Aceitar</button>
-                  <button class="btn btn-danger pull-right">Recusar</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+
+
+
     <!-- SEGUNDA PAGINA AMIGOS-->
  <!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA=" crossorigin="anonymous" />
 
