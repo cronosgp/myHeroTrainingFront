@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="http://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style type="text/css">
+      body {
+        margin-top: 20px;
+      }
+
+      .superbox {
+        font-size: 0;
+      }
+
+      .superbox-list {
+        display: inline-block;
+        width: 12.5%;
+        margin: 0;
+        position: relative;
+      }
+
+      .superbox-list.active:after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        border: 10px solid transparent;
+        border-bottom-color: #2d353c;
+        margin-left: -10px;
+      }
+
+      .superbox-show {
+        text-align: center;
+        position: relative;
+        background: #2d353c;
+        width: 100%;
+        float: left;
+        padding: 25px;
+        display: none;
+      }
+
+      .superbox-img {
+        max-width: 100%;
+        width: 100%;
+        cursor: pointer;
+      }
+
+      .superbox-current-img {
+        -webkit-box-shadow: 0 5px 35px rgba(0, 0, 0, 0.65);
+        box-shadow: 0 5px 35px rgba(0, 0, 0, 0.65);
+        max-width: 100%;
+      }
+
+      .superbox-img:hover {
+        opacity: 0.8;
+      }
+
+      .superbox-close {
+        opacity: 0.7;
+        cursor: pointer;
+        position: absolute;
+        top: 25px;
+        right: 25px;
+        background: url(assets/plugins/superbox/img/close.gif) center center
+          no-repeat;
+        width: 35px;
+        height: 35px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="superbox">
+        <div class="superbox-list">
+          <img
+            src="https://bootdey.com/img/Content/avatar/avatar6.png"
+            alt=""
+            class="superbox-img"
+          />
+        </div>
+        <div class="superbox-list">
+          <img
+            src="https://bootdey.com/img/Content/avatar/avatar1.png"
+            alt=""
+            class="superbox-img"
+          />
+        </div>
+        <div class="superbox-list">
+          <img
+            src="https://bootdey.com/img/Content/avatar/avatar2.png"
+            alt=""
+            class="superbox-img"
+          />
+        </div>
+        <div class="superbox-list">
+          <img
+            src="https://bootdey.com/img/Content/avatar/avatar3.png"
+            alt=""
+            class="superbox-img"
+          />
+        </div>
+        <div class="superbox-list">
+          <img
+            src="https://bootdey.com/img/Content/avatar/avatar4.png"
+            alt=""
+            class="superbox-img"
+          />
+        </div>
+        <div class="superbox-list">
+          <img
+            src="https://bootdey.com/img/Content/avatar/avatar5.png"
+            alt=""
+            class="superbox-img"
+          />
+        </div>
+        <div class="superbox-list">
+          <img
+            src="https://bootdey.com/img/Content/avatar/avatar6.png"
+            alt=""
+            class="superbox-img"
+          />
+        </div>
+        <div class="superbox-list">
+          <img
+            src="https://bootdey.com/img/Content/avatar/avatar3.png"
+            alt=""
+            class="superbox-img"
+          />
+        </div>
+        <div class="superbox-list">
+          <img
+            src="https://bootdey.com/img/Content/avatar/avatar2.png"
+            alt=""
+            class="superbox-img"
+          />
+        </div>
+        <div class="superbox-list">
+          <img
+            src="https://bootdey.com/img/Content/avatar/avatar6.png"
+            alt=""
+            class="superbox-img"
+          />
+        </div>
+        <div class="superbox-list">
+          <img
+            src="https://bootdey.com/img/Content/avatar/avatar2.png"
+            alt=""
+            class="superbox-img"
+          />
+        </div>
+        <div class="superbox-list">
+          <img
+            src="https://bootdey.com/img/Content/avatar/avatar6.png"
+            alt=""
+            class="superbox-img"
+          />
+        </div>
+        <div class="superbox-list">
+          <img
+            src="https://bootdey.com/img/Content/avatar/avatar3.png"
+            alt=""
+            class="superbox-img"
+          />
+        </div>
+        <div class="superbox-list">
+          <img
+            src="https://bootdey.com/img/Content/avatar/avatar6.png"
+            alt=""
+            class="superbox-img"
+          />
+        </div>
+        <div class="superbox-list">
+          <img
+            src="https://bootdey.com/img/Content/avatar/avatar5.png"
+            alt=""
+            class="superbox-img"
+          />
+        </div>
+        <div class="superbox-list">
+          <img
+            src="https://bootdey.com/img/Content/avatar/avatar2.png"
+            alt=""
+            class="superbox-img"
+          />
+        </div>
+        <div class="superbox-list">
+          <img
+            src="https://bootdey.com/img/Content/avatar/avatar4.png"
+            alt=""
+            class="superbox-img"
+          />
+        </div>
+        <div class="superbox-list">
+          <img
+            src="https://bootdey.com/img/Content/avatar/avatar6.png"
+            alt=""
+            class="superbox-img"
+          />
+        </div>
+        <div class="superbox-list">
+          <img
+            src="https://bootdey.com/img/Content/avatar/avatar1.png"
+            alt=""
+            class="superbox-img"
+          />
+        </div>
+        <div class="superbox-list">
+          <img
+            src="https://bootdey.com/img/Content/avatar/avatar2.png"
+            alt=""
+            class="superbox-img"
+          />
+        </div>
+        <div class="superbox-list">
+          <img
+            src="https://bootdey.com/img/Content/avatar/avatar3.png"
+            alt=""
+            class="superbox-img"
+          />
+        </div>
+        <div class="superbox-list">
+          <img
+            src="https://bootdey.com/img/Content/avatar/avatar6.png"
+            alt=""
+            class="superbox-img"
+          />
+        </div>
+        <div class="superbox-list">
+          <img
+            src="https://bootdey.com/img/Content/avatar/avatar4.png"
+            alt=""
+            class="superbox-img"
+          />
+        </div>
+        <div class="superbox-list">
+          <img
+            src="https://bootdey.com/img/Content/avatar/avatar5.png"
+            alt=""
+            class="superbox-img"
+          />
+        </div>
+        <div class="superbox-list">
+          <img
+            src="https://bootdey.com/img/Content/avatar/avatar6.png"
+            alt=""
+            class="superbox-img"
+          />
+        </div>
+        <div class="superbox-list">
+          <img
+            src="https://bootdey.com/img/Content/avatar/avatar6.png"
+            alt=""
+            class="superbox-img"
+          />
+        </div>
+        <div class="superbox-list">
+          <img
+            src="https://bootdey.com/img/Content/avatar/avatar2.png"
+            alt=""
+            class="superbox-img"
+          />
+        </div>
+        <div class="superbox-list">
+          <img
+            src="https://bootdey.com/img/Content/avatar/avatar3.png"
+            alt=""
+            class="superbox-img"
+          />
+        </div>
+        <div class="superbox-list">
+          <img
+            src="https://bootdey.com/img/Content/avatar/avatar6.png"
+            alt=""
+            class="superbox-img"
+          />
+        </div>
+        <div class="superbox-list">
+          <img
+            src="https://bootdey.com/img/Content/avatar/avatar4.png"
+            alt=""
+            class="superbox-img"
+          />
+        </div>
+        <div class="superbox-list">
+          <img
+            src="https://bootdey.com/img/Content/avatar/avatar6.png"
+            alt=""
+            class="superbox-img"
+          />
+        </div>
+        <div class="superbox-list">
+          <img
+            src="https://bootdey.com/img/Content/avatar/avatar5.png"
+            alt=""
+            class="superbox-img"
+          />
+        </div>
+        <div class="superbox-list">
+          <img
+            src="https://bootdey.com/img/Content/avatar/avatar6.png"
+            alt=""
+            class="superbox-img"
+          />
+        </div>
+        <div class="superbox-list">
+          <img
+            src="https://bootdey.com/img/Content/avatar/avatar6.png"
+            alt=""
+            class="superbox-img"
+          />
+        </div>
+        <div class="superbox-list">
+          <img
+            src="https://bootdey.com/img/Content/avatar/avatar1.png"
+            alt=""
+            class="superbox-img"
+          />
+        </div>
+        <div class="superbox-list">
+          <img
+            src="https://bootdey.com/img/Content/avatar/avatar6.png"
+            alt=""
+            class="superbox-img"
+          />
+        </div>
+        <div class="superbox-list">
+          <img
+            src="https://bootdey.com/img/Content/avatar/avatar2.png"
+            alt=""
+            class="superbox-img"
+          />
+        </div>
+        <div class="superbox-list">
+          <img
+            src="https://bootdey.com/img/Content/avatar/avatar2.png"
+            alt=""
+            class="superbox-img"
+          />
+        </div>
+        <div class="superbox-list">
+          <img
+            src="https://bootdey.com/img/Content/avatar/avatar3.png"
+            alt=""
+            class="superbox-img"
+          />
+        </div>
+        <div class="superbox-list">
+          <img
+            src="https://bootdey.com/img/Content/avatar/avatar4.png"
+            alt=""
+            class="superbox-img"
+          />
+        </div>
+        <div class="superbox-list">
+          <img
+            src="https://bootdey.com/img/Content/avatar/avatar6.png"
+            alt=""
+            class="superbox-img"
+          />
+        </div>
+        <div class="superbox-list">
+          <img
+            src="https://bootdey.com/img/Content/avatar/avatar5.png"
+            alt=""
+            class="superbox-img"
+          />
+        </div>
+        <div class="superbox-list">
+          <img
+            src="https://bootdey.com/img/Content/avatar/avatar6.png"
+            alt=""
+            class="superbox-img"
+          />
+        </div>
+        <div class="superbox-list">
+          <img
+            src="https://bootdey.com/img/Content/avatar/avatar6.png"
+            alt=""
+            class="superbox-img"
+          />
+        </div>
+        <div class="superbox-list">
+          <img
+            src="https://bootdey.com/img/Content/avatar/avatar5.png"
+            alt=""
+            class="superbox-img"
+          />
+        </div>
+        <div class="superbox-list">
+          <img
+            src="https://bootdey.com/img/Content/avatar/avatar4.png"
+            alt=""
+            class="superbox-img"
+          />
+        </div>
+        <div class="superbox-list">
+          <img
+            src="https://bootdey.com/img/Content/avatar/avatar4.png"
+            alt=""
+            class="superbox-img"
+          />
+        </div>
+        <div class="superbox-list">
+          <img
+            src="https://bootdey.com/img/Content/avatar/avatar1.png"
+            alt=""
+            class="superbox-img"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="modal fade"
+      id="showPhoto"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="myModalLabel"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title" id="myModalLabel">testeeeee</h4>
+          </div>
+          <div class="modal-body"></div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+      $(function () {
+        $(".superbox-img").click(function () {
+          $("#showPhoto .modal-body").html($(this).clone());
+          $("#showPhoto").modal("show");
+        });
+      });
+    </script>
+  </body>
+</html>
