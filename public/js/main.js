@@ -351,15 +351,20 @@ angular
     });
     $routeProvider.when("/solicitacoes/", {
       templateUrl: "./view/Solicitacoes.html",
-      controller: "AmigosController"
+      controller: "AmigosController",
     });
     $routeProvider.when("/amigos/", {
       templateUrl: "./view/MeusAmigos.html",
     });
     $routeProvider.when("/adicionar-amigos/", {
       templateUrl: "./view/AdicionarAmigos.html",
-      controller: "AdicionarAmigosController"
-
+      controller: "AdicionarAmigosController",
+    });
+    $routeProvider.when("/avatar/", {
+      templateUrl: "./view/Avatar.html",
+    });
+    $routeProvider.when("/treino-personalizado/", {
+      templateUrl: "./view/TreinoPersonalizado.html",
     });
     var lenguage = "pt-BR";
     var lenguage_n = navigator.language || navigator.userLanguage;
