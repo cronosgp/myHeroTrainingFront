@@ -23,14 +23,7 @@ angular.module('myHeroTraining').factory('cadastroService', function ($http) {
   };
   var recuperar = function (email) {
  
-    return $http.post(
-      'http://localhost:8080/forgot-p// https://mvnrepository.com/artifact/org.apache.spark/spark-core\n' +
-        'libraryDependencies += "org.apache.spark" %% "spark-core" % "2.3.2"\n' +
-        '\n// https://mvnrepository.com/artifact/org.apache.spark/spark-core\n' +
-        'libraryDependencies += "org.apache.spark" %% "spark-core" % "2.3.2"\n' +
-        '\nassword',
-      email
-    );
+    return $http.post(email);
   };
   var trocar = function (model) {
   

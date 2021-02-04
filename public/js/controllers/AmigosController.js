@@ -8,16 +8,25 @@ angular
     ) {
         var IdUsuario = sessionStorage.getItem('id');
 
-        $scope.solicitacoes = function () {
-            amigosService.carregarSolicitacoes(IdUsuario).success(function (data) {
-                $scope.usuarios = data.content;
-                console.log($scope.usuarios);
-            }).error(function(data){
+        $scope.InitAmigos = function () {
+            amigosService.carregarAmigos(IdUsuario).success(function (data) {
+                $scope.amigos = data;
+                console.log($scope.amigos);
+            }).error(function (data) {
                 console.log("erro");
                 console.log(data);
             });
         }
 
-        $scope.solicitacoes();
-    });
+        $scope.removerAmigo = function (amizadeid) {
 
+            amigosService.recusarSolicitacao(amizadeid, IdUsuario).success(function (data){
+                $scope.InitAmigos();
+            }).error(function (data){
+                console.log("erro");
+                console.log(data);
+            });
+        }
+
+        $scope.InitAmigos();
+    });
