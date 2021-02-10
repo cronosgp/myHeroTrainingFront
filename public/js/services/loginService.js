@@ -8,7 +8,7 @@ angular.module('myHeroTraining').factory('loginService', function ($http) {
 
   var dadosLogin = function (email) {
     return $http.get(
-      'https://mhtrainingback.herokuapp.com/cadastro-usuario/id',
+      'https://mhtrainingback.herokuapp.com/usuario/id',
       {
         params: {
           email: email,

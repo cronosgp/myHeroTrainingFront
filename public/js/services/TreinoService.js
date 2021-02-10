@@ -1,6 +1,6 @@
 angular.module('myHeroTraining').factory('TreinoService', function ($http) {
   var carregaTreinos = function (qnt, pg) {
-    //return $http.get('http://localhost:80880/treinos', qnt, pg);
+    //return $http.get('https://localhost:80880/treinos', qnt, pg);
   };
   var carregaFasesTreino = function (id) {
     var jwt = localStorage.getItem('Bearer');
