@@ -3,7 +3,7 @@ angular.module('myHeroTraining').factory('amigosService', function ($http) {
         var jwt = localStorage.getItem('Bearer');
 
         $http.defaults.headers.common.Authorization = 'Bearer ' + jwt;
-        return $http.get('http://localhost:8080/friend/request', {
+        return $http.get('https://mhtrainingback.herokuapp.com/friend/request', {
             params: {
                 id: id
             },
@@ -11,7 +11,7 @@ angular.module('myHeroTraining').factory('amigosService', function ($http) {
     };
 
     var enviarSolicitacao = function (usuarioid, email) {
-        return $http.post('http://localhost:8080/friend/request', {
+        return $http.post('https://mhtrainingback.herokuapp.com/friend/request', {
                 usuarioid: usuarioid,
                 email: email
 
@@ -19,14 +19,14 @@ angular.module('myHeroTraining').factory('amigosService', function ($http) {
     };
 
     var aceitarSolicitacao = function (usuarioid, amizadeid) {
-        return $http.post('http://localhost:8080/friend/accept', {
+        return $http.post('https://mhtrainingback.herokuapp.com/friend/accept', {
                 usuarioid: usuarioid,
                 amizadeid: amizadeid
         });
     };
 
     var recusarSolicitacao = function (usuarioid, amizadeid) {
-        return $http.post('http://localhost:8080/friend/reject', {
+        return $http.post('https://mhtrainingback.herokuapp.com/friend/reject', {
             usuarioid: usuarioid,
             amizadeid: amizadeid
         });
@@ -36,7 +36,7 @@ angular.module('myHeroTraining').factory('amigosService', function ($http) {
         var jwt = localStorage.getItem('Bearer');
 
         $http.defaults.headers.common.Authorization = 'Bearer ' + jwt;
-        return $http.get('http://localhost:8080/friend', {
+        return $http.get('https://mhtrainingback.herokuapp.com/friend', {
             params: {
                 id: id
             },
