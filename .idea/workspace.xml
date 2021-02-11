@@ -27,8 +27,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="21aaf686-8e7d-49d5-a8c2-3755bfd887bd" name="Default Changelist" comment="run local only">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/view/MeusAmigos.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/view/MeusAmigos.html" afterDir="false" />
     </list>
     <list id="e90f9fbb-b761-4603-bcda-52c19b70bea4" name="Revert &quot;Initial commit&quot;" comment="Revert &quot;Initial commit&quot;&#10;&#10;This reverts commit 82f0f341" />
