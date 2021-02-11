@@ -21,7 +21,7 @@ angular
       };
       var carrega = function () {
         myHeroTraining
-          .carregarTreinos()
+          .carregarTreinos(IdUsuario)
           .success(function (data) {
             //  carregaObjetos = data;
 
@@ -77,7 +77,7 @@ angular
         $scope.treinos = objComposto;
       }
     }*/
-
+    var IdUsuario = sessionStorage.getItem('id');
       $scope.logout = function () {
         localStorage.clear();
         sessionStorage.clear();

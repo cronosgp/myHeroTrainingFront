@@ -31,15 +31,15 @@
         <div class="card-body">
           <table class="table">
             <tbody>
-              <tr ng-repeat="fase in fases">
+              <tr ng-repeat="exercicio in exercicios">
                 <td>
                   <button
                     type="button"
                     class="btn btn-link"
-                    ng-disabled="desabilita({{fase.id}})"
+                    ng-disabled="desabilita({{exercicio.id}})"
                   >
-                    <a href="#/treino/inicio/{{fase.id}}" ng-click="TreinoId()"
-                      >{{fase.nome}}
+                    <a href="#/treino/inicio/{{exercicio.id}}" ng-click="TreinoId()"
+                      >{{exercicio.nome}}
                     </a>
                   </button>
                 </td>

@@ -1,5 +1,5 @@
 <style>
-    #teste {
+   #teste {
         margin: auto;
         margin-top: 24px;
         margin-bottom: 24px;
@@ -16,25 +16,23 @@
         border-radius: 4%;
     }
 </style>
-
 <div class="container">
-    <div class="card-deck" id="teste" >
+    <div class="card-deck" id="teste"style="width: 45rem;" >
         <div class="card"  ng-repeat="treino in treinos" >
-            <img src="{{treino.url}}" class="card-img-top" alt="" height="300" width="180">
+            <img src="{{treino.urlt}}" class="card-img-top" alt="" >
             <div class="card-body" >
-                <h2 class="card-text">{{treino.descricao}}</h2>
-                <p class="card-text">{{treino.nome}}</p>
-                <p class="card-text" ><span translate="HEADER.HOME.INTENSIDADE">Intensidade:</span> {{treino.intensidade}}</p>
-                <p class="card-text"> <span translate="HEADER.HOME.NIVEL">Nível:</span>{{treino.nivel}}</p>
+                <h2 class="card-text">{{treino.descricaot}}</h2>
+                <p class="card-text">{{treino.nomet}}</p>
+                <p class="card-text" ><span translate="HEADER.HOME.INTENSIDADE">Intensidade:</span> <b>{{treino.intensidadet}}</b></p>
+                <p class="card-text"> <span translate="HEADER.HOME.NIVEL">Nível: </span> <b>{{treino.nivelt}}</b></p>
                 <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
                         <a class="btn btn-sm btn-outline-success" ng-model="inicio" type="button"
-                           href="#/treinos/{{treino.id}}" translate="HEADER.HOME.INICIAR">Iniciar</a>
-                        
-                         
+                           href="#/treinos/{{treino.idt}}" translate="HEADER.HOME.INICIAR">Iniciar</a>                       
+    
                     </div>
-                    <small class="text-muted" id="" ><span translate="HEADER.HOME.TEMPOESTIMADO">Tempo estimado:</span> {{treino.horas}}</small>
-                     <small class="text-muted" id="id_tempo_feito" style="display: none;" >Tempo feito: {{treino.tempo}}
+                    <small class="text-muted" id="" ><span translate="HEADER.HOME.TEMPOESTIMADO">Tempo estimado:</span><b> {{treino.horast}}</b></small>
+                     <small class="text-muted" id="id_tempo_feito" style="display: none;" >Tempo feito: {{treino.tempot}}
                         <i class="fa fa-check" aria-hidden="true"></i>
                     </small>
                 </div>
@@ -44,5 +42,4 @@
     </div>
 </div>
 </div>
-
 
