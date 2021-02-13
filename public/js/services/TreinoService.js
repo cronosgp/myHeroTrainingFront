@@ -12,6 +12,15 @@ angular.module('myHeroTraining').factory('TreinoService', function ($http) {
       },
     });
   };
+  var atualizapontosUsu = function(id){
+    var jwt = localStorage.getItem('Bearer');
+    return $http.get('http://localhost:8080/exercicio/atualiza',{
+      
+      params: {
+      id: id,
+    },
+    });
+     };
   var carregaExercicios = function (id, pagina, qnt) {
     var jwt = localStorage.getItem('Bearer');
 
@@ -135,6 +144,7 @@ angular.module('myHeroTraining').factory('TreinoService', function ($http) {
     atualizaIdUsuario: atualizaIdUsuario,
     fotoFase: fotoFase,
     dadosCadastro: dadosCadastro,
-    salvaDataFimFase : salvaDataFimFase
+    salvaDataFimFase : salvaDataFimFase,
+    atualizapontosUsu : atualizapontosUsu
   };
 });

@@ -51,6 +51,20 @@ angular
       //iniciaCronometro();
     */
       };
+       
+      var atualizapontosfeitos = function(id){
+        alert("oiiiiiiiiiiiiiiiiiiiiiiiiii")
+        TreinoService.atualizapontosUsu(id).success(function(data){
+          alter("okkk");
+          
+
+        }).error(function(data){
+          if(data.status === 403){
+            $location.path('/login');
+          }
+
+        }); 
+      };
       //exbibe botão de iniciar
       $scope.inicia = function () {
         //ajusta elemento
@@ -107,8 +121,7 @@ angular
         TreinoService.buscaTreinosFeitos(IdUsuario,dataFormatada).success(function (data) {
           for (var j = 0; j < data.length; j++) {
             faseTerminadas.push(data[j].id_exercicio);
-           
-            
+              
            
           
           }
@@ -122,7 +135,8 @@ angular
       buscaTreinosFeito();
       var exerciciosFase = function () {
         TreinoService.carregaExercicios(id).success(function (data) {
-          $scope.exercicios = data.content;
+          $scope.exercicios = data;
+
          
         });
       };
@@ -138,7 +152,7 @@ angular
       $scope.desabilita = function (valor) {
         //   alert(faseTerminadas)
         var ProximaFase = faseTerminadas[faseTerminadas.length - 1];
-        console.log(ProximaFase)
+        
         if (
           (valor === 1 && faseTerminadas.indexOf(valor) === -1) ||
           (valor === primeirafase && faseTerminadas.indexOf(valor) === -1) ||
@@ -177,8 +191,9 @@ angular
           $location.path('/login');
         }
       });
-      };
-   
+    }
+  
+  
       var atualizaIdusuarioTreino = function () {
         let fase_check = $routeParams;
        // console.log('atualizaIdUsuario' + fase_check);
@@ -194,6 +209,8 @@ angular
              
   
       };
+
+      
       calculaDatafimFase();
         TreinoService.atualizaIdusuarioTreino(dadosTreino).success(function (
           data
@@ -215,14 +232,15 @@ angular
        // atualizaIdusuarioTreino;
         repeticaoExercicio++;
         delete_check++;
-     
+      
+               
         if(repeticaoExercicio ===3){
           carregaIdTreino();
           atualizaIdusuarioTreino();
           salvaDataFinalFase(idFase);
           atualizaFaseBanco(id);
-         
-        alert("salvando")
+          atualizapontosfeitos(IdUsuario);
+      
           }
 
         document.getElementById('p_cronometro').style.display = 'none';
@@ -235,7 +253,7 @@ angular
         }:${document.getElementById('timer_minutos').innerText}:${
           document.getElementById('timer_segundos').innerText
         }`;
-      //  alert(tempo_corrido);s
+       
 
         document.getElementById(
           'tempo'
@@ -341,6 +359,7 @@ angular
           });
         }
       };
+   //   
       var atualizData = function () {};
 
       var salvaTimeCronometro = function (parametroTempo) {
