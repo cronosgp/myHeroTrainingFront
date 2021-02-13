@@ -4,34 +4,31 @@ angular.module('myHeroTraining').factory('cadastroService', function ($http) {
 
     $http.defaults.headers.common.Authorization = 'Bearer ' + jwt;
     return $http.post(
-      'https://mhtrainingback.herokuapp.com/cadastro-usuario',
+      'http://localhost:8080/cadastro-usuario',
       model
     );
   };
   var email = function (email) {
-    return $http.post('https://mhtrainingback.herokuapp.com/email', email);
+    return $http.post('http://localhost:8080/email', email);
   };
   var usuario = function (model) {
-    return $http.post('https://mhtrainingback.herokuapp.com/usuario', model);
+    return $http.post('http://localhost:8080/usuario', model);
   };
   var confirmar = function (params) {
   
     return $http.post(
-      'https://mhtrainingback.herokuapp.com/confirm-account',
+      'http://localhost:8080/confirm-account',
       params
     );
   };
   var recuperar = function (email) {
  
-    return $http.post(
-      'https://mhtrainingback.herokuapp.com/forgot-password',
-      email
-    );
+    return $http.post(email);
   };
   var trocar = function (model) {
   
     return $http.post(
-      'https://mhtrainingback.herokuapp.com/confirm-reset',
+      'http://localhost:8080/confirm-reset',
       model
     );
   };

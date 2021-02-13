@@ -50,187 +50,13 @@
 
 /*  fim css aceitar amigos */
       
-.p-4 {
-    padding: 1.5rem!important;
-}
-.mb-0, .my-0 {
-    margin-bottom: 0!important;
-}
-.shadow-sm {
-    box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important;
-}    
-}
-/* user-dashboard-info-box */
-.user-dashboard-info-box .candidates-list .thumb {
-    margin-right: 20px;
-}
-.user-dashboard-info-box .candidates-list .thumb img {
-    width: 80px;
-    height: 80px;
-    -o-object-fit: cover;
-    object-fit: cover;
-    overflow: hidden;
-    border-radius: 50%;
-}
-
-.user-dashboard-info-box .title {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    padding: 30px 0;
-}
-
-.user-dashboard-info-box .candidates-list td {
-    vertical-align: middle;
-}
-
-.user-dashboard-info-box td li {
-    margin: 0 4px;
-}
-
-.user-dashboard-info-box .table thead th {
-    border-bottom: none;
-}
-
-.table.manage-candidates-top th {
-    border: 0;
-}
-
-.user-dashboard-info-box .candidate-list-favourite-time .candidate-list-favourite {
-    margin-bottom: 10px;
-}
-
-.table.manage-candidates-top {
-    min-width: 650px;
-}
-
-.user-dashboard-info-box .candidate-list-details ul {
-    color: #969696;
-}
-
-/* Candidate List */
-.candidate-list {
-    background: #ffffff;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    border-bottom: 1px solid #eeeeee;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    padding: 20px;
-    -webkit-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out;
-}
-.candidate-list:hover {
-    -webkit-box-shadow: 0px 0px 34px 4px rgba(33, 37, 41, 0.06);
-    box-shadow: 0px 0px 34px 4px rgba(33, 37, 41, 0.06);
-    position: relative;
-    z-index: 99;
-}
-.candidate-list:hover a.candidate-list-favourite {
-    color: #e74c3c;
-    -webkit-box-shadow: -1px 4px 10px 1px rgba(24, 111, 201, 0.1);
-    box-shadow: -1px 4px 10px 1px rgba(24, 111, 201, 0.1);
-}
-
-.candidate-list .candidate-list-image {
-    margin-right: 25px;
-    -webkit-box-flex: 0;
-    -ms-flex: 0 0 80px;
-    flex: 0 0 80px;
-    border: none;
-}
-.candidate-list .candidate-list-image img {
-    width: 80px;
-    height: 80px;
-    -o-object-fit: cover;
-    object-fit: cover;
-}
-
-.candidate-list-title {
-    margin-bottom: 5px;
-}
-
-.candidate-list-details ul {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    margin-bottom: 0px;
-}
-.candidate-list-details ul li {
-    margin: 5px 10px 5px 0px;
-    font-size: 13px;
-}
-
-.candidate-list .candidate-list-favourite-time {
-    margin-left: auto;
-    text-align: center;
-    font-size: 13px;
-    -webkit-box-flex: 0;
-    -ms-flex: 0 0 90px;
-    flex: 0 0 90px;
-}
-.candidate-list .candidate-list-favourite-time span {
-    display: block;
-    margin: 0 auto;
-}
-.candidate-list .candidate-list-favourite-time .candidate-list-favourite {
-    display: inline-block;
-    position: relative;
-    height: 40px;
-    width: 40px;
-    line-height: 40px;
-    border: 1px solid #eeeeee;
-    border-radius: 100%;
-    text-align: center;
-    -webkit-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out;
-    margin-bottom: 20px;
-    font-size: 16px;
-    color: #646f79;
-}
-.candidate-list .candidate-list-favourite-time .candidate-list-favourite:hover {
-    background: #ffffff;
-    color: #e74c3c;
-}
-
-.candidate-banner .candidate-list:hover {
-    position: inherit;
-    -webkit-box-shadow: inherit;
-    box-shadow: inherit;
-    z-index: inherit;
-}
-
-.bg-white {
-    background-color: #ffffff !important;
-}
-.p-4 {
-    padding: 1.5rem!important;
-}
-.mb-0, .my-0 {
-    margin-bottom: 0!important;
-}
-.shadow-sm {
-    box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important;
-}
-
-.user-dashboard-info-box .candidates-list .thumb {
-    margin-right: 20px;
-}
-
-
     </style>
 
     <!-- <script>
 
     </script> -->
-
+<br>
+<span>
 <header class="header">
     <div class="header__navbar"></div>
   </header>
@@ -242,13 +68,17 @@
         class="mb-2"
         src="https://d125fmws0bore1.cloudfront.net/assets/svgs/icon_trophy_leaderboard-3442a4b2312e6cdd02aa9870e636dc082890277a6267c4ed986a750fef7cbb35.svg"
       /> -->
-      <h2>Amigos</h2>
+    
+    
 
+     <!-- listar solicitações pendentes para usuario aceitar -->
+<h2>Solicitações de amizade</h2>
     <div class="container">
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-10">
           <div class="people-nearby">
-            <div class="nearby-user">
+
+            <div class="nearby-user" ng-repeat="usuario in usuarios">
               <div class="row">
                 <div class="col-md-2 col-sm-2">
                   <img
@@ -258,198 +88,22 @@
                   />
                 </div>
                 <div class="col-md-7 col-sm-7">
-                  <h5><a href="#" class="profile-link">Erika Garcia</a></h5>
-                  <p>erikagarcia@gmail.com</p>
+                  <h5><a href="#" class="profile-link">{{usuario.nome}}</a></h5>
+                  <p>{{usuario.email}}</p>
                   <p class="text-muted">500 pontos</p>
                 </div>
                 <div class="col-md-3 col-sm-3">
-                  <button class="btn btn-primary pull-right">Adicionar</button>
+                  <button class="btn btn-primary pull-right" ng-click="aceitarSolicitacao(usuario.id)">Aceitar</button>
+                  <button class="btn btn-danger pull-right" ng-click="recusarSolicitacao(usuario.id)">Recusar</button>
+                </div>
+              </div>
+            </div>
 
-                  
-                </div>
-              </div>
-            </div>
-            <div class="nearby-user">
-              <div class="row">
-                <div class="col-md-2 col-sm-2">
-                  <img
-                    src="https://bootdey.com/img/Content/avatar/avatar6.png"
-                    alt="user"
-                    class="profile-photo-lg"
-                  />
-                </div>
-                <div class="col-md-7 col-sm-7">
-                  <h5>
-                    <a href="#" class="profile-link">Natalia Nishimura</a>
-                  </h5>
-                  <p>natalianishumira@gmail.com</p>
-                  <p class="text-muted">800 pontos</p>
-                </div>
-                <div class="col-md-3 col-sm-3">
-                  <button class="btn btn-primary pull-right">Adicionar</button>
-                </div>
-              </div>
-            </div>
-            <div class="nearby-user">
-              <div class="row">
-                <div class="col-md-2 col-sm-2">
-                  <img
-                    src="https://bootdey.com/img/Content/avatar/avatar5.png"
-                    alt="user"
-                    class="profile-photo-lg"
-                  />
-                </div>
-                <div class="col-md-7 col-sm-7">
-                  <h5><a href="#" class="profile-link">Gabriel Gomes</a></h5>
-                  <p>gabrielgps@gmail.com</p>
-                  <p class="text-muted">200 pontos</p>
-                </div>
-                <div class="col-md-3 col-sm-3">
-                  <button class="btn btn-primary pull-right">Adicionar</button>
-                </div>
-              </div>
-            </div>
-            <div class="nearby-user">
-              <div class="row">
-                <div class="col-md-2 col-sm-2">
-                  <img
-                    src="https://bootdey.com/img/Content/avatar/avatar4.png"
-                    alt="user"
-                    class="profile-photo-lg"
-                  />
-                </div>
-                <div class="col-md-7 col-sm-7">
-                  <h5><a href="#" class="profile-link">Raphael Pita</a></h5>
-                  <p>raphael@email.com</p>
-                  <p class="text-muted">700 pontos</p>
-                </div>
-                <div class="col-md-3 col-sm-3">
-                  <button class="btn btn-primary pull-right">Adicionar</button>
-                </div>
-              </div>
-            </div>
-            <div class="nearby-user">
-              <div class="row">
-                <div class="col-md-2 col-sm-2">
-                  <img
-                    src="https://bootdey.com/img/Content/avatar/avatar3.png"
-                    alt="user"
-                    class="profile-photo-lg"
-                  />
-                </div>
-                <div class="col-md-7 col-sm-7">
-                  <h5><a href="#" class="profile-link">Larissa Carvalho</a></h5>
-                  <p>larissac@email.com</p>
-                  <p class="text-muted">130 pontos</p>
-                </div>
-                <div class="col-md-3 col-sm-3">
-                  <button class="btn btn-primary pull-right">Adicionar</button>
-                </div>
-              </div>
-            </div>
-            <div class="nearby-user">
-              <div class="row">
-                <div class="col-md-2 col-sm-2">
-                  <img
-                    src="https://bootdey.com/img/Content/avatar/avatar2.png"
-                    alt="user"
-                    class="profile-photo-lg"
-                  />
-                </div>
-                <div class="col-md-7 col-sm-7">
-                  <h5>
-                    <a href="#" class="profile-link">Batata Frita</a>
-                  </h5>
-                  <p>batata@email.com</p>
-                  <p class="text-muted">3040 pontos</p>
-                </div>
-                <div class="col-md-3 col-sm-3">
-                  <button class="btn btn-primary pull-right">Adicionar</button>
-                </div>
-              </div>
-            </div>
-            <div class="nearby-user">
-              <div class="row">
-                <div class="col-md-2 col-sm-2">
-                  <img
-                    src="https://bootdey.com/img/Content/avatar/avatar7.png"
-                    alt="user"
-                    class="profile-photo-lg"
-                  />
-                </div>
-                <div class="col-md-7 col-sm-7">
-                  <h5><a href="#" class="profile-link">Naruto Uzumaki</a></h5>
-                  <p>naruto@email.com</p>
-                  <p class="text-muted">200 pontos</p>
-                </div>
-                <div class="col-md-3 col-sm-3">
-                  <button class="btn btn-primary pull-right">Adicionar</button>
-                </div>
-              </div>
-            </div>
-            <div class="nearby-user">
-              <div class="row">
-                <div class="col-md-2 col-sm-2">
-                  <img
-                    src="https://bootdey.com/img/Content/avatar/avatar6.png"
-                    alt="user"
-                    class="profile-photo-lg"
-                  />
-                </div>
-                <div class="col-md-7 col-sm-7">
-                  <h5><a href="#" class="profile-link">Sasuke Uchiha</a></h5>
-                  <p>sasuke@email.com</p>
-                  <p class="text-muted">420 pontos</p>
-                </div>
-                <div class="col-md-3 col-sm-3">
-                  <button class="btn btn-primary pull-right">Adicionar</button>
-                </div>
-              </div>
-            </div>
-            <div class="nearby-user">
-              <div class="row">
-                <div class="col-md-2 col-sm-2">
-                  <img
-                    src="https://bootdey.com/img/Content/avatar/avatar1.png"
-                    alt="user"
-                    class="profile-photo-lg"
-                  />
-                </div>
-                <div class="col-md-7 col-sm-7">
-                  <h5><a href="#" class="profile-link">Sakura Haruno</a></h5>
-                  <p>sakura@email.com</p>
-                  <p class="text-muted">301 pontos</p>
-                </div>
-                <div class="col-md-3 col-sm-3">
-                  <button class="btn btn-primary pull-right">Adicionar</button>
-                </div>
-              </div>
-            </div>
-            <div class="nearby-user">
-              <div class="row">
-                <div class="col-md-2 col-sm-2">
-                  <img
-                    src="https://bootdey.com/img/Content/avatar/avatar7.png"
-                    alt="user"
-                    class="profile-photo-lg"
-                  />
-                </div>
-                <div class="col-md-7 col-sm-7">
-                  <h5><a href="#" class="profile-link">Madara Uchiha</a></h5>
-                  <p>madara@email.com</p>
-                  <p class="text-muted">10 pontos</p>
-                </div>
-                <div class="col-md-3 col-sm-3">
-                  <button class="btn btn-primary pull-right">Adicionar</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+
+
+
     <!-- SEGUNDA PAGINA AMIGOS-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA=" crossorigin="anonymous" />
+ <!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA=" crossorigin="anonymous" />
 
     <div class="container mt-3 mb-4">
 <div class="col-lg-9 mt-4 mt-lg-0">
@@ -489,10 +143,10 @@
                   <span class="candidate-list-time order-1">Amigo</span>
                 </td>
                 <td>
-                  <ul class="list-unstyled mb-0 d-flex justify-content-end">
+                  <ul class="list-unstyled mb-0 d-flex justify-content-end"> -->
                     <!-- <li><a href="#" class="text-primary" data-toggle="tooltip" title="" data-original-title="view"><i class="far fa-eye"></i></a></li>
                     <li><a href="#" class="text-info" data-toggle="tooltip" title="" data-original-title="Edit"><i class="fas fa-pencil-alt"></i></a></li> -->
-                    <li><a href="#" class="text-danger" data-toggle="tooltip" title="" data-original-title="Delete"><i class="far fa-trash-alt"></i></a></li>
+       <!--              <li><a href="#" class="text-danger" data-toggle="tooltip" title="" data-original-title="Delete"><i class="far fa-trash-alt"></i></a></li>
                   </ul>
                 </td>
               </tr>
@@ -637,7 +291,7 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
 
   </body>
 </html>
