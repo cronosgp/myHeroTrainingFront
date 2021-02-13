@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="pt-br" ng-app="myHeroTraining">
+<head>
+    <script src="">console.log('ola')</script>  <meta charset="UTF-8">
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <meta name="viewport" content="width=device-width">
+    <script src="./js/lib/angular.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <link href="./css/bootstrap.min.css"></link>
+    <script src="./js/main.js"></script>
+    <script src="./js/services/TreinoService.js"></script>
+    <script src="./js/services/homeService.js"></script>    
+    <script src="./js/services/cadastroUsuarioService.js"></script>
+    <script src="./js/services/loginService.js"></script>
+    <script src="./js/controllers/login-controller.js"></script>
+    <script src="./js/controllers/homeController.js"></script>
+    <script src="./js/controllers/TreinoController.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="./js/controllers/CadastroUsuarioController.js"></script>
+    <script src="./js/lib/angular-route.min.js"></script>
+    <link rel="stylesheet" href="./css/internacionalizacao.css">
+    <script src="./js/utilitarios/internacionalizacao.js"></script>
+
+    <link href="./css/homeEstilo.css"></link>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+            integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+            crossorigin="anonymous"></script>
+   
+            <script src="./js/angular-translate/dist/angular-translate.min.js"></script>
+             
+            
+            <script src="./js/angular-sanitize/angular-sanitize.min.js"></script>
+   
+    <script src="./js/angular-sanitize/angular-sanitize.min.js"></script>     
+   
+    <script src="./js/controllers/InterController.js"></script>
+    <script src="./js/controllers/recoverPassword.js"></script>
+   <script src="./js/controllers/confirmEmailController.js"></script>
+   <!-- <link href="./css/imgs.css"></link>-->
+   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> 
+   
+</head>
+<body>
+    <style>
+        body {
+          margin-top: 20px;
+          background: #fafafa;
+          font-family: 'Lato', Arial, sans-serif;
+          color: #989c9b;
+          }
+  
+        .people-nearby .google-maps {
+          background: #f8f8f8;
+          border-radius: 4px;
+          border: 1px solid #f1f2f2;
+          padding: 20px;
+          margin-bottom: 20px;
+        }
+  
+        .people-nearby .google-maps .map {
+          height: 300px;
+          width: 100%;
+          border: none;
+        }
+  
+        .people-nearby .nearby-user {
+          padding: 20px 0;
+          border-top: 1px solid #f1f2f2;
+          border-bottom: 1px solid #f1f2f2;
+          margin-bottom: 20px;
+        }
+  
+        img.profile-photo-lg {
+          height: 80px;
+          width: 80px;
+          border-radius: 50%;
+      }
+
+      img.share {
+          height: 40px;
+          width: 40px;
+      }
+  
+      .container{
+        margin: 5%;
+      }
+      .row .tabelas{
+        float: left;
+      }
+      /* .container > header {
+      margin: 0 auto;
+      padding: 1em;
+      text-align: center;
+  }
+  
+  .container > header h1 {
+    font-weight: 600;
+      font-size: 3em;
+      margin: 0;
+  } */
+  
+  /*  fim css aceitar amigos */
+        
+  .p-4 {
+      padding: 1.5rem!important;
+  }
+  .mb-0, .my-0 {
+      margin-bottom: 0!important;
+  }
+  .shadow-sm {
+      box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important;
+  }    
+  
+  /* user-dashboard-info-box */
+  .user-dashboard-info-box .candidates-list .thumb {
+      margin-right: 20px;
+  }
+  .user-dashboard-info-box .candidates-list .thumb img {
+      width: 80px;
+      height: 80px;
+      -o-object-fit: cover;
+      object-fit: cover;
+      overflow: hidden;
+      border-radius: 50%;
+  }
+  
+  .user-dashboard-info-box .title {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      padding: 30px 0;
+  }
+  
+  .user-dashboard-info-box .candidates-list td {
+      vertical-align: middle;
+  }
+  
+  .user-dashboard-info-box td li {
+      margin: 0 4px;
+  }
+  
+  .user-dashboard-info-box .table thead th {
+      border-bottom: none;
+  }
+  
+  .table.manage-candidates-top th {
+      border: 0;
+  }
+  
+  .user-dashboard-info-box .candidate-list-favourite-time .candidate-list-favourite {
+      margin-bottom: 10px;
+  }
+  
+  .table.manage-candidates-top {
+      min-width: 650px;
+  }
+  
+  .user-dashboard-info-box .candidate-list-details ul {
+      color: #969696;
+  }
+  
+  /* Candidate List */
+  .candidate-list {
+      background: #ffffff;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      border-bottom: 1px solid #eeeeee;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      padding: 20px;
+      -webkit-transition: all 0.3s ease-in-out;
+      transition: all 0.3s ease-in-out;
+  }
+  .candidate-list:hover {
+      -webkit-box-shadow: 0px 0px 34px 4px rgba(33, 37, 41, 0.06);
+      box-shadow: 0px 0px 34px 4px rgba(33, 37, 41, 0.06);
+      position: relative;
+      z-index: 99;
+  }
+  .candidate-list:hover a.candidate-list-favourite {
+      color: #e74c3c;
+      -webkit-box-shadow: -1px 4px 10px 1px rgba(24, 111, 201, 0.1);
+      box-shadow: -1px 4px 10px 1px rgba(24, 111, 201, 0.1);
+  }
+  
+  .candidate-list .candidate-list-image {
+      margin-right: 25px;
+      -webkit-box-flex: 0;
+      -ms-flex: 0 0 80px;
+      flex: 0 0 80px;
+      border: none;
+  }
+  .candidate-list .candidate-list-image img {
+      width: 80px;
+      height: 80px;
+      -o-object-fit: cover;
+      object-fit: cover;
+  }
+  
+  .candidate-list-title {
+      margin-bottom: 5px;
+  }
+  
+  .candidate-list-details ul {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+      margin-bottom: 0px;
+  }
+  .candidate-list-details ul li {
+      margin: 5px 10px 5px 0px;
+      font-size: 13px;
+  }
+  
+  .candidate-list .candidate-list-favourite-time {
+      margin-left: auto;
+      text-align: center;
+      font-size: 13px;
+      -webkit-box-flex: 0;
+      -ms-flex: 0 0 90px;
+      flex: 0 0 90px;
+  }
+  .candidate-list .candidate-list-favourite-time span {
+      display: block;
+      margin: 0 auto;
+  }
+  .candidate-list .candidate-list-favourite-time .candidate-list-favourite {
+      display: inline-block;
+      position: relative;
+      height: 40px;
+      width: 40px;
+      line-height: 40px;
+      border: 1px solid #eeeeee;
+      border-radius: 100%;
+      text-align: center;
+      -webkit-transition: all 0.3s ease-in-out;
+      transition: all 0.3s ease-in-out;
+      margin-bottom: 20px;
+      font-size: 16px;
+      color: #646f79;
+  }
+  .candidate-list .candidate-list-favourite-time .candidate-list-favourite:hover {
+      background: #ffffff;
+      color: #e74c3c;
+  }
+  
+  .candidate-banner .candidate-list:hover {
+      position: inherit;
+      -webkit-box-shadow: inherit;
+      box-shadow: inherit;
+      z-index: inherit;
+  }
+  
+  .bg-white {
+      background-color: #ffffff !important;
+  }
+  .p-4 {
+      padding: 1.5rem!important;
+  }
+  .mb-0, .my-0 {
+      margin-bottom: 0!important;
+  }
+  .shadow-sm {
+      box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important;
+  }
+  
+  .user-dashboard-info-box .candidates-list .thumb {
+      margin-right: 20px;
+  }
+  
+  table, th, td {
+  border: 1px solid black;
+  color: black;
+  padding: 0.5%;
+}
+      </style>
+<!--<header>
+    <nav class="navbar navbar-expand navbar-light bg-light" style="background-color: #e3f2fd;"
+         ng-controller="HomeController">
+
+        <a href="#/principal" class="navbar-brand " ng-show="exibirSemLogin()" title="home">
+            <img src="./imagem/logo.png"> MyHeroTraining
+
+        </a>
+        <a href="#/home" class="navbar-brand" ng-show="exibircomLogin()" title="home">MyHeroTraining
+            <img src="./imagem/logo.png">
+
+        </a>
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto" ng-show="exibirSemLogin()">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#/login">Login <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a translate="HEADER.MENU.REGISTER" class="nav-link" href="#/Cadastro">Cadastre-se <span class="sr-only">(current)</span></a>
+                </li>
+
+                <li class="nav-item active">
+                    <a translate="HEADER.MENU.EXERCICIOS" class="nav-link" href="#/descricaoTreino">Exercícios <span class="sr-only">(current)</span></a>
+                </li>
+
+                <li class="nav-item active">
+                    <a class="nav-link" href="#/Classificacao">Classificação <span class="sr-only">(current)</span></a>
+                </li>
+
+                <li class="nav-item active">
+                    <a class="nav-link" href="#/Amigos">Amigos <span class="sr-only">(current)</span></a>
+                </li>
+
+                <li class="nav-item active">
+                    <a class="nav-link" href="#/Desempenho">Desempenho<span class="sr-only">(current)</span></a>
+                </li>
+
+               
+            </ul>
+
+            <div class="collapse navbar-collapse" ng-show="exibircomLogin()">
+                <ul class="navbar-nav mr-auto">
+                    <!--li class="nav-item active">
+                        <a class="nav-link" href="">Bem vindo! <span class="sr-only">(current)</span></a>
+                    </li-->
+ <!--               </ul>
+              
+                
+                <div class="dropdown" ng-controller="PageCtrl">
+                    <button class="btn btn-secondary dropdown-toggle" type="button"
+                        id="dropdownMenuButton" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">Selecione o
+                        Idioma</button>
+                        <div id="google_translate_element"></div>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="combobox_idioma" >
+                        <a href="javascript:trocarIdioma('pt')" class="dropdown-item">Português</a>
+                        <a href="javascript:trocarIdioma('es')" class="dropdown-item">Espanhol</a>
+                        <a href="javascript:trocarIdioma('en')" class="dropdown-item">Inglês</a>
+                        <a href="javascript:trocarIdioma('fr')" class="dropdown-item">Francês</a>
+                   
+                    </div>
+                    
+                 </div>
+                         
+                <button translate="HEADER.MENU.SAIR"  id="sair" class="btn btn-dark my-2 my-sm-0" ng-click="logout()" type="submit" ng-show="exibircomLogin()">
+                    Sair
+                </button>
+                </span>
+            </div>
+        </div>
+    </nav>
+
+    <style>
+        .nav-link {
+            color: #3c3c3c;
+        }
+    </style>
+
+    <ul class="nav nav-tabs" ng-controller="HomeController" ng-show="exibircomLogin()">
+        <li class="nav-item">
+            <a translate="HEADER.MENU.SEUSTREINOS"class="nav-link active"  href="#/home">Treinos Para você</a>
+        </li>
+        <li class="nav-item">
+
+            <a translate="HEADER.MENU.MEUSDADOS" class="nav-link" href="#/dados_login">Meus Dados</a>
+        </li>
+
+        <!--li class="nav-item">
+            <a class="nav-link" href="#">Desempenho</a>
+        </li-->
+
+ <!--   </ul>
+
+   <!-- <ul class="nav nav-tabs" ng-controller="HomeController" ng-show="exibirSemLogin()">
+        <li class="nav-item">
+            <a class="nav-link active" href="#/principal">Treinos Para você</a>
+        </li>
+
+    </ul>-->
+<!--</header>-->
+
+<div id="wrapper-9cd199b9cc5410cd3b1ad21cab2e54d3" class="container" align="center">
+    <div class="row">
+        <div class="col">
+            <div id="map-9cd199b9cc5410cd3b1ad21cab2e54d3"></div><script>(function () {
+            var setting = {"height":400,"width":550,"zoom":17,"queryString":"Metrô Armênia - Rua Pedro Vicente - Luz, São Paulo - SP, Brasil","place_id":"ChIJ0RAyA4tYzpQRvCV7h69StWg","satellite":false,"centerCoord":[-23.525497206913332,-46.62924345],"cid":"0x68b552af877b25bc","lang":"pt","cityUrl":"/brazil/sao-paulo","cityAnchorText":"","id":"map-9cd199b9cc5410cd3b1ad21cab2e54d3","embed_id":"381813"};
+            var d = document;
+            var s = d.createElement('script');
+            s.src = 'https://1map.com/js/script-for-user.js?embed_id=381813';
+            s.async = true;
+            s.onload = function (e) {
+            window.OneMap.initMap(setting)
+            };
+            var to = d.getElementsByTagName('script')[0];
+            to.parentNode.insertBefore(s, to);
+        })();</script><a href="https://1map.com/pt/map-embed">1 Map</a>
+        </div>
+    
+        <div class="col">
+            <button type="button" class="btn btn-primary btn-lg btn-dark">Começar caminhada!</button>
+        </br>
+        </br>
+            <p><b>Tempo:</b> 00:54:25</p>
+        </br>
+            <p><b>Quilometragem:</b> 0.8 KM</p>
+        </div>
+    </div>  
+</div>
+
+
+<div class="container" align="center">
+    <h3>Histórico de caminhada:</h3>
+    <div class="row tabelas">
+      <table style="width:40%" align="center" class="table manage-candidates-top mb-0">
+        <tr>
+          <th>Data</th>
+          <th>Quilometragem</th>
+          <th>Tempo gasto</th>
+          <th>Pontos</th>
+        </tr>
+        <tr>
+          <td>05/09/2020</td>
+          <td>0.5 KM</td>
+          <td>00:50:26</td>
+          <td>10</td>
+        </tr>
+        <tr>
+          <td>07/09/2020</td>
+          <td>0.8 KM</td>
+          <td>00:59:15</td>
+          <td>10</td>
+        </tr>
+        <tr>
+          <td>10/09/2020</td>
+          <td>1.5 KM</td>
+          <td>01:26:08</td>
+          <td>10</td>
+        </tr>
+        <tr>
+          <td>14/09/2020</td>
+          <td>0.8 KM</td>
+          <td>00:58:25</td>
+          <td>10</td>
+        </tr>
+        <tr>
+          <td>19/09/2020</td>
+          <td>0.9 KM</td>
+          <td>01:02:45</td>
+          <td>10</td>
+        </tr>
+      </table>
+    </div>
+    <div class="text-center mt-3 mt-sm-3" align="center">
+      <ul class="pagination justify-content-center mb-0">
+        <li class="page-item disabled"> <span class="page-link">Prev</span> </li>
+        <li class="page-item active" aria-current="page"><span class="page-link">1 </span> <span class="sr-only">(current)</span></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"> <a class="page-link" href="#">Next</a> </li>
+      </ul>
+    </div>
+  </div>
+  
+
+<ng-view>
+</ng-view>
+</body>
+</html>
