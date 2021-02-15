@@ -52,6 +52,14 @@ angular
 
         });
        }
+       var apagaTreino = function(){
+        //pegar Id aqui 
+        TreinoPersonalizadoService.apaga().success(function(data)
+        {
+          
+        });
+
+       }
        carregaTreino();
      
     });
