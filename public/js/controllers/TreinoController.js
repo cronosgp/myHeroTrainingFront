@@ -334,4 +334,6 @@ angular
     exerciciosFase();
     fasesTreinos();
     carregaDdos();
+
+    
   });

@@ -365,6 +365,7 @@ angular
     });
     $routeProvider.when("/treino-personalizado/", {
       templateUrl: "./view/TreinoPersonalizado.html",
+      controller: "treinoPersonalizadoController",
     });
     var lenguage = "pt-BR";
     var lenguage_n = navigator.language || navigator.userLanguage;

@@ -96,4 +96,6 @@ angular
       url:
         'https://i.pinimg.com/236x/ba/87/5d/ba875dc13ef3651e4f08237d07f8ea45.jpg',
     };
+
+  
   });
