@@ -1,42 +1,42 @@
 angular
   .module('myHeroTraining')
-  .controller('HomeController', function (
-    $scope,
-    $http,
-    myHeroTraining,
-    $location
-  ) {
-    $scope.model = {};
+  .controller(
+    'HomeController',
+    function ($scope, $http, myHeroTraining, $location) {
+      $scope.model = {};
 
-    $scope.exibirSemLogin = function () {
-      if (localStorage.getItem('Bearer') == null) {
-        return true;
-      } else {
-        return false;
-      }
-    };
-    $scope.exibircomLogin = function () {
-      if (localStorage.getItem('Bearer') !== null) {
-        return true;
-      } else {
-        return false;
-      }
-    };
-    var carrega = function () {
-      myHeroTraining.carregarTreinos().success(function (data) {
-      //  carregaObjetos = data;
-      
-           $scope.treinos = data;
-       /* refresh();
+      $scope.exibirSemLogin = function () {
+        if (localStorage.getItem('Bearer') == null) {
+          return true;
+        } else {
+          return false;
+        }
+      };
+      $scope.exibircomLogin = function () {
+        if (localStorage.getItem('Bearer') !== null) {
+          return true;
+        } else {
+          return false;
+        }
+      };
+      var carrega = function () {
+        myHeroTraining
+          .carregarTreinos()
+          .success(function (data) {
+            //  carregaObjetos = data;
+
+            $scope.treinos = data;
+            /* refresh();
         carregaTempoTreino = carregaObjetos[0].treino;
         carregaTempo(carregaTempoTreino, data);*/
-      }).error(function(data){
-        if(data.status === 403){
-          $location.path('/login');
-        }
-      });
-    };
- /*   let objComposto = [];
+          })
+          .error(function (data) {
+            if (data.status === 403) {
+              $location.path('/login');
+            }
+          });
+      };
+      /*   let objComposto = [];
     function carregaTempo(carregaTempoTreino, data2) {
       for (let j = 0; j <= 1; j++) {
         let index = j + 1;
@@ -78,22 +78,23 @@ angular
       }
     }*/
 
-    $scope.logout = function () {
-      localStorage.clear();
-      sessionStorage.clear();
-      $location.path('/login');
-    };
-    function refresh() {
-      setTimeout(function () {
-        //location.reload();
-        //console.log('aguardadno');
-      }, 1000);
-    }
+      $scope.logout = function () {
+        localStorage.clear();
+        sessionStorage.clear();
+        $location.path('/login');
+      };
+      function refresh() {
+        setTimeout(function () {
+          //location.reload();
+          //console.log('aguardadno');
+        }, 1000);
+      }
 
-    carrega();
-    //getTimeCronometro();
-    $scope.fotoPrincipal = {
-      url:
-        'https://i.pinimg.com/236x/ba/87/5d/ba875dc13ef3651e4f08237d07f8ea45.jpg',
-    };
-  });
+      carrega();
+      //getTimeCronometro();
+      $scope.fotoPrincipal = {
+        url:
+          'https://i.pinimg.com/236x/ba/87/5d/ba875dc13ef3651e4f08237d07f8ea45.jpg',
+      };
+    }
+  );

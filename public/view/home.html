@@ -10,11 +10,16 @@
         margin-top: 22px;
         justify-content: center;
     }
+    #teste{
+        width: 100%;
+        height: 100%;
+        border-radius: 4%;
+    }
 </style>
 
 <div class="container">
-    <div class="card-deck" id="teste">
-        <div class="card"  ng-repeat="treino in treinos">
+    <div class="card-deck" id="teste" >
+        <div class="card"  ng-repeat="treino in treinos" >
             <img src="{{treino.url}}" class="card-img-top" alt="" height="300" width="180">
             <div class="card-body" >
                 <h2 class="card-text">{{treino.descricao}}</h2>
@@ -25,8 +30,7 @@
                     <div class="btn-group">
                         <a class="btn btn-sm btn-outline-success" ng-model="inicio" type="button"
                            href="#/treinos/{{treino.id}}" translate="HEADER.HOME.INICIAR">Iniciar</a>
-                        <a class="btn btn-sm btn-outline-warning"   ng-model="inicio" type="button"
-                           href="#/descricaoTreino" translate="HEADER.HOME.VER" >Ver</a>
+                        
                          
                     </div>
                     <small class="text-muted" id="" ><span translate="HEADER.HOME.TEMPOESTIMADO">Tempo estimado:</span> {{treino.horas}}</small>
@@ -39,7 +43,6 @@
         </div-->
     </div>
 </div>
-
 </div>
 
 

@@ -1,10 +1,9 @@
 angular.module('myHeroTraining').factory('myHeroTraining', function ($http) {
- 
   var carregaTreinos = function (id) {
     var jwt = localStorage.getItem('Bearer');
 
     $http.defaults.headers.common.Authorization = 'Bearer ' + jwt;
-    return $http.get('http://localhost:8080/treinos', {
+    return $http.get('https://mhtrainingback.herokuapp.com/treinos', {
       params: {
         id: id,
       },
@@ -15,7 +14,7 @@ angular.module('myHeroTraining').factory('myHeroTraining', function ($http) {
     var jwt = localStorage.getItem('Bearer');
 
     $http.defaults.headers.common.Authorization = 'Bearer ' + jwt;
-    return $http.get('http://localhost:8080/tempo', {
+    return $http.get('https://mhtrainingback.herokuapp.com/tempo', {
       params: {
         id_usuario: id_usuario,
         id_fase: id_fase,

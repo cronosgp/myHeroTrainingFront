@@ -21,18 +21,13 @@
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="BRANCH:origin/Amizade" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:origin/master" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="21aaf686-8e7d-49d5-a8c2-3755bfd887bd" name="Default Changelist" comment="teste">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/controllers/CadastroUsuarioController.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/controllers/CadastroUsuarioController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/view/Avatar.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/view/Avatar.html" afterDir="false" />
+    <list default="true" id="21aaf686-8e7d-49d5-a8c2-3755bfd887bd" name="Default Changelist" comment="run local only">
+      <change beforePath="$PROJECT_DIR$/public/view/MeusAmigos.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/view/MeusAmigos.html" afterDir="false" />
     </list>
     <list id="e90f9fbb-b761-4603-bcda-52c19b70bea4" name="Revert &quot;Initial commit&quot;" comment="Revert &quot;Initial commit&quot;&#10;&#10;This reverts commit 82f0f341" />
     <option name="SHOW_DIALOG" value="false" />
@@ -54,7 +49,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="Amizade" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -115,7 +110,10 @@
       <workItem from="1603242102924" duration="2365000" />
       <workItem from="1603371389610" duration="152000" />
       <workItem from="1610931859887" duration="4552000" />
-      <workItem from="1611022695623" duration="8458000" />
+      <workItem from="1611022695623" duration="26516000" />
+      <workItem from="1612461298841" duration="579000" />
+      <workItem from="1612790814652" duration="119000" />
+      <workItem from="1612900599345" duration="1579000" />
     </task>
     <task id="LOCAL-00001" summary="teste">
       <created>1601944176667</created>
@@ -138,7 +136,21 @@
       <option name="project" value="LOCAL" />
       <updated>1603144083792</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="run local only">
+      <created>1611101064624</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1611101064624</updated>
+    </task>
+    <task id="LOCAL-00005" summary="run local only">
+      <created>1612418720642</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1612418720643</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -155,7 +167,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/Amizade" />
+                        <option value="origin/master" />
                       </list>
                     </value>
                   </entry>
@@ -171,34 +183,59 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="teste" />
-    <option name="LAST_COMMIT_MESSAGE" value="teste" />
+    <MESSAGE value="run local only" />
+    <option name="LAST_COMMIT_MESSAGE" value="run local only" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="184" y="112" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1613078285021">
+    <state x="100" y="100" width="1240" height="700" key="DiffContextDialog" timestamp="1603131684847">
+      <screen x="0" y="23" width="1440" height="828" />
+    </state>
+    <state x="100" y="100" width="1240" height="700" key="DiffContextDialog/0.23.1440.828@0.23.1440.828" timestamp="1603131684847" />
+    <state width="1398" height="245" key="GridCell.Tab.0.bottom" timestamp="1603144101197">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="184" y="112" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900@0.0.1440.900" timestamp="1613078285021" />
+    <state width="1398" height="245" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1603144101197" />
+    <state width="1398" height="245" key="GridCell.Tab.0.center" timestamp="1603144101195">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="245" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1603144101195" />
+    <state width="1398" height="245" key="GridCell.Tab.0.left" timestamp="1603144101194">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="245" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1603144101194" />
+    <state width="1398" height="245" key="GridCell.Tab.0.right" timestamp="1603144101196">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="245" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1603144101196" />
+    <state x="144" y="79" key="MergeDialog" timestamp="1612418673318">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="144" y="79" key="MergeDialog/0.0.1440.900@0.0.1440.900" timestamp="1612418673318" />
     <state x="221" y="89" key="SettingsEditor" timestamp="1611022306722">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="221" y="89" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1611022306722" />
-    <state x="518" y="371" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1613075757546">
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1612418849016">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="518" y="371" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1440.900@0.0.1440.900" timestamp="1613075757546" />
-    <state x="418" y="205" width="686" height="490" key="find.popup" timestamp="1611071073722">
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1612418849016" />
+    <state x="518" y="371" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1612418684436">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="418" y="205" width="686" height="490" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1611071073722" />
-    <state x="473" y="170" key="git4idea.branch.GitSmartOperationDialog" timestamp="1613075851379">
+    <state x="518" y="371" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1440.900@0.0.1440.900" timestamp="1612418684436" />
+    <state x="418" y="205" width="686" height="490" key="find.popup" timestamp="1611107028757">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="473" y="170" key="git4idea.branch.GitSmartOperationDialog/0.0.1440.900@0.0.1440.900" timestamp="1613075851379" />
-    <state x="88" y="98" width="1289" height="674" key="new project wizard" timestamp="1611068048638">
+    <state x="418" y="205" width="686" height="490" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1611107028757" />
+    <state x="88" y="98" width="1289" height="674" key="new project wizard" timestamp="1611242033310">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="88" y="98" key="new project wizard/0.0.1440.900@0.0.1440.900" timestamp="1611068048638" />
+    <state x="88" y="98" key="new project wizard/0.0.1440.900@0.0.1440.900" timestamp="1611242033310" />
     <state x="88" y="113" width="1289" height="674" key="new project wizard/0.23.1440.828@0.23.1440.828" timestamp="1611022132225" />
     <state x="88" y="113" key="new project wizard/0.23.1440.830@0.23.1440.830" timestamp="1611022985118" />
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1603242138076">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1603242138076" />
   </component>
 </project>

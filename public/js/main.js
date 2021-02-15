@@ -351,10 +351,11 @@ angular
     });
     $routeProvider.when("/solicitacoes/", {
       templateUrl: "./view/Solicitacoes.html",
-      controller: "AmigosController",
+      controller: "SolicitacoesController"
     });
     $routeProvider.when("/amigos/", {
       templateUrl: "./view/MeusAmigos.html",
+      controller: "AmigosController"
     });
     $routeProvider.when("/adicionar-amigos/", {
       templateUrl: "./view/AdicionarAmigos.html",

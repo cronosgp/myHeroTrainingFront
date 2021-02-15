@@ -1,39 +1,61 @@
 <style>
-    #cardInicioTreino {
-        margin: auto;
-        padding-top: 2px;
-    }
+  #cardInicioTreino {
+    margin: auto;
+    padding-top: 2px;
+  }
 
-    #img-top {
-        width: 100%;
-        height: 100%;
-    }
+  #img-top {
+    width: 100%;
+    height: 100%;
+  }
 
-    #card {
-        margin-top: 12px;
-    }
+  #card {
+    margin-top: 12px;
+  }
 </style>
 <div class="container">
-    <div class="row" id="card">
-        <div class="card mb-3 col-sm-8 " id="cardInicioTreino" ng-repeat="treino in treinos">
-            <img src="{{treino.url}}" ng-model="objeto" class="card-img-top" alt="..." id="img-top">
-            <div class="card-body">
-                <div class="card-body">
-                    <table class="table">
-                        <tbody>
-                        <tr ng-repeat="fase in fases">
-                            <td>
-                                <button type="button" class=" btn btn-link" ng-disabled="desabilita({{fase.id}})"><a
-                                        href="#/treino/inicio/{{fase.id}}" ng-click="TreinoId()">{{fase.nome}} </a>
-                                </button>
-                            </td>
-                            <td><input type="checkbox" class="form-check-input" ng-disabled="desabilita({{fase.id}})"
-                                       ng-checked="item({{fase.id}})"></td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+  <div class="row" id="card">
+    <div
+      class="card mb-3 col-sm-8"
+      id="cardInicioTreino"
+      ng-repeat="treino in treinos"
+    >
+      <img
+        src="./imagem/home2.jpg"
+        ng-model="objeto"
+        class="card-img-top"
+        alt="..."
+        id="img-top"
+      />
+      <div class="card-body">
+        <div class="card-body">
+          <table class="table">
+            <tbody>
+              <tr ng-repeat="fase in fases">
+                <td>
+                  <button
+                    type="button"
+                    class="btn btn-link"
+                    ng-disabled="desabilita({{fase.id}})"
+                  >
+                    <a href="#/treino/inicio/{{fase.id}}" ng-click="TreinoId()"
+                      >{{fase.nome}}
+                    </a>
+                  </button>
+                </td>
+                <td>
+                  <input
+                    type="checkbox"
+                    class="form-check-input"
+                    ng-disabled="desabilita({{fase.id}})"
+                    ng-checked="item({{fase.id}})"
+                  />
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
+      </div>
     </div>
+  </div>
 </div>
