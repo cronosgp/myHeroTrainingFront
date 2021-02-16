@@ -256,9 +256,8 @@
         <div class="col-md-7 col-sm-7">
           <h5><a href="#" class="profile-link">Joana</a></h5>
           <p><b>joana@email.com</b></p>
-          <p><b>Sua pontuação: </b>500 pontos</p>
+          <p ><b>Sua pontuação: </b>500 pontos</p>
           <p><b>Data de início: </b>13/02/2020</p>
-          <p>
             <b>Compartilhar: </b>
             <a href="https://twitter.com/">
               <img
@@ -280,21 +279,21 @@
     </div>
 
     <div class="container" align="center">
-      <h3>Selecione a data que deseja ver:</h3>
+      <h3>Selecione a data que deseja pesquisar:</h3>
       <div align="center">
         <form>
           <label>Inicio:</label>
-          <input type="date" id="dt_inicio" name="inicio" />
-          <input type="submit" />
+          <input type="date" required id="dt_inicio" name="inicio" ng-model="model.dt"/>
+          <!--input type="submit" /-->
 
           <label>Fim:</label>
-          <input type="date" id="dt_fim" name="fim" />
-          <input type="submit" />
+          <input type="date" required id="dt_fim" name="fim" ng-model="model.df"/>
+          <input type="submit" ng-click="busca()" />
         </form>
       </div>
     </div>
 
-    <ul class="nav nav-tabs" id="myTab">
+    <ul class="nav nav-tabs" id="myTab" ng-if="exibir()">
       <li class="nav-item">
         <a class="nav-link" data-target="#pontuacao" data-toggle="tab"
           >Histórico de pontuação</a

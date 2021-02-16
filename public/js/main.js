@@ -369,6 +369,7 @@ angular
     });
     $routeProvider.when("/desempenho/", {
       templateUrl: "./view/Desempenho.html",
+      controller: "desempenhoController",
     });
     $routeProvider.when("/caminhada/", {
       templateUrl: "./view/caminhada.html",
