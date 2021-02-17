@@ -2,7 +2,7 @@
   <body>
     <style>
       body {
-        margin-top: 20px;
+        margin-top: 0;
         background: #fafafa;
         font-family: "Lato", Arial, sans-serif;
         color: #989c9b;
@@ -13,7 +13,7 @@
         border-radius: 4px;
         border: 1px solid #f1f2f2;
         padding: 20px;
-        margin-bottom: 20px;
+        margin-bottom: 0px;
       }
 
       .people-nearby .google-maps .map {
@@ -26,7 +26,7 @@
         padding: 20px 0;
         border-top: 1px solid #f1f2f2;
         border-bottom: 1px solid #f1f2f2;
-        margin-bottom: 20px;
+        margin-bottom: 0px;
       }
 
       img.profile-photo-lg {
@@ -253,11 +253,11 @@
           alt="user"
           class="profile-photo-lg"
         />
-        <div class="col-md-7 col-sm-7">
-          <h5><a href="#" class="profile-link">Joana</a></h5>
-          <p><b>joana@email.com</b></p>
-          <p ><b>Sua pontuação: </b>500 pontos</p>
-          <p><b>Data de início: </b>13/02/2020</p>
+        <div class="col-md-7 col-sm-7" ng-repeat="u in usu">
+          <h5><a href="#" class="profile-link">{{u.nome_}}</a></h5>
+          <p><b>{{u.email_}}</b></p>
+          <p ><b>Sua pontuação: </b>{{u.pontos_soma}}</p>
+          <!--p><b>Data de início: </b>13/02/2020</p-->
             <b>Compartilhar: </b>
             <a href="https://twitter.com/">
               <img
@@ -293,7 +293,7 @@
       </div>
     </div>
 
-    <ul class="nav nav-tabs" id="myTab" ng-if="exibir()">
+    <ul class="nav nav-tabs" id="myTab" ng-show="exibir()">
       <li class="nav-item">
         <a class="nav-link" data-target="#pontuacao" data-toggle="tab"
           >Histórico de pontuação</a
@@ -313,7 +313,7 @@
     </ul>
 
     <div class="tab-content">
-      <div class="tab-pane active" id="pontuacao">
+      <div class="tab-pane " id="pontuacao">
         <div class="row tabelas">
           <table
             style="width: 40%"
@@ -323,88 +323,15 @@
             <tr>
               <th>Data</th>
               <th>Pontos</th>
-              <th>Tipo</th>
+              
             </tr>
-            <tr>
-              <td>03/09/2020</td>
-              <td>10</td>
-              <td>Solo</td>
+            <tr ng-repeat="d in dados">
+              <td>{{d.datas}}</td>
+              <td>{{d.pontos_soma}}</td>
+              
+              
             </tr>
-            <tr>
-              <td>04/09/2020</td>
-              <td>10</td>
-              <td>Solo</td>
-            </tr>
-            <tr>
-              <td>06/09/2020</td>
-              <td>10</td>
-              <td>Compartilhado</td>
-            </tr>
-            <tr>
-              <td>10/09/2020</td>
-              <td>10</td>
-              <td>Compartilhado</td>
-            </tr>
-          </table>
-        </div>
-        <div class="text-center mt-3 mt-sm-3" align="center">
-          <ul class="pagination justify-content-center mb-0">
-            <li class="page-item disabled">
-              <span class="page-link">Prev</span>
-            </li>
-            <li class="page-item active" aria-current="page">
-              <span class="page-link">1 </span>
-              <span class="sr-only">(current)</span>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item"><a class="page-link" href="#">Next</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="tab-pane" id="exercicios">
-        <div class="row tabelas">
-          <table
-            style="width: 40%"
-            align="center"
-            class="table manage-candidates-top mb-0"
-          >
-            <tr>
-              <th>Data</th>
-              <th>Quilometragem</th>
-              <th>Tempo gasto</th>
-              <th>Pontos</th>
-            </tr>
-            <tr>
-              <td>05/09/2020</td>
-              <td>0.5 KM</td>
-              <td>00:50:26</td>
-              <td>10</td>
-            </tr>
-            <tr>
-              <td>07/09/2020</td>
-              <td>0.8 KM</td>
-              <td>00:59:15</td>
-              <td>10</td>
-            </tr>
-            <tr>
-              <td>10/09/2020</td>
-              <td>1.5 KM</td>
-              <td>01:26:08</td>
-              <td>10</td>
-            </tr>
-            <tr>
-              <td>14/09/2020</td>
-              <td>0.8 KM</td>
-              <td>00:58:25</td>
-              <td>10</td>
-            </tr>
-            <tr>
-              <td>19/09/2020</td>
-              <td>0.9 KM</td>
-              <td>01:02:45</td>
-              <td>10</td>
-            </tr>
+            
           </table>
         </div>
         <div class="text-center mt-3 mt-sm-3" align="center">
@@ -423,6 +350,43 @@
         </div>
       </div>
       <div class="tab-pane" id="caminhada">
+        <div class="row tabelas">
+          <table
+            style="width: 40%"
+            align="center"
+            class="table manage-candidates-top mb-0"
+          >
+            <tr>
+              <th>Data</th>
+              <th>Quilometragem</th>
+              <th>Tempo gasto</th>
+              <th>Pontos</th>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+        
+          </table>
+        </div>
+        <div class="text-center mt-3 mt-sm-3" align="center">
+          <ul class="pagination justify-content-center mb-0">
+            <li class="page-item disabled">
+              <span class="page-link">Prev</span>
+            </li>
+            <li class="page-item active" aria-current="page">
+              <span class="page-link">1 </span>
+              <span class="sr-only">(current)</span>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="tab-pane" id="exercicios">
         <div class="row">
           <table
             style="width: 40%"
@@ -430,47 +394,18 @@
             class="table manage-candidates-top mb-0"
           >
             <tr>
-              <th>Card</th>
+             
               <th>Exercício</th>
               <th>Data</th>
               <th>Pontos</th>
             </tr>
-            <tr>
-              <td>Funcional I</td>
-              <td>Agachamento com Elevação</td>
-              <td>05/09/2020</td>
-              <td>10</td>
+            <tr ng-repeat="d in dados">
+              <td>{{d.nome_}}</td>
+              <td>{{d.datas}}</td>
+              <td>{{d.pontos_soma}}</td>
+              
             </tr>
-            <tr>
-              <td>Funcional I</td>
-              <td>Agachamento com Rotação</td>
-              <td>06/09/2020</td>
-              <td>10</td>
-            </tr>
-            <tr>
-              <td>Funcional I</td>
-              <td>Infra com Elevação</td>
-              <td>07/09/2020</td>
-              <td>10</td>
-            </tr>
-            <tr>
-              <td>Funcional II</td>
-              <td>Abdominal Remador</td>
-              <td>08/09/2020</td>
-              <td>10</td>
-            </tr>
-            <tr>
-              <td>Funcional II</td>
-              <td>Abdominal</td>
-              <td>09/09/2020</td>
-              <td>10</td>
-            </tr>
-            <tr>
-              <td>Funcional II</td>
-              <td>Prancha</td>
-              <td>10/09/2020</td>
-              <td>10</td>
-            </tr>
+           
           </table>
         </div>
         <div class="text-center mt-3 mt-sm-3" align="center">

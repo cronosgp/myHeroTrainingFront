@@ -1,9 +1,9 @@
 angular.module('myHeroTraining').factory('desempenhoService', function ($http) {
     var busca = function (id, data, dataf) {
-   //  var jwt = localStorage.getItem('Bearer');
+     var jwt = localStorage.getItem('Bearer');
   
-   //   $http.defaults.headers.common.Authorization = 'Bearer ' + jwt;
-      return $http.get('http://localhost:8080/desempenho', {
+     $http.defaults.headers.common.Authorization = 'Bearer ' + jwt;
+      return $http.get('https://mhtrainingback.herokuapp.com/desempenho', {
         params: {
           id: id,
          d_ini : data ,
@@ -11,9 +11,22 @@ angular.module('myHeroTraining').factory('desempenhoService', function ($http) {
         },
       });
     };
+    var carregaDados = function(id){
+      var jwt = localStorage.getItem('Bearer');
+  
+      $http.defaults.headers.common.Authorization = 'Bearer ' + jwt;
+      return $http.get('https://mhtrainingback.herokuapp.com/dado', {
+        params: {
+          id: id,
+        
+    }
+  });
+}
        return {
         busca: busca,
-     
-    };
+        carregaDados : carregaDados
+      
+   
+      };
   });
   
