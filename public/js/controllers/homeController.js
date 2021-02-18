@@ -30,6 +30,9 @@ angular
         carregaTempoTreino = carregaObjetos[0].treino;
         carregaTempo(carregaTempoTreino, data);*/
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> desempenho_caminhada
           })
           .error(function (data) {
             if (data.status === 403) {
@@ -38,6 +41,7 @@ angular
           });
       };
       /*   let objComposto = [];
+<<<<<<< HEAD
 =======
       }).error(function(data){
         if(data.status === 403){
@@ -47,6 +51,8 @@ angular
     };
  /*   let objComposto = [];
 >>>>>>> TreinoPersonalizado
+=======
+>>>>>>> desempenho_caminhada
     function carregaTempo(carregaTempoTreino, data2) {
       for (let j = 0; j <= 1; j++) {
         let index = j + 1;

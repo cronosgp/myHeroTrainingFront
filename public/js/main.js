@@ -351,10 +351,11 @@ angular
     });
     $routeProvider.when("/solicitacoes/", {
       templateUrl: "./view/Solicitacoes.html",
-      controller: "AmigosController",
+      controller: "SolicitacoesController",
     });
     $routeProvider.when("/amigos/", {
       templateUrl: "./view/MeusAmigos.html",
+      controller: "AmigosController",
     });
     $routeProvider.when("/adicionar-amigos/", {
       templateUrl: "./view/AdicionarAmigos.html",
@@ -366,6 +367,13 @@ angular
     $routeProvider.when("/treino-personalizado/", {
       templateUrl: "./view/TreinoPersonalizado.html",
       controller: "treinoPersonalizadoController",
+    });
+    $routeProvider.when("/desempenho/", {
+      templateUrl: "./view/Desempenho.html",
+      controller: "desempenhoController",
+    });
+    $routeProvider.when("/caminhada/", {
+      templateUrl: "./view/caminhada.html",
     });
     var lenguage = "pt-BR";
     var lenguage_n = navigator.language || navigator.userLanguage;

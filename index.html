@@ -13,10 +13,17 @@
     <script src="./js/services/TreinoService.js"></script>
     <script src="./js/services/homeService.js"></script>    
     <script src="./js/services/cadastroUsuarioService.js"></script>
+<<<<<<< HEAD
     <script src="./js/services/TreinoPersonalizadoService.js"></script>
+=======
+    <script src="./js/services/desempenhoService.js"></script>
+    <script src="./js/controllers/desempenhoController.js"></script>
+>>>>>>> desempenho_caminhada
     <script src="./js/services/loginService.js"></script>
     <script src="./js/services/amigosService.js"></script>
     <script src="./js/controllers/AdicionarAmigosController.js"></script>
+    <script src="./js/controllers/AmigosController.js"></script>
+    <script src="./js/controllers/SolicitacoesController.js"></script>
     <script src="./js/controllers/login-controller.js"></script>
     <script src="./js/controllers/treinoPersonalizadoController.js"></script>
     <script src="./js/controllers/homeController.js"></script>
@@ -387,7 +394,7 @@ div.alpha-search > button {
 <header>
 
 
-    
+
     <!-- header normal -->
 
     <nav class="navbar navbar-expand navbar-light bg-light" style="background-color: #e3f2fd;"
@@ -442,7 +449,7 @@ div.alpha-search > button {
                     <a class="nav-link" href="#/MeusAmigos">Meus Amigos <span class="sr-only">(current)</span></a>
                 </li> -->
 
-               
+
             </ul>
 
             <div class="collapse navbar-collapse" ng-show="exibircomLogin()">
@@ -451,8 +458,8 @@ div.alpha-search > button {
                         <a class="nav-link" href="">Bem vindo! <span class="sr-only">(current)</span></a>
                     </li-->
                 </ul>
-              
-                
+
+
                 <div class="dropdown" ng-controller="PageCtrl">
                     <button class="btn btn-secondary dropdown-toggle" type="button"
                         id="dropdownMenuButton" data-toggle="dropdown"
@@ -464,42 +471,37 @@ div.alpha-search > button {
                         <a href="javascript:trocarIdioma('es')" class="dropdown-item">Espanhol</a>
                         <a href="javascript:trocarIdioma('en')" class="dropdown-item">Inglês</a>
                         <a href="javascript:trocarIdioma('fr')" class="dropdown-item">Francês</a>
-                   
+
                     </div>
-                    
+
                  </div>
 
                  <!-- aqui menu avatar -->
 <!-- <h1>teste</h1> -->
-<div class="avatar-menu" id="avatar-menu">
-    <div class="header-avatar" id="header-avatar"  
-         style="background-image: url(https://bootdey.com/img/Content/avatar/avatar7.png);"> 
+<div class="avatar-menu" id="avatar-menu" ng-show="exibircomLogin()">
+    <div class="header-avatar" id="header-avatar"
+         style="background-image: url(https://bootdey.com/img/Content/avatar/avatar7.png);">
         <span class="icon icon-caret-down"></span>
     </div>
     <div class="notification-bubble" id="notification-bubble"><span>9</span></div>
     <ul id="avatar-dropdownmenu">
-        <li><a href="#avatar"><span class="icon icon-user"></span> Avatar</a></li>
-        <li><a href="#"><span class="icon icon-user-tie"></span> Desempenho</a></li>
-        <li><a href="#amigos"><span class="icon icon-list"></span> Meus Amigos</a></li>
-        <li><a href="#solicitacoes"><span class="icon icon-club"></span> Solicitações</a></li>
-        <li><a href="#adicionar-amigos"><span class="icon icon-heart"></span> Adicionar Amigos</a></li>
+        <li><a href="#avatar"><span class="icon icon-user"></span>Avatar</a></li>
+        <li><a href="#desempenho"><span class="icon icon-user-tie"></span>Desempenho</a></li>
+        <li><a href="#amigos"><span class="icon icon-list"></span>Meus Amigos</a></li>
+        <li><a href="#solicitacoes"><span class="icon icon-club"></span>Solicitações</a></li>
+        <li><a href="#adicionar-amigos"><span class="icon icon-heart"></span>Adicionar Amigos</a></li>
         <li><a href="#classificacao"><span class="icon icon-users2"></span>Classificação</a></li>
-        <li><a href="#treino-personalizado/"><span class="icon icon-stopwatch"></span> Treino Personalizado</a></li>
-        <li><a href="#/descricaoTreino"><span class="icon icon-stopwatch"></span> Exercícios</a></li>
-        <li><a href="#"><span class="icon icon-exit"></span> Sign Out</a></li>
-
- 
-
+        <li><a href="#treino-personalizado/"><span class="icon icon-stopwatch"></span>Treino Personalizado</a></li>
+        <li><a href="#/descricaoTreino"><span class="icon icon-stopwatch"></span>Exercícios</a></li>
+        <li><a href="#/caminhada"><span class="icon icon-stopwatch"></span>Caminhada</a></li>
+        <li><a href="#/" ng-click="logout()" type="submit"><span class="icon icon-exit"></span>Sign Out</a></li>
     </ul>
 </div>
 <!-- <div class="alpha-search">
     <input type="text" placeholder="Search by Name, Bib, E-mail, etc.">
     <button type="submit" class="icon icon-search"></button>
 </div> -->
-                         
-                <button translate="HEADER.MENU.SAIR"  id="sair" class="btn btn-dark my-2 my-sm-0" ng-click="logout()" type="submit" ng-show="exibircomLogin()">
-                    Sair
-                </button>
+
                 </span>
             </div>
         </div>
@@ -520,16 +522,6 @@ div.alpha-search > button {
             <a translate="HEADER.MENU.MEUSDADOS" class="nav-link" href="#/dados_login">Meus Dados</a>
         </li>
 
-        <div class="dropdown">
-            <button class="dropbtn">Amizades
-                <i class="fa fa-caret-down"></i>
-            </button>
-            <div class="dropdown-content">
-                <a href="#/amigos">Meus Amigos</a>
-                <a href="#/solicitacoes">Solicitações</a>
-                <a href="#/adicionar-amigos">Adiconar Amigos</a>
-            </div>
-        </div>
 
         <!--li class="nav-item">
             <a class="nav-link" href="#">Desempenho</a>
