@@ -348,6 +348,7 @@ angular
     });
     $routeProvider.when("/classificacao/", {
       templateUrl: "./view/Classificacao.html",
+      controller: "classificacaoController"
     });
     $routeProvider.when("/solicitacoes/", {
       templateUrl: "./view/Solicitacoes.html",
