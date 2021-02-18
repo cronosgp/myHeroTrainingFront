@@ -22,7 +22,7 @@ angular
             'error'
           );
           $location.path('/login');
-        } else if (response.status == 401) {
+        } else if (response.status == 401 || response.status == 400) {
           swal(
             'Não autorizado!',
             'Seu usuario e/ou senha estão errados.',
@@ -38,6 +38,8 @@ angular
         }
       }
     };
+      
+  
     var id = sessionStorage.getItem('id');
     var carregaid = function (email) {
       loginService.dadosLogin(email).success(function (data) {
