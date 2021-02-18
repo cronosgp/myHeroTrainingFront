@@ -14,14 +14,42 @@ angular
         $scope.model={
           id: IdUsuario
         };
+
+        $scope.desabilita = function() {
+          var tamanhoteste = document.getElementById('teste').getElementsByTagName('tr').length;
+          var contador = 0;
+
+
+          for (var j = 0; j <tamanhoteste-1; j++) {
+             
+            //console.log(document.getElementById('teste').getElementsByTagName('tr')[j].getElementsByTagName('td')[0].getElementsByTagName('div')[0].getElementsByTagName('input')[0].checked == true)
+                  
+               if(document.getElementById('teste').getElementsByTagName('tr')[j].getElementsByTagName('td')[0].getElementsByTagName('div')[0].getElementsByTagName('input')[0].checked == false){
+                  contador++;
+
+              
+               }        
+                     
+          }
+          if(contador === tamanhoteste-1){
+            document.getElementById('btn').disabled=true;
+           }
+           else{
+            document.getElementById('btn').disabled=false;
+           }   
+         
+        }
+     
        $scope.salva = function(){            
                var tamanhoteste = document.getElementById('teste').getElementsByTagName('tr').length;
-               console.log(tamanhoteste);
-              for (var j = 0; j <tamanhoteste; j++) {
             
+              for (var j = 0; j <tamanhoteste-1; j++) {
+             
+                 
                if(document.getElementById('teste').getElementsByTagName('tr')[j].getElementsByTagName('td')[0].getElementsByTagName('div')[0].getElementsByTagName('input')[0].checked == true){
                var id = document.getElementById('teste').getElementsByTagName('tr')[j].getElementsByTagName('td')[0].getElementsByTagName('div')[0].getElementsByTagName('input')[0].id;
                 faseTerminadas.push(id);
+              
                }        
               }
 
@@ -40,7 +68,7 @@ angular
                 });
               };         
               swal('Treino salvo com sucesso!');
-              $location.path('/login');            
+              $location.path('/home');            
                     
             }
                  
@@ -52,14 +80,37 @@ angular
 
         });
        }
-       var apagaTreino = function(){
+        $scope.apagaTreino = function(){
         //pegar Id aqui 
-        TreinoPersonalizadoService.apaga().success(function(data)
+        TreinoPersonalizadoService.apaga(52).success(function(data)
         {
+          swal('Treino Apagado com sucesso!');
+          $location.path('/home');
           
-        });
+          
+        });      
 
        }
+       
+       $scope.teste = function(valor){
+          if(valor === true)
+
+          return true;
+       }
        carregaTreino();
-     
+
+     var carregaTreinoUsuario = function(){
+        TreinoPersonalizadoService.carregaTreinoUsuario(IdUsuario).success(function(data){
+          $scope.usu = data;
+        });
+
+     }
+
+     $scope.excluir = function(){
+
+      alert("Oi");
+     }
+
+
+      carregaTreinoUsuario();
     });
