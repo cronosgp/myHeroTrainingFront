@@ -1,0 +1,55 @@
+angular.module('myHeroTraining').factory('TreinoPersonalizadoService', function ($http) {
+       var salvar = function (dados) {
+  
+     var jwt = localStorage.getItem('Bearer');
+  
+      $http.defaults.headers.common.Authorization = 'Bearer ' + jwt;
+      return $http.post('https://mhtrainingback.herokuapp.com/treinoPersonalizado', dados)
+     
+    };
+
+    var carregaTreino = function(id){
+      var jwt = localStorage.getItem('Bearer');
+  
+      $http.defaults.headers.common.Authorization = 'Bearer ' + jwt;
+  
+        return $http.get('https://mhtrainingback.herokuapp.com/treinoPersonalizado', {
+            params: {
+              id: id              
+            },
+          });
+        }
+        
+     
+    var carregaTreinoUsuario = function(id){
+      var jwt = localStorage.getItem('Bearer');
+  
+      $http.defaults.headers.common.Authorization = 'Bearer ' + jwt;
+  
+      return $http.get('https://mhtrainingback.herokuapp.com/treinoPersonalizado/dadosUsuario', {
+          params: {
+            id: id              
+          },
+        });
+      }
+      var apaga = function(id){
+        var jwt = localStorage.getItem('Bearer');
+  
+      $http.defaults.headers.common.Authorization = 'Bearer ' + jwt;
+  
+        return $http.delete('https://mhtrainingback.herokuapp.com/treinoPersonalizado/apaga', {
+            params: {
+              id: id              
+            },
+          });
+        }   
+    return {
+    salvar: salvar,
+    carregaTreino: carregaTreino,
+    carregaTreinoUsuario : carregaTreinoUsuario,
+    apaga : apaga
+          };
+
+          
+  });
+  

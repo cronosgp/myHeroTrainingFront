@@ -29,6 +29,7 @@ angular
             /* refresh();
         carregaTempoTreino = carregaObjetos[0].treino;
         carregaTempo(carregaTempoTreino, data);*/
+<<<<<<< HEAD
           })
           .error(function (data) {
             if (data.status === 403) {
@@ -37,6 +38,15 @@ angular
           });
       };
       /*   let objComposto = [];
+=======
+      }).error(function(data){
+        if(data.status === 403){
+          $location.path('/login');
+        }
+      });
+    };
+ /*   let objComposto = [];
+>>>>>>> TreinoPersonalizado
     function carregaTempo(carregaTempoTreino, data2) {
       for (let j = 0; j <= 1; j++) {
         let index = j + 1;
@@ -90,6 +100,7 @@ angular
         }, 1000);
       }
 
+<<<<<<< HEAD
       carrega();
       //getTimeCronometro();
       $scope.fotoPrincipal = {
@@ -98,3 +109,14 @@ angular
       };
     }
   );
+=======
+    carrega();
+    //getTimeCronometro();
+    $scope.fotoPrincipal = {
+      url:
+        'https://i.pinimg.com/236x/ba/87/5d/ba875dc13ef3651e4f08237d07f8ea45.jpg',
+    };
+
+  
+  });
+>>>>>>> TreinoPersonalizado
