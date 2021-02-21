@@ -1,19 +1,19 @@
 angular.module('myHeroTraining').factory('TreinoPersonalizadoService', function ($http) {
        var salvar = function (dados) {
   
-     var jwt = localStorage.getItem('Bearer');
+   //  var jwt = localStorage.getItem('Bearer');
   
-      $http.defaults.headers.common.Authorization = 'Bearer ' + jwt;
-      return $http.post('https://mhtrainingback.herokuapp.com/treinoPersonalizado', dados)
+     // $http.defaults.headers.common.Authorization = 'Bearer ' + jwt;
+      return $http.post('http://localhost:8080/treinoPersonalizado', dados)
      
     };
 
     var carregaTreino = function(id){
-      var jwt = localStorage.getItem('Bearer');
+     // var jwt = localStorage.getItem('Bearer');
   
-      $http.defaults.headers.common.Authorization = 'Bearer ' + jwt;
+    //  $http.defaults.headers.common.Authorization = 'Bearer ' + jwt;
   
-        return $http.get('https://mhtrainingback.herokuapp.com/treinoPersonalizado', {
+        return $http.get('http://localhost:8080/treinoPersonalizado', {
             params: {
               id: id              
             },
@@ -22,22 +22,22 @@ angular.module('myHeroTraining').factory('TreinoPersonalizadoService', function 
         
      
     var carregaTreinoUsuario = function(id){
-      var jwt = localStorage.getItem('Bearer');
+   //   var jwt = localStorage.getItem('Bearer');
   
-      $http.defaults.headers.common.Authorization = 'Bearer ' + jwt;
+  //    $http.defaults.headers.common.Authorization = 'Bearer ' + jwt;
   
-      return $http.get('https://mhtrainingback.herokuapp.com/treinoPersonalizado/dadosUsuario', {
+      return $http.get('http://localhost:8080/treinoPersonalizado/dadosUsuario', {
           params: {
             id: id              
           },
         });
       }
       var apaga = function(id){
-        var jwt = localStorage.getItem('Bearer');
+    //    var jwt = localStorage.getItem('Bearer');
   
-      $http.defaults.headers.common.Authorization = 'Bearer ' + jwt;
+    //  $http.defaults.headers.common.Authorization = 'Bearer ' + jwt;
   
-        return $http.delete('https://mhtrainingback.herokuapp.com/treinoPersonalizado/apaga', {
+        return $http.delete('http://localhost:8080/treinoPersonalizado/apaga', {
             params: {
               id: id              
             },

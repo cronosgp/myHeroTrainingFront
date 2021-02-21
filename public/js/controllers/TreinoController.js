@@ -402,16 +402,8 @@ angular
           timer_segundos.innerHTML = s < 10 ? '0' + s : s;
           timer_decimo.innerHTML = d < 10 ? '0' + d : d;
 
-<<<<<<< HEAD
-    carrega();
-    exerciciosFase();
-    fasesTreinos();
-    carregaDdos();
 
-    
-  });
-=======
-          if (d < 9) {
+             if (d < 9) {
             d += 1;
           } else if (s < 59) {
             d = 0;
@@ -446,8 +438,11 @@ angular
       }
 
       carrega();
-      exerciciosFase();
-      fasesTreinos();
+    exerciciosFase();
+    fasesTreinos();
+    carregaDdos();
+
+
     }
   );
->>>>>>> treino_ano_front
+

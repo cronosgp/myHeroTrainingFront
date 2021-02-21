@@ -2,10 +2,11 @@ angular
   .module('myHeroTraining')
   .controller(
     'treinoPersonalizadoController',
+
+
     function ($scope, 
-      TreinoPersonalizadoService,
-      $location
-     ) {
+      TreinoPersonalizadoService, $location  ) 
+      {
 
       var valor=0;
       var faseTerminadas = [];
@@ -23,10 +24,9 @@ angular
           for (var j = 0; j <tamanhoteste-1; j++) {
              
             //console.log(document.getElementById('teste').getElementsByTagName('tr')[j].getElementsByTagName('td')[0].getElementsByTagName('div')[0].getElementsByTagName('input')[0].checked == true)
-                  
+                 
                if(document.getElementById('teste').getElementsByTagName('tr')[j].getElementsByTagName('td')[0].getElementsByTagName('div')[0].getElementsByTagName('input')[0].checked == false){
                   contador++;
-
               
                }        
                      
@@ -82,9 +82,9 @@ angular
        }
         $scope.apagaTreino = function(){
         //pegar Id aqui 
-        TreinoPersonalizadoService.apaga(52).success(function(data)
+        TreinoPersonalizadoService.apaga(IdUsuario).success(function(data)
         {
-          swal('Treino Apagado com sucesso!');
+          swal('Treino Excluido com sucesso!');
           $location.path('/home');
           
           
