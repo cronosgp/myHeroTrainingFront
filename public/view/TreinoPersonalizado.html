@@ -66,16 +66,15 @@
   
   <ul class="nav nav-tabs" id="myTab">
       <li class="nav-item">
-        <a class="nav-link active" data-target="#criar_treino" data-toggle="tab "
+        <a class="nav-link active" data-target="#criar_treino" data-toggle="tab" 
           >Criar Treino</a
         >
       </li>
       <li class="nav-item">
-        <a class="nav-link" data-target="#meu_treino" data-toggle="tab"
+        <a class="nav-link" data-target="#meu_treino" data-toggle="tab" 
           >Meu Treino</a
         >
       </li>
-      <li class="nav-item"></li>
     </ul>
 
     <div class="tab-content">
@@ -174,65 +173,66 @@
           </div>
         </div>
       </div>
-      </div>
+    </div>
       
       <div class="tab-pane" id="meu_treino">
         
-        <div
-        class="tab-pane fade active show"
-        id="inbox"
-        aria-labelledby="inbox-tab"
-        role="tabpanel"
-      >
-      
-      
-      <table
-      style="width: 60%"
-      align="center"
-      class="table manage-candidates-top mb-0"
-    >
-        <thead>
-            <th>Lista de Treinos Personalizados</th>
-            <!--th class="text-center">Editar</th-->
-            <th class="action text-right"ng-click="excluir()">Excluir</th>
-           
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="candidates-list">
-            <td class="title">
-              <div class="candidate-list-details">
-                <div class="candidate-list-info">
-                  <div class="candidate-list-title">
-                    <h5 class="mb-0"><a>Treino</a></h5>
-                  </div>
-                  <div class="candidate-list-option" ng-repeat="d in usu">
-                    <ul class="list-unstyled">
+          <div
+          class="tab-pane fade active show"
+          id="inbox"
+          aria-labelledby="inbox-tab"
+          role="tabpanel"
+        >
+        
+        
+        <table
+        style="width: 60%"
+        align="center"
+        class="table manage-candidates-top mb-0"
+        >
+          <thead>
+              <th>Lista de Treinos Personalizados</th>
+              <!--th class="text-center">Editar</th-->
+              <th class="action text-right"ng-click="excluir()">Excluir</th>
+            
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="candidates-list">
+              <td class="title">
+                <div class="candidate-list-details">
+                  <div class="candidate-list-info">
+                    <div class="candidate-list-title">
+                      <h5 class="mb-0"><a>Treino</a></h5>
+                    </div>
+                    <div class="candidate-list-option" ng-repeat="d in usu">
+                      <ul class="list-unstyled">
 
-                      <li><i class="fas fa-star"></i> {{d.nomeExercicio}}</li>
-                     
-                    </ul>
+                        <li><i class="fas fa-star"></i> {{d.nomeExercicio}}</li>
+                      
+                      </ul>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </td>
-            
-                  <!--td class="candidate-list-favourite-time text-center">
-              <a class="candidate-list-favourite order-2" data-toggle="modal" data-target="#modalEdit"><i class="fas fa-pencil-alt"></i></a>
-              <span class="candidate-list-time order-1"></span>
-            </td-->
-            <td>
-              <ul class="list-unstyled mb-0 d-flex justify-content-end">
-              <li><a  class="text-danger btn"ng-click="apagaTreino()" data-toggle="tooltip" title="" data-original-title="Delete"><i class="far fa-trash-alt"></i></a></li>
-              </ul>
-            </td>
-          </tr>
+              </td>
+              
+                    <!--td class="candidate-list-favourite-time text-center">
+                <a class="candidate-list-favourite order-2" data-toggle="modal" data-target="#modalEdit"><i class="fas fa-pencil-alt"></i></a>
+                <span class="candidate-list-time order-1"></span>
+              </td-->
+              <td>
+                <ul class="list-unstyled mb-0 d-flex justify-content-end">
+                <li><a  class="text-danger btn"ng-click="apagaTreino()" data-toggle="tooltip" title="" data-original-title="Delete"><i class="far fa-trash-alt"></i></a></li>
+                </ul>
+              </td>
+            </tr>
 
-        </tbody>
-      </table>
-      </div>
+          </tbody>
+        </table>
+        </div>
       </div>
     </div>
+
    
     <div class="modal fade" id="modalEdit" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
