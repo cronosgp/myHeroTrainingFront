@@ -79,7 +79,9 @@ angular
       }
     };
     var enviarEmail = function () {
-      cadastroService.email($scope.model.email).success(function (data) {});
+      cadastroService.email($scope.model.email).success(function (data) {
+        
+      });
     };
     var usuarioCadastro = function () {
       cadastroService.usuario($scope.model);
