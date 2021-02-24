@@ -280,7 +280,7 @@ angular
 
     $routeProvider.when("/home", {
       templateUrl: "./view/home.html",
-      controller: "HomeController",
+      controller: "IndexController",
     });
     $routeProvider.when("/principal", {
       templateUrl: "./view/Principal.html",
@@ -363,6 +363,8 @@ angular
     });
     $routeProvider.when("/avatar/", {
       templateUrl: "./view/Avatar.html",
+      controller: "PerfilController",
+
     });
     $routeProvider.when("/treino-personalizado/", {
       templateUrl: "./view/TreinoPersonalizado.html",
