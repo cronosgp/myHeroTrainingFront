@@ -280,7 +280,7 @@ angular
 
     $routeProvider.when("/home", {
       templateUrl: "./view/home.html",
-      controller: "IndexController",
+      controller: "PageCtrl",
     });
     $routeProvider.when("/principal", {
       templateUrl: "./view/Principal.html",
