@@ -29,6 +29,7 @@ angular
             /* refresh();
         carregaTempoTreino = carregaObjetos[0].treino;
         carregaTempo(carregaTempoTreino, data);*/
+        //teste
 
           })
           .error(function (data) {
