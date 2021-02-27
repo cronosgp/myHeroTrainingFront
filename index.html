@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-br" ng-app="myHeroTraining">
 <head>
-    <script src="">console.log('ola')</script>  <meta charset="UTF-8">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCGyNOT4gPXsEnP-B9jcrXNym1qfoNniMU"></script>
     <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <meta name="viewport" content="width=device-width">
     <script src="./js/lib/angular.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
           integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-
+          <script src="https://secure.mlstatic.com/sdk/javascript/v1/mercadopago.js"></script>
     <link href="./css/bootstrap.min.css"></link>
     <script src="./js/main.js"></script>
     <script src="./js/services/TreinoService.js"></script>
@@ -34,7 +34,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="./js/controllers/CadastroUsuarioController.js"></script>
     <script src="./js/lib/angular-route.min.js"></script>
-
+<link rel="stylesheet" href="./css/pagamento.css">
     <link rel="stylesheet" href="./css/internacionalizacao.css">
     <script src="./js/utilitarios/internacionalizacao.js"></script>
 
@@ -59,6 +59,9 @@
     <script src="./js/controllers/InterController.js"></script>
     <script src="./js/controllers/recoverPassword.js"></script>
    <script src="./js/controllers/confirmEmailController.js"></script>
+   <script src="./js/controllers/PagamentoController.js"></script>
+          <script src="./js/services/CaminhadaService.js"></script>
+          <script src="./js/controllers/CaminhadaController.js"></script>
    <!-- <link href="./css/imgs.css"></link>-->
    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> 
 <!-- js do menu avatar -->
@@ -523,8 +526,14 @@ div.alpha-search > button {
 
             <a translate="HEADER.MENU.MEUSDADOS" class="nav-link" href="#/dados_login">Meus Dados</a>
         </li>
+        <li class="nav-item">
 
+            <a translate="" class="nav-link" href="#/caminhada">Caminhada</a>
+        </li>
+        <li class="nav-item">
 
+            <a translate="" class="nav-link" href="#/pagamento">Seja Premium</a>
+        </li>
         <!--li class="nav-item">
             <a class="nav-link" href="#">Desempenho</a>
         </li-->

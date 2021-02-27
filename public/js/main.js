@@ -375,6 +375,11 @@ angular
     });
     $routeProvider.when("/caminhada/", {
       templateUrl: "./view/caminhada.html",
+      controller: "CaminhadaController"
+    });
+    $routeProvider.when('/pagamento/', {
+      templateUrl: './view/Pagamento.html',
+      controller: "PagamentoController"
     });
     var lenguage = "pt-BR";
     var lenguage_n = navigator.language || navigator.userLanguage;
