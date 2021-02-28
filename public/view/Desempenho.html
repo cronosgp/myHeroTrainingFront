@@ -254,10 +254,19 @@
           class="profile-photo-lg"
         />
 
-         
+        <b>Compartilhe: </b>
+        <a  target="_blank" 
+        rel="noopener noreferrer"
+        href="https://twitter.com/intent/tweet?hashtags=MyHeroTraning,exercicios,treino&text=Veja%20Minha%20Pontuação"+{{u.pontos_soma}}>
+          <img
+            src="https://imagepng.org/wp-content/uploads/2018/08/twitter-icone.png"
+            alt="twitter"
+            class="share"
+          />
+        </a>       
 
         <div class="col-md-7 col-sm-7" ng-repeat="u in usu">
-          <h5><class="profile-link">{{u.nome_}}</a></h5>
+          <h5><a href="#" class="profile-link">{{u.nome_}}</a></h5>
           <p><b>{{u.email_}}</b></p>
           <p ><b>Sua pontuação: </b>{{u.pontos_soma}}</p>
           <!--p><b>Data de início: </b>13/02/2020</p-->
@@ -272,17 +281,6 @@
               />
             </a> -->
           </p>
-
-          <b>Compartilhe: </b>
-        <a  target="_blank" 
-        rel="noopener noreferrer"
-        href="https://twitter.com/intent/tweet?hashtags=MyHeroTraning,exercicios,treino&text=Veja%20Minha%20Pontuação {{u.pontos_soma}}">
-          <img
-            src="https://imagepng.org/wp-content/uploads/2018/08/twitter-icone.png"
-            alt="twitter"
-            class="share"
-          />
-        </a>      
         </div>
       </div>
     </div>
