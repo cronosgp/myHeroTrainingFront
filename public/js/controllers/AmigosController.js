@@ -4,7 +4,6 @@ angular
         $scope,
         $routeParams,
         amigosService,
-        $location
     ) {
         var IdUsuario = sessionStorage.getItem('id');
 

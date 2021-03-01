@@ -66,8 +66,8 @@ angular
               'Enviamos um e-mail de confirmação para seu endereço cadastrado. Ao acessar o e-mail, clique em "Minha Conta" para validar o cadastro'
             );
             $route.reload();
-            enviarEmail();
             usuarioCadastro();
+            enviarEmail();
           })
           .error(function (data, status) {
             alert('Email já cadastrado!');
