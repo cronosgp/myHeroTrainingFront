@@ -11,6 +11,7 @@ angular
       var valor=0;
       var faseTerminadas = [];
       var tamanhofor;
+      var oculta=0;
       var IdUsuario = sessionStorage.getItem('id');
         $scope.model={
           id: IdUsuario
@@ -36,6 +37,7 @@ angular
            }
            else{
             document.getElementById('btn').disabled=false;
+        
            }   
          
         }
@@ -91,16 +93,43 @@ angular
         });      
 
        }
+       $scope.item = function (valor) {
+         console.log(valor)
+          if(valor === true){
+           return true;
+         }
+       }
        
-       $scope.teste = function(valor){
-          if(valor === true)
+       var d= 0;
+       var x;
 
-          return true;
+       $scope.item = function(valor){ 
+        console.log("a") 
+        console.log(valor)
+       
+          
+         if(valor === true){
+            d =1;
+            x= valor
+           
+         }
+         if(d === 1){
+           return true;
+         }
+         if(x === valor){
+                
+          
+           return false;
+         }
+       
        }
        carregaTreino();
 
      var carregaTreinoUsuario = function(){
         TreinoPersonalizadoService.carregaTreinoUsuario(IdUsuario).success(function(data){
+          if(data == ''){
+            oculta =1;
+          }
           $scope.usu = data;
         });
 
@@ -111,6 +140,11 @@ angular
       alert("Oi");
      }
 
+     $scope.exibe = function () {
+       if(oculta == 1){
+       return true;
+       }
+     }
 
       carregaTreinoUsuario();
     });
