@@ -21,7 +21,7 @@ angular
       var treinoPersonalizado =[];
       var fase;
       var dados =[]
-      var larissa;
+      var arrayExercicio;
       
 
       var IdUsuario = sessionStorage.getItem('id');
@@ -40,7 +40,7 @@ angular
             var ProximaFase = faseTerminadas[faseTerminadas.length - 1];
 
            // console.log(dadosx)
-            var pos = larissa.map(function(e) { 
+            var pos = arrayExercicio.map(function(e) { 
 
               return e.id; 
 
@@ -48,23 +48,24 @@ angular
          
           var x=0;
           
-            for(var i=1; i<larissa.length; i++){
+            for(var i=0; i<arrayExercicio.length; i++){
             
-            valor = larissa[i].id
+            valor = arrayExercicio[i].id
             
-            if(i==1 && faseTerminadas.indexOf(valor)==-1 ){
+            if(i==0 && faseTerminadas.indexOf(valor)==-1 || i== pos+1 && faseTerminadas.indexOf(valor)==-1  ){
+              console.log(i)
   
               document.querySelector("#tabela").getElementsByTagName("tr")[i].getElementsByTagName("td")[0].getElementsByTagName("button")[0].getElementsByTagName("a")[0].classList.remove('disabled')
-              document.getElementById('tabela').getElementsByTagName('tr')[i-1].getElementsByTagName('td')[1].getElementsByTagName("input")[0].disabled = false
+              document.getElementById('tabela').getElementsByTagName('tr')[i].getElementsByTagName('td')[1].getElementsByTagName("input")[0].disabled = false
              
               
             }
             else
           {
             faseTerminadas.indexOf(valor)==-1 || faseTerminadas.indexOf(valor)!=-1
-            console.log(i)
+           // console.log(faseTerminadas)
             document.querySelector("#tabela").getElementsByTagName("tr")[i].getElementsByTagName("td")[0].getElementsByTagName("button")[0].getElementsByTagName("a")[0].classList.add('disabled')
-            document.getElementById('tabela').getElementsByTagName('tr')[i-1].getElementsByTagName('td')[1].getElementsByTagName("input")[0].disabled = true
+            document.getElementById('tabela').getElementsByTagName('tr')[i].getElementsByTagName('td')[1].getElementsByTagName("input")[0].disabled = true
                      
           }
         }
@@ -165,10 +166,15 @@ angular
       };
       var fasesTreinos = function () {
         TreinoService.carregaFasesTreino(id).success(function (data) {   
+          if(treinoPersonalizado.length!=0){
+            data[0] = treinoPersonalizado[0]
+
+          }
           $scope.fases = data;
           dados = data;
-         larissa = data
-      //   desabilita();
+          arrayExercicio = data
+
+        
         
    
         });
