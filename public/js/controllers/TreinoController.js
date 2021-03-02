@@ -165,9 +165,12 @@ angular
         });
       };
       var fasesTreinos = function () {
-        TreinoService.carregaFasesTreino(id).success(function (data) {   
-          if(treinoPersonalizado.length!=0){
+        TreinoService.carregaFasesTreino(id).success(function (data) {  
+          console.log(data) 
+            if(treinoPersonalizado.length!=0){
+              treinoPersonalizado[0].id = data[0].id;  
             data[0] = treinoPersonalizado[0]
+            
 
           }
           $scope.fases = data;
@@ -275,9 +278,10 @@ angular
   
     var carregaTreinoUsuario = function(){
       TreinoPersonalizadoService.carregaTreinoUsuario(IdUsuario).success(function(data){
+       
                   
         if(data.length > 0){
-          treinoPersonalizado.push(data[0]);                
+          treinoPersonalizado =data              
           
         }
        
@@ -470,12 +474,12 @@ angular
         } else {
           let id_treino = $routeParams.id;
           TreinoService.carregaIdTreino(id_treino).success(function (data) {
-         //   idFase = data[0].id;
+            idFase = data[0].id;
            // console.log(idFase);
            // atualizaIdusuarioTreino();
           //   atualizaFaseBanco(id);
             
-            $location.path('treinos/' + 2);
+            $location.path('treinos/' + idFase);
 
             function refresh() {
               setTimeout(function () {
@@ -483,7 +487,7 @@ angular
               }, 200);
             }
             refresh();
-            $location.path('treinos/' + 2);
+            $location.path('treinos/' + idFase);
             setTimeout(location.reload.bind(location), 2000);
             // window.location.reload();
           });
