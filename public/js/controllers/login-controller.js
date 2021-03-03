@@ -40,7 +40,7 @@ angular
     var id = sessionStorage.getItem('id');
     var carregaid = function (email) {
       loginService.dadosLogin(email).success(function (data) {
-        sessionStorage.setItem('id', data[0].id);
+        sessionStorage.setItem('id', data.id);
       });
     };
   });

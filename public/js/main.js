@@ -365,7 +365,6 @@ angular
     $routeProvider.when("/avatar/", {
       templateUrl: "./view/Avatar.html",
       controller: "PerfilController",
-
     });
     $routeProvider.when("/treino-personalizado/", {
       templateUrl: "./view/TreinoPersonalizado.html",
@@ -378,6 +377,11 @@ angular
     $routeProvider.when("/caminhada/", {
       templateUrl: "./view/caminhada.html",
     });
+    $routeProvider.when("/treino-conjunto/", {
+      templateUrl: "./view/TreinoConjunto.html",
+      controller: "treinoConjuntoController",
+    });
+
     var lenguage = "pt-BR";
     var lenguage_n = navigator.language || navigator.userLanguage;
 

@@ -21,30 +21,25 @@
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="BRANCH:origin/Avatar" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:origin/master" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </select>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="21aaf686-8e7d-49d5-a8c2-3755bfd887bd" name="Default Changelist" comment="run local only">
-      <change afterPath="$PROJECT_DIR$/public/js/controllers/PerfilController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/services/avatarService.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/js/services/perfilService.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/view/Modal.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/controllers/TreinoConjuntoController.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/services/treinoConjuntoService.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/view/TreinoConjunto.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/controllers/AmigosController.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/controllers/AmigosController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/controllers/InterController.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/controllers/IndexController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/controllers/IndexController.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/controllers/IndexController.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/controllers/homeController.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/controllers/login-controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/controllers/login-controller.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/services/TreinoService.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/services/TreinoService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/services/amigosService.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/services/amigosService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/services/cadastroUsuarioService.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/services/cadastroUsuarioService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/services/homeService.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/services/homeService.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/services/loginService.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/services/loginService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/view/Avatar.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/view/Avatar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/view/MeusAmigos.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/view/MeusAmigos.html" afterDir="false" />
     </list>
     <list id="e90f9fbb-b761-4603-bcda-52c19b70bea4" name="Revert &quot;Initial commit&quot;" comment="Revert &quot;Initial commit&quot;&#10;&#10;This reverts commit 82f0f341" />
     <option name="SHOW_DIALOG" value="false" />
@@ -58,8 +53,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="JavaScript File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -114,15 +109,13 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -142,6 +135,11 @@
       <workItem from="1603242102924" duration="2365000" />
       <workItem from="1603371389610" duration="152000" />
       <workItem from="1610931859887" duration="4552000" />
+      <workItem from="1611022695623" duration="26516000" />
+      <workItem from="1612461298841" duration="579000" />
+      <workItem from="1612790814652" duration="119000" />
+      <workItem from="1612900599345" duration="1579000" />
+      <workItem from="1614623186303" duration="1187000" />
       <workItem from="1611022695623" duration="8458000" />
     </task>
     <task id="LOCAL-00001" summary="teste">
@@ -182,7 +180,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/Avatar" />
+                        <option value="origin/master" />
                       </list>
                     </value>
                   </entry>
@@ -205,6 +203,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="184" y="112" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900@0.0.1440.900" timestamp="1613078285021" />
+    <state x="144" y="79" key="MergeDialog" timestamp="1614630629894">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="144" y="79" key="MergeDialog/0.0.1440.900@0.0.1440.900" timestamp="1614630629894" />
     <state x="221" y="89" key="SettingsEditor" timestamp="1611022306722">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -213,10 +215,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1613419807253" />
-    <state x="518" y="371" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1613075757546">
+    <state x="518" y="371" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1614731941590">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="518" y="371" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1440.900@0.0.1440.900" timestamp="1613075757546" />
+    <state x="518" y="371" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1440.900@0.0.1440.900" timestamp="1614731941590" />
     <state x="418" y="205" width="686" height="490" key="find.popup" timestamp="1613624969364">
       <screen x="0" y="0" width="1440" height="900" />
     </state>

@@ -25,6 +25,7 @@
     <script src="./js/services/avatarService.js"></script>
     <script src="./js/controllers/PerfilController.js"></script>
     <script src="./js/services/classificacaoService.js"></script>
+    <script src="./js/services/treinoConjuntoService.js"></script>
     <script src="./js/controllers/AdicionarAmigosController.js"></script>
     <script src="./js/controllers/AmigosController.js"></script>
     <script src="./js/controllers/SolicitacoesController.js"></script>
@@ -32,6 +33,7 @@
     <script src="./js/controllers/IndexController.js"></script>
     <script src="./js/controllers/treinoPersonalizadoController.js"></script>
     <script src="./js/controllers/TreinoController.js"></script>
+    <script src="./js/controllers/TreinoConjuntoController.js"></script>
     <script src="./js/controllers/classificacaoController.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
@@ -328,6 +330,12 @@ header > a {
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {display: block;}
 
+.not {
+    padding: 5px 10px;
+    border-radius: 50%;
+    background: dodgerblue;
+    color: white;
+}
 
     </style>
 <header>
@@ -400,10 +408,11 @@ header > a {
                         <li><a href="#avatar"><span class="icon icon-user"></span>Perfil</a></li>
                         <li><a href="#"><span class="icon icon-user-tie"></span>Desempenho</a></li>
                         <li><a href="#amigos"><span class="icon icon-list"></span>Meus Amigos</a></li>
-                        <li><a href="#solicitacoes"><span class="icon icon-club"></span>Solicitações</a></li>
+                        <li><a href="#solicitacoes"><span class="icon icon-club"></span>Solicitações <span class="not" ng-show="notAmizade>0">{{notAmizade}}</span> </a></li>
                         <li><a href="#adicionar-amigos"><span class="icon icon-heart"></span>Adicionar Amigos</a></li>
                         <li><a href="#classificacao"><span class="icon icon-users2"></span>Classificação</a></li>
                         <li><a href="#treino-personalizado/"><span class="icon icon-stopwatch"></span>Treino Personalizado</a></li>
+                        <li><a href="#treino-conjunto/"><span class="icon icon-stopwatch"></span>Treino Conjunto</a></li>
                         <li><a href="#/descricaoTreino"><span class="icon icon-stopwatch"></span>Exercícios</a></li>
                         <li><a href="#/" ng-click="logout()" type="submit"><span class="icon icon-exit"></span>Sign Out</a></li>
                     </ul>

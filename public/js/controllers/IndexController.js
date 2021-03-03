@@ -1,5 +1,12 @@
 angular.module('myHeroTraining')
-	.controller('PageCtrl',function ($scope, $translate, $http, homeService, avatarService, $location ) {
+	.controller('PageCtrl',function
+		($scope,
+		 $translate,
+		 $http,
+		 homeService,
+		 avatarService,
+		 amigosService,
+		 $location ) {
 		$scope.model = {};
 
 		var IdUsuario = sessionStorage.getItem('id');
@@ -35,6 +42,15 @@ angular.module('myHeroTraining')
 			});
 	}
 	$scope.carregaAvatar();
+
+		$scope.carregaNotAmizade = function () {
+			amigosService.carregarSolicitacoes(IdUsuario).success(function (data) {
+				$scope.notAmizade = data.length
+			}).error(function (data) {
+				console.log("erro");
+			});
+		}
+		$scope.carregaNotAmizade();
 
 	var carrega = function () {
 		homeService

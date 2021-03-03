@@ -204,8 +204,8 @@
                 <tbody>
                   <tr class="candidates-list" ng-repeat="amigo in amigos">
                     <td class="title">
-                      <div class="thumb">
-                        <img class="img-fluid" src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="">
+                      <div class="thumb" ng-init="pegaAvatar(amigo.id)">
+                        <img class="img-fluid" src="{{avatar}}" alt="">
                       </div>
                       <div class="candidate-list-details">
                         <div class="candidate-list-info">
@@ -222,8 +222,10 @@
                       </div>
                     </td>
                     <td class="candidate-list-favourite-time text-center">
-                      <a class="candidate-list-favourite order-2 " href="#"><i class="far fa-handshake"></i></a>
+                      <a class="candidate-list-favourite order-2" ng-click="enviarConviteTreino(amigo.id)">
+                        <i class="far fa-handshake"></i>
                       <span class="candidate-list-time order-1">Convidar</span>
+                      </a>
                     </td>
                     <td>
                       <ul class="list-unstyled mb-0 d-flex justify-content-end">
