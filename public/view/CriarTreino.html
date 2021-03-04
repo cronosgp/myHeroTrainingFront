@@ -1,0 +1,173 @@
+ <!DOCTYPE html>
+<html>
+  <body>
+    <style>
+      body {
+        margin-top: 20px;
+	      color: #989c9b;
+      }
+      .card {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+        word-wrap: break-word;
+        background-color: #fff;
+        background-clip: border-box;
+        border: 0 solid transparent;
+        border-radius: 0;
+      }
+      .mailbox-widget .custom-tab .nav-item .nav-link {
+        border: 0;
+        color: #fff;
+        border-bottom: 3px solid transparent;
+      }
+      .mailbox-widget .custom-tab .nav-item .nav-link.active {
+        background: 0 0;
+        color: #fff;
+        border-bottom: 3px solid #2cd07e;
+      }
+      .no-wrap td,
+      .no-wrap th {
+        white-space: nowrap;
+      }
+      .table td,
+      .table th {
+        padding: 0.9375rem 0.4rem;
+        vertical-align: top;
+      }
+      .font-light {
+        font-weight: 300;
+      }
+    </style>
+
+    <link
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css"
+      integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA="
+      crossorigin="anonymous"
+    />
+    <div class="contain text-center">
+        <!--img
+          height="20%" 
+          width="20%"
+          alt="Android Basics Leaderboard"
+          class="mb-2"
+          src="../imagem/peso.png"
+        /-->
+      <h2>Criar Treino Personalizado</h2>
+    </div>
+
+    <div class="tab-content">
+      <div class="tab-pane active" id="criar_treino">
+        
+        <div
+        class="tab-pane fade active show"
+        id="inbox"
+        aria-labelledby="inbox-tab"
+        role="tabpanel"
+      >
+        <div>
+          <div class="row p-4 no-gutters align-items-center">
+            <div class="col-sm-12 col-md-6">
+              <h3 class="font-light mb-0 text-dark">
+                Escolha exercícios para o treino personalizado:
+               
+              </h3>
+             
+            </div>
+            <div class="col-sm-12 col-md-6">
+              <ul class="list-inline dl mb-0 float-left float-md-right">
+                <li class="list-inline-item text-info mr-3">
+                  <a href="#/descricaoTreino/">
+                    <button
+                      class="btn btn-circle btn-primary text-white"
+                      href=""
+                    >
+                      <i class="fa fa-book"></i>
+                    </button>
+                  </a>
+                </li>
+                <li class="list-inline-item text-info mr-3">
+                  
+                    <button
+                      class="btn btn-circle btn-success text-white"
+                      ng-click="salva()"
+                      disabled="true"
+                      id="btn">
+                      <i class="fa fa-plus"> Criar Treino</i>
+                    </button>
+              
+                </li>
+                  </a>
+
+                </li>
+              </ul>
+            </div>
+            
+          </div>
+          <!-- list-->
+          <div class="table-responsive">
+            <table
+              class="table email-table no-wrap table-hover v-middle mb-0 font-14"
+            >
+              <tbody id="teste">
+                <div class="alert alert-success" role="alert">
+                  É possível escolher um único aqueciemento de acordo com sua preferência
+                </div>
+                <!-- row -->
+                <tr ng-repeat="dado in personalizado">
+                  <!-- label -->
+                  <td class="pl-3">
+                    <div class="custom-control custom-checkbox">
+                      <input
+                        type="checkbox"
+                        class="form-check-input"
+                        ng-model="checked"
+                        id="{{dado.id}}"
+                        ng-click="desabilita(checked)"
+                        ng-disabled="item(checked)"
+                        />                  
+                   </td>
+                    </div>
+                  </td>
+                  <!-- Peso Icon -->
+                  <td><i class="fas fa-dumbbell"></i></td>
+                
+               
+                  <!-- Message -->
+                  <td>
+                    <a class="">
+                      <span
+                        class="badge badge-pill text-white font-medium badge-danger mr-2"
+                        >{{dado.parte_trablhada}}</span
+                      >
+                      <span class="text-dark"
+                        >{{dado.nome}}</span
+                      >
+                    </a>
+                  </td>
+                
+                  <td class="text-muted">Personalizado</td>
+                </tr>
+                <!-- row -->
+                <tr>
+                  <!-- label -->
+                 
+                </tr>
+                                
+              </tbody>
+                                 
+            </table>
+          </div>
+        </div>
+      </div>
+      </div>
+        
+  </body>
+</html>

@@ -353,7 +353,7 @@ angular
     });
     $routeProvider.when("/classificacao/", {
       templateUrl: "./view/Classificacao.html",
-      controller: "classificacaoController"
+      controller: "classificacaoController",
     });
     $routeProvider.when("/solicitacoes/", {
       templateUrl: "./view/Solicitacoes.html",
@@ -370,8 +370,12 @@ angular
     $routeProvider.when("/avatar/", {
       templateUrl: "./view/Avatar.html",
     });
-    $routeProvider.when("/treino-personalizado/", {
-      templateUrl: "./view/TreinoPersonalizado.html",
+    $routeProvider.when("/criar-treino/", {
+      templateUrl: "./view/CriarTreino.html",
+      controller: "treinoPersonalizadoController",
+    });
+    $routeProvider.when("/meu-treino/", {
+      templateUrl: "./view/MeuTreino.html",
       controller: "treinoPersonalizadoController",
     });
     $routeProvider.when("/desempenho/", {
@@ -380,11 +384,11 @@ angular
     });
     $routeProvider.when("/caminhada/", {
       templateUrl: "./view/caminhada.html",
-      controller: "CaminhadaController"
+      controller: "CaminhadaController",
     });
-    $routeProvider.when('/pagamento/', {
-      templateUrl: './view/Pagamento.html',
-      controller: "PagamentoController"
+    $routeProvider.when("/pagamento/", {
+      templateUrl: "./view/Pagamento.html",
+      controller: "PagamentoController",
     });
     var lenguage = "pt-BR";
     var lenguage_n = navigator.language || navigator.userLanguage;
