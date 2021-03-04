@@ -33,7 +33,7 @@ angular.module('myHeroTraining').factory('amigosService', function ($http) {
     };
 
     var carregarAmigos = function (id) {
-   //     var jwt = localStorage.getItem('Bearer');
+        var jwt = localStorage.getItem('Bearer');
 
         $http.defaults.headers.common.Authorization = 'Bearer ' + jwt;
         return $http.get('https://mhtrainingback.herokuapp.com/friend', {
@@ -43,19 +43,7 @@ angular.module('myHeroTraining').factory('amigosService', function ($http) {
         });
     };
 
-    var carregarAmigosData = function (id) {
-        var jwt = localStorage.getItem('Bearer');
-
-        $http.defaults.headers.common.Authorization = 'Bearer ' + jwt;
-        return $http.get('https://mhtrainingback.herokuapp.com/friend/data', {
-            params: {
-                id: id
-            },
-        });
-    };
-
     return {
-        carregarAmigosData: carregarAmigosData,
         carregarAmigos: carregarAmigos,
         carregarSolicitacoes: carregarSolicitacoes,
         enviarSolicitacao: enviarSolicitacao,
