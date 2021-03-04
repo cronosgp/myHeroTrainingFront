@@ -22,7 +22,7 @@ angular
       var fase;
       var dados =[]
       var arrayExercicio;
-      
+      var temPersonalizado;
 
       var IdUsuario = sessionStorage.getItem('id');
 
@@ -35,16 +35,16 @@ angular
       //função botão iniciar
       
         $scope.desabilita = function(dados) {
-          var larissaa;
-            larissaa = dados;  
+         
             var ProximaFase = faseTerminadas[faseTerminadas.length - 1];
-
+            
            // console.log(dadosx)
             var pos = arrayExercicio.map(function(e) { 
 
               return e.id; 
 
           }).indexOf(ProximaFase)
+
          
           var x=0;
           
@@ -52,8 +52,8 @@ angular
             
             valor = arrayExercicio[i].id
             
-            if(i==0 && faseTerminadas.indexOf(valor)==-1 || i== pos+1 && faseTerminadas.indexOf(valor)==-1  ){
-              console.log(i)
+            if(i==0 && faseTerminadas.indexOf(valor)==-1 || i== pos+1 && faseTerminadas.indexOf(valor)==-1 || i==0 && temPersonalizado ==true ){
+            
   
               document.querySelector("#tabela").getElementsByTagName("tr")[i].getElementsByTagName("td")[0].getElementsByTagName("button")[0].getElementsByTagName("a")[0].classList.remove('disabled')
               document.getElementById('tabela').getElementsByTagName('tr')[i].getElementsByTagName('td')[1].getElementsByTagName("input")[0].disabled = false
@@ -64,6 +64,7 @@ angular
           {
             faseTerminadas.indexOf(valor)==-1 || faseTerminadas.indexOf(valor)!=-1
            // console.log(faseTerminadas)
+        
             document.querySelector("#tabela").getElementsByTagName("tr")[i].getElementsByTagName("td")[0].getElementsByTagName("button")[0].getElementsByTagName("a")[0].classList.add('disabled')
             document.getElementById('tabela').getElementsByTagName('tr')[i].getElementsByTagName('td')[1].getElementsByTagName("input")[0].disabled = true
                      
@@ -166,13 +167,7 @@ angular
       };
       var fasesTreinos = function () {
         TreinoService.carregaFasesTreino(id).success(function (data) {  
-          console.log(data) 
-            if(treinoPersonalizado.length!=0){
-              treinoPersonalizado[0].id = data[0].id;  
-            data[0] = treinoPersonalizado[0]
-            
-
-          }
+         
           $scope.fases = data;
           dados = data;
           arrayExercicio = data
@@ -192,13 +187,7 @@ angular
         TreinoService.buscaTreinosFeitos(IdUsuario,dataFormatada).success(function (data) {
           for (var j = 0; j < data.length; j++) {   
             faseTerminadas.push(data[j].id_exercicio);
-             
-           
-          
           }
-          
-          
-        
          }).error(function(data){
           if(data.status === 403){
             $location.path('/login');
@@ -229,7 +218,6 @@ angular
           if(i==0 && document.querySelector("#tabela").getElementsByTagName("tr")[0].id ){
             document.querySelector("#tabela").getElementsByTagName("tr")[0].getElementsByTagName("td")[0].getElementsByTagName("button")[0].setAttribute("disabled","disabled");
           }
-
         }*/
       //logica de habilitar e desabilitar fases
 /*      $scope.desabilita = function (indice, valor) {
@@ -327,8 +315,21 @@ angular
        // atualizaIdusuarioTreino;
         repeticaoExercicio++;
       //  delete_check++;
+   
+      var buscaPersonlizado = function(){
+        var data = new Date();
+        let dataFormatada =  ((data.getFullYear())) + "/" + (("0" + (data.getMonth() + 1)).slice(-2)) + "/" + data.getDate();
+        TreinoService.buscaPersonlizado(IdUsuario,dataFormatada).success(function(data){
+          if(data != null){
+            temPersonalizado = true;
+          }
 
-        
+        });
+      }
+
+      buscaPersonlizado();
+
+    
         var tempoCalculado = 0;
         var horaAtual = new Date();
        // console.log("subtracao: " + horaAtual - tempoAtual)
@@ -474,7 +475,7 @@ angular
         } else {
           let id_treino = $routeParams.id;
           TreinoService.carregaIdTreino(id_treino).success(function (data) {
-            idFase = data[0].id;
+            idFase = data
            // console.log(idFase);
            // atualizaIdusuarioTreino();
           //   atualizaFaseBanco(id);
@@ -571,9 +572,11 @@ angular
         }, 150);
       }
 
+     
       carrega();
       carregaTreinoUsuario();
       exerciciosFase();
       fasesTreinos();
+     
     }
   );
