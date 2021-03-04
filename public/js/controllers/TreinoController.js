@@ -21,7 +21,7 @@ angular
       var treinoPersonalizado =[];
       var fase;
       var dados =[]
-      var larissa;
+      var arrayExercicio;
       
 
       var IdUsuario = sessionStorage.getItem('id');
@@ -40,7 +40,7 @@ angular
             var ProximaFase = faseTerminadas[faseTerminadas.length - 1];
 
            // console.log(dadosx)
-            var pos = larissa.map(function(e) { 
+            var pos = arrayExercicio.map(function(e) { 
 
               return e.id; 
 
@@ -48,23 +48,24 @@ angular
          
           var x=0;
           
-            for(var i=1; i<larissa.length; i++){
+            for(var i=0; i<arrayExercicio.length; i++){
             
-            valor = larissa[i].id
+            valor = arrayExercicio[i].id
             
-            if(i==1 && faseTerminadas.indexOf(valor)==-1 ){
+            if(i==0 && faseTerminadas.indexOf(valor)==-1 || i== pos+1 && faseTerminadas.indexOf(valor)==-1  ){
+              console.log(i)
   
               document.querySelector("#tabela").getElementsByTagName("tr")[i].getElementsByTagName("td")[0].getElementsByTagName("button")[0].getElementsByTagName("a")[0].classList.remove('disabled')
-              document.getElementById('tabela').getElementsByTagName('tr')[i-1].getElementsByTagName('td')[1].getElementsByTagName("input")[0].disabled = false
+              document.getElementById('tabela').getElementsByTagName('tr')[i].getElementsByTagName('td')[1].getElementsByTagName("input")[0].disabled = false
              
               
             }
             else
           {
             faseTerminadas.indexOf(valor)==-1 || faseTerminadas.indexOf(valor)!=-1
-            console.log(i)
+           // console.log(faseTerminadas)
             document.querySelector("#tabela").getElementsByTagName("tr")[i].getElementsByTagName("td")[0].getElementsByTagName("button")[0].getElementsByTagName("a")[0].classList.add('disabled')
-            document.getElementById('tabela').getElementsByTagName('tr')[i-1].getElementsByTagName('td')[1].getElementsByTagName("input")[0].disabled = true
+            document.getElementById('tabela').getElementsByTagName('tr')[i].getElementsByTagName('td')[1].getElementsByTagName("input")[0].disabled = true
                      
           }
         }
@@ -164,11 +165,19 @@ angular
         });
       };
       var fasesTreinos = function () {
-        TreinoService.carregaFasesTreino(id).success(function (data) {   
+        TreinoService.carregaFasesTreino(id).success(function (data) {  
+          console.log(data) 
+            if(treinoPersonalizado.length!=0){
+              treinoPersonalizado[0].id = data[0].id;  
+            data[0] = treinoPersonalizado[0]
+            
+
+          }
           $scope.fases = data;
           dados = data;
-         larissa = data
-      //   desabilita();
+          arrayExercicio = data
+
+        
         
    
         });
@@ -269,9 +278,10 @@ angular
   
     var carregaTreinoUsuario = function(){
       TreinoPersonalizadoService.carregaTreinoUsuario(IdUsuario).success(function(data){
+       
                   
         if(data.length > 0){
-          treinoPersonalizado.push(data[0]);                
+          treinoPersonalizado =data              
           
         }
        
@@ -464,12 +474,12 @@ angular
         } else {
           let id_treino = $routeParams.id;
           TreinoService.carregaIdTreino(id_treino).success(function (data) {
-         //   idFase = data[0].id;
+            idFase = data[0].id;
            // console.log(idFase);
            // atualizaIdusuarioTreino();
           //   atualizaFaseBanco(id);
             
-            $location.path('treinos/' + 2);
+            $location.path('treinos/' + idFase);
 
             function refresh() {
               setTimeout(function () {
@@ -477,7 +487,7 @@ angular
               }, 200);
             }
             refresh();
-            $location.path('treinos/' + 2);
+            $location.path('treinos/' + idFase);
             setTimeout(location.reload.bind(location), 2000);
             // window.location.reload();
           });

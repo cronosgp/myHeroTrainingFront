@@ -51,6 +51,10 @@
 </head>
 <body>
     <style>
+        #source_map {
+  width: 450px;
+  height: 450px;
+        }
         body {
           margin-top: 20px;
           background: #fafafa;
@@ -337,7 +341,7 @@
 
             <div class="collapse navbar-collapse" ng-show="exibircomLogin()">
                 <ul class="navbar-nav mr-auto">
-                    <!--li class="nav-item active">
+                    <li class="nav-item active">
                         <a class="nav-link" href="">Bem vindo! <span class="sr-only">(current)</span></a>
                     </li-->
  <!--               </ul>
@@ -398,7 +402,13 @@
 
 <div id="wrapper-9cd199b9cc5410cd3b1ad21cab2e54d3" class="container" align="center">
     <div class="row">
+        <div id="source_map"></div>
         <div class="col">
+<<<<<<< HEAD
+            <button type="button" id="BtnCaminhada" class="btn btn-primary btn-lg btn-dark">Começar caminhada!</button>
+            <button type="button"  id="BtnParaCaminhada" class="btn btn-danger red btn-lg" style="display: none;">Parar Caminhada!</button>
+
+=======
             <div id="map-9cd199b9cc5410cd3b1ad21cab2e54d3"></div><script>(function () {
             var setting = {"height":400,"width":550,"zoom":17,"queryString":"Metrô Armênia - Rua Pedro Vicente - Luz, São Paulo - SP, Brasil","place_id":"ChIJ0RAyA4tYzpQRvCV7h69StWg","satellite":false,"centerCoord":[-23.525497206913332,-46.62924345],"cid":"0x68b552af877b25bc","lang":"pt","cityUrl":"/brazil/sao-paulo","cityAnchorText":"","id":"map-9cd199b9cc5410cd3b1ad21cab2e54d3","embed_id":"381813"};
             var d = document;
@@ -415,16 +425,17 @@
     
         <div class="col">
             <button type="button" class="btn btn-primary btn-lg btn-dark">Começar caminhada!</button>
+>>>>>>> f5b090237f531ceadfd2aec3b6f1f754eb2fbc4b
         </br>
         </br>
-            <p><b>Tempo:</b> 00:54:25</p>
+            <p><b>Tempo:</b> <span id="tempoCaminhada">00:00:00</span></p>
         </br>
-            <p><b>Quilometragem:</b> 0.8 KM</p>
+            <p><b>Quilometragem:</b><span id="distanciaCaminhada">0.0 KM</span> </p>
         </div>
     </div>  
 </div>
 
-
+<!--
 <div class="container" align="center">
     <h3>Histórico de caminhada:</h3>
     <div class="row tabelas">
@@ -477,9 +488,13 @@
       </ul>
     </div>
   </div>
+<<<<<<< HEAD
+  -->
+=======
   
 
 <ng-view>
 </ng-view>
+>>>>>>> f5b090237f531ceadfd2aec3b6f1f754eb2fbc4b
 </body>
 </html>

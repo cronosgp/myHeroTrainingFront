@@ -376,6 +376,11 @@ angular
     });
     $routeProvider.when("/caminhada/", {
       templateUrl: "./view/caminhada.html",
+      controller: "CaminhadaController"
+    });
+    $routeProvider.when('/pagamento/', {
+      templateUrl: './view/Pagamento.html',
+      controller: "PagamentoController"
     });
     $routeProvider.when("/treino-conjunto/", {
       templateUrl: "./view/TreinoConjunto.html",
