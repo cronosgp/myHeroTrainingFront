@@ -1,31 +1,23 @@
 angular
     .module('myHeroTraining')
-    .controller('SolicitacoesController', function (
+    .controller('TreinoConjuntoController', function (
         $scope,
         $routeParams,
         amigosService,
+        treinoConjuntoService,
         avatarService
     ) {
         var IdUsuario = sessionStorage.getItem('id');
 
-        $scope.solicitacoes = function () {
-            amigosService.carregarSolicitacoes(IdUsuario).success(function (data) {
-                $scope.usuarios = data;
-                console.log($scope.usuarios);
+        $scope.carregaSolicitacoes = function () {
+            treinoConjuntoService.carregarSolicitacoes(IdUsuario).success(function (data) {
+                $scope.solicitacoes = data;
+                console.log(data);
             }).error(function(data){
                 console.log("erro");
                 console.log(data);
             });
         }
-
-        $scope.carregaNotAmizade = function () {
-            amigosService.carregarSolicitacoes(IdUsuario).success(function (data) {
-                $scope.notAmizade = data.length
-            }).error(function (data) {
-                console.log("erro");
-            });
-        }
-        $scope.carregaNotAmizade();
 
         $scope.pegaAvatar = function (id) {
             avatarService.carregarAvatar(id).success(function (data) {
@@ -36,20 +28,20 @@ angular
             });
         }
 
-        $scope.aceitarSolicitacao = function (amizadeid) {
+        $scope.aceitarSolicitacao = function (usuarioid) {
 
-            amigosService.aceitarSolicitacao(amizadeid, IdUsuario).success(function (data){
-                $scope.solicitacoes();
+            treinoConjuntoService.aceitarSolicitacao(usuarioid, IdUsuario).success(function (data){
+                $scope.carregaSolicitacoes();
             }).error(function (data){
                 console.log("erro");
                 console.log(data);
             });
         }
 
-        $scope.recusarSolicitacao = function (amizadeid) {
+        $scope.recusarSolicitacao = function (usuarioid) {
 
-            amigosService.recusarSolicitacao(amizadeid, IdUsuario).success(function (data){
-                $scope.solicitacoes();
+            treinoConjuntoService.recusarSolicitacao(usuarioid, IdUsuario).success(function (data){
+                $scope.carregaSolicitacoes();
             }).error(function (data){
                 console.log("erro");
                 console.log(data);

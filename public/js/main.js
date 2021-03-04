@@ -280,7 +280,7 @@ angular
 
     $routeProvider.when("/home", {
       templateUrl: "./view/home.html",
-      controller: "HomeController",
+      controller: "PageCtrl",
     });
     $routeProvider.when("/principal", {
       templateUrl: "./view/Principal.html",
@@ -369,6 +369,7 @@ angular
     });
     $routeProvider.when("/avatar/", {
       templateUrl: "./view/Avatar.html",
+      controller: "PerfilController",
     });
     $routeProvider.when("/criar-treino/", {
       templateUrl: "./view/CriarTreino.html",
@@ -390,6 +391,15 @@ angular
       templateUrl: "./view/Pagamento.html",
       controller: "PagamentoController",
     });
+    $routeProvider.when("/treino-conjunto/", {
+      templateUrl: "./view/TreinoConjunto.html",
+      controller: "TreinoConjuntoController",
+    });
+    $routeProvider.when("/treino-conjunto/solicitacoes", {
+      templateUrl: "./view/TreinoConjuntoSol.html",
+      controller: "TreinoConjuntoController",
+    });
+
     var lenguage = "pt-BR";
     var lenguage_n = navigator.language || navigator.userLanguage;
 
