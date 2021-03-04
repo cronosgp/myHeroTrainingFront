@@ -379,9 +379,12 @@ angular
     });
     $routeProvider.when("/treino-conjunto/", {
       templateUrl: "./view/TreinoConjunto.html",
-      controller: "treinoConjuntoController",
+      controller: "TreinoConjuntoController",
     });
-
+    $routeProvider.when("/treino-conjunto/solicitacoes", {
+      templateUrl: "./view/TreinoConjuntoSol.html",
+      controller: "TreinoConjuntoController",
+    });
     var lenguage = "pt-BR";
     var lenguage_n = navigator.language || navigator.userLanguage;
 

@@ -80,9 +80,9 @@
 
             <div class="nearby-user" ng-repeat="usuario in usuarios">
               <div class="row">
-                <div class="col-md-2 col-sm-2">
+                <div class="col-md-2 col-sm-2" ng-init="pegaAvatar(usuario.id)">
                   <img
-                    src="https://bootdey.com/img/Content/avatar/avatar7.png"
+                    src="{{avatar}}"
                     alt="user"
                     class="profile-photo-lg"
                   />

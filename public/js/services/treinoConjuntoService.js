@@ -1,5 +1,16 @@
 angular.module('myHeroTraining').factory('treinoConjuntoService', function ($http) {
 
+    var carregarSolicitacoes = function (id) {
+        var jwt = localStorage.getItem('Bearer');
+
+        $http.defaults.headers.common.Authorization = 'Bearer ' + jwt;
+        return $http.get('http://localhost:8080/treino-conjunto/request', {
+            params: {
+                id: id
+            },
+        });
+    };
+
     var enviarSolicitacao = function (usuarioid, conviteid) {
         return $http.post('http://localhost:8080/treino-conjunto/request', {
             usuarioid: usuarioid,
@@ -34,6 +45,7 @@ angular.module('myHeroTraining').factory('treinoConjuntoService', function ($htt
     };
 
     return {
+        carregarSolicitacoes: carregarSolicitacoes,
         carregarAmigos: carregarAmigos,
         enviarSolicitacao: enviarSolicitacao,
         aceitarSolicitacao: aceitarSolicitacao,
