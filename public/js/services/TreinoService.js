@@ -65,6 +65,32 @@ angular.module('myHeroTraining').factory('TreinoService', function ($http) {
     return $http.post('http://localhost:8080/dataFase', dadosSalvaFimFase);
   }
 
+  var buscaPersonlizado = function (data,IdUsuario) {
+   var jwt = localStorage.getItem('Bearer');
+
+    //$http.defaults.headers.common.Authorization = 'Bearer ' + jwt;
+    return $http.get(
+      'http://localhost:8080/treinousuario/personalizado',
+      {
+        params: {
+          id: IdUsuario,
+          data : data
+
+        },
+      }
+    );
+  };
+
+    var salvaDadosPersonalizado = function(dados){
+  //    var jwt = localStorage.getItem('Bearer');
+
+      //$http.defaults.headers.common.Authorization = 'Bearer ' + jwt;      
+
+      return $http.post('http://localhost:8080/treinoPersonalizado/dados',dados)
+
+    }
+
+
   var buscaIdUsuario = function (token) {
     return $http.get('/usuario', token);
   };
@@ -145,6 +171,13 @@ angular.module('myHeroTraining').factory('TreinoService', function ($http) {
     fotoFase: fotoFase,
     dadosCadastro: dadosCadastro,
     salvaDataFimFase : salvaDataFimFase,
-    atualizapontosUsu : atualizapontosUsu
+    atualizapontosUsu : atualizapontosUsu,
+   buscaPersonlizado : buscaPersonlizado,
+    salvaDadosPersonalizado: salvaDadosPersonalizado
+
+   
+    
+
+
   };
 });

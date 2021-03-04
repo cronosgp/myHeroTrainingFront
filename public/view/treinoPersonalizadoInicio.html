@@ -1,0 +1,162 @@
+<style>
+  .card {
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 55%;
+  left: 25%;
+  height: 450px;
+
+  top: 7px;
+  word-wrap: break-word;
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+/* Add some padding inside the card container */
+.container {
+  padding: 2px 16px;
+}
+ 
+  .card-img-top {
+    height:3%;
+    width:70%;
+    margin:0 auto;
+    margin-top: 10%;
+   
+  }
+.card-group {
+    width: 60%;
+    height: 3%;
+
+    position: absolute;
+    margin-left: 20%;
+  }
+  #dropdownMenuButton {
+    margin-left: 0%;
+    position: fixed;
+    margin-top: 0%;
+  }
+  .btn {
+    margin-top: 65px;
+    margin-bottom: 6px;
+    margin-left: 200px;
+    position:relative;
+  }
+  #btn_iniciar,
+  #btn_prox,
+  #btn_finalizar {
+    position: absolute;
+    left: 27%;
+    top:470px;
+    width: 20%;
+    font-size: small;
+
+    opacity: 0.7;
+  }
+</style>
+<div class="container">
+  
+  <div
+    class="col-md-6 text-center"
+    style="display: none; position: absolute; z-index: 10"
+    id="p_cronometro"
+  >
+    <p
+      style="
+        color:black;
+        font-size: 45pt;
+        margin-bottom: 0px;
+        margin-top: 1%;
+        font-size: 24px;
+        left: 7%;
+        position:relative;
+      "
+    >
+    
+      <span id="timer_horas">00 </span>: <span id="timer_minutos">00</span>:
+      <span id="timer_segundos">00 </span>:
+      <span id="timer_decimo">00</span>
+    </p>
+  </div>
+
+  <div class="card" >
+    <div
+    
+      class="card-img-top"
+      ng-repeat="exercicio in exercicios"
+      style="align-items: center;height: 10%;"
+     
+    >
+      <img
+        src="{{exercicio.caminho_gif}}"
+        
+        alt="..."
+        id="img"
+    style="height: 350px; bottom:15px; top:3; margin-left: 6px; width: 100%; position: relative;"
+      />
+      
+
+   
+ 
+     <div class="container" style="font-size:60%;  position: absolute; bottom: 0px; top:350px;color:black;" >  
+      <h5  id="descricao" class="card-title"style="font-size: 13px; ">{{exercicio.descricao}}</h5> 
+       <p id="repeticao" style="left:150px;float: left;font-size: 10px;font-weight: bolder;">repetições: {{exercicio.qntd}}</p> 
+       <p  id="serieFeitas" style="float: left;font-size: 10px;font-weight: bolder;">&nbsp Séries realizadas: 0</p>
+     <p style="display: none;" id="tempo" style="font-size: 50%;"> Tempo da última repetição: 00:00:00</p>
+    
+
+    
+  
+    </div>
+    </div>
+  </div>
+
+  <!--div class="">
+    <button
+      id="btn_iniciar"
+      type="button"
+      ng-model="value"
+      class="btn btn-success"
+      ng-show="inicia()"
+      ng-click="iniciar()"
+    >
+      Iniciar
+    </button>
+    <button
+      id="btn_prox"
+      type="button"
+      ng-model="model.valor"
+      class="btn btn-primary"
+      ng-show="prox()"
+      ng-click="proximo()"
+    >
+      Proximo
+    </button-->
+
+    <button
+    id="btn_iniciar"
+    type="button"
+    ng-model="value"
+    class="btn btn-success"
+    ng-show="inicia()"
+    ng-click="iniciar()"
+  >
+    Iniciar
+  </button>
+
+    <button
+    style="display: none;"
+      id="btn_finalizar"
+      type="button"
+      ng-model="model.valor"
+      class="btn btn-danger"
+      ng-click="finalizar()"
+    >
+      Finalizar
+    </button>
+  </div>
+</div>

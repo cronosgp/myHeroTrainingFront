@@ -143,7 +143,7 @@ angular
       clearTimeout(startcaminhada);
       let distancia = document.querySelector('#distanciaCaminhada').innerText; 
       let pontos = distancia*3;
-      alert(sessionStorage.getItem('id'))
+  
       let dados ={usuario:sessionStorage.getItem('id'), Distancia:document.querySelector('#distanciaCaminhada').innerText, Tempo:document.querySelector('#tempoCaminhada').innerText, Pontos:pontos}
 
 caminhadaService.salvar(dados).success(function(data){

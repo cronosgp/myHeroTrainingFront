@@ -80,7 +80,7 @@
     >
         <thead>
             <th>Exercício Personalizado</th>
-            <!--th class="text-center">Editar</th-->
+            <th class="text-center">Realizar Exercicio</th-->
             <th class="action text-right"ng-click="excluir()">Excluir</th>
             <div class="alert alert-warning" role="alert" ng-show="exibe()">
               Ainda não existe dados de exercícios personalizados!
@@ -105,18 +105,26 @@
                 </div>
               </div>
             </td>
+           <td class="candidate-list-favourite-time text-center" ng-repeat="d in usu">
+            <button
+            type="button"
+            class="btn btn-link"
+            ng-disabled="desabilitas()"
             
-                  <!--td class="candidate-list-favourite-time text-center">
-              <a class="candidate-list-favourite order-2" data-toggle="modal" data-target="#modalEdit"><i class="fas fa-pencil-alt"></i></a>
+          >
+          <a class="btn btn-sm btn-outline-success"  ng-model="inicio" type="button"
+          href="#/treino/personalizado/inicio/{{d.id}}" 
+          >Iniciar</a>  
+          </button>
+
               <span class="candidate-list-time order-1"></span>
-            </td-->
+            </td>
             <td>
               <ul class="list-unstyled mb-0 d-flex justify-content-end">
               <li><a  class="text-danger btn"ng-click="apagaTreino()" data-toggle="tooltip" title="" data-original-title="Delete"><i class="far fa-trash-alt"></i></a></li>
               </ul>
             </td>
           </tr>
-
         </tbody>
       </table>
       </div>

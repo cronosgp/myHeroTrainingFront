@@ -1,7 +1,7 @@
 angular
   .module('myHeroTraining')
   .controller(
-    'TreinoController',
+    'TreinoPersonalizadoInicioController',
     function ($scope, $routeParams, TreinoService, $location,TreinoPersonalizadoService) {
       $scope.model = {};
       var id = $routeParams.id;
@@ -22,27 +22,10 @@ angular
       var fase;
       var dados =[]
       var arrayExercicio;
-<<<<<<< HEAD
-      var temPersonalizado = false;
-=======
       var temPersonalizado;
->>>>>>> 0ab506360c9c4ee492a5f7cfc74750b01fd4eccb
 
       var IdUsuario = sessionStorage.getItem('id');
 
-
-      var buscaPersonlizado = function(){
-        var data = new Date();
-        let dataFormatada =  ((data.getFullYear())) + "/" + (("0" + (data.getMonth() + 1)).slice(-2)) + "/" + data.getDate();
-        TreinoService.buscaPersonlizado(dataFormatada,IdUsuario,).success(function(data){
-          if(data != null || data.length!=0){
-           
-            temPersonalizado = true;
-          }
-
-        });
-      }
-      buscaPersonlizado();
     
       $scope.concluir = function () {
         if (conlusao === 1) {
@@ -50,75 +33,7 @@ angular
         }
       };
       //função botão iniciar
-      
-        $scope.desabilita = function(dados) {
-         
-            var ProximaFase = faseTerminadas[faseTerminadas.length - 1];
-            
-           // console.log(dadosx)
-            var pos = arrayExercicio.map(function(e) { 
-
-              return e.id; 
-
-          }).indexOf(ProximaFase)
-
-         
-       
-            for(var i=0; i<arrayExercicio.length; i++){
-            
-            valor = arrayExercicio[i].id
-
-            
-            
-            if(i==0 && faseTerminadas.indexOf(valor)==-1 && temPersonalizado==false || i== pos+1 && faseTerminadas.indexOf(valor)==-1 && i!=0 || temPersonalizado==true && i==1 && faseTerminadas.indexOf(valor)==-1 ){
-            
-
-            if(i==0 && faseTerminadas.indexOf(valor)==-1 || i== pos+1 && faseTerminadas.indexOf(valor)==-1 || i==0 && temPersonalizado ==true ){
-            
-
-  
-              document.querySelector("#tabela").getElementsByTagName("tr")[i].getElementsByTagName("td")[0].getElementsByTagName("button")[0].getElementsByTagName("a")[0].classList.remove('disabled')
-              document.getElementById('tabela').getElementsByTagName('tr')[i].getElementsByTagName('td')[1].getElementsByTagName("input")[0].disabled = false
-             
-              
-            }
-            else
-          {
-            faseTerminadas.indexOf(valor)==-1 || faseTerminadas.indexOf(valor)!=-1 || i==0  
-           // console.log(faseTerminadas)
-        
-            document.querySelector("#tabela").getElementsByTagName("tr")[i].getElementsByTagName("td")[0].getElementsByTagName("button")[0].getElementsByTagName("a")[0].classList.add('disabled')
-            document.getElementById('tabela').getElementsByTagName('tr')[i].getElementsByTagName('td')[1].getElementsByTagName("input")[0].disabled = true
-                     
-          }
-        }
-
-
-
-      }
-      
-      
-    
-      
-    /*  $scope.desabilita = function (indice, valor) {
-        if (
-        (indice === 0 && faseTerminadas.indexOf(valor) === -1) ||
-        (valor === primeirafase && faseTerminadas.indexOf(valor) === -1) ||
-        (faseTerminadas.indexOf(valor) === -1 &&
-          valor === parseInt(ProximaFase) + parseInt(1) &&
-          faseTerminadas.indexOf(valor) === -1) ||
-        (quantidadeFases === valor && liberarTodasFases === true)
-      ) {
-        return false;
-      } else {
-        faseTerminadas.indexOf(valor) != -1 ||
-          faseTerminadas.indexOf(valor) === -1;
-        return true;
-      }
-    };
-  */
-        
-
+     
       $scope.iniciar = function () {
         document.getElementById('btn_finalizar').style.display = 'block';
         document.getElementById('btn_iniciar').style.display = 'none';
@@ -126,17 +41,6 @@ angular
         iniciaCronometro();
        tempoAtual = new Date();
 
-        /*TreinoService.carregaExercicios(id).success(function (data) {
-        var total = data.totalElements;
-        var pag = total - 1;
-        var qtd = 1;
-        //não exibe mais a opçao de inicio
-        exibeBotao = 0;
-        exericioPaginacao(id, pag, qtd);
-        liberar = true;
-      });
-      //iniciaCronometro();
-    */
       };
      
       var atualizapontosfeitos = function(id){
@@ -189,7 +93,8 @@ angular
       };
       var fasesTreinos = function () {
         TreinoService.carregaFasesTreino(id).success(function (data) {  
-         
+          console.log(data) 
+          
           $scope.fases = data;
           dados = data;
           arrayExercicio = data
@@ -210,6 +115,7 @@ angular
           for (var j = 0; j < data.length; j++) {   
             faseTerminadas.push(data[j].id_exercicio);
           }
+          
          }).error(function(data){
           if(data.status === 403){
             $location.path('/login');
@@ -219,9 +125,7 @@ angular
       buscaTreinosFeito();
       var exerciciosFase = function () {
         TreinoService.carregaExercicios(id).success(function (data) {
-        
           $scope.exercicios = data;
-        
          
         });
       };
@@ -233,91 +137,32 @@ angular
         }
       };
 
-       // var tabela = document.querySelector("#tabela").getElementsByTagName("tr").length;
-
-                     console.log(faseTerminadas[0])
-      /*  for(var i=0; i<tabela; i++){
-          if(i==0 && document.querySelector("#tabela").getElementsByTagName("tr")[0].id ){
-            document.querySelector("#tabela").getElementsByTagName("tr")[0].getElementsByTagName("td")[0].getElementsByTagName("button")[0].setAttribute("disabled","disabled");
-          }
-        }*/
-      //logica de habilitar e desabilitar fases
-/*      $scope.desabilita = function (indice, valor) {
-            if (
-            (indice === 0 && faseTerminadas.indexOf(valor) === -1) ||
-            (valor === primeirafase && faseTerminadas.indexOf(valor) === -1) ||
-            (faseTerminadas.indexOf(valor) === -1 &&
-              valor === parseInt(ProximaFase) + parseInt(1) &&
-              faseTerminadas.indexOf(valor) === -1) ||
-            (quantidadeFases === valor && liberarTodasFases === true)
-          ) {
-            return false;
-          } else {
-            faseTerminadas.indexOf(valor) != -1 ||
-              faseTerminadas.indexOf(valor) === -1;
-            return true;
-          }
-        };
-      */
-            
       var atualizaFaseBanco = function (idFase) {
         TreinoService.atualizaFaseConcluida(idFase).success(function (data) {})
     return false;
       };
 
-      var salvaDataFinalFase = function(idDaFase){
-        //chamar aqui
-
-       // let data = new Date()
-        //let dataFimFase = ((data.getFullYear())) + "-" + ((data.getMonth() + 4)) + "-" + data.getDate();
-        let d = new Date(); 
-        var data =  d.setDate(d.getDate() + 90)
-        var dadosSalvaFimFase ={
-          id_fase: idDaFase,
-          idUsuario: IdUsuario,
-          data_fim_fase : data
-            
-        }
-        TreinoService.salvaDataFimFase(dadosSalvaFimFase).success(function (data) {
-      }).error(function(data){
-        if(data.status === 403){
-          $location.path('/login');
-        }
-      });
-    }
+   
   
     var carregaTreinoUsuario = function(){
       TreinoPersonalizadoService.carregaTreinoUsuario(IdUsuario).success(function(data){
-       
-                  
         if(data.length > 0){
           treinoPersonalizado =data              
-          
         }
-       
       
       });
-
    } 
       var atualizaIdusuarioTreino = function () {
         let fase_check = $routeParams;
        // console.log('atualizaIdUsuario' + fase_check);
         var dadosTreino = {
-          id_usuario: IdUsuario,
-          dataRealizada: new Date(),
-          id_exercicio :id
+          usuario: IdUsuario,
+          data: new Date(),
+          idexercicio :id,
+        
         };
-  
-        var calculaDatafimFase = function(){
-        let dataFimFase = new Date(); 
-        dataFimFase.setDate(dataFimFase.getDate() + 90);
-            
-  
-      };
 
-      
-      calculaDatafimFase();
-        TreinoService.atualizaIdusuarioTreino(dadosTreino).success(function (
+   TreinoService.salvaDadosPersonalizado(dadosTreino).success(function (
           data
         ) {
       }).error(function(data){
@@ -325,7 +170,9 @@ angular
           $location.path('/login');
         }
       });
-      };
+    };
+      
+      
 
       var carregaIdTreino = function () {
         TreinoService.carregaIdTreino(id).success(function (data) {
@@ -337,27 +184,9 @@ angular
        // atualizaIdusuarioTreino;
         repeticaoExercicio++;
       //  delete_check++;
-   
-<<<<<<< HEAD
+
      
-
-  
-=======
-      var buscaPersonlizado = function(){
-        var data = new Date();
-        let dataFormatada =  ((data.getFullYear())) + "/" + (("0" + (data.getMonth() + 1)).slice(-2)) + "/" + data.getDate();
-        TreinoService.buscaPersonlizado(IdUsuario,dataFormatada).success(function(data){
-          if(data != null){
-            temPersonalizado = true;
-          }
-
-        });
-      }
-
-      buscaPersonlizado();
-
->>>>>>> 0ab506360c9c4ee492a5f7cfc74750b01fd4eccb
-    
+        
         var tempoCalculado = 0;
         var horaAtual = new Date();
        // console.log("subtracao: " + horaAtual - tempoAtual)
@@ -397,7 +226,7 @@ angular
         if(repeticaoExercicio ===3){
           carregaIdTreino();
          atualizaIdusuarioTreino();
-         salvaDataFinalFase(idFase);
+       //  salvaDataFinalFase(idFase);
         // atualizaFaseBanco(id);
          atualizapontosfeitos(IdUsuario);
 
@@ -486,7 +315,7 @@ angular
 
                 document.getElementById('img').style.filter = '';
                 let id_treino = $routeParams.id;
-                $location.path('treino/inicio/' + id_treino);
+                $location.path('treino/personalizado/inicio/' + id_treino);
               },
             }).then((result) => {
               //  Read more about handling dismissals below
@@ -508,7 +337,7 @@ angular
            // atualizaIdusuarioTreino();
           //   atualizaFaseBanco(id);
             
-            $location.path('treinos/' + idFase);
+            $location.path('/home');
 
             function refresh() {
               setTimeout(function () {
@@ -516,7 +345,7 @@ angular
               }, 200);
             }
             refresh();
-            $location.path('treinos/' + idFase);
+            $location.path('/home');
             setTimeout(location.reload.bind(location), 2000);
             // window.location.reload();
           });
@@ -600,19 +429,9 @@ angular
         }, 150);
       }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 0ab506360c9c4ee492a5f7cfc74750b01fd4eccb
-     
       carrega();
       carregaTreinoUsuario();
       exerciciosFase();
       fasesTreinos();
-<<<<<<< HEAD
-    
-=======
->>>>>>> 0ab506360c9c4ee492a5f7cfc74750b01fd4eccb
-     
     }
   );
