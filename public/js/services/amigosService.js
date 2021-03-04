@@ -1,9 +1,9 @@
 angular.module('myHeroTraining').factory('amigosService', function ($http) {
     var carregarSolicitacoes = function (id) {
-    //    var jwt = localStorage.getItem('Bearer');
+        var jwt = localStorage.getItem('Bearer');
 
-      //  $http.defaults.headers.common.Authorization = 'Bearer ' + jwt;
-        return $http.get('https://mhtrainingback.herokuapp.comrequest', {
+        $http.defaults.headers.common.Authorization = 'Bearer ' + jwt;
+        return $http.get('https://mhtrainingback.herokuapp.com/friend/request', {
             params: {
                 id: id
             },
@@ -11,7 +11,7 @@ angular.module('myHeroTraining').factory('amigosService', function ($http) {
     };
 
     var enviarSolicitacao = function (usuarioid, email) {
-        return $http.post('https://mhtrainingback.herokuapp.com/request', {
+        return $http.post('https://mhtrainingback.herokuapp.com/friend/request', {
                 usuarioid: usuarioid,
                 email: email
 
@@ -19,14 +19,14 @@ angular.module('myHeroTraining').factory('amigosService', function ($http) {
     };
 
     var aceitarSolicitacao = function (usuarioid, amizadeid) {
-        return $http.post('https://mhtrainingback.herokuapp.com/accept', {
+        return $http.post('https://mhtrainingback.herokuapp.com/friend/accept', {
                 usuarioid: usuarioid,
                 amizadeid: amizadeid
         });
     };
 
     var recusarSolicitacao = function (usuarioid, amizadeid) {
-        return $http.post('https://mhtrainingback.herokuapp.com/reject', {
+        return $http.post('https://mhtrainingback.herokuapp.com/friend/reject', {
             usuarioid: usuarioid,
             amizadeid: amizadeid
         });
@@ -35,7 +35,7 @@ angular.module('myHeroTraining').factory('amigosService', function ($http) {
     var carregarAmigos = function (id) {
    //     var jwt = localStorage.getItem('Bearer');
 
-  //      $http.defaults.headers.common.Authorization = 'Bearer ' + jwt;
+        $http.defaults.headers.common.Authorization = 'Bearer ' + jwt;
         return $http.get('https://mhtrainingback.herokuapp.com/friend', {
             params: {
                 id: id
@@ -43,7 +43,19 @@ angular.module('myHeroTraining').factory('amigosService', function ($http) {
         });
     };
 
+    var carregarAmigosData = function (id) {
+        var jwt = localStorage.getItem('Bearer');
+
+        $http.defaults.headers.common.Authorization = 'Bearer ' + jwt;
+        return $http.get('http://localhost:8080/friend/data', {
+            params: {
+                id: id
+            },
+        });
+    };
+
     return {
+        carregarAmigosData: carregarAmigosData,
         carregarAmigos: carregarAmigos,
         carregarSolicitacoes: carregarSolicitacoes,
         enviarSolicitacao: enviarSolicitacao,
