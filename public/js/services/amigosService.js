@@ -47,7 +47,7 @@ angular.module('myHeroTraining').factory('amigosService', function ($http) {
         var jwt = localStorage.getItem('Bearer');
 
         $http.defaults.headers.common.Authorization = 'Bearer ' + jwt;
-        return $http.get('http://localhost:8080/friend/data', {
+        return $http.get('https://mhtrainingback.herokuapp.com/friend/data', {
             params: {
                 id: id
             },

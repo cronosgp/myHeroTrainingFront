@@ -26,10 +26,24 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="21aaf686-8e7d-49d5-a8c2-3755bfd887bd" name="Default Changelist" comment="run local only">
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+    <list default="true" id="21aaf686-8e7d-49d5-a8c2-3755bfd887bd" name="Default Changelist" comment="ajustes">
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/services/avatarService.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/services/perfilService.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/services/treinoConjuntoService.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/view/Avatar.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/view/Modal.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/view/TreinoConjunto.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/view/TreinoConjuntoSol.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/services/amigosService.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/services/amigosService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/services/loginService.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/services/loginService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/services/homeService.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/services/homeService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/view/AdicionarAmigos.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/view/AdicionarAmigos.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/view/MeusAmigos.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/view/MeusAmigos.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/view/Solicitacoes.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/view/Solicitacoes.html" afterDir="false" />
     </list>
     <list id="e90f9fbb-b761-4603-bcda-52c19b70bea4" name="Revert &quot;Initial commit&quot;" comment="Revert &quot;Initial commit&quot;&#10;&#10;This reverts commit 82f0f341" />
     <option name="SHOW_DIALOG" value="false" />
@@ -51,7 +65,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="treino-conjunto" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -152,7 +166,21 @@
       <option name="project" value="LOCAL" />
       <updated>1612418720643</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="ajustes">
+      <created>1614891768725</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1614891768726</updated>
+    </task>
+    <task id="LOCAL-00007" summary="ajustes">
+      <created>1614891823883</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1614891823883</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -186,17 +214,18 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="teste" />
     <MESSAGE value="run local only" />
-    <option name="LAST_COMMIT_MESSAGE" value="run local only" />
+    <MESSAGE value="ajustes" />
+    <option name="LAST_COMMIT_MESSAGE" value="ajustes" />
   </component>
   <component name="WindowStateProjectService">
     <state x="144" y="79" key="MergeDialog" timestamp="1614891690526">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="144" y="79" key="MergeDialog/0.0.1440.900@0.0.1440.900" timestamp="1614891690526" />
-    <state x="358" y="218" key="MultipleFileMergeDialog" timestamp="1614891690584">
+    <state x="358" y="218" key="MultipleFileMergeDialog" timestamp="1614891757769">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="358" y="218" key="MultipleFileMergeDialog/0.0.1440.900@0.0.1440.900" timestamp="1614891690584" />
+    <state x="358" y="218" key="MultipleFileMergeDialog/0.0.1440.900@0.0.1440.900" timestamp="1614891757769" />
     <state x="455" y="159" key="RollbackChangesDialog" timestamp="1614891406693">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -205,18 +234,18 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="221" y="89" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1611022306722" />
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1614891700948">
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1614892190165">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1614891700948" />
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1614892190165" />
     <state x="518" y="371" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1612418684436">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="518" y="371" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1440.900@0.0.1440.900" timestamp="1612418684436" />
-    <state x="418" y="205" width="686" height="490" key="find.popup" timestamp="1611107028757">
+    <state x="418" y="205" width="686" height="490" key="find.popup" timestamp="1614891878649">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="418" y="205" width="686" height="490" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1611107028757" />
+    <state x="418" y="205" width="686" height="490" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1614891878649" />
     <state x="88" y="98" width="1289" height="674" key="new project wizard" timestamp="1611242033310">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
