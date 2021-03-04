@@ -2,12 +2,9 @@ angular
   .module('myHeroTraining')
   .controller(
     'treinoPersonalizadoController',
-
-
     function ($scope, 
-      TreinoPersonalizadoService, $location  ) 
+      TreinoPersonalizadoService, $location,TreinoService  ) 
       {
-
       var valor=0;
       var faseTerminadas = [];
       var tamanhofor;
@@ -16,13 +13,12 @@ angular
         $scope.model={
           id: IdUsuario
         };
-
-        $scope.desabilita = function() {
+        var temPersonalizado = false;
+       $scope.desabilita = function() {
           var tamanhoteste = document.getElementById('teste').getElementsByTagName('tr').length;
           var contador = 0;
+           for (var j = 0; j <tamanhoteste-1; j++) {
 
-
-          for (var j = 0; j <tamanhoteste-1; j++) {
              
             //console.log(document.getElementById('teste').getElementsByTagName('tr')[j].getElementsByTagName('td')[0].getElementsByTagName('div')[0].getElementsByTagName('input')[0].checked == true)
                  
@@ -76,7 +72,8 @@ angular
                  
        var carregaTreino = function(){       
         TreinoPersonalizadoService.carregaTreino(IdUsuario).success(function(data)
-        {
+
+        {  
             $scope.personalizado = data;
             tamanhofor = data.lenght;
 
@@ -94,7 +91,7 @@ angular
 
        }
        $scope.item = function (valor) {
-         console.log(valor)
+        
           if(valor === true){
            return true;
          }
@@ -104,8 +101,8 @@ angular
        var x;
 
        $scope.item = function(valor){ 
-        console.log("a") 
-        console.log(valor)
+      
+
        
           
          if(valor === true){
@@ -131,13 +128,33 @@ angular
             oculta =1;
           }
           $scope.usu = data;
+        
         });
 
      }
+     $scope.desabilitas = function(){
+      if(temPersonalizado == true){
+      
+       
+        return true;
+      }
+     }
+     var buscaPersonlizado = function(){
+       var data = new Date() 
+      let dataFormatada =  ((data.getFullYear())) + "/" + (("0" + (data.getMonth() + 1)).slice(-2)) + "/" + data.getDate();
+      TreinoService.buscaPersonlizado(dataFormatada,IdUsuario).success(function(data){
+        console.log(data.length)
+        
+        if(data.length!=0 && data.length!=undefined){
+         
+          temPersonalizado = true;
+        }
 
+      });
+    }
+    buscaPersonlizado();
      $scope.excluir = function(){
-
-      alert("Oi");
+      
      }
 
      $scope.exibe = function () {

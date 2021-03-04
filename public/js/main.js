@@ -339,6 +339,11 @@ angular
       templateUrl: "./view/inicioTreino.html",
       controller: "TreinoController",
     });
+
+    $routeProvider.when("/treino/personalizado/inicio/:id", {
+      templateUrl: "./view/treinoPersonalizadoInicio.html",
+      controller: "TreinoPersonalizadoInicioController",
+    });
     $routeProvider.when("/treino/inicio/execucao", {
       templateUrl: "./view/TreinoExecucao.html",
       controller: "TreinoController",
@@ -382,7 +387,7 @@ angular
     if (lenguage_n.match(/en.*/)) {
       lenguage = "en-US";
     }
-    console.log(lenguage);
+    
     $routeProvider.otherwise({ redirectTo: "/principal" });
     $translateProvider.preferredLanguage(lenguage);
     $translateProvider.useSanitizeValueStrategy("escape");
