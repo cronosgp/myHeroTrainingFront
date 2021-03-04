@@ -9,7 +9,7 @@ angular
     ) {
         var IdUsuario = sessionStorage.getItem('id');
 
-        $scope.solicitacoes = function () {
+        $scope.carregaSolicitacoes = function () {
             treinoConjuntoService.carregarSolicitacoes(IdUsuario).success(function (data) {
                 $scope.solicitacoes = data;
                 console.log(data);
@@ -28,20 +28,20 @@ angular
             });
         }
 
-        $scope.aceitarSolicitacao = function (amizadeid) {
+        $scope.aceitarSolicitacao = function (usuarioid) {
 
-            treinoConjuntoService.aceitarSolicitacao(amizadeid, IdUsuario).success(function (data){
-                $scope.solicitacoes();
+            treinoConjuntoService.aceitarSolicitacao(usuarioid, IdUsuario).success(function (data){
+                $scope.carregaSolicitacoes();
             }).error(function (data){
                 console.log("erro");
                 console.log(data);
             });
         }
 
-        $scope.recusarSolicitacao = function (amizadeid) {
+        $scope.recusarSolicitacao = function (usuarioid) {
 
-            treinoConjuntoService.recusarSolicitacao(amizadeid, IdUsuario).success(function (data){
-                $scope.solicitacoes();
+            treinoConjuntoService.recusarSolicitacao(usuarioid, IdUsuario).success(function (data){
+                $scope.carregaSolicitacoes();
             }).error(function (data){
                 console.log("erro");
                 console.log(data);

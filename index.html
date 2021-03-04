@@ -409,14 +409,14 @@ header > a {
                 <div class="header-menu" id="header-menu" ng-show="exibircomLogin()">
                     <button class="btn btn-secondary dropdown-toggle">Menu</button>
                     <ul id="dropdownmenu">
+                        <li><a href="#pagamento"><span class="icon icon-user"></span>Seja Premium</a></li>
                         <li><a href="#avatar"><span class="icon icon-user"></span>Perfil</a></li>
                         <li><a href="#"><span class="icon icon-user-tie"></span>Desempenho</a></li>
-                        <li><a href="#amigos"><span class="icon icon-list"></span>Meus Amigos</a></li>
-                        <li><a href="#solicitacoes"><span class="icon icon-club"></span>Solicitações <span class="not" ng-show="notAmizade>0">{{notAmizade}}</span> </a></li>
-                        <li><a href="#adicionar-amigos"><span class="icon icon-heart"></span>Adicionar Amigos</a></li>
+                        <li><a href="#caminhada"><span class="icon icon-user"></span>Caminhada</a></li>
+                        <li><a href="#amigos"><span class="icon icon-list"></span>Meus Amigos<span class="not" ng-show="notAmizade>0">{{notAmizade}}</span></a></li>
                         <li><a href="#classificacao"><span class="icon icon-users2"></span>Classificação</a></li>
                         <li><a href="#treino-personalizado/"><span class="icon icon-stopwatch"></span>Treino Personalizado</a></li>
-                        <li><a href="#treino-conjunto/"><span class="icon icon-stopwatch"></span>Treino Conjunto</a></li>
+                        <li ng-hide="true"><a href="#treino-conjunto/"><span class="icon icon-stopwatch"></span>Treino Conjunto</a></li>
                         <li><a href="#/descricaoTreino"><span class="icon icon-stopwatch"></span>Exercícios</a></li>
                         <li><a href="#/" ng-click="logout()" type="submit"><span class="icon icon-exit"></span>Sign Out</a></li>
                     </ul>
@@ -436,21 +436,6 @@ header > a {
             color: #3c3c3c;
         }
     </style>
-
-    <ul class="nav nav-tabs" ng-controller="HomeController" ng-show="exibircomLogin()">
-        <li class="nav-item">
-
-            <a translate="" class="nav-link" href="#/caminhada">Caminhada</a>
-        </li>
-        <li class="nav-item">
-
-            <a translate="" class="nav-link" href="#/pagamento">Seja Premium</a>
-        </li>
-        <!--li class="nav-item">
-            <a class="nav-link" href="#">Desempenho</a>
-        </li-->
-
-    </ul>
 
    <!-- <ul class="nav nav-tabs" ng-controller="HomeController" ng-show="exibirSemLogin()">
         <li class="nav-item">

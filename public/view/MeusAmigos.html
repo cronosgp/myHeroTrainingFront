@@ -177,7 +177,25 @@
       .user-dashboard-info-box .candidates-list .thumb {
           margin-right: 20px;
       }
+          .not {
+            padding: 5px 10px;
+            border-radius: 50%;
+            background: dodgerblue;
+            color: white;
+          }
     </style>
+
+    <ul class="nav nav-tabs" ng-controller="PageCtrl" ng-show="exibircomLogin()">
+      <li class="nav-item">
+        <a class="nav-link active"  href="#/amigos/">Meus Amigos</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link"  href="#/adicionar-amigos/">Adicionar Amigo</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#/solicitacoes">Solicitações<span class="not" ng-show="notAmizade>0">{{notAmizade}}</span></a>
+      </li>
+    </ul>
 
     <link
       rel="stylesheet"
@@ -214,7 +232,7 @@
                           </div>
                           <div class="candidate-list-option">
                             <ul class="list-unstyled">
-                              <li><i class="fas fa-calendar-check"></i> Amizade em 12/01</li>
+                              <li><i class="fas fa-calendar-check"></i>Amizade em {{amgData[$index]}}</li>
                               <li><i class="fas fa-star"></i></li>
                             </ul>
                           </div>
@@ -224,7 +242,7 @@
                     <td class="candidate-list-favourite-time text-center">
                       <a class="candidate-list-favourite order-2" ng-click="enviarConviteTreino(amigo.id)">
                         <i class="far fa-handshake"></i>
-                      <span class="candidate-list-time order-1">Convidar</span>
+                      <span class="candidate-list-time order-1" ng-disabled="enviado">Convidar</span>
                       </a>
                     </td>
                     <td>

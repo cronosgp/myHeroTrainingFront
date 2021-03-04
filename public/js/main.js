@@ -390,6 +390,7 @@ angular
       templateUrl: "./view/TreinoConjuntoSol.html",
       controller: "TreinoConjuntoController",
     });
+
     var lenguage = "pt-BR";
     var lenguage_n = navigator.language || navigator.userLanguage;
 

@@ -26,7 +26,7 @@ angular.module('myHeroTraining').factory('treinoConjuntoService', function ($htt
         });
     };
 
-    var recusarSolicitacao = function (usuarioid, conviteid) {
+    var recusarSolicitacao = function (conviteid, usuarioid) {
         return $http.post('http://localhost:8080/treino-conjunto/reject', {
             usuarioid: usuarioid,
             conviteid: conviteid

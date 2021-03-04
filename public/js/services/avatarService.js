@@ -4,7 +4,7 @@ angular.module('myHeroTraining').factory('avatarService', function ($http) {
         var jwt = localStorage.getItem('Bearer');
 
         $http.defaults.headers.common.Authorization = 'Bearer ' + jwt;
-        return $http.get('http://localhost:8080/perfil/id', {
+        return $http.get('http://localhost:8080/perfil/avatar/id', {
             params: {
                 id: id
             },

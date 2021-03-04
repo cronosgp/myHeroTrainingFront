@@ -43,7 +43,19 @@ angular.module('myHeroTraining').factory('amigosService', function ($http) {
         });
     };
 
+    var carregarAmigosData = function (id) {
+        var jwt = localStorage.getItem('Bearer');
+
+        $http.defaults.headers.common.Authorization = 'Bearer ' + jwt;
+        return $http.get('http://localhost:8080/friend/data', {
+            params: {
+                id: id
+            },
+        });
+    };
+
     return {
+        carregarAmigosData: carregarAmigosData,
         carregarAmigos: carregarAmigos,
         carregarSolicitacoes: carregarSolicitacoes,
         enviarSolicitacao: enviarSolicitacao,

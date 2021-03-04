@@ -14,7 +14,7 @@ angular.module('myHeroTraining').factory('perfilService', function ($http) {
         var jwt = localStorage.getItem('Bearer');
 
         $http.defaults.headers.common.Authorization = 'Bearer ' + jwt;
-        return $http.get('http://localhost:8080/cadastro-usuario/id', {
+        return $http.get('http://localhost:8080/perfil/id', {
             params: {
                 id: id
             },
