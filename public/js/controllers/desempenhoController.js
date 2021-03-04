@@ -14,7 +14,8 @@ angular
         let dataFormatadaf =  ((dataf.getFullYear())) + "/" + (("0" + (dataf.getMonth() + 1)).slice(-2)) + "/" + dataf.getDate();
         desempenhoService.busca(IdUsuario,dataFormatada, dataFormatadaf).success(function(data)
 
-          {
+          {   
+            console.log(data)
          
               $scope.dados = data;
               exibe = 1;  

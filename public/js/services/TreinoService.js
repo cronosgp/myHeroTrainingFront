@@ -6,15 +6,15 @@ angular.module('myHeroTraining').factory('TreinoService', function ($http) {
   //  var jwt = localStorage.getItem('Bearer');
 
  //   $http.defaults.headers.common.Authorization = 'Bearer ' + jwt;
-    return $http.get('http://localhost:8080/treinos', {
+    return $http.get('https://mhtrainingback.herokuapp.com/treinos', {
       params: {
         id: id,
       },
     });
   };
   var atualizapontosUsu = function(id){
-    var jwt = localStorage.getItem('Bearer');
-    return $http.get('http://localhost:8080/exercicio/atualiza',{
+ //   var jwt = localStorage.getItem('Bearer');
+    return $http.get('https://mhtrainingback.herokuapp.com/atualiza',{
       
       params: {
       id: id,
@@ -22,10 +22,10 @@ angular.module('myHeroTraining').factory('TreinoService', function ($http) {
     });
      };
   var carregaExercicios = function (id, pagina, qnt) {
-    var jwt = localStorage.getItem('Bearer');
+ //   var jwt = localStorage.getItem('Bearer');
 
    // $http.defaults.headers.common.Authorization = 'Bearer ' + jwt;
-    return $http.get('http://localhost:8080/exercicio', {
+    return $http.get('https://mhtrainingback.herokuapp.com/exercicio', {
       params: {
         id: id,
         pagina: pagina,
@@ -34,10 +34,10 @@ angular.module('myHeroTraining').factory('TreinoService', function ($http) {
     });
   };
   var carregaIdTreino = function (id) {
-    var jwt = localStorage.getItem('Bearer');
+  //  var jwt = localStorage.getItem('Bearer');
 
     //$http.defaults.headers.common.Authorization = 'Bearer ' + jwt;
-    return $http.get('http://localhost:8080/fase/treino', {
+    return $http.get('https://mhtrainingback.herokuapp.com/treino', {
       params: {
         id: id,
       },
@@ -45,32 +45,32 @@ angular.module('myHeroTraining').factory('TreinoService', function ($http) {
   };
 
   var atualizaFaseConcluida = function (id) {
-    var jwt = localStorage.getItem('Bearer');
+   // var jwt = localStorage.getItem('Bearer');
 
     //$http.defaults.headers.common.Authorization = 'Bearer ' + jwt;
-    return $http.put('http://localhost:8080/fase/' + id);
+    return $http.put('https://mhtrainingback.herokuapp.com/fase/' + id);
   };
   var atualizaIdusuarioTreino = function (model) {
     //console.log('teste' + model.id);
-    var jwt = localStorage.getItem('Bearer');
+  //  var jwt = localStorage.getItem('Bearer');
 
     //$http.defaults.headers.common.Authorization = 'Bearer ' + jwt;
     return $http.post(
-      'http://localhost:8080/treinousuario',
+      'https://mhtrainingback.herokuapp.com/treinousuario',
       model
     );
   };
 
   var salvaDataFimFase = function(dadosSalvaFimFase){
-    return $http.post('http://localhost:8080/dataFase', dadosSalvaFimFase);
+    return $http.post('https://mhtrainingback.herokuapp.com/dataFase', dadosSalvaFimFase);
   }
 
   var buscaPersonlizado = function (data,IdUsuario) {
-   var jwt = localStorage.getItem('Bearer');
+ //  var jwt = localStorage.getItem('Bearer');
 
     //$http.defaults.headers.common.Authorization = 'Bearer ' + jwt;
     return $http.get(
-      'http://localhost:8080/treinousuario/personalizado',
+      'https://mhtrainingback.herokuapp.com/personalizado',
       {
         params: {
           id: IdUsuario,
@@ -86,7 +86,7 @@ angular.module('myHeroTraining').factory('TreinoService', function ($http) {
 
       //$http.defaults.headers.common.Authorization = 'Bearer ' + jwt;      
 
-      return $http.post('http://localhost:8080/treinoPersonalizado/dados',dados)
+      return $http.post('https://mhtrainingback.herokuapp.com/dados',dados)
 
     }
 
@@ -95,11 +95,11 @@ angular.module('myHeroTraining').factory('TreinoService', function ($http) {
     return $http.get('/usuario', token);
   };
   var buscaTreinosFeitos = function (IdUsuario,data) {
-    var jwt = localStorage.getItem('Bearer');
+  //  var jwt = localStorage.getItem('Bearer');
 
     //$http.defaults.headers.common.Authorization = 'Bearer ' + jwt;
     return $http.get(
-      'http://localhost:8080/treinousuario/recupera',
+      'https://mhtrainingback.herokuapp.com/treinousuario/recupera',
       {
         params: {
           id: IdUsuario,
@@ -110,47 +110,47 @@ angular.module('myHeroTraining').factory('TreinoService', function ($http) {
     );
   };
   var atualizaIdUsuario = function (faseConcluida) {
-    var jwt = localStorage.getItem('Bearer');
+ //   var jwt = localStorage.getItem('Bearer');
     //$http.defaults.headers.common.Authorization = 'Bearer ' + jwt;
 
-    return $http.put('http://localhost:8080/fase', {
+    return $http.put('https://mhtrainingback.herokuapp.com/fase', {
       params: {
         faseConcluida: faseConcluida,
       },
     });
   };
   var fotoFase = function (id) {
-    var jwt = localStorage.getItem('Bearer');
+   /// var jwt = localStorage.getItem('Bearer');
     // $http.defaults.headers.common.Authorization = 'Bearer ' + jwt;
 
-    return $http.get('http://localhost:8080/fase/recupera', {
+    return $http.get('https://mhtrainingback.herokuapp.com/fase/recupera', {
       params: {
         id: id,
       },
     });
   };
   var dadosCadastro = function (id) {
-    var jwt = localStorage.getItem('Bearer');
+   // var jwt = localStorage.getItem('Bearer');
 
     //$http.defaults.headers.common.Authorization = 'Bearer ' + jwt;
-    return $http.get('http://localhost:8080/cadastro-usuario', {
+    return $http.get('https://mhtrainingback.herokuapp.com/cadastro-usuario', {
       params: {
         id: id,
       },
     });
   };
   var salvaTimeCronometroService = function (param) {
-    var jwt = localStorage.getItem('Bearer');
+ //   var jwt = localStorage.getItem('Bearer');
 
     //$http.defaults.headers.common.Authorization = 'Bearer ' + jwt;
-    return $http.post('http://localhost:8080/tempo', param);
+    return $http.post('https://mhtrainingback.herokuapp.com/tempo', param);
   };
   var getTimeCronometroService = function (id_usuario, id_fase) {
-    var jwt = localStorage.getItem('Bearer');
+   // var jwt = localStorage.getItem('Bearer');
 
     //$http.defaults.headers.common.Authorization = 'Bearer ' + jwt;
 
-    return $http.get('http://localhost:8080/tempo', {
+    return $http.get('https://mhtrainingback.herokuapp.com/tempo', {
       params: {
         id_usuario: id_usuario,
         id_fase: id_fase,

@@ -363,17 +363,17 @@
             align="center"
             class="table manage-candidates-top mb-0"
           >
-            <tr>
+            <tr >
               <th>Data</th>
               <th>Quilometragem</th>
               <th>Tempo gasto</th>
               <th>Pontos</th>
             </tr>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
+            <tr ng-repeat="d in dados">
+              <td>{{d.data_caminhada}}</td>
+              <td>{{d.distancia}}</td>
+              <td>{{d.tempo}}</td>
+              <td>{{d.ponto_caminhada}}</td>
             </tr>
         
           </table>

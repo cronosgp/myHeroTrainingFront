@@ -9,6 +9,7 @@ angular
       var faseTerminadas = [];
       var tamanhofor;
       var oculta=0;
+      var faseTerminadas2=[];
       var IdUsuario = sessionStorage.getItem('id');
         $scope.model={
           id: IdUsuario
@@ -133,12 +134,27 @@ angular
 
      }
      $scope.desabilitas = function(){
-      if(temPersonalizado == true){
+      if(temPersonalizado == true && faseTerminadas.lenght!==0 || faseTerminadas.lenght!==0){
       
-       
         return true;
       }
      }
+
+     var buscaTreinosFeito = function () {
+      var dataAtual = new Date();
+      let data = new Date();
+      let dataFormatada =  ((data.getFullYear())) + "/" + (("0" + (data.getMonth() + 1)).slice(-2)) + "/" + data.getDate();
+      TreinoService.buscaTreinosFeitos(IdUsuario,dataFormatada).success(function (data) {
+        for (var j = 0; j < data.length; j++) {   
+          faseTerminadas2.push(data[j].id_exercicio);
+        }
+       }).error(function(data){
+        if(data.status === 403){
+          $location.path('/login');
+        }
+      });
+    };
+    buscaTreinosFeito();
      var buscaPersonlizado = function(){
        var data = new Date() 
       let dataFormatada =  ((data.getFullYear())) + "/" + (("0" + (data.getMonth() + 1)).slice(-2)) + "/" + data.getDate();

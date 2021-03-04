@@ -1,24 +1,24 @@
 angular.module('myHeroTraining').factory('loginService', function ($http) {
   var autenticar = function (dadosUsuario) {
 
-    var jwt = localStorage.getItem('Bearer');
+   // var jwt = localStorage.getItem('Bearer');
   
-      $http.defaults.headers.common.Authorization = 'Bearer ' + jwt;
+  //    $http.defaults.headers.common.Authorization = 'Bearer ' + jwt;
   
     return $http.post(
-      'http://localhost:8080/auth',
+      'https://mhtrainingback.herokuapp.com/auth',
       dadosUsuario
     );
   };
 
   var dadosLogin = function (email) {
-    var jwt = localStorage.getItem('Bearer');
+  //  var jwt = localStorage.getItem('Bearer');
   
-      $http.defaults.headers.common.Authorization = 'Bearer ' + jwt;
+    //  $http.defaults.headers.common.Authorization = 'Bearer ' + jwt;
   
     return $http.get(
       
-      'http://localhost:8080/cadastro-usuario/id',
+      'https://mhtrainingback.herokuapp.com/id',
       {
         params: {
           email: email,
@@ -31,7 +31,7 @@ angular.module('myHeroTraining').factory('loginService', function ($http) {
   
       $http.defaults.headers.common.Authorization = 'Bearer ' + jwt;
   
-    return $http.put('http://localhost:8080/auth/' + id, token);
+    return $http.put('https://mhtrainingback.herokuapp.com/' + id, token);
   };
 
   return {

@@ -4,7 +4,7 @@ angular.module('myHeroTraining').factory('caminhadaService', function ($http) {
  //   $http.defaults.headers.common.Authorization = 'Bearer ' + jwt;
   var salvar = function(model){
 
-    return $http.post('http://localhost:8080/Caminhada', model)
+    return $http.post('https://mhtrainingback.herokuapp.com/Caminhada', model)
   }
 return{salvar:salvar}
 

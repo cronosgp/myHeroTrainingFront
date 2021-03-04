@@ -22,11 +22,9 @@ angular
       var fase;
       var dados =[]
       var arrayExercicio;
-<<<<<<< HEAD
+
       var temPersonalizado = false;
-=======
-      var temPersonalizado;
->>>>>>> 0ab506360c9c4ee492a5f7cfc74750b01fd4eccb
+
 
       var IdUsuario = sessionStorage.getItem('id');
 
@@ -62,21 +60,15 @@ angular
 
           }).indexOf(ProximaFase)
 
-         
-       
+      
             for(var i=0; i<arrayExercicio.length; i++){
             
             valor = arrayExercicio[i].id
 
-            
+          
             
             if(i==0 && faseTerminadas.indexOf(valor)==-1 && temPersonalizado==false || i== pos+1 && faseTerminadas.indexOf(valor)==-1 && i!=0 || temPersonalizado==true && i==1 && faseTerminadas.indexOf(valor)==-1 ){
             
-
-            if(i==0 && faseTerminadas.indexOf(valor)==-1 || i== pos+1 && faseTerminadas.indexOf(valor)==-1 || i==0 && temPersonalizado ==true ){
-            
-
-  
               document.querySelector("#tabela").getElementsByTagName("tr")[i].getElementsByTagName("td")[0].getElementsByTagName("button")[0].getElementsByTagName("a")[0].classList.remove('disabled')
               document.getElementById('tabela').getElementsByTagName('tr')[i].getElementsByTagName('td')[1].getElementsByTagName("input")[0].disabled = false
              
@@ -327,22 +319,6 @@ angular
       });
       };
 
-      var carregaIdTreino = function () {
-        TreinoService.carregaIdTreino(id).success(function (data) {
-         idFase = data;
-        });
-      };
-      
-      $scope.finalizar = function (valor) {
-       // atualizaIdusuarioTreino;
-        repeticaoExercicio++;
-      //  delete_check++;
-   
-<<<<<<< HEAD
-     
-
-  
-=======
       var buscaPersonlizado = function(){
         var data = new Date();
         let dataFormatada =  ((data.getFullYear())) + "/" + (("0" + (data.getMonth() + 1)).slice(-2)) + "/" + data.getDate();
@@ -356,7 +332,20 @@ angular
 
       buscaPersonlizado();
 
->>>>>>> 0ab506360c9c4ee492a5f7cfc74750b01fd4eccb
+      var carregaIdTreino = function () {
+        TreinoService.carregaIdTreino(id).success(function (data) {
+         idFase = data;
+        });
+      };
+      
+      $scope.finalizar = function (valor) {
+       // atualizaIdusuarioTreino;
+        repeticaoExercicio++;
+      //  delete_check++;
+   
+
+    
+
     
         var tempoCalculado = 0;
         var horaAtual = new Date();
@@ -600,19 +589,14 @@ angular
         }, 150);
       }
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 0ab506360c9c4ee492a5f7cfc74750b01fd4eccb
+
+
      
       carrega();
       carregaTreinoUsuario();
       exerciciosFase();
       fasesTreinos();
-<<<<<<< HEAD
-    
-=======
->>>>>>> 0ab506360c9c4ee492a5f7cfc74750b01fd4eccb
+
      
-    }
-  );
+    });
