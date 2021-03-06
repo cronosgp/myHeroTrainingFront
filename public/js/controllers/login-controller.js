@@ -7,6 +7,7 @@ angular
       loginService.autenticar($scope.model).then(success, error);
       function success(response) {
         carregaid($scope.model.email);
+        console.log(sessionStorage)
         localStorage.setItem(response.data.tipo, response.data.token);
 
         $location.path('/home');
@@ -43,4 +44,4 @@ angular
         sessionStorage.setItem('id', data.id);
       });
     };
-  });
+  })

@@ -11,11 +11,20 @@ angular
       var oculta=0;
       var faseTerminadas2=[];
       var IdUsuario = sessionStorage.getItem('id');
+      var desab =0;
         $scope.model={
           id: IdUsuario
         };
         var temPersonalizado = false;
+
+        if(desab ===1)
+        {
+         document.getElementById('btn').disabled=true;
+         
+        }
        $scope.desabilita = function() {
+
+      
           var tamanhoteste = document.getElementById('teste').getElementsByTagName('tr').length;
           var contador = 0;
            for (var j = 0; j <tamanhoteste-1; j++) {
@@ -38,8 +47,49 @@ angular
            }   
          
         }
-     
-       $scope.salva = function(){            
+
+        $scope.check = function() {
+
+        var tamanhoteste = document.getElementById('teste').getElementsByTagName('tr').length;
+          var contador = 0;
+           for (var j = 0; j <tamanhoteste-1; j++) {
+                  
+               if(document.getElementById('teste').getElementsByTagName('tr')[j].getElementsByTagName('td')[0].getElementsByTagName('div')[0].getElementsByTagName('input')[0].checked == false){
+                  contador++;
+              
+               }
+               else
+               {
+                 document.getElementById('teste').getElementsByTagName('tr')[j].getElementsByTagName('td')[0].getElementsByTagName('div')[0].getElementsByTagName('input')[0].disabled = false
+                 
+               }        
+                     
+          }
+          if(contador === tamanhoteste-1){
+            for (var j = 0; j <tamanhoteste-1; j++){
+              document.getElementById('teste').getElementsByTagName('tr')[j].getElementsByTagName('td')[0].getElementsByTagName('div')[0].getElementsByTagName('input')[0].disabled = false
+
+            
+            }
+            document.getElementById('btn').disabled=true;
+          }
+           else{
+            for (var j = 0; j <tamanhoteste-1; j++){
+              if(document.getElementById('teste').getElementsByTagName('tr')[j].getElementsByTagName('td')[0].getElementsByTagName('div')[0].getElementsByTagName('input')[0].checked == false){
+              document.getElementById('teste').getElementsByTagName('tr')[j].getElementsByTagName('td')[0].getElementsByTagName('div')[0].getElementsByTagName('input')[0].disabled = true
+             
+              }
+            
+        
+           } 
+           document.getElementById('btn').disabled=false;  
+          }
+         
+          }
+
+
+        
+            $scope.salva = function(){            
                var tamanhoteste = document.getElementById('teste').getElementsByTagName('tr').length;
             
               for (var j = 0; j <tamanhoteste-1; j++) {
@@ -94,9 +144,13 @@ angular
        $scope.item = function (valor) {
         
           if(valor === true){
+            alert(desab)
            return true;
          }
+
+       
        }
+     
        
        var d= 0;
        var x;
@@ -128,14 +182,19 @@ angular
           if(data == ''){
             oculta =1;
           }
+          if(data.length!=0){
+            desab =1;
+          }
           $scope.usu = data;
         
         });
 
      }
      $scope.desabilitas = function(){
-      if(temPersonalizado == true && faseTerminadas.lenght!==0 || faseTerminadas.lenght!==0){
-      
+       console.log(faseTerminadas.length)
+       console.log(temPersonalizado)
+      if(temPersonalizado == true && faseTerminadas.length!==0 || faseTerminadas.length!==0){  
+
         return true;
       }
      }

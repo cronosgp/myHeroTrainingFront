@@ -7,7 +7,7 @@
         font-family: "Lato", Arial, sans-serif;
         color: #989c9b;
       }
-
+   
       .people-nearby .google-maps {
         background: #f8f8f8;
         border-radius: 4px;
@@ -38,6 +38,9 @@
       img.share {
         height: 40px;
         width: 40px;
+      }
+      #imgP{
+        margin-top:0px;
       }
 
       .container {
@@ -253,26 +256,22 @@
           alt="user"
           class="profile-photo-lg"
         />
-
-        <b>Compartilhe: </b>
-        <a  target="_blank" 
-        rel="noopener noreferrer"
-        href="https://twitter.com/intent/tweet?hashtags=MyHeroTraning,exercicios,treino&text=Veja%20Minha%20Pontuação"+{{u.pontos_soma}}>
-          <img
-            src="https://imagepng.org/wp-content/uploads/2018/08/twitter-icone.png"
-            alt="twitter"
-            class="share"
-          />
-        </a>       
-
-        <div class="col-md-7 col-sm-7" ng-repeat="u in usu">
+        <div class="col-md-7 col-sm-7 my-0 " ng-repeat="u in usu" id="dados">
           <h5><a href="#" class="profile-link">{{u.nome_}}</a></h5>
           <p><b>{{u.email_}}</b></p>
           <p ><b>Sua pontuação: </b>{{u.pontos_soma}}</p>
           <!--p><b>Data de início: </b>13/02/2020</p-->
-            
-          
-          
+
+          <b>Compartilhe: </b>
+          <a  target="_blank" 
+          rel="noopener noreferrer"
+          href="https://twitter.com/intent/tweet?hashtags=MyHeroTraning,exercicios,treino&text=Veja%20Minha%20Pontuação:{{u.pontos_soma}}+pontos">
+            <img id="imgP"
+              src="https://imagepng.org/wp-content/uploads/2018/08/twitter-icone.png"
+              alt="twitter"
+              class="share"
+            />
+          </a>   
             <!-- <a href="https://facebook.com/">
               <img
                 src="https://cdn.icon-icons.com/icons2/642/PNG/512/facebook_icon-icons.com_59205.png"
@@ -284,15 +283,13 @@
         </div>
       </div>
     </div>
-
     <div class="container" align="center">
-      <h3>Selecione a data que deseja pesquisar:</h3>
+      <h3 id="">Selecione a data que deseja pesquisar:</h3>
       <div align="center">
         <form>
           <label>Inicio:</label>
           <input type="date" required id="dt_inicio" name="inicio" ng-model="model.dt"/>
           <!--input type="submit" /-->
-
           <label>Fim:</label>
           <input type="date" required id="dt_fim" name="fim" ng-model="model.df"/>
           <input type="submit" ng-click="busca()" />
@@ -318,24 +315,22 @@
       </li>
       <li class="nav-item"></li>
     </ul>
-
     <div class="tab-content">
       <div class="tab-pane " id="pontuacao">
         <div class="row tabelas">
           <table
             style="width: 40%"
             align="center"
-            class="table manage-candidates-top mb-0"
+            class="table"
           >
             <tr>
-              <th>Data</th>
-              <th>Pontos</th>
+              <th scope="col">Data</th>
+              <th scope="col">Pontos</th>
               
             </tr>
             <tr ng-repeat="d in dados">
               <td>{{d.datas}}</td>
-              <td>{{d.pontos_soma}}</td>
-              
+              <td>{{d.pontos_soma}}</td>            
               
             </tr>
             

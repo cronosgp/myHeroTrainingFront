@@ -99,6 +99,7 @@
                       class="btn btn-circle btn-success text-white"
                       ng-click="salva()"
                       disabled="true"
+                    
                       id="btn">
                       <i class="fa fa-plus"> Criar Treino</i>
                     </button>
@@ -130,7 +131,7 @@
                         class="form-check-input"
                         ng-model="checked"
                         id="{{dado.id}}"
-                        ng-click="desabilita(checked)"
+                        ng-click="check()"
                         ng-disabled="item(checked)"
                         />                  
                    </td>

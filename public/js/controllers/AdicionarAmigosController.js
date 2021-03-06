@@ -15,7 +15,6 @@ angular
                 console.log("erro");
             });
         }
-        $scope.carregaNotAmizade();
 
         $scope.enviar = function () {
             amigosService.enviarSolicitacao(usuarioid, $scope.email).success(function (data) {
