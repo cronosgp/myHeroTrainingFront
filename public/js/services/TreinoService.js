@@ -113,7 +113,7 @@ angular.module('myHeroTraining').factory('TreinoService', function ($http) {
  //   var jwt = localStorage.getItem('Bearer');
     //$http.defaults.headers.common.Authorization = 'Bearer ' + jwt;
 
-    return $http.put('http://localhost:8080/feinoConjuntoase', {
+    return $http.put('http://localhost:8080/fase', {
       params: {
         faseConcluida: faseConcluida,
       },
