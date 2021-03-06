@@ -3,7 +3,8 @@ angular.module('myHeroTraining')
   'HomeController',
   function ($scope, $http, myHeroTraining, $location) {
     $scope.model = {};
-
+    var oculta= false;
+    var exibe=false;
     $scope.exibirSemLogin = function () {
       if (localStorage.getItem('Bearer') == null) {
         return true;
@@ -17,7 +18,19 @@ angular.module('myHeroTraining')
       } else {
         return false;
       }
-    };
+    };  
+
+    $scope.pagante = function(){ 
+      if(oculta == true){
+
+           return true;
+        }
+        
+     else{
+       return false; 
+
+     }
+    }
 
     /*$scope.pagante = function(){
       myHeroTraining.buscaDados(IdUsuario).success(function(data){
@@ -27,7 +40,28 @@ angular.module('myHeroTraining')
       
       });
     }*/
+
+    var pagamento = function () {
+      myHeroTraining
+        .pagamento(IdUsuario)
+        .success(function (data) {
+          
+          if(data.length!=0){
+            oculta = true;
+            exibe =true;
+          }
+          /* refresh();
+      carregaTempoTreino = carregaObjetos[0].treino;
+      carregaTempo(carregaTempoTreino, data);*/
+        })
+        .error(function (data) {
+          if (data.status === 403) {
+            $location.path('/login');
+          }
+        });
+    };
     
+    pagamento();
 
     var carrega = function () {
       myHeroTraining
@@ -96,6 +130,16 @@ angular.module('myHeroTraining')
         //location.reload();
         //console.log('aguardadno');
       }, 1000);
+    }
+    $scope.premium = function(){
+      if(exibe == true){
+
+        return false;
+
+      }
+      else{
+        return true;
+      }
     }
 
     carrega();

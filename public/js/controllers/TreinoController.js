@@ -33,7 +33,8 @@ angular
         var data = new Date();
         let dataFormatada =  ((data.getFullYear())) + "/" + (("0" + (data.getMonth() + 1)).slice(-2)) + "/" + data.getDate();
         TreinoService.buscaPersonlizado(dataFormatada,IdUsuario,).success(function(data){
-          if(data != null || data.length!=0){
+          console.log(data.length)
+          if(data.length!=0){
            
             temPersonalizado = true;
           }
@@ -181,6 +182,7 @@ angular
       };
       var fasesTreinos = function () {
         TreinoService.carregaFasesTreino(id).success(function (data) {  
+          console.log(data)
          
           $scope.fases = data;
           dados = data;
@@ -227,7 +229,7 @@ angular
 
        // var tabela = document.querySelector("#tabela").getElementsByTagName("tr").length;
 
-                     console.log(faseTerminadas[0])
+                    
       /*  for(var i=0; i<tabela; i++){
           if(i==0 && document.querySelector("#tabela").getElementsByTagName("tr")[0].id ){
             document.querySelector("#tabela").getElementsByTagName("tr")[0].getElementsByTagName("td")[0].getElementsByTagName("button")[0].setAttribute("disabled","disabled");
@@ -588,9 +590,6 @@ angular
           location.reload();
         }, 150);
       }
-
-
-
 
      
       carrega();

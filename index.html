@@ -19,8 +19,6 @@
     <script src="./js/services/desempenhoService.js"></script>
     <script src="./js/controllers/desempenhoController.js"></script>
 
-  
-
     <script src="./js/services/loginService.js"></script>
     <script src="./js/services/amigosService.js"></script>
     <script src="./js/services/classificacaoService.js"></script>
@@ -452,7 +450,6 @@ div.alpha-search > button {
                 <!-- <li class="nav-item active">
                     <a class="nav-link" href="#/amigos">Amigos <span class="sr-only">(current)</span></a>
                 </li>
-
                 <li class="nav-item active">
                     <a class="nav-link" href="#/MeusAmigos">Meus Amigos <span class="sr-only">(current)</span></a>
                 </li> -->
@@ -491,7 +488,7 @@ div.alpha-search > button {
          style="background-image: url(https://bootdey.com/img/Content/avatar/avatar7.png);">
         <span class="icon icon-caret-down"></span>
     </div>
-    <div class="notification-bubble" id="notification-bubble"><span></span></div>
+    <div class="notification-bubble" id="notification-bubble"><span>9</span></div>
     <ul id="avatar-dropdownmenu">
         <li><a href="#avatar"><span class="icon icon-user"></span>Avatar</a></li>
         <li><a href="#desempenho"><span class="icon icon-user-tie"></span>Desempenho</a></li>
@@ -499,14 +496,6 @@ div.alpha-search > button {
         <li><a href="#solicitacoes"><span class="icon icon-club"></span>Solicitações</a></li>
         <li><a href="#adicionar-amigos"><span class="icon icon-heart"></span>Adicionar Amigos</a></li>
         <li><a href="#classificacao"><span class="icon icon-users2"></span>Classificação</a></li>
-
-
-        <li>
-        <a href="#treino-personalizado/" >
-            <span class="icon icon-stopwatch">
-
-        </span>Treino Personalizado</a></li>
-
         <li><a href="#/descricaoTreino"><span class="icon icon-stopwatch"></span>Exercícios</a></li>
         <li><a href="#/caminhada"><span class="icon icon-stopwatch"></span>Caminhada</a></li>
         <li><a href="#/" ng-click="logout()" type="submit"><span class="icon icon-exit"></span>Sair</a></li>
@@ -540,15 +529,15 @@ div.alpha-search > button {
 
             <a translate="" class="nav-link" href="#/caminhada">Caminhada</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" ng-show="pagante()">
 
             <a translate="" class="nav-link" href="#/criar-treino">Criar Treino Personalizado</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" ng-show="pagante()">
 
             <a translate="" class="nav-link" href="#/meu-treino">Treino Personalizado</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" ng-show="premium()">
 
             <a translate="" class="nav-link" href="#/pagamento">Seja Premium</a>
         </li>
@@ -562,7 +551,6 @@ div.alpha-search > button {
         <li class="nav-item">
             <a class="nav-link active" href="#/principal">Treinos Para você</a>
         </li>
-
     </ul>-->
 </header>
 <ng-view>
