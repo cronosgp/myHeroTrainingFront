@@ -27,23 +27,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="21aaf686-8e7d-49d5-a8c2-3755bfd887bd" name="Default Changelist" comment="run local only">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/controllers/AdicionarAmigosController.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/controllers/AdicionarAmigosController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/controllers/AmigosController.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/controllers/AmigosController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/controllers/PerfilController.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/controllers/PerfilController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/controllers/SolicitacoesController.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/controllers/SolicitacoesController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/controllers/TreinoConjuntoController.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/controllers/TreinoConjuntoController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/services/amigosService.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/services/amigosService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/services/avatarService.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/services/avatarService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/services/perfilService.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/services/perfilService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/services/treinoConjuntoService.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/services/treinoConjuntoService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/view/AdicionarAmigos.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/view/AdicionarAmigos.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/view/MeusAmigos.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/view/MeusAmigos.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/view/Solicitacoes.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/view/Solicitacoes.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/view/TreinoConjunto.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/view/TreinoConjunto.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/view/TreinoConjuntoSol.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/view/TreinoConjuntoSol.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/controllers/IndexController.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/controllers/IndexController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/view/Avatar.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/view/Avatar.html" afterDir="false" />
     </list>
     <list id="e90f9fbb-b761-4603-bcda-52c19b70bea4" name="Revert &quot;Initial commit&quot;" comment="Revert &quot;Initial commit&quot;&#10;&#10;This reverts commit 82f0f341" />
     <option name="SHOW_DIALOG" value="false" />
@@ -65,7 +51,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="0713c104e5a94a5599a5fcf7641cbedb2695a02b" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />

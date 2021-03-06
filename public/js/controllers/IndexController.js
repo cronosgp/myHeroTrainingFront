@@ -41,7 +41,6 @@ angular.module('myHeroTraining')
 				console.log("erro");
 			});
 	}
-	$scope.carregaAvatar();
 
 		$scope.carregaNotAmizade = function () {
 			amigosService.carregarSolicitacoes(IdUsuario).success(function (data) {
