@@ -157,7 +157,7 @@ angular
         console.log(form);
          
          var http = new XMLHttpRequest();
-         var url = 'https://mhtrainingback.herokuapp.com/process_payment';
+         var url = 'http://localhost:8080/process_payment';
         
          var params = 'docType='+ document.querySelector('#docType').value+'&docNumber='+document.querySelector('#docNumber').value+'&installments=1&transactionAmount=30&paymentMethodId='+document.querySelector('#paymentMethodId').value+'&description=Licença+Premium&email='+document.querySelector('#email').value+'&token='+document.getElementsByName('token')[0].value+'&idUsuario='+sessionStorage.getItem('id');
          console.log(params)
@@ -168,7 +168,7 @@ angular
          
          http.onreadystatechange = function() {//Call a function when the state changes.
              if(http.readyState == 4 && http.status == 200) {
-                 if(http.response.includes('approved')){
+                 if(http.response.includes('Approved')){
                 Swal.fire({
                     title: 'Seu pagamento foi aprovado com sucesso',
                     icon: 'success',
@@ -176,7 +176,7 @@ angular
                     text:`Clique para acessar suas novas funções`,
                     
                     showConfirmButton:true,
-                    confirmButtonText: `OK`,
+                    confirmButtonText: `Abrir`,
                     
                   }).then((result) => {
                     /* Read more about isConfirmed, isDenied below */
@@ -300,7 +300,6 @@ Swal.fire({
  //Retrieve product description
  document.getElementById('description').value = document.getElementById('product-description').innerHTML;
 
- 
  
  
 });

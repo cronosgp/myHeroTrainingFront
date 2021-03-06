@@ -4,7 +4,7 @@ angular
         $scope,
         $routeParams,
         amigosService,
-        avatarService
+        $location
     ) {
         var IdUsuario = sessionStorage.getItem('id');
 
@@ -15,24 +15,6 @@ angular
             }).error(function(data){
                 console.log("erro");
                 console.log(data);
-            });
-        }
-
-        $scope.carregaNotAmizade = function () {
-            amigosService.carregarSolicitacoes(IdUsuario).success(function (data) {
-                $scope.notAmizade = data.length
-            }).error(function (data) {
-                console.log("erro");
-            });
-        }
-        $scope.carregaNotAmizade();
-
-        $scope.pegaAvatar = function (id) {
-            avatarService.carregarAvatar(id).success(function (data) {
-                let img = avatarService.arrayBufferToBase64(data)
-                $scope.avatar = "data:image/png;base64,"+img;
-            }).error(function (data) {
-                console.log("erro");
             });
         }
 

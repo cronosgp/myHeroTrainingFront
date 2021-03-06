@@ -1,9 +1,9 @@
-angular.module('myHeroTraining').factory('homeService', function ($http) {
+angular.module('myHeroTraining').factory('myHeroTraining', function ($http) {
   var carregaTreinos = function (id) {
-    var jwt = localStorage.getItem('Bearer');
+   // var jwt = localStorage.getItem('Bearer');
 
-    $http.defaults.headers.common.Authorization = 'Bearer ' + jwt;
-    return $http.get('https://mhtrainingback.herokuapp.com/treinos', {
+  //  $http.defaults.headers.common.Authorization = 'Bearer ' + jwt;
+    return $http.get('http://localhost:8080/fase', {
       params: {
         id: id,
       },
@@ -16,11 +16,19 @@ angular.module('myHeroTraining').factory('homeService', function ($http) {
       },
     });
   };*/
+
+  var pagamento = function(id){
+    return $http.get('http://localhost:8080/usuario/pagamento', {
+      params: {
+        id: id,
+      },
+    });
+  };
   var getTimeCronometroService = function (id_usuario, id_fase) {
     var jwt = localStorage.getItem('Bearer');
 
     $http.defaults.headers.common.Authorization = 'Bearer ' + jwt;
-    return $http.get('https://mhtrainingback.herokuapp.com/tempo', {
+    return $http.get('http://localhost:8080/tempo', {
       params: {
         id_usuario: id_usuario,
         id_fase: id_fase,
@@ -30,6 +38,7 @@ angular.module('myHeroTraining').factory('homeService', function ($http) {
   return {
     getTimeCronometroService: getTimeCronometroService,
     carregarTreinos: carregaTreinos,
+    pagamento:pagamento
     
   };
 });
