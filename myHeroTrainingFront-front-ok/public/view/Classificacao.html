@@ -1,0 +1,127 @@
+
+<style>
+    body {
+	font-family: 'Lato', Arial, sans-serif;
+	color: #989c9b;
+}
+
+.container > header {
+	margin: 0 auto;
+	padding: 1em;
+	text-align: center;
+}
+
+.container > header h1 {
+  font-weight: 600;
+	font-size: 3em;
+	margin: 0;
+}
+
+.wrapper {
+	line-height: 1.5em;
+	margin: 0 auto;
+	padding: 2em 0 3em;
+	width: 90%;
+	max-width: 2000px;
+	overflow: hidden;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    background: #fff;
+}
+
+th {
+    background-color: #326295;
+    font-weight: bold;
+    color: #fff;
+    white-space: nowrap;
+}
+
+td, th {
+    padding: 1em 1.5em;
+    text-align: left;
+}
+
+tbody th {
+	background-color: #2ea879;
+}
+tbody tr:nth-child(2n-1) {
+    background-color: #f5f5f5;
+    transition: all .125s ease-in-out;
+}
+tbody tr:hover {
+    background-color: rgba(50,98,149,.3);
+}
+
+td.rank {
+	text-transform: capitalize;
+}
+
+</style>
+
+<html>
+    <body>
+      <header class="header">
+        <div class="header__navbar"></div>
+      </header>
+      <section class="hero hero--inverse"></section>
+      <section class="leaderboard-progress">
+        <div class="contain text-center">
+          <img
+            alt="Android Basics Leaderboard"
+            class="mb-2"
+            src="imagem/trofeu.png"
+          />
+          <h2>Classificação My Hero Training!</h2>
+
+
+          <!-- <div class="container">
+			<header>
+        <h1>Fifa World Ranking Top 20</h1>
+			</header> -->
+			<div class="wrapper">
+				<table>
+					<thead>
+						<tr>
+							<th>Rank</th>
+							<th>Nome</th>
+							<th>Pontos</th>
+							<!--th>Tempo</th-->
+						</tr>
+					</thead>
+					<tbody>
+						<tr  ng-repeat="classic in classificacao" >
+                <td class="rank">{{classic.idt}}</td>
+                <td class="email">{{classic.nomeusuario}}</td>
+                <td class="pontos">{{classic.pontos}}</td>
+                <!--td class="tempo">2134 minutos</td-->
+              </tr>
+					 
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+
+          <!--
+          <p class="lead">
+            Race to win 1 of 100 Google and Udacity scholarships for the<a
+              id="ga-6ef033"
+              target="_blank"
+              data-analytics-name="Link Clicked"
+              data-analytics-category="Nanodegree CTA"
+              data-analytics-label="Nanodegree CTA - AND"
+              data-analytics-type="CTA"
+              data-analytics-payload='{"cta_type":"link"}'
+              data-target="_blank"
+              href="course/android-developer-nanodegree-by-google--nd801.html"
+              >Android Developer Nanodegree</a
+            >
+            program. Track your pace, keep up with your fellow learners, and
+            have a blast!
+          </p>
+        -->
+  </body>
+</html>

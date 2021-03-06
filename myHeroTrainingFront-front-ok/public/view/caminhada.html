@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <style>
+        #source_map {
+  width: 450px;
+  height: 450px;
+        }
+        body {
+          margin-top: 20px;
+          background: #fafafa;
+          font-family: 'Lato', Arial, sans-serif;
+          color: #989c9b;
+          }
+  
+        .people-nearby .google-maps {
+          background: #f8f8f8;
+          border-radius: 4px;
+          border: 1px solid #f1f2f2;
+          padding: 20px;
+          margin-bottom: 20px;
+        }
+  
+        .people-nearby .google-maps .map {
+          height: 300px;
+          width: 100%;
+          border: none;
+        }
+  
+        .people-nearby .nearby-user {
+          padding: 20px 0;
+          border-top: 1px solid #f1f2f2;
+          border-bottom: 1px solid #f1f2f2;
+          margin-bottom: 20px;
+        }
+  
+        img.profile-photo-lg {
+          height: 80px;
+          width: 80px;
+          border-radius: 50%;
+      }
+
+      img.share {
+          height: 40px;
+          width: 40px;
+      }
+  
+      .container{
+        margin: 5%;
+      }
+      .row .tabelas{
+        float: left;
+      }
+      /* .container > header {
+      margin: 0 auto;
+      padding: 1em;
+      text-align: center;
+  }
+  
+  .container > header h1 {
+    font-weight: 600;
+      font-size: 3em;
+      margin: 0;
+  } */
+  
+  /*  fim css aceitar amigos */
+        
+  .p-4 {
+      padding: 1.5rem!important;
+  }
+  .mb-0, .my-0 {
+      margin-bottom: 0!important;
+  }
+  .shadow-sm {
+      box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important;
+  }    
+  
+  /* user-dashboard-info-box */
+  .user-dashboard-info-box .candidates-list .thumb {
+      margin-right: 20px;
+  }
+  .user-dashboard-info-box .candidates-list .thumb img {
+      width: 80px;
+      height: 80px;
+      -o-object-fit: cover;
+      object-fit: cover;
+      overflow: hidden;
+      border-radius: 50%;
+  }
+  
+  .user-dashboard-info-box .title {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      padding: 30px 0;
+  }
+  
+  .user-dashboard-info-box .candidates-list td {
+      vertical-align: middle;
+  }
+  
+  .user-dashboard-info-box td li {
+      margin: 0 4px;
+  }
+  
+  .user-dashboard-info-box .table thead th {
+      border-bottom: none;
+  }
+  
+  .table.manage-candidates-top th {
+      border: 0;
+  }
+  
+  .user-dashboard-info-box .candidate-list-favourite-time .candidate-list-favourite {
+      margin-bottom: 10px;
+  }
+  
+  .table.manage-candidates-top {
+      min-width: 650px;
+  }
+  
+  .user-dashboard-info-box .candidate-list-details ul {
+      color: #969696;
+  }
+  
+  /* Candidate List */
+  .candidate-list {
+      background: #ffffff;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      border-bottom: 1px solid #eeeeee;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      padding: 20px;
+      -webkit-transition: all 0.3s ease-in-out;
+      transition: all 0.3s ease-in-out;
+  }
+  .candidate-list:hover {
+      -webkit-box-shadow: 0px 0px 34px 4px rgba(33, 37, 41, 0.06);
+      box-shadow: 0px 0px 34px 4px rgba(33, 37, 41, 0.06);
+      position: relative;
+      z-index: 99;
+  }
+  .candidate-list:hover a.candidate-list-favourite {
+      color: #e74c3c;
+      -webkit-box-shadow: -1px 4px 10px 1px rgba(24, 111, 201, 0.1);
+      box-shadow: -1px 4px 10px 1px rgba(24, 111, 201, 0.1);
+  }
+  
+  .candidate-list .candidate-list-image {
+      margin-right: 25px;
+      -webkit-box-flex: 0;
+      -ms-flex: 0 0 80px;
+      flex: 0 0 80px;
+      border: none;
+  }
+  .candidate-list .candidate-list-image img {
+      width: 80px;
+      height: 80px;
+      -o-object-fit: cover;
+      object-fit: cover;
+  }
+  
+  .candidate-list-title {
+      margin-bottom: 5px;
+  }
+  
+  .candidate-list-details ul {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+      margin-bottom: 0px;
+  }
+  .candidate-list-details ul li {
+      margin: 5px 10px 5px 0px;
+      font-size: 13px;
+  }
+  
+  .candidate-list .candidate-list-favourite-time {
+      margin-left: auto;
+      text-align: center;
+      font-size: 13px;
+      -webkit-box-flex: 0;
+      -ms-flex: 0 0 90px;
+      flex: 0 0 90px;
+  }
+  .candidate-list .candidate-list-favourite-time span {
+      display: block;
+      margin: 0 auto;
+  }
+  .candidate-list .candidate-list-favourite-time .candidate-list-favourite {
+      display: inline-block;
+      position: relative;
+      height: 40px;
+      width: 40px;
+      line-height: 40px;
+      border: 1px solid #eeeeee;
+      border-radius: 100%;
+      text-align: center;
+      -webkit-transition: all 0.3s ease-in-out;
+      transition: all 0.3s ease-in-out;
+      margin-bottom: 20px;
+      font-size: 16px;
+      color: #646f79;
+  }
+  .candidate-list .candidate-list-favourite-time .candidate-list-favourite:hover {
+      background: #ffffff;
+      color: #e74c3c;
+  }
+  
+  .candidate-banner .candidate-list:hover {
+      position: inherit;
+      -webkit-box-shadow: inherit;
+      box-shadow: inherit;
+      z-index: inherit;
+  }
+  
+  .bg-white {
+      background-color: #ffffff !important;
+  }
+  .p-4 {
+      padding: 1.5rem!important;
+  }
+  .mb-0, .my-0 {
+      margin-bottom: 0!important;
+  }
+  .shadow-sm {
+      box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important;
+  }
+  
+  .user-dashboard-info-box .candidates-list .thumb {
+      margin-right: 20px;
+  }
+  
+  table, th, td {
+  border: 1px solid black;
+  color: black;
+  padding: 0.5%;
+}
+      </style>
+
+<div id="wrapper-9cd199b9cc5410cd3b1ad21cab2e54d3" class="container" align="center">
+    <div class="row">
+        <div id="source_map"></div>
+        <div class="col">
+            <button type="button" id="BtnCaminhada" class="btn btn-primary btn-lg btn-dark">Começar caminhada!</button>
+            <button type="button"  id="BtnParaCaminhada" class="btn btn-danger red btn-lg" style="display: none;">Parar Caminhada!</button>
+
+        </br>
+        </br>
+            <p><b>Tempo:</b> <span id="tempoCaminhada">00:00:00</span></p>
+        </br>
+            <p><b>Quilometragem:</b><span id="distanciaCaminhada">0.0</span></b><span>KM</span> </p>
+        </div>
+    </div>  
+</div>
+
+
+</body>
+</html>

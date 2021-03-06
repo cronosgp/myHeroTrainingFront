@@ -1,0 +1,21 @@
+<div class="container">
+  <h4>Dados de Cadastro</h4>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Nome</th>
+        <th scope="col">Email</th>
+        <th scope="col">Telefone Principal</th>
+        <th scope="col">Telefone Secundário</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="info in infos">
+        <td>{{info.nome}}</td>
+        <td>{{info.email}}</td>
+        <td>{{info.contato}}</td>
+        <td>{{info.contato2}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

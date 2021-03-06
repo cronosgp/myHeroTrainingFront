@@ -1,0 +1,370 @@
+<style>
+  #form-cadastro {
+    margin-top: 18px;
+  }
+</style>
+<link
+  rel="stylesheet"
+  href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"
+/>
+
+<div class="container">
+  <div class="text-center">
+    <h1><label translate="HEADER.CADASTRO.LCADASTRO">Cadastro</label></h1>
+  </div>
+
+  <form novalidate name="formulario">
+    <div ng-class="form-group">
+      <div class="row">
+        <div class="col-md-6">
+          <label translate="HEADER.CADASTRO.NOME">Nome</label>
+          <input
+            translate
+            translate-attr-placeholder="HEADER.CADASTRO.PNOME"
+            type="nome"
+            name="nome"
+            ng-model="model.nome"
+            class="form-control"
+            name="nome"
+            placeholder="Digite seu nome"
+            required
+            maxlength="40"
+            minlength="5"
+          />
+          <span
+            translate="HEADER.CADASTRO.ENOME"
+            ng-show="formulario.nome.$error.required && formulario.$submitted "
+            class="form-control alert-danger"
+          >
+            Nome obrigatório
+          </span>
+          <span
+            translate="HEADER.CADASTRO.ENOME"
+            ng-show="formulario.$submitted && formulario.nome.$error.maxlength||formulario.nome.$error.minlength"
+            class="form-control alert-danger"
+          >
+            Nome inválido
+          </span>
+        </div>
+        <div class="col-md-6">
+          <label translate="HEADER.CADASTRO.EMAIL">Endereço de email</label>
+          <input
+            translate
+            translate-attr-placeholder="HEADER.CADASTRO.PEMAIL"
+            type="email"
+            name="email"
+            class="form-control"
+            ng-model="model.email"
+            placeholder="Seu email"
+            required
+          />
+          <span
+            translate="HEADER.CADASTRO.EEMAIL"
+            ng-show="formulario.email.$error.required && formulario.email.$invalid && formulario.$submitted"
+            class="form-control alert-danger"
+          >
+            Email obrigatório
+          </span>
+          <span
+            translate="HEADER.CADASTRO.EEMAIL"
+            ng-show="formulario.$submitted && formulario.email.$error.email"
+            class="form-control alert-danger"
+          >
+            Email inválido
+          </span>
+        </div>
+      </div>
+
+      <div>
+        <div class="form-group">
+          <div class="row">
+            <div class="col-md-10">
+              <label translate="HEADER.CADASTRO.SENHA">Senha </label>
+
+              <input
+                translate
+                translate-attr-placeholder="HEADER.CADASTRO.PSENHA"
+                type="password"
+                class="form-control"
+                name="senha1"
+                id="oo"
+                ng-pattern="model.passcontrol"
+                ng-model="model.senha"
+                ng-keyup="getkeys()"
+                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!|@|#|$|%|^|&|*|(|)|-|_]).{8,18}"
+                required
+              />
+
+              <span
+                translate="HEADER.CADASTRO.ESENHA1"
+                ng-show="formulario.senha1.$error.required && formulario.$submitted"
+                class="form-control alert-danger"
+              >
+                Senha obrigatória
+              </span>
+
+              <span
+                translate="HEADER.CADASTRO.ESENHA2"
+                ng-show="formulario.$submitted && formulario.senha1.$error.pattern"
+                class="form-control alert-danger"
+              >
+                Senha não atende aos requisitos
+              </span>
+            </div>
+
+            <div class="input-control">
+              <div>
+                <small
+                  ><i
+                    class="fa fa-check-circle-o icon-confirmation numberP"
+                    aria-hidden="true"
+                    ng-style="numberC"
+                  ></i>
+                  01 número</small
+                >
+              </div>
+              <div>
+                <small
+                  ><i
+                    class="fa fa-check-circle-o icon-confirmation 8charactersP"
+                    aria-hidden="true"
+                    ng-style="m8charactersC"
+                  ></i>
+                  Minimo de 8 caracteres</small
+                >
+              </div>
+              <div>
+                <small
+                  ><i
+                    class="fa fa-check-circle-o icon-confirmation symbolsP"
+                    aria-hidden="true"
+                    ng-style="symbolsC"
+                  ></i>
+                  01 caractere especial</small
+                >
+              </div>
+              <div>
+                <small
+                  ><i
+                    class="fa fa-check-circle-o icon-confirmation charactersMaxP"
+                    aria-hidden="true"
+                    ng-style="charactersMaxC"
+                  ></i>
+                  01 letra maiuscula</small
+                >
+              </div>
+              <div>
+                <small
+                  ><i
+                    class="fa fa-check-circle-o icon-confirmation charactersMinP"
+                    aria-hidden="true"
+                    ng-style="charactersMinC"
+                  ></i>
+                  01 letra minuscula</small
+                >
+              </div>
+            </div>
+
+            <div class="col-md-10">
+              <label translate="HEADER.CADASTRO.CSENHA">Confirme a Senha</label>
+
+              <input
+                translate
+                translate-attr-placeholder="HEADER.CADASTRO.PSENHA"
+                style="margin-right: 85%"
+                type="password"
+                class="form-control"
+                name="senha2"
+                id="vv"
+                ng-pattern="model.senha"
+                ng-model="model.senhac"
+                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!|@|#|$|%|^|&|*|(|)|-|_]).{8,18}"
+                required
+              />
+
+              <span
+                translate="HEADER.CADASTRO.CESENHA"
+                ng-show="formulario.$submitted && formulario.senha2.$error.required"
+                class="form-control alert-danger"
+              >
+                Confirme a senha
+              </span>
+
+              <span
+                translate="HEADER.CADASTRO.CESENHA2"
+                ng-show="formulario.senha2.$error.pattern"
+                class="form-control alert-danger"
+              >
+                Senhas divergentes!
+              </span>
+            </div>
+
+            <p
+              translate="HEADER.CADASTRO.DICASENHA"
+              style="font-size: 11px; text-align: center"
+            >
+              *Mínimo de 8 e máximo de 18 de caracteres com letra maíscula e
+              <br />
+              minuscula, 1 numeral e 1 caractere especial entre
+              ?=.*[!|@|#|$|%|^|&|*|(|)|-|_])
+            </p>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="row">
+            <div class="col-md-4">
+              <label translate="HEADER.CADASTRO.NASCIMENTO"
+                >Data de Nascimento</label
+              >
+              <input
+                translate="HEADER.CADASTRO.ENASCIMENTO"
+                type="date"
+                name="data"
+                class="form-control"
+                id="zz"
+                ng-model="model.nascimento"
+                aria-describedby="emailHelp"
+                placeholder="Data de nascimento"
+                required
+              />
+              <span
+                translate="HEADER.CADASTRO.ENASCIMENTO"
+                ng-show="formulario.$submitted && formulario.data.$error.required"
+                class="form-control alert-danger"
+              >
+                Data obrigatória
+              </span>
+            </div>
+
+            <div class="col-md-4">
+              <label translate="HEADER.CADASTRO.PESO">Peso</label>
+              <input
+                translate
+                translate-attr-placeholder="HEADER.CADASTRO.PPESO"
+                type="number"
+                name="peso"
+                class="form-control"
+                id="pp"
+                ng-model="model.peso"
+                aria-describedby="emailHelp"
+                placeholder="peso"
+                required
+              />
+              <span
+                translate="HEADER.CADASTRO.EALTURA"
+                translate="HEADER.CADASTRO.EPESO"
+                ng-show="formulario.$submitted && formulario.peso.$error.required"
+                class="form-control alert-danger"
+              >
+                Peso obrigatório
+              </span>
+            </div>
+            <div class="col-md-4">
+              <label translate="HEADER.CADASTRO.ALTURA">Altura</label>
+              <input
+                translate
+                translate-attr-placeholder="HEADER.CADASTRO.PALTURA"
+                type="number"
+                name="altura3"
+                class="form-control"
+                id="pap"
+                ng-model="model.altura"
+                aria-describedby="emailHelp"
+                minlength="3"
+                maxlength="4"
+                placeholder="altura"
+                required
+              />
+              <span
+                translate="HEADER.CADASTRO.EALTURA"
+                ng-show="formulario.$submitted && formulario.altura3.$error.required"
+                class="form-control alert-danger"
+              >
+                altura obrigatória
+              </span>
+
+              <span
+                translate="HEADER.CADASTRO.EALTURA"
+                ng-show="formulario.$submitted && formulario.altura3.$error.minlength || formulario.altura3.$error.maxlength"
+                class="form-control alert-danger"
+              >
+                Informe uma altura válida
+              </span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="row">
+              <div class="col-md-6">
+                <label translate="HEADER.CADASTRO.TELEFONE"
+                  >Telefone de Contato 1
+                </label>
+                <input
+                  translate
+                  translate-attr-placeholder="HEADER.CADASTRO.PTELEFONE"
+                  type="tel"
+                  name="telefone1"
+                  class="form-control"
+                  id="zp"
+                  ng-model="model.contato"
+                  aria-describedby="emailHelp"
+                  minlength="10"
+                  maxlength="11"
+                  placeholder="Seu contato (xx)xxxxxxxxx"
+                  required
+                />
+                <span
+                  translate="HEADER.CADASTRO.ETELEFONE"
+                  ng-show="formulario.$submitted && formulario.telefone1.$error.required"
+                  class="form-control alert-danger"
+                >
+                  Contato obrigatório
+                </span>
+                <span
+                  translate="HEADER.CADASTRO.ETELEFONE"
+                  ng-show="formulario.$submitted && formulario.telefone1.$error.minlength||formulario.telefone1.$error.maxlength"
+                  class="form-control alert-danger"
+                >
+                  Contato inválido
+                </span>
+              </div>
+
+              <div class="col-md-5">
+                <label translate="HEADER.CADASTRO.TELEFONE2"
+                  >Telefone de Contato 2
+                </label>
+                <input
+                  translate
+                  translate-attr-placeholder="HEADER.CADASTRO.PTELEFONE"
+                  type="tel"
+                  class="form-control"
+                  ng-model="model.contato2"
+                  aria-describedby="emailHelp"
+                  placeholder="Seu contato (xx)xxxxxxxx"
+                  maxlength="11"
+                  minlength="10"
+                />
+                <span
+                  translate="HEADER.CADASTRO.ETELEFONE2"
+                  ng-show="formulario.$submitted && formulario.telefone1.$error.minlength||formulario.telefone1.$error.maxlength"
+                  class="form-control alert-danger"
+                >
+                  Contato inválido
+                </span>
+              </div>
+            </div>
+          </div>
+          <button
+            translate="HEADER.CADASTRO.BOTAOC"
+            type="submit"
+            class="btn btn-dark"
+            ng-click="salvar()"
+          >
+            Cadastrar
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

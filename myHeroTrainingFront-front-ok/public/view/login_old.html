@@ -1,0 +1,40 @@
+<!--header>
+    <nav class="navbar navbar-expand-md navbar-dark  bg-secondary flex-md-nowrap p-3 px-md-3 mb-3 shadow">
+        <a href="#/home" class="navbar-brand" title="home">MyHeoTraining</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+              <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#/Cadastro">Cadastra-se <span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header-->
+<style>
+    #login-form{
+        margin-left: 35%;
+        margin-top: 60px;
+    }
+</style>
+<div class="container">
+    <body>
+    <div class="text-center">
+        <h2>Login </h2 >
+    </div>
+    <form class="form-signin"id="login-form" >
+        <div class="col-md-6">
+        <label for="inputEmail" class="sr-only" >Email </label>
+        <input type="email" id="inputEmail" class="form-control" ng-model="model.email" placeholder="Email " required autofocus>
+        <label for="inputPassword" class="sr-only" >Senha</label>
+        <input type="password" id="inputPassword" ng-model="model.senha "class="form-control" placeholder="Senha" required>
+        <div class="checkbox mb-3">
+        </div>
+        <button class="btn btn-lg btn-dark btn-block" type="submit" ng-click="logar()">Entrar</button>
+        </div>
+    </form>
+    </body>
+</div>
+</html>
