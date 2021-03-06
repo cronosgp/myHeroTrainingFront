@@ -9,7 +9,21 @@ angular.module('myHeroTraining').factory('homeService', function ($http) {
       },
     });
   };
+/*  var buscaDados = function(id){
+    return $http.get('http://localhost:8080/process_payment', {
+      params: {
+        id: id,
+      },
+    });
+  };*/
 
+  var pagamento = function(id){
+    return $http.get('http://localhost:8080/usuario/pagamento', {
+      params: {
+        id: id,
+      },
+    });
+  };
   var getTimeCronometroService = function (id_usuario, id_fase) {
     var jwt = localStorage.getItem('Bearer');
 
@@ -24,5 +38,7 @@ angular.module('myHeroTraining').factory('homeService', function ($http) {
   return {
     getTimeCronometroService: getTimeCronometroService,
     carregarTreinos: carregaTreinos,
+    pagamento:pagamento
+    
   };
 });

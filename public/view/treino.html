@@ -16,13 +16,19 @@
     pointer-events: none;
     color: #ccc;
 }
+
+
 </style>
+
+<link
+  rel="stylesheet"
+  href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>
 <div class="container">
   <div class="row" id="card">
     <div
       class="card mb-3 col-sm-8"
       id="cardInicioTreino"
-      ng-repeat="treino in treinos"
+      
     >
       <img
         src="./imagem/home2.jpg"
@@ -41,21 +47,27 @@
                     type="button"
                     class="btn btn-link"
                     ng-disabled="desabilita()"
-                    
+                   
                   >
                     <a href="#/treino/inicio/{{fase.id}}" ng-click="TreinoId()"
                       >{{fase.nome}}
                     </a>
                   </button>
                 </td>
-                <td>
+
+                  <td>
                   <input
                     type="checkbox"
                     class="form-check-input"
-                    
                     ng-checked="item({{fase.id}})"
                   />
                 </td>
+
+                <td >
+                  <i class="fa fa-plus" aria-hidden="true"></i>
+                  {{fase.qntd_pontos}}
+                </td>
+  
               </tr>
             </tbody>
           </table>

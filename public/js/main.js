@@ -339,6 +339,11 @@ angular
       templateUrl: "./view/inicioTreino.html",
       controller: "TreinoController",
     });
+
+    $routeProvider.when("/treino/personalizado/inicio/:id", {
+      templateUrl: "./view/treinoPersonalizadoInicio.html",
+      controller: "TreinoPersonalizadoInicioController",
+    });
     $routeProvider.when("/treino/inicio/execucao", {
       templateUrl: "./view/TreinoExecucao.html",
       controller: "TreinoController",
@@ -348,7 +353,7 @@ angular
     });
     $routeProvider.when("/classificacao/", {
       templateUrl: "./view/Classificacao.html",
-      controller: "classificacaoController"
+      controller: "classificacaoController",
     });
     $routeProvider.when("/solicitacoes/", {
       templateUrl: "./view/Solicitacoes.html",
@@ -366,8 +371,12 @@ angular
       templateUrl: "./view/Avatar.html",
       controller: "PerfilController",
     });
-    $routeProvider.when("/treino-personalizado/", {
-      templateUrl: "./view/TreinoPersonalizado.html",
+    $routeProvider.when("/criar-treino/", {
+      templateUrl: "./view/CriarTreino.html",
+      controller: "treinoPersonalizadoController",
+    });
+    $routeProvider.when("/meu-treino/", {
+      templateUrl: "./view/MeuTreino.html",
       controller: "treinoPersonalizadoController",
     });
     $routeProvider.when("/desempenho/", {
@@ -376,11 +385,11 @@ angular
     });
     $routeProvider.when("/caminhada/", {
       templateUrl: "./view/caminhada.html",
-      controller: "CaminhadaController"
+      controller: "CaminhadaController",
     });
-    $routeProvider.when('/pagamento/', {
-      templateUrl: './view/Pagamento.html',
-      controller: "PagamentoController"
+    $routeProvider.when("/pagamento/", {
+      templateUrl: "./view/Pagamento.html",
+      controller: "PagamentoController",
     });
     $routeProvider.when("/treino-conjunto/", {
       templateUrl: "./view/TreinoConjunto.html",
@@ -397,7 +406,7 @@ angular
     if (lenguage_n.match(/en.*/)) {
       lenguage = "en-US";
     }
-    console.log(lenguage);
+    
     $routeProvider.otherwise({ redirectTo: "/principal" });
     $translateProvider.preferredLanguage(lenguage);
     $translateProvider.useSanitizeValueStrategy("escape");

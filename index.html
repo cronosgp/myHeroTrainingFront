@@ -28,6 +28,7 @@
     <script src="./js/services/classificacaoService.js"></script>
     <script src="./js/services/treinoConjuntoService.js"></script>
     <script src="./js/controllers/AdicionarAmigosController.js"></script>
+    <script src="./js/controllers/TreinoPersonalizadoInicioController.js"></script>
     <script src="./js/controllers/AmigosController.js"></script>
     <script src="./js/controllers/SolicitacoesController.js"></script>
     <script src="./js/controllers/login-controller.js"></script>
@@ -54,11 +55,15 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
             integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
             crossorigin="anonymous"></script>
-
-    <script src="./js/angular-translate/dist/angular-translate.min.js"></script>
-
-    <script src="./js/angular-sanitize/angular-sanitize.min.js"></script>
-
+   
+            <script src="./js/angular-translate/dist/angular-translate.min.js"></script>
+             
+            
+            <script src="./js/angular-sanitize/angular-sanitize.min.js"></script>
+   
+    <script src="./js/angular-sanitize/angular-sanitize.min.js"></script>     
+   
+    <script src="./js/controllers/InterController.js"></script>
     <script src="./js/controllers/recoverPassword.js"></script>
    <script src="./js/controllers/confirmEmailController.js"></script>
    <script src="./js/controllers/PagamentoController.js"></script>
@@ -437,11 +442,40 @@ header > a {
         }
     </style>
 
+    <ul class="nav nav-tabs" ng-controller="PageCtrl" ng-show="exibircomLogin()">
+        <li class="nav-item">
+            <a translate="HEADER.MENU.SEUSTREINOS"class="nav-link active"  href="#/home">Treinos Para você</a>
+        </li>
+        <li class="nav-item">
+
+            <a translate="HEADER.MENU.MEUSDADOS" class="nav-link" href="#/dados_login">Meus Dados</a>
+        </li>
+        <li class="nav-item">
+
+            <a translate="" class="nav-link" href="#/caminhada">Caminhada</a>
+        </li>
+        <li class="nav-item" ng-show="pagante()">
+
+            <a translate="" class="nav-link" href="#/criar-treino">Criar Treino Personalizado</a>
+        </li>
+        <li class="nav-item" ng-show="pagante()">
+
+            <a translate="" class="nav-link" href="#/meu-treino">Treino Personalizado</a>
+        </li>
+        <li class="nav-item" ng-show="premium()">
+
+            <a translate="" class="nav-link" href="#/pagamento">Seja Premium</a>
+        </li>
+        <!--li class="nav-item">
+            <a class="nav-link" href="#">Desempenho</a>
+        </li-->
+
+    </ul>
+
    <!-- <ul class="nav nav-tabs" ng-controller="HomeController" ng-show="exibirSemLogin()">
         <li class="nav-item">
             <a class="nav-link active" href="#/principal">Treinos Para você</a>
         </li>
-
     </ul>-->
 </header>
 <ng-view>

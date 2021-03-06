@@ -28,6 +28,7 @@ angular
       setaDistancia();
       const map = new google.maps.Map(document.getElementById("source_map"), {
         zoom: 18, 
+        enableHighAccuracy:true,
         streetViewControl: false,
         fullscreenControl: false,
         zoomControl: true,
@@ -143,8 +144,9 @@ angular
       clearTimeout(startcaminhada);
       let distancia = document.querySelector('#distanciaCaminhada').innerText; 
       let pontos = distancia*3;
-      alert(sessionStorage.getItem('id'))
-      let dados ={usuario:sessionStorage.getItem('id'), Distancia:document.querySelector('#distanciaCaminhada').innerText, Tempo:document.querySelector('#tempoCaminhada').innerText, Pontos:pontos}
+       var dataAtual = new Date();
+      let dados ={usuario:sessionStorage.getItem('id'), Distancia:document.querySelector('#distanciaCaminhada').innerText, Tempo:document.querySelector('#tempoCaminhada').innerText, 
+      Pontos:pontos,data : dataAtual}
 
 caminhadaService.salvar(dados).success(function(data){
   Swal.fire({
