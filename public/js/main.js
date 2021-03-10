@@ -326,11 +326,6 @@ angular
       templateUrl: "./view/confirmar-email/accountVerified.html",
       controller: "confirmEmail",
     });
-
-    $routeProvider.when("/dados_login", {
-      templateUrl: "./view/dadosLogin.html",
-      controller: "TreinoController",
-    });
     $routeProvider.when("/treinos/:id", {
       templateUrl: "./view/treino.html",
       controller: "TreinoController",

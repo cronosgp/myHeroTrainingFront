@@ -421,7 +421,7 @@ header > a {
                         <li><a href="#amigos"><span class="icon icon-list"></span>Meus Amigos<span class="not" ng-show="notAmizade>0">{{notAmizade}}</span></a></li>
                         <li><a href="#classificacao"><span class="icon icon-users2"></span>Classificação</a></li>
                         <li><a href="#treino-personalizado/"><span class="icon icon-stopwatch"></span>Treino Personalizado</a></li>
-                        <li ng-hide="true"><a href="#treino-conjunto/"><span class="icon icon-stopwatch"></span>Treino Conjunto</a></li>
+                        <li ng-hide="false"><a href="#treino-conjunto/"><span class="icon icon-stopwatch"></span>Treino Conjunto</a></li>
                         <li><a href="#/descricaoTreino"><span class="icon icon-stopwatch"></span>Exercícios</a></li>
                         <li><a href="#/" ng-click="logout()" type="submit"><span class="icon icon-exit"></span>Sign Out</a></li>
                     </ul>
@@ -442,35 +442,6 @@ header > a {
         }
     </style>
 
-    <ul class="nav nav-tabs" ng-controller="PageCtrl" ng-show="exibircomLogin()">
-        <li class="nav-item">
-            <a translate="HEADER.MENU.SEUSTREINOS"class="nav-link active"  href="#/home">Treinos Para você</a>
-        </li>
-        <li class="nav-item">
-
-            <a translate="HEADER.MENU.MEUSDADOS" class="nav-link" href="#/dados_login">Meus Dados</a>
-        </li>
-        <li class="nav-item">
-
-            <a translate="" class="nav-link" href="#/caminhada">Caminhada</a>
-        </li>
-        <li class="nav-item" ng-show="pagante()">
-
-            <a translate="" class="nav-link" href="#/criar-treino">Criar Treino Personalizado</a>
-        </li>
-        <li class="nav-item" ng-show="pagante()">
-
-            <a translate="" class="nav-link" href="#/meu-treino">Treino Personalizado</a>
-        </li>
-        <li class="nav-item" ng-show="premium()">
-
-            <a translate="" class="nav-link" href="#/pagamento">Seja Premium</a>
-        </li>
-        <!--li class="nav-item">
-            <a class="nav-link" href="#">Desempenho</a>
-        </li-->
-
-    </ul>
 
    <!-- <ul class="nav nav-tabs" ng-controller="HomeController" ng-show="exibirSemLogin()">
         <li class="nav-item">
