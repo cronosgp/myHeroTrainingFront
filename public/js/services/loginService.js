@@ -8,6 +8,8 @@ angular.module('myHeroTraining').factory('loginService', function ($http) {
 
   var dadosLogin = function (email) {
     return $http.get(
+      
+
       'http://localhost:8080/usuario/id',
       {
         params: {
@@ -17,7 +19,11 @@ angular.module('myHeroTraining').factory('loginService', function ($http) {
     );
   };
   var atualizaToken = function (id, token) {
-    return $http.put('http://localhost:8080/auth/' + id, token);
+    var jwt = localStorage.getItem('Bearer');
+  
+      $http.defaults.headers.common.Authorization = 'Bearer ' + jwt;
+  
+    return $http.put('http://localhost:8080/' + id, token);
   };
 
   return {
