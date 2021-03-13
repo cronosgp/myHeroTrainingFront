@@ -23,11 +23,11 @@
 
     <!-- edit form column -->
     <div class="col-md-9 personal-info">
-      <h3>Personal info</h3>
+      <h3>Perfil</h3>
 
       <form class="form-horizontal" role="form" novalidate name="formulario">
         <div class="form-group" ng-class="form-group">
-          <label class="col-lg-3 control-label">First name:</label>
+          <label class="col-lg-3 control-label">Nome:</label>
           <div class="col-lg-8">
             <input ng-model="perfil.nome" class="form-control" type="text" value="{{perfil.nome}}">
           </div>
@@ -51,7 +51,7 @@
           </div>
         </div>
         <div class="form-group">
-          <label class="col-md-3 control-label">Password</label>
+          <label class="col-md-3 control-label">Senha</label>
           <div class="col-md-8">
            <a class="btn-sm btn-secondary" href="#/forgot-password">Trocar Senha</a>
           </div>
@@ -59,7 +59,7 @@
         <div class="form-group">
           <label class="col-md-3 control-label"></label>
           <div class="col-md-8">
-            <button class="btn btn-primary" ng-click="salvarPerfil()" >Save Changes</button>
+            <button class="btn btn-primary" ng-click="salvarPerfil()" >Salvar Mudanças</button>
             <span></span>
           </div>
         </div>
