@@ -38,7 +38,7 @@ angular.module('myHeroTraining').factory('TreinoService', function ($http) {
 
     //$http.defaults.headers.common.Authorization = 'Bearer ' + jwt;
 
-    return $http.get('http://localhost:8080/treinos/idTreino', {
+    return $http.get('https://mhtrainingback.herokuapp.com/treinos/idTreino', {
 
       params: {
         id: id,
@@ -73,7 +73,7 @@ angular.module('myHeroTraining').factory('TreinoService', function ($http) {
     //$http.defaults.headers.common.Authorization = 'Bearer ' + jwt;
     return $http.get(
 
-      'http://localhost:8080/treinousuario/personalizado',
+      'https://mhtrainingback.herokuapp.com/treinousuario/personalizado',
 
       {
         params: {
@@ -91,7 +91,7 @@ angular.module('myHeroTraining').factory('TreinoService', function ($http) {
       //$http.defaults.headers.common.Authorization = 'Bearer ' + jwt;      
 
 
-      return $http.post('http://localhost:8080/treinoPersonalizado/dados',dados)
+      return $http.post('https://mhtrainingback.herokuapp.com/treinoPersonalizado/dados',dados)
 
     }
   var buscaIdUsuario = function (token) {
