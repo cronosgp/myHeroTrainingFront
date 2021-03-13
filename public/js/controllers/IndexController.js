@@ -6,6 +6,7 @@ angular.module('myHeroTraining')
 		 homeService,
 		 avatarService,
 		 amigosService,
+		 perfilService,
 		 $location ) {
 		$scope.model = {};
 		var IdUsuario = sessionStorage.getItem('id');
@@ -41,6 +42,15 @@ angular.module('myHeroTraining')
 				console.log("erro");
 			});
 		}
+
+		$scope.carregarNome = function(){
+			perfilService.carregarPerfil(IdUsuario).success(function (data){
+				$scope.nome = data.nome;
+			}).error(function (data) {
+				console.log("erro");
+			});
+		}
+		$scope.carregarNome();
 
 		$scope.carregaNotAmizade = function () {
 			amigosService.carregarSolicitacoes(IdUsuario).success(function (data) {
