@@ -37,7 +37,7 @@ angular.module('myHeroTraining').factory('TreinoService', function ($http) {
   //  var jwt = localStorage.getItem('Bearer');
 
     //$http.defaults.headers.common.Authorization = 'Bearer ' + jwt;
-    return $http.get('http://localhost:8080/treino', {
+    return $http.get('http://localhost:8080/treinos/idTreino', {
       params: {
         id: id,
       },
@@ -65,16 +65,16 @@ angular.module('myHeroTraining').factory('TreinoService', function ($http) {
     return $http.post('http://localhost:8080/dataFase', dadosSalvaFimFase);
   }
 
-  var buscaPersonlizado = function (data,IdUsuario) {
+  var buscaPersonlizado = function (IdUsuario,data) {
  //  var jwt = localStorage.getItem('Bearer');
 
     //$http.defaults.headers.common.Authorization = 'Bearer ' + jwt;
     return $http.get(
-      'http://localhost:8080/personalizado',
+      'http://localhost:8080/treinousuario/personalizado',
       {
         params: {
           id: IdUsuario,
-          data : data
+          data : data,
 
         },
       }
@@ -86,7 +86,7 @@ angular.module('myHeroTraining').factory('TreinoService', function ($http) {
 
       //$http.defaults.headers.common.Authorization = 'Bearer ' + jwt;      
 
-      return $http.post('http://localhost:8080/dados',dados)
+      return $http.post('http://localhost:8080/treinoPersonalizado/dados',dados)
 
     }
 
