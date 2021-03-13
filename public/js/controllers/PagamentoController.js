@@ -53,7 +53,12 @@ angular
          }
  
      } else {
-         alert(`payment method info error: ${response}`);
+            Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Problemas com seu método de pagamento, verifique os dados inseridos',
+         
+          })
      }
  }
  
@@ -88,7 +93,12 @@ angular
          );
  
      } else {
-         alert(`issuers method info error: ${response}`);
+           Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Método de pagamento inválido',
+         
+          })
      }
  }
  
@@ -230,8 +240,12 @@ angular
 
 
      } else {
-         alert("Verify filled data!\n"+JSON.stringify(response, null, 4));
-     }
+   Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Verifique os dados inseridos no formulário',
+         
+          })     }
  };
  
  /***
