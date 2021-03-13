@@ -13,9 +13,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "angular-ui-bootstrap": "^2.5.6",
     "body-parser": "^1.12.3",
     "bootstrap": "^4.5.0",
+    "datatables.net": "^1.10.24",
     "express": "^4.12.3",
     "flag-icon-css": "^3.5.0",
     "moment": "^2.29.1",
