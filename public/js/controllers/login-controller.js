@@ -11,7 +11,16 @@ angular
         localStorage.setItem(response.data.tipo, response.data.token);
 
         $location.path('/home');
-        swal('MyHeroTraining', 'Bem Vindo!', 'success');
+       
+        swal({
+          title: "MyHeroTraining",
+          text: "Bem Vindo!",
+          type: "success",
+          icon: "success"
+      }).then(function() {
+        location.reload();
+      });
+       
       }
       function error(response) {
         console.log(response.status);

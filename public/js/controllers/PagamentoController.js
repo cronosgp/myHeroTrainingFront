@@ -110,7 +110,21 @@ angular
              document.getElementById('installments').appendChild(opt);
          });
      } else {
-         alert(`installments method info error: ${response}`);
+        if(responseText.includes("docNumber")){
+            Swal.fire({
+               icon: 'error',
+               title: 'Oops...',
+               text: 'Número de documento inválido',
+            
+             })
+        }}
+        if(response.includes('cardNumber')){
+           Swal.fire({
+               icon: 'error',
+               title: 'Oops...',
+               text: 'Número de cartão inválido',
+            
+             })
      }
  }  
  
