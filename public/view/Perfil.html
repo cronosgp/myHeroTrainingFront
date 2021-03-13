@@ -9,7 +9,14 @@
         <img src="{{avatar}}" class="avatar img-circle" alt="avatar"
              style="width:150px; height: auto;">
         <div class="text-center" style="padding-top: 0.5em">
-         <!--<button class="btn btn-primary">Change Icon</button>-->
+
+          <br>
+          <select ng-init="selecionado = todosAvatares[avInit]"
+                  ng-options="selecao as selecao.name for selecao in todosAvatares" ng-model="selecionado" ng-change="trocarAvatar()">
+          </select>
+          <br>
+
+        <!--<a href="#/avatar" class="btn btn-primary" >Change Icon</a>-->
         </div>
       </div>
     </div>

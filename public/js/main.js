@@ -362,8 +362,8 @@ angular
       templateUrl: "./view/AdicionarAmigos.html",
       controller: "AdicionarAmigosController",
     });
-    $routeProvider.when("/avatar/", {
-      templateUrl: "./view/Avatar.html",
+    $routeProvider.when("/perfil/", {
+      templateUrl: "./view/Perfil.html",
       controller: "PerfilController",
     });
     $routeProvider.when("/criar-treino/", {
