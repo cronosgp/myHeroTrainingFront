@@ -25,8 +25,6 @@ angular
       var temPersonalizado;
 
       var IdUsuario = sessionStorage.getItem('id');
-
-    
       $scope.concluir = function () {
         if (conlusao === 1) {
           return true;
@@ -93,15 +91,11 @@ angular
       };
       var fasesTreinos = function () {
         TreinoService.carregaFasesTreino(id).success(function (data) {  
-          console.log(data) 
-          
+       
           $scope.fases = data;
           dados = data;
           arrayExercicio = data
 
-        
-        
-   
         });
       };
       //falta pegar Id do usuario do banco e passar no parametro, pelo token
@@ -141,9 +135,6 @@ angular
         TreinoService.atualizaFaseConcluida(idFase).success(function (data) {})
     return false;
       };
-
-   
-  
     var carregaTreinoUsuario = function(){
       TreinoPersonalizadoService.carregaTreinoUsuario(IdUsuario).success(function(data){
         if(data.length > 0){
@@ -171,9 +162,6 @@ angular
         }
       });
     };
-      
-      
-
       var carregaIdTreino = function () {
         TreinoService.carregaIdTreino(id).success(function (data) {
          idFase = data;
@@ -184,18 +172,11 @@ angular
        // atualizaIdusuarioTreino;
         repeticaoExercicio++;
       //  delete_check++;
-
-     
-        
         var tempoCalculado = 0;
         var horaAtual = new Date();
        // console.log("subtracao: " + horaAtual - tempoAtual)
           tempo.push(tempoAtual -horaAtual)
-         
-                 
           if(repeticaoExercicio ===2){
-
-
           tempo.forEach((tempo)=>{tempoCalculado = tempoCalculado + tempo}) 
          // console.log(tempoCalculado)
           tempoCalculado = Math.floor(tempoCalculado / 3600)+":"+Math.floor(tempoCalculado/ 60)+":"+tempoCalculado % 60;
@@ -203,8 +184,6 @@ angular
           if(tempoCalculado.substring(0,2).match(':')){
             tempoCalculado = '0' + tempoCalculado; 
             }
-
-
             if(tempoCalculado.substring(2,4).match(':'))
              {
                tempoCalculado = tempoCalculado.substring(0,3) + '0' + tempoCalculado.substring(0,4)
