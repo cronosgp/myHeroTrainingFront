@@ -11,7 +11,11 @@ angular.module('myHeroTraining')
 		$scope.model = {};
 		var IdUsuario = sessionStorage.getItem('id');
 
+		$scope.msg = function(){
+			return sweetAlert("Você não possui amigos adicionados ou solicitações aceitas para essa opção. Convide novos amigos")
+		}
 
+		
 		$scope.alterarIdioma = function(chave) {
 
 			$translate.use(chave);
@@ -110,8 +114,10 @@ angular.module('myHeroTraining')
 					.carregarTreinos(IdUsuario)
 					.success(function (data) {
 						//  carregaObjetos = data;
+						
 
 						$scope.treinos = data;
+					
 						/* refresh();
                     carregaTempoTreino = carregaObjetos[0].treino;
                     carregaTempo(carregaTempoTreino, data);*/

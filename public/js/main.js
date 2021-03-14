@@ -388,7 +388,7 @@ angular
     });
     $routeProvider.when("/treino-conjunto/", {
       templateUrl: "./view/TreinoConjunto.html",
-      controller: "TreinoConjuntoController",
+      controller: "PageCtrl",
     });
     $routeProvider.when("/treino-conjunto/solicitacoes", {
       templateUrl: "./view/TreinoConjuntoSol.html",

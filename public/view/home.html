@@ -28,9 +28,16 @@
                 <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
                         <a class="btn btn-sm btn-outline-success" ng-model="inicio" type="button"
-                           href="#/treinos/{{treino.idt}}" translate="HEADER.HOME.INICIAR">Iniciar</a>                       
+                           href="#/treinos/{{treino.idt}}" 
+                        >Iniciar Treino</a>                       
     
+                        <a class="btn btn-sm btn-outline-danger" ng-model="inicio" type="button "
+                        ng-click ="msg()"
+                        href="#/amigos/" 
+                     >Treinar em Conjunto</a>                       
+      
                     </div>
+                    
                     <small class="text-muted" id="" ><span translate="HEADER.HOME.TEMPOESTIMADO">Tempo estimado:</span><b> {{treino.horast}}</b></small>
                      <small class="text-muted" id="id_tempo_feito" style="display: none;" >Tempo feito: {{treino.tempot}}
                         <i class="fa fa-check" aria-hidden="true"></i>
