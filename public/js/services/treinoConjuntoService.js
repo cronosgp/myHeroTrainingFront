@@ -4,7 +4,7 @@ angular.module('myHeroTraining').factory('treinoConjuntoService', function ($htt
         var jwt = localStorage.getItem('Bearer');
 
         $http.defaults.headers.common.Authorization = 'Bearer ' + jwt;
-        return $http.get('https://mhtrainingback.herokuapp.com/treino-conjunto/request', {
+        return $http.get('http://localhost:8080/treino-conjunto/request', {
             params: {
                 id: id
             },
@@ -12,7 +12,7 @@ angular.module('myHeroTraining').factory('treinoConjuntoService', function ($htt
     };
 
     var enviarSolicitacao = function (usuarioid, conviteid) {
-        return $http.post('https://mhtrainingback.herokuapp.com/treino-conjunto/request', {
+        return $http.post('http://localhost:8080/treino-conjunto/request', {
             usuarioid: usuarioid,
             conviteid: conviteid
 
@@ -20,14 +20,14 @@ angular.module('myHeroTraining').factory('treinoConjuntoService', function ($htt
     };
 
     var aceitarSolicitacao = function (usuarioid, conviteid) {
-        return $http.post('https://mhtrainingback.herokuapp.com/treino-conjunto/accept', {
+        return $http.post('http://localhost:8080/treino-conjunto/accept', {
             usuarioid: usuarioid,
             conviteid: conviteid
         });
     };
 
     var recusarSolicitacao = function (conviteid, usuarioid) {
-        return $http.post('https://mhtrainingback.herokuapp.com/treino-conjunto/reject', {
+        return $http.post('http://localhost:8080/treino-conjunto/reject', {
             usuarioid: usuarioid,
             conviteid: conviteid
         });
@@ -37,7 +37,7 @@ angular.module('myHeroTraining').factory('treinoConjuntoService', function ($htt
         var jwt = localStorage.getItem('Bearer');
 
         $http.defaults.headers.common.Authorization = 'Bearer ' + jwt;
-        return $http.get('https://mhtrainingback.herokuapp.com/treino-conjunto', {
+        return $http.get('http://localhost:8080/treino-conjunto', {
             params: {
                 id: id
             },
