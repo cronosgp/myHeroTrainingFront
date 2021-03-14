@@ -53,7 +53,12 @@ angular
          }
  
      } else {
-         alert(`payment method info error: ${response}`);
+            Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Problemas com seu método de pagamento, verifique os dados inseridos',
+         
+          })
      }
  }
  
@@ -88,7 +93,12 @@ angular
          );
  
      } else {
-         alert(`issuers method info error: ${response}`);
+           Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Método de pagamento inválido',
+         
+          })
      }
  }
  
@@ -110,7 +120,21 @@ angular
              document.getElementById('installments').appendChild(opt);
          });
      } else {
-         alert(`installments method info error: ${response}`);
+        if(responseText.includes("docNumber")){
+            Swal.fire({
+               icon: 'error',
+               title: 'Oops...',
+               text: 'Número de documento inválido',
+            
+             })
+        }}
+        if(response.includes('cardNumber')){
+           Swal.fire({
+               icon: 'error',
+               title: 'Oops...',
+               text: 'Número de cartão inválido',
+            
+             })
      }
  }  
  
@@ -157,7 +181,7 @@ angular
         console.log(form);
          
          var http = new XMLHttpRequest();
-         var url = 'https://mhtrainingback.herokuapp.com/process_payment';
+         var url = 'http://localhost:8080/process_payment';
         
          var params = 'docType='+ document.querySelector('#docType').value+'&docNumber='+document.querySelector('#docNumber').value+'&installments=1&transactionAmount=30&paymentMethodId='+document.querySelector('#paymentMethodId').value+'&description=Licença+Premium&email='+document.querySelector('#email').value+'&token='+document.getElementsByName('token')[0].value+'&idUsuario='+sessionStorage.getItem('id');
          console.log(params)
@@ -216,8 +240,12 @@ angular
 
 
      } else {
-         alert("Verify filled data!\n"+JSON.stringify(response, null, 4));
-     }
+   Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Verifique os dados inseridos no formulário',
+         
+          })     }
  };
  
  /***
@@ -300,7 +328,6 @@ Swal.fire({
  //Retrieve product description
  document.getElementById('description').value = document.getElementById('product-description').innerHTML;
 
- 
  
  
 });

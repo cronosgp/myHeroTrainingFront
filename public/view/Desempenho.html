@@ -1,6 +1,39 @@
 <html>
   <body>
     <style>
+      #btn_pagnicao{
+      position: absolute;
+      width: 100%;
+      padding: auto;
+      left: 5%;
+ margin-top: 4%;
+ 
+    }
+      #table_dados{
+        font-size: small;
+        position: absolute;
+        width: 80%;
+        margin-top: 85px;
+        left: 10%;
+        align-items: center;
+        align-self: center;
+        background-color: #eee;
+        border-collapse: collapse;
+    border: 2px solid rgb(200, 200, 200);
+      }
+      #data_historico{
+        position: absolute;
+        bottom: 20%;
+        
+      }
+      #dados2{
+        position: absolute;
+        left:70%;
+        bottom: 8%;
+        width: 100%;
+     z-index: 1000;
+     
+      }
       body {
         margin-top: 0;
         background: #fafafa;
@@ -258,7 +291,8 @@
         />
         <div class="col-md-7 col-sm-7 my-0 " ng-repeat="u in usu" id="dados">
           <h5><a href="#" class="profile-link">{{u.nome_}}</a></h5>
-          <p><b>{{u.email_}}</b></p>
+          <div id="dados2">
+          <p style="display: none;"><b>{{u.email_}}</b></p>
           <p ><b>Sua pontuação: </b>{{u.pontos_soma}}</p>
           <!--p><b>Data de início: </b>13/02/2020</p-->
 
@@ -272,6 +306,7 @@
               class="share"
             />
           </a>   
+        </div>
             <!-- <a href="https://facebook.com/">
               <img
                 src="https://cdn.icon-icons.com/icons2/642/PNG/512/facebook_icon-icons.com_59205.png"
@@ -283,7 +318,7 @@
         </div>
       </div>
     </div>
-    <div class="container" align="center">
+    <div class="container" align="center" id="data_historico">
       <h3 id="">Selecione a data que deseja pesquisar:</h3>
       <div align="center">
         <form>
@@ -297,46 +332,39 @@
       </div>
     </div>
 
-    <ul class="nav nav-tabs" id="myTab" ng-show="exibir()">
-      <li class="nav-item">
-        <a class="nav-link" data-target="#pontuacao" data-toggle="tab"
-          >Histórico de pontuação</a
-        >
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" data-target="#caminhada" data-toggle="tab"
-          >Histórico de caminhada</a
-        >
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" data-target="#exercicios" data-toggle="tab"
-          >Exercícios já feitos</a
-        >
-      </li>
-      <li class="nav-item"></li>
-    </ul>
+
+      
+    
+    <table
+   id="table_dados"
+      
+      ng-show="exibir()"
+      class="table"
+    >
+    <tbody> 
+      <thead class="thead-light">
+        <th scope="col">#</th>
+      <th scope="col">Data</th>
+      <th scope="col">Pontuação</th>
+      <th scope="col">Exercício Realizado</th>
+      <th scope="col">Distancia diária de caminhada</th>
+      <th scope="col">Tempo diário de caminhada </th>
+  </thead>
+  </tbody>  
+    
+    </table>
+  
+    <div id="btn_pagnicao" style="display: none;">
+    <button id="anterior" disabled>&lsaquo; Anterior</button>
+    <span id="numeracao"></span>
+    <button id="proximo" disabled>Próximo &rsaquo;</button>
+</div>
     <div class="tab-content">
       <div class="tab-pane " id="pontuacao">
         <div class="row tabelas">
-          <table
-            style="width: 40%"
-            align="center"
-            class="table"
-          >
-            <tr>
-              <th scope="col">Data</th>
-              <th scope="col">Pontos</th>
-              
-            </tr>
-            <tr ng-repeat="d in dados">
-              <td>{{d.datas}}</td>
-              <td>{{d.pontos_soma}}</td>            
-              
-            </tr>
-            
-          </table>
+         
         </div>
-        <div class="text-center mt-3 mt-sm-3" align="center">
+        <div class="text-center mt-3 mt-sm-3" >
           <ul class="pagination justify-content-center mb-0">
             <li class="page-item disabled">
               <span class="page-link">Prev</span>
@@ -354,6 +382,7 @@
       <div class="tab-pane" id="caminhada">
         <div class="row tabelas">
           <table
+            
             style="width: 40%"
             align="center"
             class="table manage-candidates-top mb-0"
@@ -364,12 +393,7 @@
               <th>Tempo gasto</th>
               <th>Pontos</th>
             </tr>
-            <tr ng-repeat="d in dados">
-              <td>{{d.data_caminhada}}</td>
-              <td>{{d.distancia}}</td>
-              <td>{{d.tempo}}</td>
-              <td>{{d.ponto_caminhada}}</td>
-            </tr>
+          
         
           </table>
         </div>
@@ -410,8 +434,8 @@
            
           </table>
         </div>
-        <div class="text-center mt-3 mt-sm-3" align="center">
-          <ul class="pagination justify-content-center mb-0">
+        <div class="text-center mt-3 mt-sm-3" >
+          <ul class="pagination justify-content-center mb-0" >
             <li class="page-item disabled">
               <span class="page-link">Prev</span>
             </li>

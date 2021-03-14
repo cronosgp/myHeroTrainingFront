@@ -1,27 +1,15 @@
-<style>
-.not {
-padding: 5px 10px;
-border-radius: 50%;
-background: dodgerblue;
-color: white;
-}
-</style>
+<!DOCTYPE html>
+<html>
+  <body>
 
-    <ul class="nav nav-tabs" ng-controller="PageCtrl" ng-show="exibircomLogin()">
-      <li class="nav-item">
-        <a class="nav-link"  href="#/amigos/">Meus Amigos</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link active"  href="#/adicionar-amigos/">Adicionar Amigo</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#/solicitacoes">Solicitações<span class="not" ng-show="notAmizade>0">{{notAmizade}}</span></a>
-      </li>
-    </ul>
-
-<section class="hero hero--inverse"></section>
-<section class="leaderboard-progress">
-  <div class="contain text-center">
+    <br>
+<span>
+<header class="header">
+    <div class="header__navbar"></div>
+  </header>
+  <section class="hero hero--inverse"></section>
+  <section class="leaderboard-progress">
+    <div class="contain text-center">
 
   <div style="padding-top: 2em">
     <h2>Adicionar novos Amigos</h2>
@@ -34,6 +22,7 @@ color: white;
   <div>
     
     <form role="form" autocomplete="on" class="form" method="post" ng-submit="enviar()">
+
       <div style="padding-top: 2em">
         <input type="text" placeholder="Digite o e-mail" ng-model="email" />
       </div>
@@ -41,6 +30,12 @@ color: white;
       <div style="padding-top: 1em">
         <button type="submit" class="btn btn-secondary pull-right">Enviar Solicitação de Amizade</button>
       </div>
+
+      
+      <input type="text" id="email" placeholder="Digite o e-mail" ng-model="email" name="email" class="form-control">
+   
+      <button type="submit" class="btn btn-primary pull-right">Enviar Solicitação de Amizade</button>
+
     </form>
     
     <!-- <div id="homies_wrap">
@@ -70,4 +65,8 @@ color: white;
     
   </div>
 </div>
-  </div>
+</div>
+</span>
+</br>
+</body>
+</html>
