@@ -429,7 +429,7 @@ angular
 
         if (repeticaoExercicio < 3) {
           TreinoService.carregaIdTreino(id).success(function (data) {
-            idFase = data
+            idFase = data[0].id
             let timerInterval;
             document.getElementById('serieFeitas').innerHTML =
               'Número de séries realizadas: ' + repeticaoExercicio;

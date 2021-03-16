@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br" ng-app="myHeroTraining">
 <head>
+
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCGyNOT4gPXsEnP-B9jcrXNym1qfoNniMU"></script>
     <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <meta name="viewport" content="width=device-width">
@@ -13,6 +14,7 @@
     <script src="./js/main.js"></script>
     <script src="./js/services/TreinoService.js"></script>
     <script src="./js/services/homeService.js"></script>    
+      
     <script src="./js/services/cadastroUsuarioService.js"></script>
 
     <script src="./js/services/TreinoPersonalizadoService.js"></script>
@@ -22,15 +24,20 @@
 
     <script src="./js/services/loginService.js"></script>
     <script src="./js/services/amigosService.js"></script>
+    <script src="./js/services/perfilService.js"></script>
+    <script src="./js/services/avatarService.js"></script>
+    <script src="./js/controllers/PerfilController.js"></script>
     <script src="./js/services/classificacaoService.js"></script>
+    <script src="./js/services/treinoConjuntoService.js"></script>
     <script src="./js/controllers/AdicionarAmigosController.js"></script>
     <script src="./js/controllers/TreinoPersonalizadoInicioController.js"></script>
     <script src="./js/controllers/AmigosController.js"></script>
     <script src="./js/controllers/SolicitacoesController.js"></script>
     <script src="./js/controllers/login-controller.js"></script>
+    <script src="./js/controllers/IndexController.js"></script>
     <script src="./js/controllers/treinoPersonalizadoController.js"></script>
-    <script src="./js/controllers/homeController.js"></script>
     <script src="./js/controllers/TreinoController.js"></script>
+    <script src="./js/controllers/TreinoConjuntoController.js"></script>
     <script src="./js/controllers/classificacaoController.js"></script>
     <script src="./js/controllers/modal.js"></script>
 
@@ -60,42 +67,26 @@
    
     <script src="./js/angular-sanitize/angular-sanitize.min.js"></script>
 
-
-   
-            <script src="./js/angular-translate/dist/angular-translate.min.js"></script>
-             
-            
-            <script src="./js/angular-sanitize/angular-sanitize.min.js"></script>
-   
-    <script src="./js/angular-sanitize/angular-sanitize.min.js"></script>     
-   
-    <script src="./js/controllers/InterController.js"></script>
-
     <script src="./js/controllers/recoverPassword.js"></script>
    <script src="./js/controllers/confirmEmailController.js"></script>
    <script src="./js/controllers/PagamentoController.js"></script>
           <script src="./js/services/caminhadaService.js"></script>
           <script src="./js/controllers/CaminhadaController.js"></script>
    <!-- <link href="./css/imgs.css"></link>-->
-
    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
     <script src="./js/lib/angular-animate.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular-touch.js"></script>
 
     <!-- js do menu avatar -->
-
-   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> 
-<!-- js do menu avatar -->
-
    <script>
        $(document).ready(function() {
 
-var avatar = $("#header-avatar");
-var dropdown = $("#avatar-dropdownmenu");
+var menu = $("#header-menu");
+var dropdown = $("#dropdownmenu");
 var bubble = $("#notification-bubble");
 
-avatar.click( function(event) {
+menu.click( function(event) {
     event.stopPropagation();
     dropdown.toggle();
 });
@@ -140,29 +131,10 @@ function displayNotificationBubble() {
 }
 }); 
    </script>
-   
+
 </head>
 <body>
     <style>
-        
-        /* css do avatar menu */
-
-     /*    body {
-	background-color: #e4dfd4;
-	font-family: 'Oxygen', sans-serif;
-	padding: 0;
-	margin: 0;
-	box-sizing: border-box;        
-} */
-
-/* a {
-	color: #fefefe;
-	text-decoration: none;
-} */
-/* header {
-	background-color: #555;
-	padding: 20px 15px;
-} */
 header > h1 {
 	color: rgba(255, 255, 255, .6);
 	display: inline-block;
@@ -179,55 +151,6 @@ header > a {
 	display: inline-block;
 	margin: 0px 0px 0px 20px;
 }
-/* end demo styles */
-
-
-
-
-/* search */
-div.alpha-search {
-	background-color: rgba(0, 0, 0, .07);
-	float: right;
-	height: 40px;
-	overflow-y: hidden;
-	position: relative;
-	top: 2px;
-}
-div.alpha-search > input {
-	background-color: transparent;
-	border: none;
-	border-radius: 0px;
-	box-shadow: none;
-	color: #ffffff;
-	color: rgba(255, 255, 255, 1);
-	font-size: 16px;
-	margin: 0px;
-	padding: 0px 0px 0px 10px;
-	position: relative;
-	top: -2px;
-	width: 330px;
-}
-div.alpha-search > input:focus {
-	box-shadow: none;
-	outline: none;
-	outline-color: transparent;
-	outline-style: none;
-}
-div.alpha-search > button {
-	background-color: transparent;
-	border: none;
-	color: rgba(255, 255, 255, .8);
-	font-size: 18px;
-	padding: 10px;
-	transition: transform .4s ease-in-out;
-}
-/* end search */
-
-
-
-
-
-
 
 /* user menu */
 .header-avatar {
@@ -275,13 +198,13 @@ div.alpha-search > button {
 		width: 30px;
 	}
 }
-.header-avatar:hover {
+.header-menu:hover {
 	cursor: pointer;
 }
-.header-avatar:hover > span.icon {
+.header-menu:hover > span.icon {
 	color: #ffffff;
 }
-.header-avatar > span.icon {
+.header-menu > span.icon {
 	color: rgba(255, 255, 255, .8);
 	font-size: 26px;
 	position: relative;
@@ -289,24 +212,29 @@ div.alpha-search > button {
 	top: 5px;
 }
 @media (max-width: 425px) {
-	.header-avatar > span.icon {
+	.header-menu > span.icon {
 		font-size: 20px;
 		top: -2px;
 	}
 }
 /* header avatar menu */
-.avatar-menu {
+.header-menu {
 	float: right;
 	margin: 0px 20px 0px 20px;
 	position: relative;
 }
-.avatar-menu > a {
+.avatar-menu {
+    float: right;
+    margin: 0px 0px 0px 20px;
+    position: relative;
+}
+.header-menu > a {
 	background-color: rgba(101, 170, 173, .9);
 	float: right;
 	padding: 10px 20px;
 	position: relative;
 }
-.avatar-menu > ul:before {
+.header-menu > ul:before {
 	content: '';
 	width: 0; 
 	height: 0; 
@@ -319,14 +247,14 @@ div.alpha-search > button {
 	top: -10px;
 	z-index: 99999;
 }
-.avatar-menu > ul {
+.header-menu > ul {
 	background-color: #fefefe;
 	box-shadow: 0px 4px 5px 0px rgba(50, 50, 50, 0.5);
 	clear: both;
 	display: none;
 	position: absolute;
 	list-style-type: none;
-	margin-top: 20px 0px 0px 0px;
+	mmargin-top: 20px 0px 0px 0px;
 	padding: 0px;
 	top: 40px;
 	right: 1px;
@@ -334,32 +262,34 @@ div.alpha-search > button {
 	z-index: 9999;
 }
 @media (max-width: 425px) {
-	.avatar-menu > ul {
+	.header-menu > ul {
 		top: 44px;
 		right: 27px;
 	}
 }
-
-.avatar-menu > ul > li > a {
+.header-menu > ul > li {
+	
+}
+.header-menu > ul > li > a {
 	color: #555;
 	display: block;
 	font-size: 14px;
 	padding: 15px 20px;
 	transition: all 0.2s ease-in-out;
 }
-.avatar-menu > ul > li > a span.icon {
+.header-menu > ul > li > a span.icon {
 	font-size: 16px;
 	margin-right: 10px;
 }
-.avatar-menu > ul > li > a span.icon-ellipsis-v {
+.header-menu > ul > li > a span.icon-ellipsis-v {
 	margin-right: 2px;
 }
-.avatar-menu > ul > li > a:hover {
+.header-menu > ul > li > a:hover {
 	background-color: rgba(101, 170, 173, .1);
 	color: rgba(0, 0, 0, .9);
 	text-decoration: none;
 }
-.header-avatar > span.filled {
+.header-menu > span.filled {
 	background-color: white;
 	border-radius: 20px;
 	color: black;
@@ -372,7 +302,7 @@ div.alpha-search > button {
 	height: 15px;
 	text-align: center;
 }
-.header-avatar > span.overlayed {
+.header-menu > span.overlayed {
 	font-size: 24px;
 	position: relative;
 	left: 20px;
@@ -415,6 +345,12 @@ div.alpha-search > button {
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {display: block;}
 
+.not {
+    padding: 5px 10px;
+    border-radius: 50%;
+    background: dodgerblue;
+    color: white;
+}
 
     </style>
 <header>
@@ -424,7 +360,7 @@ div.alpha-search > button {
     <!-- header normal -->
 
     <nav class="navbar navbar-expand navbar-light bg-light" style="background-color: #e3f2fd;"
-         ng-controller="HomeController">
+         ng-controller="PageCtrl">
 
         <a href="#/principal" class="navbar-brand " ng-show="exibirSemLogin()" title="home">
             <img src="./imagem/logo.png"> MyHeroTraining
@@ -447,34 +383,6 @@ div.alpha-search > button {
                 <li class="nav-item active">
                     <a translate="HEADER.MENU.REGISTER" class="nav-link" href="#/Cadastro">Cadastre-se <span class="sr-only">(current)</span></a>
                 </li>
-
-                <!-- <li class="nav-item active">
-                    <a translate="HEADER.MENU.EXERCICIOS" class="nav-link" href="#/descricaoTreino">Exercícios <span class="sr-only">(current)</span></a>
-                </li> -->
-
-                <!-- <li class="nav-item active">
-                    <a class="nav-link" href="#/classificacao">Classificação <span class="sr-only">(current)</span></a>
-                </li> -->
-<!-- dropdown -->
-               <!--  <div class="dropdown">
-                    <button class="dropbtn">Amizades
-                      <i class="fa fa-caret-down"></i>
-                    </button>
-                    <div class="dropdown-content">
-                      <a href="#/amigos">Meus Amigos</a>
-                      <a href="#/solicitacoes">Solicitações</a>
-                      <a href="#/adicionar-amigos">Adiconar Amigos</a>
-                    </div>
-                  </div> -->
-
-                <!-- <li class="nav-item active">
-                    <a class="nav-link" href="#/amigos">Amigos <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="#/MeusAmigos">Meus Amigos <span class="sr-only">(current)</span></a>
-                </li> -->
-
-
             </ul>
 
             <div class="collapse navbar-collapse" ng-show="exibircomLogin()">
@@ -502,6 +410,7 @@ div.alpha-search > button {
                  </div>
 
                  <!-- aqui menu avatar -->
+<!-- <h1>teste</h1> -->
 
                 <div class="header-menu" id="header-menu" ng-show="exibircomLogin()">
                     <button class="btn btn-light dropdown-toggle">{{nome}}</button>
@@ -512,7 +421,7 @@ div.alpha-search > button {
                         <li><a href="#caminhada"><span class="icon icon-user"></span>Caminhada</a></li>
                         <li><a href="#amigos"><span class="icon icon-list"></span>Meus Amigos<span class="not" ng-show="notAmizade>0">{{notAmizade}}</span></a></li>
                         <li><a href="#classificacao"><span class="icon icon-users2"></span>Classificação</a></li>
-                        <li><a href="#criar-treino"><span class="icon icon-stopwatch"></span>Treino Personalizado</a></li>
+                        <li><a href="#meu-treino"><span class="icon icon-stopwatch"></span>Treino Personalizado</a></li>
                         <li ng-hide="false"><a href="#treino-conjunto/"><span class="icon icon-stopwatch"></span>Treino Conjunto</a></li>
                         <li><a href="#/descricaoTreino"><span class="icon icon-stopwatch"></span>Exercícios</a></li>
                         <li><a href="#/" ng-click="logout()" type="submit"><span class="icon icon-exit"></span>Sign Out</a></li>
@@ -525,26 +434,6 @@ div.alpha-search > button {
                     </div>
                     <!-- <div class="notification-bubble" id="notification-bubble"><span>9</span></div> -->
                 </div>
-
-<div class="avatar-menu" id="avatar-menu" ng-show="exibircomLogin()">
-    <div class="header-avatar" id="header-avatar"
-         style="background-image: url(https://bootdey.com/img/Content/avatar/avatar7.png);">
-        <span class="icon icon-caret-down"></span>
-    </div>
-    <div class="notification-bubble" id="notification-bubble"><span>9</span></div>
-    <ul id="avatar-dropdownmenu">
-        <li><a href="#avatar"><span class="icon icon-user"></span>Avatar</a></li>
-        <li><a href="#desempenho"><span class="icon icon-user-tie"></span>Desempenho</a></li>
-        <li><a href="#amigos"><span class="icon icon-list"></span>Meus Amigos</a></li>
-        <li><a href="#solicitacoes"><span class="icon icon-club"></span>Solicitações</a></li>
-        <li><a href="#adicionar-amigos"><span class="icon icon-heart"></span>Adicionar Amigos</a></li>
-        <li><a href="#classificacao"><span class="icon icon-users2"></span>Classificação</a></li>
-        <li><a href="#/descricaoTreino"><span class="icon icon-stopwatch"></span>Exercícios</a></li>
-        <li><a href="#/caminhada"><span class="icon icon-stopwatch"></span>Caminhada</a></li>
-        <li><a href="#/" ng-click="logout()" type="submit"><span class="icon icon-exit"></span>Sair</a></li>
-    </ul>
-</div>
-
 <!-- <div class="alpha-search">
     <input type="text" placeholder="Search by Name, Bib, E-mail, etc.">
     <button type="submit" class="icon icon-search"></button>
@@ -560,37 +449,6 @@ div.alpha-search > button {
             color: #3c3c3c;
         }
     </style>
-
-
-    <ul class="nav nav-tabs" ng-controller="HomeController" ng-show="exibircomLogin()">
-        <li class="nav-item">
-            <a translate="HEADER.MENU.SEUSTREINOS"class="nav-link active"  href="#/home">Treinos Para você</a>
-        </li>
-        <li class="nav-item">
-
-            <a translate="HEADER.MENU.MEUSDADOS" class="nav-link" href="#/dados_login">Meus Dados</a>
-        </li>
-        <li class="nav-item">
-
-            <a translate="" class="nav-link" href="#/caminhada">Caminhada</a>
-        </li>
-        <li class="nav-item" ng-show="pagante()">
-
-            <a translate="" class="nav-link" href="#/criar-treino">Criar Treino Personalizado</a>
-        </li>
-        <li class="nav-item" ng-show="pagante()">
-
-            <a translate="" class="nav-link" href="#/meu-treino">Treino Personalizado</a>
-        </li>
-        <li class="nav-item" ng-show="premium()">
-
-            <a translate="" class="nav-link" href="#/pagamento">Seja Premium</a>
-        </li>
-        <!--li class="nav-item">
-            <a class="nav-link" href="#">Desempenho</a>
-        </li-->
-
-    </ul>
 
 
    <!-- <ul class="nav nav-tabs" ng-controller="HomeController" ng-show="exibirSemLogin()">

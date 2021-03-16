@@ -11,11 +11,15 @@ angular.module('myHeroTraining')
 		$scope.model = {};
 		var IdUsuario = sessionStorage.getItem('id');
 
+		
+
 		$scope.msg = function(){
+			
 			return sweetAlert("Você não possui amigos adicionados ou solicitações aceitas para essa opção. Convide novos amigos")
 		}
 
-		
+	
+
 		$scope.alterarIdioma = function(chave) {
 
 			$translate.use(chave);
@@ -189,6 +193,7 @@ angular.module('myHeroTraining')
 				}
 			}
 
+
 			carrega();
 			//getTimeCronometro();
 			$scope.fotoPrincipal = {
@@ -196,6 +201,8 @@ angular.module('myHeroTraining')
 					'https://i.pinimg.com/236x/ba/87/5d/ba875dc13ef3651e4f08237d07f8ea45.jpg',
 			};
 		}
+
+		
 	);
 
 

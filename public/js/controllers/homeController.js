@@ -1,7 +1,7 @@
 angular.module('myHeroTraining')
 .controller(
   'HomeController',
-  function ($scope, $http, myHeroTraining, $location) {
+  function ($scope,  myHeroTraining, $location) {
     $scope.model = {};
     var oculta= false;
     var exibe=false;
