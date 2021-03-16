@@ -65,19 +65,17 @@ angular
 
         $scope.libera = function () {
             treinoConjuntoService.liberaTreino(IdUsuario).success(function (data){
-                $scope.jaSel = false
+                $scope.jaSel = data !== true;
             }).error(function (data){
                 console.log("erro");
-                $scope.jaSel = true;
             });
         }
 
         $scope.liberadia = function () {
             treinoConjuntoService.liberaTreinoDia(IdUsuario).success(function (data){
-                $scope.jaFez = false;
+                $scope.jaFez = data !== true;
             }).error(function (data){
                 console.log("erro");
-                $scope.jaFez = true;
             });
         }
 
