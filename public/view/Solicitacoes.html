@@ -49,12 +49,28 @@
 } */
 
 /*  fim css aceitar amigos */
-      
+      .not {
+        padding: 5px 10px;
+        border-radius: 50%;
+        background: dodgerblue;
+        color: white;
+      }
     </style>
 
-    <!-- <script>
 
-    </script> -->
+
+    <ul class="nav nav-tabs" ng-controller="PageCtrl" ng-show="exibircomLogin()">
+      <li class="nav-item">
+        <a class="nav-link"  href="#/amigos/">Meus Amigos</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link"  href="#/adicionar-amigos/">Adicionar Amigo</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="#/solicitacoes">Solicitações<span class="not" ng-show="notAmizade>0">{{notAmizade}}</span></a>
+      </li>
+    </ul>
+
 <br>
 <span>
 <header class="header">
@@ -80,9 +96,9 @@
 
             <div class="nearby-user" ng-repeat="usuario in usuarios">
               <div class="row">
-                <div class="col-md-2 col-sm-2">
+                <div class="col-md-2 col-sm-2" ng-init="pegaAvatar(usuario.id)">
                   <img
-                    src="https://bootdey.com/img/Content/avatar/avatar7.png"
+                    src="{{avatar}}"
                     alt="user"
                     class="profile-photo-lg"
                   />

@@ -7,6 +7,7 @@ angular.module('myHeroTraining')
 		 avatarService,
 		 amigosService,
 		 perfilService,
+		 treinoConjuntoService,
 		 $location ) {
 		$scope.model = {};
 		var IdUsuario = sessionStorage.getItem('id');
@@ -19,6 +20,22 @@ angular.module('myHeroTraining')
 		$scope.alterarIdioma = function(chave) {
 
 			$translate.use(chave);
+		}
+
+		$scope.liberaHome = function () {
+			treinoConjuntoService.liberaTreino(IdUsuario).success(function (data) {
+				$scope.liberaT = false
+			}).error(function (data) {
+				console.log("erro");
+				$scope.liberaT = true;
+				swal({
+					title: "Erro!",
+					text: "Você já está praticando um treino em conjunto!",
+					type: "error",
+					icon: "error"
+				})
+				$location.path('/treino-conjunto/');
+			});
 		}
 
 		var oculta= false;
@@ -39,7 +56,7 @@ angular.module('myHeroTraining')
 			};
 
 		$scope.carregaAvatar = function () {
-			avatarService.carregarAvatar(IdUsuario).success(function (data) {
+			avatarService.carregarAvatarIndex(IdUsuario).success(function (data) {
 				let img = avatarService.arrayBufferToBase64(data)
 				$scope.avatar = "data:image/png;base64,"+img;
 			}).error(function (data) {
@@ -114,10 +131,8 @@ angular.module('myHeroTraining')
 					.carregarTreinos(IdUsuario)
 					.success(function (data) {
 						//  carregaObjetos = data;
-						
 
 						$scope.treinos = data;
-					
 						/* refresh();
                     carregaTempoTreino = carregaObjetos[0].treino;
                     carregaTempo(carregaTempoTreino, data);*/

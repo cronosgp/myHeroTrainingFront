@@ -16,7 +16,7 @@
         border-radius: 4%;
     }
 </style>
-<div class="container">
+<div class="container" ng-init="liberaHome()">
     <div class="card-deck" id="teste"style="width: 45rem;" >
         <div class="card"  ng-repeat="treino in treinos" >
             <img src="{{treino.urlt}}" class="card-img-top" alt="" >

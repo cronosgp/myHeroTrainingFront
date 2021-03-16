@@ -2,7 +2,7 @@ angular
   .module('myHeroTraining')
   .controller(
     'TreinoController',
-    function ($scope, $routeParams, TreinoService, $location,TreinoPersonalizadoService) {
+    function ($scope, $routeParams, TreinoService, $location,TreinoPersonalizadoService, treinoConjuntoService) {
       $scope.model = {};
       var id = $routeParams.id;
       var conlusao;

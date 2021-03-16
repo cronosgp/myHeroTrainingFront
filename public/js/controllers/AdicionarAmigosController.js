@@ -8,7 +8,6 @@ angular
     ) {
         var usuarioid = sessionStorage.getItem('id');
 
-
         $scope.carregaNotAmizade = function () {
             amigosService.carregarSolicitacoes(usuarioid).success(function (data) {
                 $scope.notAmizade = data.length
@@ -17,12 +16,12 @@ angular
             });
         }
 
-
         $scope.enviar = function () {
             amigosService.enviarSolicitacao(usuarioid, $scope.email).success(function (data) {
                 swal(
                     'Convite enviado!','', 'success'
                 );
+                location.reload();
             }).error(function (data){
                 console.log("erro");
                 swal(
