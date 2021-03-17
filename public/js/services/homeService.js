@@ -1,4 +1,4 @@
-angular.module('myHeroTraining').factory('myHeroTraining', function ($http) {
+angular.module('myHeroTraining').factory('homeService', function ($http) {
   var carregaTreinos = function (id) {
    // var jwt = localStorage.getItem('Bearer');
 

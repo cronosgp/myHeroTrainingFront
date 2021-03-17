@@ -22,9 +22,9 @@ angular
          document.getElementById('btn').disabled=true;
          
         }
-       $scope.desabilita = function() {
-
       
+       $scope.desabilita = function() {
+     
           var tamanhoteste = document.getElementById('teste').getElementsByTagName('tr').length;
           var contador = 0;
            for (var j = 0; j <tamanhoteste-1; j++) {
@@ -47,9 +47,12 @@ angular
            }   
          
         }
+      
 
         $scope.check = function() {
 
+          if(desab!=1){
+          
         var tamanhoteste = document.getElementById('teste').getElementsByTagName('tr').length;
           var contador = 0;
            for (var j = 0; j <tamanhoteste-1; j++) {
@@ -85,9 +88,13 @@ angular
            document.getElementById('btn').disabled=false;  
           }
          
-          }
-
-
+          
+        }
+        else{
+          sweetAlert("Treino Perosonalizado já existe") 
+        }
+        }
+        
         
             $scope.salva = function(){            
                var tamanhoteste = document.getElementById('teste').getElementsByTagName('tr').length;
@@ -102,11 +109,17 @@ angular
                }        
               }
 
-              for(var i = 0; i <faseTerminadas.length; i++) {              
+             
+              for(var i = 0; i <faseTerminadas.length; i++) {   
+             
+                var data = new Date();
+              //  let dataFormatada =  ((data.getFullYear())) + "/" + (("0" + (data.getMonth() + 1)).slice(-2)) + "/" + data.getDate();
                 var Idescolha = faseTerminadas[i]; 
+
                  dados = {
                   id: IdUsuario,
-                  exercicio : Idescolha            
+                  exercicio : Idescolha,
+                  data : data            
                 }
                 TreinoPersonalizadoService.salvar(dados).success(function(data){   
                
@@ -144,21 +157,16 @@ angular
        $scope.item = function (valor) {
         
           if(valor === true){
-            alert(desab)
+            
            return true;
          }
-
-       
-       }
+      
+       }   
      
-       
        var d= 0;
        var x;
 
-       $scope.item = function(valor){ 
-      
-
-       
+      $scope.item = function(valor){ 
           
          if(valor === true){
             d =1;
@@ -178,7 +186,11 @@ angular
        carregaTreino();
 
      var carregaTreinoUsuario = function(){
-        TreinoPersonalizadoService.carregaTreinoUsuario(IdUsuario).success(function(data){
+      let data = new Date();
+      let dataFormatada =  ((data.getFullYear())) + "/" + (("0" + (data.getMonth() + 1)).slice(-2)) + "/" + data.getDate();
+        TreinoPersonalizadoService.carregaTreinoUsuario(IdUsuario,dataFormatada).success(function(data){
+      
+
           if(data == ''){
             oculta =1;
           }
@@ -191,9 +203,8 @@ angular
 
      }
      $scope.desabilitas = function(){
-       console.log(faseTerminadas.length)
-       console.log(temPersonalizado)
-      if(temPersonalizado == true && faseTerminadas.length!==0 || faseTerminadas.length!==0){  
+    
+      if(temPersonalizado == true || faseTerminadas2.length!=0 ){  
 
         return true;
       }
@@ -217,12 +228,12 @@ angular
      var buscaPersonlizado = function(){
        var data = new Date() 
       let dataFormatada =  ((data.getFullYear())) + "/" + (("0" + (data.getMonth() + 1)).slice(-2)) + "/" + data.getDate();
-      TreinoService.buscaPersonlizado(dataFormatada,IdUsuario).success(function(data){
-        console.log(data.length)
-        
-        if(data.length!=0 && data.length!=undefined){
-         
+      TreinoService.buscaPersonlizado(IdUsuario,dataFormatada).success(function(data){
+      
+    
+      if(data.length!=0){
           temPersonalizado = true;
+          
         }
 
       });
@@ -238,5 +249,6 @@ angular
        }
      }
 
+    
       carregaTreinoUsuario();
     });

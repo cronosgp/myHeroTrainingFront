@@ -177,7 +177,25 @@
       .user-dashboard-info-box .candidates-list .thumb {
           margin-right: 20px;
       }
+          .not {
+            padding: 5px 10px;
+            border-radius: 50%;
+            background: dodgerblue;
+            color: white;
+          }
     </style>
+
+    <ul class="nav nav-tabs" ng-controller="PageCtrl" ng-show="exibircomLogin()">
+      <li class="nav-item">
+        <a class="nav-link active"  href="#/amigos/">Meus Amigos</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link"  href="#/adicionar-amigos/">Adicionar Amigo</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#/solicitacoes">Solicitações<span class="not" ng-show="notAmizade>0">{{notAmizade}}</span></a>
+      </li>
+    </ul>
 
     <link
       rel="stylesheet"
@@ -204,8 +222,8 @@
                 <tbody>
                   <tr class="candidates-list" ng-repeat="amigo in amigos">
                     <td class="title">
-                      <div class="thumb">
-                        <img class="img-fluid" src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="">
+                      <div class="thumb" ng-init="pegaAvatar(amigo.id)">
+                        <img class="img-fluid" src="{{avatar}}" alt="">
                       </div>
                       <div class="candidate-list-details">
                         <div class="candidate-list-info">
@@ -214,16 +232,18 @@
                           </div>
                           <div class="candidate-list-option">
                             <ul class="list-unstyled">
-                              <li><i class="fas fa-calendar-check"></i> Amizade em 12/01</li>
-                              <li><i class="fas fa-star"></i>60008 pontos</li>
+                              <li><i class="fas fa-calendar-check"></i>Amizade em {{amgData[amigo.id]}}</li>
+                              <li><i class="fas fa-star"></i></li>
                             </ul>
                           </div>
                         </div>
                       </div>
                     </td>
                     <td class="candidate-list-favourite-time text-center">
-                      <a class="candidate-list-favourite order-2 " href="#"><i class="far fa-handshake"></i></a>
-                      <span class="candidate-list-time order-1">Convidar</span>
+                      <a class="candidate-list-favourite order-2" ng-click="enviarConviteTreino(amigo.id)">
+                        <i class="far fa-handshake"></i>
+                      <span class="candidate-list-time order-1" ng-disabled="enviado">Convidar</span>
+                      </a>
                     </td>
                     <td>
                       <ul class="list-unstyled mb-0 d-flex justify-content-end">

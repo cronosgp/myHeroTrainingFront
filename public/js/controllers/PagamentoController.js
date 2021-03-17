@@ -81,7 +81,12 @@ angular
          }
  
      } else {
-         alert(`payment method info error: ${response}`);
+            Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Problemas com seu método de pagamento, verifique os dados inseridos',
+         
+          })
      }
  }
  
@@ -116,13 +121,16 @@ angular
          );
  
      } else {
-        Swal.fire({
+
+
+           Swal.fire({
+
             icon: 'error',
             title: 'Oops...',
             text: 'Método de pagamento inválido',
          
           })
-     }
+     
  }
  
  function getInstallments(paymentMethodId, amount, issuerId){
@@ -263,6 +271,7 @@ angular
 
 
      } else {
+
 var response_error;
         console.log(response.cause)
 for(var i=0; i<response.cause.length; i++){
@@ -308,6 +317,14 @@ if(response.cause[i].description.includes('docNumber') ){
          
           })
      }
+
+   Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Verifique os dados inseridos no formulário',
+         
+          })     }
+
  };
  
  /***
