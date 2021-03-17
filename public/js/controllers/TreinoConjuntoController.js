@@ -79,6 +79,7 @@ angular
             });
         }
 
+      
 
         $scope.recusarSolicitacao = function (usuarioid) {
 

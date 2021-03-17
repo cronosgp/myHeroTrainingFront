@@ -12,9 +12,9 @@ angular.module('myHeroTraining')
 		$scope.model = {};
 		var IdUsuario = sessionStorage.getItem('id');
 
-		$scope.msg = function(){
+		/*$scope.msg = function(){
 			return sweetAlert("Você não possui amigos adicionados ou solicitações aceitas para essa opção. Convide novos amigos")
-		}
+		}*/
 
 		
 		$scope.alterarIdioma = function(chave) {

@@ -102,7 +102,7 @@ angular.module('myHeroTraining').factory('TreinoService', function ($http) {
 
     //$http.defaults.headers.common.Authorization = 'Bearer ' + jwt;
     return $http.get(
-      'http://localhost:8080/recupera',
+      'http://localhost:8080/treinousuario/recupera',
       {
         params: {
           id: IdUsuario,
