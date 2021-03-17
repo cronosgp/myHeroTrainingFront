@@ -86,6 +86,7 @@
                 <div class="form-group col-sm-7">
                   <label for="docNumber">Número do Documento</label>
                   <input id="docNumber" name="docNumber" data-checkout="docNumber" type="text" class="form-control"/>
+                  <span id="docNumber_span"></span>
                 </div>
               </div>
               <br>
@@ -111,7 +112,8 @@
                   <div class="input-group expiration-date">
                     <input type="text" class="form-control" placeholder="MM" id="cardExpirationMonth" data-checkout="cardExpirationMonth"
                       onselectstart="return false" onpaste="return false" onCopy="return false" onCut="return false" onDrag="return false" onDrop="return false" autocomplete=off>
-                    <span class="date-separator">/</span>
+                      <span id="cardExpirationMonth_span"></span>
+                      <span class="date-separator">/</span>
                     <input type="text" class="form-control" placeholder="YY" id="cardExpirationYear" data-checkout="cardExpirationYear"
                       onselectstart="return false" onpaste="return false" onCopy="return false" onCut="return false" onDrag="return false" onDrop="return false" autocomplete=off>
                   </div>
@@ -120,12 +122,14 @@
                   <label for="cardNumber">Número do Cartão</label>
                   <input type="text" class="form-control input-background" id="cardNumber" data-checkout="cardNumber"
                     onselectstart="return false" onpaste="return false" onCopy="return false" onCut="return false" onDrag="return false" onDrop="return false" autocomplete=off>
-                </div>
+                    <span id="cardNumber_span"></span>
+                  </div>
                 <div class="form-group col-sm-4">
                   <label for="securityCode">CVV</label>
                   <input id="securityCode" data-checkout="securityCode" type="text" class="form-control"
                     onselectstart="return false" onpaste="return false" onCopy="return false" onCut="return false" onDrag="return false" onDrop="return false" autocomplete=off>
-                </div>
+                    <span id="securityCode_span"></span>
+                  </div>
               </section>
                 <div id="issuerInput" class="form-group col-sm-12 hidden">
                   <label for="issuer">Issuer</label>
