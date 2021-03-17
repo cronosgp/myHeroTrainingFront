@@ -28,14 +28,12 @@ angular
 
       var IdUsuario = sessionStorage.getItem('id');
 
-     
-     
 
       var buscaPersonlizado = function(){
         var data = new Date();
         let dataFormatada =  ((data.getFullYear())) + "/" + (("0" + (data.getMonth() + 1)).slice(-2)) + "/" + data.getDate();
         TreinoService.buscaPersonlizado(dataFormatada,IdUsuario,).success(function(data){
-          console.log(data.length)
+         
           if(data.length!=0){
            
             temPersonalizado = true;
@@ -67,11 +65,9 @@ angular
             for(var i=0; i<arrayExercicio.length; i++){
             
             valor = arrayExercicio[i].id
-
-          
             
             if(i==0 && faseTerminadas.indexOf(valor)==-1 && temPersonalizado==false || i== pos+1 && faseTerminadas.indexOf(valor)==-1 && i!=0 || temPersonalizado==true && i==1 && faseTerminadas.indexOf(valor)==-1 ){
-            
+              
               document.querySelector("#tabela").getElementsByTagName("tr")[i].getElementsByTagName("td")[0].getElementsByTagName("button")[0].getElementsByTagName("a")[0].classList.remove('disabled')
               document.getElementById('tabela').getElementsByTagName('tr')[i].getElementsByTagName('td')[1].getElementsByTagName("input")[0].disabled = false
              
@@ -159,7 +155,6 @@ angular
       var pagina;
       $scope.proximo = function () {
         TreinoService.carregaExercicios(id).success(function (data) {
-          
           if (pagina === undefined) {
             pagina = 1;
           }
@@ -185,8 +180,7 @@ angular
       };
       var fasesTreinos = function () {
         TreinoService.carregaFasesTreino(id).success(function (data) {  
-          console.log(data)
-         
+                   
           $scope.fases = data;
           dados = data;
           arrayExercicio = data
@@ -328,7 +322,8 @@ angular
         var data = new Date();
         let dataFormatada =  ((data.getFullYear())) + "/" + (("0" + (data.getMonth() + 1)).slice(-2)) + "/" + data.getDate();
         TreinoService.buscaPersonlizado(IdUsuario,dataFormatada).success(function(data){
-          if(data != null){
+          
+          if(data.length){
             temPersonalizado = true;
           }
 
@@ -347,12 +342,7 @@ angular
        // atualizaIdusuarioTreino;
         repeticaoExercicio++;
       //  delete_check++;
-   
-
-    
-
-    
-        var tempoCalculado = 0;
+           var tempoCalculado = 0;
         var horaAtual = new Date();
        // console.log("subtracao: " + horaAtual - tempoAtual)
           tempo.push(tempoAtual -horaAtual)
@@ -497,7 +487,8 @@ angular
         } else {
           let id_treino = $routeParams.id;
           TreinoService.carregaIdTreino(id_treino).success(function (data) {
-            idFase = data
+            console.log(data)
+            idFase = data[0].id
            // console.log(idFase);
            // atualizaIdusuarioTreino();
           //   atualizaFaseBanco(id);
@@ -594,37 +585,11 @@ angular
         }, 150);
       }
 
-     // resize();
+     
       carrega();
       carregaTreinoUsuario();
       exerciciosFase();
       fasesTreinos();
-      var resize = function () {
 
-       
-        var largura = window.innerWidth;
-       
-        if (largura <= 1000) {
-        
-       try{
-    
-            document.getElementsByClassName('cronometro')[0].className = 'cronometro_mobile';
-             document.getElementsByClassName('descricao')[0].className = 'descricao_mobile';
-            document.getElementsByClassName('repeticao')[0].className = 'repeticao_mobile';
-            document.getElementsByClassName('seriesfeitas')[0].className = 'seriesfeitas_mobile';
-            document.getElementById('btn_iniciar').className = 'btn_iniciar_mobile';
-            document.getElementById('btn_finalizar').className= 'btn_finalizar_mobile';
-          }catch{
-            alert( document.getElementsByClassName('descricao')[0].className = 'descricao_mobile')
-
-            alert('catch')
-
-          
-          }
-        
-        }
-       
-          }
-          setTimeout(function(){ resize(); }, 500);
-          
+     
     });

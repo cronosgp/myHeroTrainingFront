@@ -19,6 +19,10 @@ angular
             });
         }
 
+        $scope.trocarAvatar = function(){
+            $scope.avatar = "data:image/png;base64,"+$scope.selecionado.file;
+        }
+
         $scope.carregaAvatar = function () {
             avatarService.carregarAvatar(IdUsuario).success(function (data) {
                 let img = avatarService.arrayBufferToBase64(data)
@@ -29,9 +33,28 @@ angular
         }
         $scope.carregaAvatar();
 
+        $scope.carregarTodos = function (){
+            avatarService.carregarTodosAvatares().success(function (data){
+                console.log(data);
+                for(var i = 0; i < data.length; i++) {
+                    var img = avatarService.arrayBufferToBase64(data[i].file);
+                    data[i].file = img;
+                    if(data[i].id === $scope.perfil.avatar) {
+                        $scope.avInit = data[i].id
+                    }
+                }
+                $scope.todosAvatares = data;
+            }).error(function (data) {
+                console.log("erro");
+            });
+        }
+        $scope.carregarTodos();
+
+
         $scope.salvarPerfil = function () {
             $scope.perfil.id = IdUsuario;
             if ($scope.formulario.$valid) {
+                $scope.perfil.avatar = $scope.selecionado.id
                 perfilService
                     .incluir($scope.perfil)
                     .success(function (data) {
@@ -42,7 +65,7 @@ angular
                         $route.reload();
                     })
                     .error(function (data, status) {
-                        alert('Erro!');
+                        alert('Erro ao salvar o perfil!');
                         $route.reload();
                     });
                 //fazer tratamento de erro caso não retorno com sucess

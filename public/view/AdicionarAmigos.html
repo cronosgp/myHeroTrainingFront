@@ -11,8 +11,9 @@
   <section class="leaderboard-progress">
     <div class="contain text-center">
 
-<h2>Adicionar novos Amigos</h2>
-
+  <div style="padding-top: 2em">
+    <h2>Adicionar novos Amigos</h2>
+  </div>
 <!--  colocar aqui form para digitar email e botão enviar request -->
 
 
@@ -21,10 +22,20 @@
   <div>
     
     <form role="form" autocomplete="on" class="form" method="post" ng-submit="enviar()">
+
+      <div style="padding-top: 2em">
+        <input type="text" placeholder="Digite o e-mail" ng-model="email" />
+      </div>
+      <br>
+      <div style="padding-top: 1em">
+        <button type="submit" class="btn btn-secondary pull-right">Enviar Solicitação de Amizade</button>
+      </div>
+
       
       <input type="text" id="email" placeholder="Digite o e-mail" ng-model="email" name="email" class="form-control">
    
       <button type="submit" class="btn btn-primary pull-right">Enviar Solicitação de Amizade</button>
+
     </form>
     
     <!-- <div id="homies_wrap">

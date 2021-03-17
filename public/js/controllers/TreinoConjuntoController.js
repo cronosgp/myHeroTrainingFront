@@ -48,6 +48,6 @@ angular
             });
         }
 
-        $scope.solicitacoes();
+        $scope.carregaSolicitacoes();
     });
 

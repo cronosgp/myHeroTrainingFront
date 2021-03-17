@@ -5,6 +5,7 @@
     <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <meta name="viewport" content="width=device-width">
     <script src="./js/lib/angular.min.js"></script>
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
           integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
           <script src="https://secure.mlstatic.com/sdk/javascript/v1/mercadopago.js"></script>
@@ -31,6 +32,8 @@
     <script src="./js/controllers/homeController.js"></script>
     <script src="./js/controllers/TreinoController.js"></script>
     <script src="./js/controllers/classificacaoController.js"></script>
+    <script src="./js/controllers/modal.js"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="./js/controllers/CadastroUsuarioController.js"></script>
@@ -49,6 +52,15 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
             integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
             crossorigin="anonymous"></script>
+
+    <script src="./js/angular-translate/dist/angular-translate.min.js"></script>
+             
+            
+    <script src="./js/angular-sanitize/angular-sanitize.min.js"></script>
+   
+    <script src="./js/angular-sanitize/angular-sanitize.min.js"></script>
+
+
    
             <script src="./js/angular-translate/dist/angular-translate.min.js"></script>
              
@@ -58,14 +70,24 @@
     <script src="./js/angular-sanitize/angular-sanitize.min.js"></script>     
    
     <script src="./js/controllers/InterController.js"></script>
+
     <script src="./js/controllers/recoverPassword.js"></script>
    <script src="./js/controllers/confirmEmailController.js"></script>
    <script src="./js/controllers/PagamentoController.js"></script>
           <script src="./js/services/caminhadaService.js"></script>
           <script src="./js/controllers/CaminhadaController.js"></script>
    <!-- <link href="./css/imgs.css"></link>-->
+
+   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <script src="./js/lib/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular-touch.js"></script>
+
+    <!-- js do menu avatar -->
+
    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> 
 <!-- js do menu avatar -->
+
    <script>
        $(document).ready(function() {
 
@@ -304,7 +326,7 @@ div.alpha-search > button {
 	display: none;
 	position: absolute;
 	list-style-type: none;
-	mmargin-top: 20px 0px 0px 0px;
+	margin-top: 20px 0px 0px 0px;
 	padding: 0px;
 	top: 40px;
 	right: 1px;
@@ -317,9 +339,7 @@ div.alpha-search > button {
 		right: 27px;
 	}
 }
-.avatar-menu > ul > li {
-	
-}
+
 .avatar-menu > ul > li > a {
 	color: #555;
 	display: block;
@@ -466,7 +486,7 @@ div.alpha-search > button {
 
 
                 <div class="dropdown" ng-controller="PageCtrl">
-                    <button class="btn btn-secondary dropdown-toggle" type="button"
+                    <button class="btn btn-light dropdown-toggle" type="button"
                         id="dropdownMenuButton" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">Selecione o
                         Idioma</button>
@@ -482,7 +502,30 @@ div.alpha-search > button {
                  </div>
 
                  <!-- aqui menu avatar -->
-<!-- <h1>teste</h1> -->
+
+                <div class="dropdown" id="header-menu" ng-show="exibircomLogin()">
+                    <button class="btn btn-light dropdown-toggle">{{nome}}</button>
+                    <ul id="dropdown-menu">
+                        <li><a href="#/pagamento"><span class="icon icon-user"></span>Seja Premium</a></li>
+                        <li><a href="#perfil"><span class="icon icon-user"></span>Perfil</a></li>
+                        <li><a href="#desempenho"><span class="icon icon-user-tie"></span>Desempenho</a></li>
+                        <li><a href="#caminhada"><span class="icon icon-user"></span>Caminhada</a></li>
+                        <li><a href="#amigos"><span class="icon icon-list"></span>Meus Amigos<span class="not" ng-show="notAmizade>0">{{notAmizade}}</span></a></li>
+                        <li><a href="#classificacao"><span class="icon icon-users2"></span>Classificação</a></li>
+                        <li><a href="#meu-treino"><span class="icon icon-stopwatch"></span>Treino Personalizado</a></li>
+                        <li ng-hide="false"><a href="#treino-conjunto/"><span class="icon icon-stopwatch"></span>Treino Conjunto</a></li>
+                        <li><a href="#/descricaoTreino"><span class="icon icon-stopwatch"></span>Exercícios</a></li>
+                        <li><a href="#/" ng-click="logout()" type="submit"><span class="icon icon-exit"></span>Sign Out</a></li>
+                    </ul>
+                </div>
+
+                <div class="avatar-menu" id="avatar-menu" ng-show="exibircomLogin()">
+                    <div ng-init="carregaAvatar()" class="header-avatar" id="header-avatar"
+                         style="background-image: url({{avatar}})">
+                    </div>
+                    <!-- <div class="notification-bubble" id="notification-bubble"><span>9</span></div> -->
+                </div>
+
 <div class="avatar-menu" id="avatar-menu" ng-show="exibircomLogin()">
     <div class="header-avatar" id="header-avatar"
          style="background-image: url(https://bootdey.com/img/Content/avatar/avatar7.png);">
@@ -501,6 +544,7 @@ div.alpha-search > button {
         <li><a href="#/" ng-click="logout()" type="submit"><span class="icon icon-exit"></span>Sair</a></li>
     </ul>
 </div>
+
 <!-- <div class="alpha-search">
     <input type="text" placeholder="Search by Name, Bib, E-mail, etc.">
     <button type="submit" class="icon icon-search"></button>
@@ -516,6 +560,7 @@ div.alpha-search > button {
             color: #3c3c3c;
         }
     </style>
+
 
     <ul class="nav nav-tabs" ng-controller="HomeController" ng-show="exibircomLogin()">
         <li class="nav-item">
@@ -546,6 +591,7 @@ div.alpha-search > button {
         </li-->
 
     </ul>
+
 
    <!-- <ul class="nav nav-tabs" ng-controller="HomeController" ng-show="exibirSemLogin()">
         <li class="nav-item">

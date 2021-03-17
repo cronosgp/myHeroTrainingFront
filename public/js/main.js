@@ -326,11 +326,6 @@ angular
       templateUrl: "./view/confirmar-email/accountVerified.html",
       controller: "confirmEmail",
     });
-
-    $routeProvider.when("/dados_login", {
-      templateUrl: "./view/dadosLogin.html",
-      controller: "TreinoController",
-    });
     $routeProvider.when("/treinos/:id", {
       templateUrl: "./view/treino.html",
       controller: "TreinoController",
@@ -367,8 +362,15 @@ angular
       templateUrl: "./view/AdicionarAmigos.html",
       controller: "AdicionarAmigosController",
     });
+
+    $routeProvider.when("/perfil/", {
+      templateUrl: "./view/Perfil.html",
+      controller: "PerfilController",
+    });
+
     $routeProvider.when("/avatar/", {
       templateUrl: "./view/Avatar.html",
+
     });
     $routeProvider.when("/criar-treino/", {
       templateUrl: "./view/CriarTreino.html",

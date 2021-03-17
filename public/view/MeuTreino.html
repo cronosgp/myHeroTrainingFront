@@ -119,10 +119,17 @@
 
               <span class="candidate-list-time order-1"></span>
             </td>
-            <td>
+            <td >
+              <button 
+              type="button"
+              class="btn btn-link"
+               ng-disabled="desabilitas()"
+               ng-click="apagaTreino()" >
               <ul class="list-unstyled mb-0 d-flex justify-content-end">
-              <li><a  class="text-danger btn"ng-click="apagaTreino()" data-toggle="tooltip" title="" data-original-title="Delete"><i class="far fa-trash-alt"></i></a></li>
+              <li>
+             <i class="far fa-trash-alt"></i></a></li>
               </ul>
+            </button>
             </td>
           </tr>
         </tbody>
