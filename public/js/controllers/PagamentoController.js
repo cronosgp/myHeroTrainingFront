@@ -121,16 +121,13 @@ angular
          );
  
      } else {
-
-
            Swal.fire({
-
             icon: 'error',
             title: 'Oops...',
             text: 'Método de pagamento inválido',
          
           })
-     
+     }
  }
  
  function getInstallments(paymentMethodId, amount, issuerId){
@@ -223,7 +220,7 @@ angular
          
          http.onreadystatechange = function() {//Call a function when the state changes.
              if(http.readyState == 4 && http.status == 200) {
-                 if(!http.responseText.includes('rejected')){
+                 if(!http.response.includes('refused')){
                 Swal.fire({
                     title: 'Seu pagamento foi aprovado com sucesso',
                     icon: 'success',
@@ -271,60 +268,55 @@ angular
 
 
      } else {
-
-var response_error;
-        console.log(response.cause)
-for(var i=0; i<response.cause.length; i++){
-response_error +=" "+ response.cause[i].description
-
-if(response.cause[i].description.includes('docNumber') ){
-
-    document.getElementById('docNumber').style.border='1px solid red'
-    document.getElementById('docNumber_span').style.color='red'
-    document.getElementById('docNumber_span').innerText= 'Campo número documento inválido'
-}
-  if(response.cause[i].description.includes('cardNumber')){
- 
-      document.getElementById('cardNumber').style.border='1px solid red'
-      document.getElementById('cardNumber_span').style.color='red'
-     document.getElementById('cardNumber_span').innerText= 'Número de cartão inválido'
-
-  }
-  if(response.cause[i].description.includes('securityCode')){
-    
-      document.getElementById('securityCode').style.border='1px solid red'
-      document.getElementById('securityCode_span').style.color='red'
-     document.getElementById('securityCode_span').innerText= 'Código de segurança inválido'
-
-  }
-  if(response.cause[i].description.includes('cardExpirationMonth')){
-
-    document.getElementById('cardExpirationMonth').style.border='1px solid red'
-    document.getElementById('cardExpirationMonth_span').style.color='red'
-   document.getElementById('cardExpirationMonth_span').innerText= 'Mês de validade inválido'
-  }
-  if(response.cause[i].description.includes('cardExpirationYear')){
-    document.getElementById('cardExpirationYear').style.border='1px solid red'
- 
-    document.getElementById('cardExpirationYear_span').style.color='red'
-   document.getElementById('cardExpirationYear_span').innerText= 'Ano de validade inválido'
-  }
-}
-        Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: "Problemas ao processar, valide suas informações.",
-         
-          })
-     }
-
    Swal.fire({
             icon: 'error',
             title: 'Oops...',
             text: 'Verifique os dados inseridos no formulário',
          
-          })     }
+          })   
+        
+        
+var response_error;
+console.log(response.cause)
+for(var i=0; i<response.cause.length; i++){
+response_error +=" "+ response.cause[i].description
 
+if(response.cause[i].description.includes('docNumber') ){
+
+document.getElementById('docNumber').style.border='1px solid red'
+document.getElementById('docNumber_span').style.color='red'
+document.getElementById('docNumber_span').innerText= 'Campo número documento inválido'
+}
+if(response.cause[i].description.includes('cardNumber')){
+
+document.getElementById('cardNumber').style.border='1px solid red'
+document.getElementById('cardNumber_span').style.color='red'
+document.getElementById('cardNumber_span').innerText= 'Número de cartão inválido'
+
+}
+if(response.cause[i].description.includes('securityCode')){
+
+document.getElementById('securityCode').style.border='1px solid red'
+document.getElementById('securityCode_span').style.color='red'
+document.getElementById('securityCode_span').innerText= 'Código de segurança inválido'
+
+}
+if(response.cause[i].description.includes('cardExpirationMonth')){
+
+document.getElementById('cardExpirationMonth').style.border='1px solid red'
+document.getElementById('cardExpirationMonth_span').style.color='red'
+document.getElementById('cardExpirationMonth_span').innerText= 'Mês de validade inválido'
+}
+if(response.cause[i].description.includes('cardExpirationYear')){
+document.getElementById('cardExpirationYear').style.border='1px solid red'
+
+document.getElementById('cardExpirationYear_span').style.color='red'
+document.getElementById('cardExpirationYear_span').innerText= 'Ano de validade inválido'
+}
+}
+        
+        
+        }
  };
  
  /***
@@ -408,13 +400,8 @@ Swal.fire({
  document.getElementById('description').value = document.getElementById('product-description').innerHTML;
 
  
-
  
 });
  
 
-
-
-
-
-
+ 
