@@ -34,6 +34,9 @@ angular
 
         var IdUsuario = sessionStorage.getItem('id');
 
+
+  
+            
         $scope.carregaSolicitacoes = function () {
             treinoConjuntoService.carregarSolicitacoes(IdUsuario).success(function (data) {
                 $scope.solicitacoes = data;
@@ -623,5 +626,7 @@ angular
         $scope.aguardando();
         $scope.pegaResultado();
         $scope.carregaSolicitacoes();
+
+        
     });
 
