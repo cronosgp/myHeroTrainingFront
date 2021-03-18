@@ -16,6 +16,45 @@ angular.module('myHeroTraining')
 			return sweetAlert("Você não possui amigos adicionados ou solicitações aceitas para essa opção. Convide novos amigos")
 		}*/
 
+		var pagante = 0;
+
+        $scope.ispagante = function(){
+			console.log(pagante)
+            if(pagante == 1){
+
+                return false;
+            }
+            else {
+                return true;
+            }
+
+        }
+		
+        $scope.exibePersonalizado = function(){
+            if(pagante == 1){
+
+                return true;
+            }
+            else {
+                return false;
+            }
+
+        }
+         var isUsuariopagante = function(){
+            homeService.pagamento(IdUsuario).success(function (data){
+                if(data.length!=0){
+                    pagante = 1;
+                }
+               
+        
+            }).error(function(data){
+                if(data.status === 403){
+                  $location.path('/login');
+                }
+              });
+            };
+            isUsuariopagante();
+		
 		
 		$scope.alterarIdioma = function(chave) {
 
@@ -112,7 +151,6 @@ angular.module('myHeroTraining')
                 if(data === true){
                   return true;
                 }
-
               });
             }*/
 
@@ -223,6 +261,4 @@ angular.module('myHeroTraining')
 					'https://i.pinimg.com/236x/ba/87/5d/ba875dc13ef3651e4f08237d07f8ea45.jpg',
 			};
 		}
-	);
-
-
+	)

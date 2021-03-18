@@ -42,10 +42,10 @@
     </style>
 
 <ul class="nav nav-tabs" ng-controller="PageCtrl" ng-show="exibircomLogin()">
-  <li class="nav-item">
+  <li class="nav-item" ng-show="exibePersonalizado()">
     <a class="nav-link active"  href="#/criar-treino/">Criar Treino Personalizado</a>
   </li>
-  <li class="nav-item">
+  <li class="nav-item" ng-show="exibePersonalizado()">
     <a class="nav-link"  href="#/meu-treino/">Meu treino Personalizado</a>
   </li>
  

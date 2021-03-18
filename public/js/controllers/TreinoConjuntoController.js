@@ -280,7 +280,7 @@ angular
             let d = new Date();
             var data =  d.setDate(d.getDate() + 90)
             var dadosSalvaFimFase ={
-                id_fase: idDaFase,
+                id_fase: 1,
                 idUsuario: IdUsuario,
                 data_fim_fase : data
 
@@ -384,11 +384,7 @@ angular
 
 
                 }
-
-
             }
-
-
             if(repeticaoExercicio ===3){
                 carregaIdTreino();
                 atualizaIdusuarioTreino();

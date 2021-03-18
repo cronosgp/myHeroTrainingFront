@@ -3,7 +3,38 @@ angular
   .controller(
     'PagamentoController',
     
-    function ($location) {
+    function ($location, homeService,$scope) {
+
+        var IdUsuario = sessionStorage.getItem('id');
+
+        var pagante = 0;
+
+        $scope.ispagante = function(){
+            if(pagante == 1){
+                return false;
+            }
+            else {
+                return true;
+            }
+
+        }
+
+
+         var isUsuariopagante = function(){
+            homeService.pagamento(IdUsuario).success(function (data){
+                console.log(data.length)
+                if(data.length!==0){
+                    pagante = 1;
+                }
+               
+        
+            }).error(function(data){
+                if(data.status === 403){
+                  $location.path('/login');
+                }
+              });
+            };
+            isUsuariopagante();
         
         document.getElementById('docNumber').addEventListener('change', ()=>{
             document.getElementById('docNumber').style.border='';
@@ -129,6 +160,8 @@ angular
           })
      }
  }
+
+
  
  function getInstallments(paymentMethodId, amount, issuerId){
      window.Mercadopago.getInstallments({
