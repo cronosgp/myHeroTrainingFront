@@ -22,19 +22,31 @@ angular.module('myHeroTraining')
 			$translate.use(chave);
 		}
 
+		$scope.liberadia = function () {
+			treinoConjuntoService.liberaTreinoDia(IdUsuario).success(function (data){
+				$scope.jaFez = data !== true;
+			}).error(function (data){
+				console.log("erro");
+			});
+		}
+
 		$scope.liberaHome = function () {
+			$scope.liberadia();
 			treinoConjuntoService.liberaTreino(IdUsuario).success(function (data) {
-				$scope.liberaT = false
+				if(data === true){
+					$scope.liberaT = false
+				}else if($scope.jaFez === false){
+					$scope.liberaT = true;
+					swal({
+						title: "Erro!",
+						text: "Você já está praticando um treino em conjunto!",
+						type: "error",
+						icon: "error"
+					})
+					$location.path('/treino-conjunto/');
+				}
 			}).error(function (data) {
 				console.log("erro");
-				$scope.liberaT = true;
-				swal({
-					title: "Erro!",
-					text: "Você já está praticando um treino em conjunto!",
-					type: "error",
-					icon: "error"
-				})
-				$location.path('/treino-conjunto/');
 			});
 		}
 

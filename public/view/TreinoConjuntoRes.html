@@ -1,0 +1,53 @@
+<ul class="nav nav-tabs" ng-controller="PageCtrl" ng-show="exibircomLogin()">
+    <li class="nav-item">
+        <a class="nav-link"  href="#/treino-conjunto/">Treino em Conjunto</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#/treino-conjunto/solicitacoes">Solicitações</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link active" href="#/treino-conjunto/resultado">Ultimo Resultado</a>
+    </li>
+</ul>
+
+<div class="container" ng-show="amigoAguardando">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="error-template">
+                <h1>
+                    Oops!</h1>
+                <div class="error-details">
+                    Aguardando seu amigo finalizar o treino dele!
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container" ng-show="!amigoAguardando">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="error-template">
+                <h1>
+                    Vocês dois fizeram juntos um total de {{resultado}} pontos</h1>
+                <div>
+                    Parabéns!
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container" ng-show="!jaFez">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="error-template">
+                <h1>
+                    Oops!</h1>
+                <div class="error-details">
+                    Nenhum treino em conjunto foi feito ainda!
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
