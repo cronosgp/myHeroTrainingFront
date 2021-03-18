@@ -79,7 +79,23 @@ angular
             });
         }
 
-      
+        $scope.aguardando = function () {
+            treinoConjuntoService.amigoAguardando(IdUsuario).success(function (data){
+                $scope.amigoAguardando = data !== true;
+            }).error(function (data){
+                console.log("erro");
+            });
+        }
+
+        $scope.pegaResultado = function () {
+            treinoConjuntoService.resultado(IdUsuario).success(function (data){
+                $scope.resultado = data;
+            }).error(function (data){
+                console.log("erro");
+            });
+        }
+
+
 
         $scope.recusarSolicitacao = function (usuarioid) {
 
@@ -245,7 +261,7 @@ angular
         };
         $scope.item = function (valor) {
             for (var i = 0; i <= faseTerminadas.length; i++) {
-                if (faseTerminadas.indexOf(valor) != -1) {
+                if (faseTerminadas.indexOf(valor) !== -1) {
                     return true;
                 }
             }
@@ -587,6 +603,7 @@ angular
                     //  carregaObjetos = data;
 
                     $scope.treinos = data;
+
                     /* refresh();
                 carregaTempoTreino = carregaObjetos[0].treino;
                 carregaTempo(carregaTempoTreino, data);*/
@@ -605,9 +622,10 @@ angular
         exerciciosFase();
         fasesTreinos();
 
-        console.log($scope.treinos)
         $scope.libera();
         $scope.liberadia();
+        $scope.aguardando();
+        $scope.pegaResultado();
         $scope.carregaSolicitacoes();
     });
 

@@ -182,14 +182,24 @@ angular
         TreinoService.carregaFasesTreino(id).success(function (data) {  
                    
           $scope.fases = data;
-          dados = data;
+            dados = data;
           arrayExercicio = data
-
-        
-        
-   
+            checaFinalTreinoConjunto();
         });
       };
+
+      var checaFinalTreinoConjunto = function (){
+            var ultimo = $scope.fases.length-1;
+            var idTreino = $scope.fases[ultimo].id
+            treinoConjuntoService.checaFinal(IdUsuario,idTreino).success(function (data) {
+                if(data === true){
+                    $location.path('/treino-conjunto/resultado');
+                    console.log(idTreino)
+                }else{
+                    console.log(false)
+                }
+            })
+        }
       //falta pegar Id do usuario do banco e passar no parametro, pelo token
       //falta salvar id na tabela
       //true ?Ok
@@ -212,7 +222,7 @@ angular
         TreinoService.carregaExercicios(id).success(function (data) {
         
           $scope.exercicios = data;
-        
+        console.log($scope.exercicios);
          
         });
       };
@@ -520,6 +530,8 @@ angular
         TreinoService.fotoFase(id).success(function (data) {
         
           $scope.treinos = data;
+            console.log($scope.treinos);
+
         });
       };
 
@@ -591,5 +603,4 @@ angular
       exerciciosFase();
       fasesTreinos();
 
-     
     });
