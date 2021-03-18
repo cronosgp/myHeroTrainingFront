@@ -376,7 +376,7 @@ angular
 
             }
 
-            if(tempoCalculado.substring(6,8).length == 1)
+            if(tempoCalculado.substring(6,8).length === 1)
             {
               tempoCalculado = tempoCalculado.substring(0,3) + '0' + tempoCalculado.substring(6,3)+ '0' +
               tempoCalculado.substring(6,8)

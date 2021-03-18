@@ -10,21 +10,7 @@
     </li>
 </ul>
 
-<div class="container" ng-show="amigoAguardando">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="error-template">
-                <h1>
-                    Oops!</h1>
-                <div class="error-details">
-                    Aguardando seu amigo finalizar o treino dele!
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="container" ng-show="!amigoAguardando">
+<div class="container" ng-show="!amigoAguardando" ng-init="aviso2()">
     <div class="row">
         <div class="col-md-12">
             <div class="error-template">
@@ -38,16 +24,3 @@
     </div>
 </div>
 
-<div class="container" ng-show="!jaFez">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="error-template">
-                <h1>
-                    Oops!</h1>
-                <div class="error-details">
-                    Nenhum treino em conjunto foi feito ainda!
-                </div>
-            </div>
-        </div>
-    </div>
-</div>

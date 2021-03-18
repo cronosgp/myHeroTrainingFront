@@ -49,7 +49,7 @@ angular.module('myHeroTraining').factory('treinoConjuntoService', function ($htt
     };
 
     var amigoAguardando = function (id) {
-        return $http.get('http://localhost:8080/treino-conjunto/request/friend', {
+        return $http.get('https://mhtrainingback.herokuapp.com/treino-conjunto/request/friend', {
             params: {
                 id: id
             },
@@ -57,7 +57,7 @@ angular.module('myHeroTraining').factory('treinoConjuntoService', function ($htt
     };
 
     var resultado = function (id) {
-        return $http.get('http://localhost:8080/treino-conjunto/resultado', {
+        return $http.get('https://mhtrainingback.herokuapp.com/treino-conjunto/resultado', {
             params: {
                 id: id
             },
@@ -65,7 +65,7 @@ angular.module('myHeroTraining').factory('treinoConjuntoService', function ($htt
     };
 
     var checaFinal = function (id, idTreino){
-        return $http.get('http://localhost:8080/treino-conjunto/request/last', {
+        return $http.get('https://mhtrainingback.herokuapp.com/treino-conjunto/request/last', {
             params: {
                 id: id,
                 idTreino: idTreino

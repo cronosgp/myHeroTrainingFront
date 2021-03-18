@@ -8,6 +8,7 @@ angular.module('myHeroTraining')
 		 amigosService,
 		 perfilService,
 		 treinoConjuntoService,
+		 TreinoService,
 		 $location ) {
 		$scope.model = {};
 		var IdUsuario = sessionStorage.getItem('id');
@@ -61,33 +62,56 @@ angular.module('myHeroTraining')
 			$translate.use(chave);
 		}
 
-		$scope.liberadia = function () {
-			treinoConjuntoService.liberaTreinoDia(IdUsuario).success(function (data){
-				$scope.jaFez = data !== true;
+
+		var libera = function (callback) {
+			treinoConjuntoService.liberaTreino(IdUsuario).success(function (data){
+				$scope.jaSel = data !== true;
+				return callback(data !== true);
 			}).error(function (data){
 				console.log("erro");
 			});
 		}
 
-		$scope.liberaHome = function () {
-			$scope.liberadia();
-			treinoConjuntoService.liberaTreino(IdUsuario).success(function (data) {
-				if(data === true){
-					$scope.liberaT = false
-				}else if($scope.jaFez === false){
-					$scope.liberaT = true;
-					swal({
-						title: "Erro!",
-						text: "Você já está praticando um treino em conjunto!",
-						type: "error",
-						icon: "error"
+		var liberadia = function (callback) {
+			homeService.carregarTreinos(IdUsuario).success(function (data) {
+				var treino = data[0].idt;
+				TreinoService.carregaFasesTreino(treino).success(function (data) {
+					$scope.fases = data;
+					var ultimo = $scope.fases.length - 1;
+					var idTreino = $scope.fases[ultimo].id
+					treinoConjuntoService.checaFinal(IdUsuario, idTreino).success(function (data) {
+						$scope.jaFez = data === true;
+						return callback(data !== true);
+					}).error(function (){
+						console.log("erro");
 					})
-					$location.path('/treino-conjunto/');
-				}
-			}).error(function (data) {
+				}).error(function (data) {
+					console.log("erro");
+				});
+			}).error(function (){
 				console.log("erro");
 			});
 		}
+
+
+		$scope.aviso = async () => {
+			liberadia((resultado) => {
+				libera((resultado) => {
+					console.log($scope.jaFez)
+					console.log($scope.jaSel)
+					if($scope.jaFez === false && $scope.jaSel === true){
+						swal({
+							title: "Erro!",
+							text: "Você está fazendo um treino em conjunto!",
+							type: "error",
+							icon: "error"
+						})
+						$location.path('/treino-conjunto/');
+					}
+				})
+			})
+		}
+
 
 		var oculta= false;
 			var exibe=false;

@@ -8,7 +8,8 @@ angular
         treinoConjuntoService,
         TreinoService,
         TreinoPersonalizadoService,
-        homeService
+        homeService,
+        $location
     ) {
         $scope.model = {};
         var id = $routeParams.id;
@@ -63,21 +64,36 @@ angular
             });
         }
 
-        $scope.libera = function () {
+        var libera = function (callback) {
             treinoConjuntoService.liberaTreino(IdUsuario).success(function (data){
                 $scope.jaSel = data !== true;
+                return callback(data !== true);
             }).error(function (data){
                 console.log("erro");
             });
         }
 
-        $scope.liberadia = function () {
-            treinoConjuntoService.liberaTreinoDia(IdUsuario).success(function (data){
-                $scope.jaFez = data !== true;
-            }).error(function (data){
+        var liberadia = function (callback) {
+            homeService.carregarTreinos(IdUsuario).success(function (data) {
+                var treino = data[0].idt;
+                TreinoService.carregaFasesTreino(treino).success(function (data) {
+                    $scope.fases = data;
+                    var ultimo = $scope.fases.length - 1;
+                    var idTreino = $scope.fases[ultimo].id
+                    treinoConjuntoService.checaFinal(IdUsuario, idTreino).success(function (data) {
+                        $scope.jaFez = data === true;
+                        return callback(data !== true);
+                    }).error(function (){
+                        console.log("erro");
+                    })
+                }).error(function (data) {
+                    console.log("erro");
+                });
+            }).error(function (){
                 console.log("erro");
             });
         }
+
 
         $scope.aguardando = function () {
             treinoConjuntoService.amigoAguardando(IdUsuario).success(function (data){
@@ -95,6 +111,57 @@ angular
             });
         }
 
+
+
+        $scope.aviso = async () => {
+            liberadia((resultado) => {
+                libera((resultado) => {
+                    console.log($scope.jaFez)
+                    console.log($scope.jaSel)
+
+                    if($scope.jaFez === true){
+                        swal({
+                            title: "Erro!",
+                            text: "Você já fez o treino diario!",
+                            type: "error",
+                            icon: "error"
+                        })
+                    }else if($scope.jaFez === false && $scope.jaSel === false){
+                        swal({
+                            title: "Erro!",
+                            text: "Selecione um treino em conjunto!",
+                            type: "error",
+                            icon: "error"
+                        })
+                        $location.path('/treino-conjunto/solicitacoes');
+                    }
+                })
+            })
+        }
+
+        $scope.aviso2 = async () => {
+            liberadia((resultado) => {
+                $scope.aguardando()
+                console.log($scope.jaFez)
+                console.log($scope.jaSel)
+
+                if($scope.jaFez === false){
+                    swal({
+                        title: "Erro!",
+                        text: "Você ainda não fez nenhum treino!",
+                        type: "error",
+                        icon: "error"
+                    })
+                }else if($scope.amigoAguardando === true){
+                    swal({
+                        title: "Erro!",
+                        text: "Aguardando seu amigo finalizar o treino dele!",
+                        type: "error",
+                        icon: "error"
+                    })
+                }
+            })
+        }
 
 
         $scope.recusarSolicitacao = function (usuarioid) {
@@ -527,6 +594,8 @@ angular
             TreinoService.fotoFase(id).success(function (data) {
 
                 $scope.treinos = data;
+                console.log($scope.treinos)
+
             });
         };
 
@@ -618,8 +687,7 @@ angular
         exerciciosFase();
         fasesTreinos();
 
-        $scope.libera();
-        $scope.liberadia();
+
         $scope.aguardando();
         $scope.pegaResultado();
         $scope.carregaSolicitacoes();

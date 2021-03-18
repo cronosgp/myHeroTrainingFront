@@ -30,35 +30,14 @@
         .error-template {padding: 40px 15px;text-align: center;}
         .error-actions {margin-top:15px;margin-bottom:15px;}
         .error-actions .btn { margin-right:10px; }
+        .disabled {
+            cursor: not-allowed;
+            pointer-events: none;
+            color: grey;
+        }
      </style>
-    <div class="container" ng-show="jaFez">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="error-template">
-                    <h1>
-                        Oops!</h1>
-                    <div class="error-details">
-                        Você já realizou o treino de hoje!
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container" ng-hide="jaSel || jaFez">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="error-template">
-                    <h1>
-                        Oops!</h1>
-                    <div class="error-details">
-                        Nenhum treino em conjunto foi ativo ainda!
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <div class="container" ng-show="jaSel && !jaFez">
+    <div class="container" ng-init="aviso()" ng-hide="!jaSel || !jaFez">
          <div class="card-deck" style="width: 45rem;" id="teste">
              <div class="card"  ng-repeat="treino in treinos" >
                 <img src="{{treino.urlt}}" class="card-img-top" alt="" >
@@ -69,7 +48,7 @@
                      <p class="card-text"> <span translate="HEADER.HOME.NIVEL">Nível: </span> <b>{{treino.nivelt}}</b></p>
                      <div class="d-flex justify-content-between align-items-center">
                          <div class="btn-group">
-                             <a class="btn btn-sm btn-outline-success" ng-model="inicio" type="button"
+                             <a ng-class="{disabled: jaFez}" class="btn btn-sm btn-outline-success" ng-model="inicio" type="button"
                                 href="#/treinos/{{treino.idt}}" translate="HEADER.HOME.INICIAR">Iniciar</a>                       
          
                             
