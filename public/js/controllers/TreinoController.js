@@ -591,5 +591,31 @@ angular
       exerciciosFase();
       fasesTreinos();
 
-     
+      var resize = function () {
+
+       
+        var largura = window.innerWidth;
+       
+        if (largura <= 1000) {
+        
+       try{
+    
+            document.getElementsByClassName('cronometro')[0].className = 'cronometro_mobile';
+             document.getElementsByClassName('descricao')[0].className = 'descricao_mobile';
+            document.getElementsByClassName('repeticao')[0].className = 'repeticao_mobile';
+            document.getElementsByClassName('seriesfeitas')[0].className = 'seriesfeitas_mobile';
+            document.getElementById('btn_iniciar').className = 'btn_iniciar_mobile';
+            document.getElementById('btn_finalizar').className= 'btn_finalizar_mobile';
+          }catch{
+            alert( document.getElementsByClassName('descricao')[0].className = 'descricao_mobile')
+
+            alert('catch')
+
+          
+          }
+        
+        }
+       
+          }
+          setTimeout(function(){ resize(); }, 500);
     });
