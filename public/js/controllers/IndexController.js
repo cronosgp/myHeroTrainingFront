@@ -156,6 +156,15 @@ angular.module('myHeroTraining')
 		}
 		$scope.carregaNotAmizade();
 
+		$scope.carregaNotTreino = function () {
+			treinoConjuntoService.carregarSolicitacoes(IdUsuario).success(function (data) {
+				$scope.notTreino = data.length
+			}).error(function (data) {
+				console.log("erro");
+			});
+		}
+		$scope.carregaNotTreino();
+
 
 		$scope.pagante = function(){
 				if(oculta == true){

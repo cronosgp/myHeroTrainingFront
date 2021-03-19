@@ -60,8 +60,8 @@ angular
         }
 
         $scope.removerAmigo = function (amizadeid) {
-
             amigosService.recusarSolicitacao(amizadeid, IdUsuario).success(function (data){
+                console.log(data);
                 $scope.InitAmigos();
             }).error(function (data){
                 console.log("erro");
