@@ -8,6 +8,7 @@ angular.module('myHeroTraining')
 		 amigosService,
 		 perfilService,
 		 treinoConjuntoService,
+		 TreinoService,
 		 $location ) {
 		$scope.model = {};
 		var IdUsuario = sessionStorage.getItem('id');
@@ -16,27 +17,101 @@ angular.module('myHeroTraining')
 			return sweetAlert("Você não possui amigos adicionados ou solicitações aceitas para essa opção. Convide novos amigos")
 		}*/
 
+		var pagante = 0;
+
+        $scope.ispagante = function(){
+			console.log(pagante)
+            if(pagante == 1){
+
+                return false;
+            }
+            else {
+                return true;
+            }
+
+        }
+		
+        $scope.exibePersonalizado = function(){
+            if(pagante == 1){
+
+                return true;
+            }
+            else {
+                return false;
+            }
+
+        }
+         var isUsuariopagante = function(){
+            homeService.pagamento(IdUsuario).success(function (data){
+                if(data.length!=0){
+                    pagante = 1;
+                }
+               
+        
+            }).error(function(data){
+                if(data.status === 403){
+                  $location.path('/login');
+                }
+              });
+            };
+            isUsuariopagante();
+		
 		
 		$scope.alterarIdioma = function(chave) {
 
 			$translate.use(chave);
 		}
 
-		$scope.liberaHome = function () {
-			treinoConjuntoService.liberaTreino(IdUsuario).success(function (data) {
-				$scope.liberaT = false
-			}).error(function (data) {
+
+		var libera = function (callback) {
+			treinoConjuntoService.liberaTreino(IdUsuario).success(function (data){
+				$scope.jaSel = data !== true;
+				return callback(data !== true);
+			}).error(function (data){
 				console.log("erro");
-				$scope.liberaT = true;
-				swal({
-					title: "Erro!",
-					text: "Você já está praticando um treino em conjunto!",
-					type: "error",
-					icon: "error"
-				})
-				$location.path('/treino-conjunto/');
 			});
 		}
+
+		var liberadia = function (callback) {
+			homeService.carregarTreinos(IdUsuario).success(function (data) {
+				var treino = data[0].idt;
+				TreinoService.carregaFasesTreino(treino).success(function (data) {
+					$scope.fases = data;
+					var ultimo = $scope.fases.length - 1;
+					var idTreino = $scope.fases[ultimo].id
+					treinoConjuntoService.checaFinal(IdUsuario, idTreino).success(function (data) {
+						$scope.jaFez = data === true;
+						return callback(data !== true);
+					}).error(function (){
+						console.log("erro");
+					})
+				}).error(function (data) {
+					console.log("erro");
+				});
+			}).error(function (){
+				console.log("erro");
+			});
+		}
+
+
+		$scope.aviso = async () => {
+			liberadia((resultado) => {
+				libera((resultado) => {
+					console.log($scope.jaFez)
+					console.log($scope.jaSel)
+					if($scope.jaFez === false && $scope.jaSel === true){
+						swal({
+							title: "Erro!",
+							text: "Você está fazendo um treino em conjunto!",
+							type: "error",
+							icon: "error"
+						})
+						$location.path('/treino-conjunto/');
+					}
+				})
+			})
+		}
+
 
 		var oculta= false;
 			var exibe=false;
@@ -100,7 +175,6 @@ angular.module('myHeroTraining')
                 if(data === true){
                   return true;
                 }
-
               });
             }*/
 
@@ -211,6 +285,4 @@ angular.module('myHeroTraining')
 					'https://i.pinimg.com/236x/ba/87/5d/ba875dc13ef3651e4f08237d07f8ea45.jpg',
 			};
 		}
-	);
-
-
+	)

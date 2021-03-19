@@ -24,7 +24,7 @@ angular
         }
 
         $scope.carregaAvatar = function () {
-            avatarService.carregarAvatar(IdUsuario).success(function (data) {
+            avatarService.carregarAvatarIndex(IdUsuario).success(function (data) {
                 let img = avatarService.arrayBufferToBase64(data)
                 $scope.avatar = "data:image/png;base64,"+img;
             }).error(function (data) {

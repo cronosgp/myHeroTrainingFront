@@ -1,4 +1,4 @@
-<section class="shopping-cart dark">
+<section class="shopping-cart dark" ng-show="ispagante()">
   <div class="container" id="container">
     <div class="block-heading">
       <h2>Confirmação de Compra</h2>
@@ -41,7 +41,7 @@
   </div>
 </section>
 <!-- Payment -->
-<section class="payment-form dark">
+<section class="payment-form dark"ng-show="ispagante()">
   <div class="container_payment">
     <div class="block-heading">
       <h2>Cartão de Pagamento</h2>
@@ -52,7 +52,7 @@
         <h2 class="title">Resumo</h3>
         <div class="item">
           <span class="price" id="summary-price"></span>
-          <p class="item-name">Licença Premium <span id="summary-quantity"></span></p>
+          <p class="item-name">Licença Premium- Inclui a opção de personalizar o treino.<span id="summary-quantity"></span></p>
         </div>
         <div class="total">Total<span class="price" id="summary-total"></span></div>
       </div>
