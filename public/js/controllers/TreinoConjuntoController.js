@@ -350,7 +350,7 @@ angular
             let d = new Date();
             var data =  d.setDate(d.getDate() + 90)
             var dadosSalvaFimFase ={
-                id_fase: 1,
+                id_fase: idDaFase,
                 idUsuario: IdUsuario,
                 data_fim_fase : data
 
