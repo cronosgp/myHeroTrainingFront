@@ -147,14 +147,7 @@ angular
                 console.log($scope.jaFez)
                 console.log($scope.jaSel)
 
-                if($scope.jaFez === false){
-                    swal({
-                        title: "Erro!",
-                        text: "Você ainda não fez nenhum treino!",
-                        type: "error",
-                        icon: "error"
-                    })
-                }else if($scope.amigoAguardando === true){
+                if($scope.amigoAguardando === true){
                     swal({
                         title: "Erro!",
                         text: "Aguardando seu amigo finalizar o treino dele!",
@@ -165,6 +158,14 @@ angular
             })
         }
 
+        $scope.carregaNotTreino = function () {
+            treinoConjuntoService.carregarSolicitacoes(IdUsuario).success(function (data) {
+                $scope.notTreino = data.length
+            }).error(function (data) {
+                console.log("erro");
+            });
+        }
+        $scope.carregaNotTreino();
 
         $scope.recusarSolicitacao = function (usuarioid) {
 

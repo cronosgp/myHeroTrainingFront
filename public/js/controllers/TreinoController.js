@@ -200,14 +200,6 @@ angular
             })
         }
 
-        $scope.carregaNotTreino = function () {
-            treinoConjuntoService.carregarSolicitacoes(IdUsuario).success(function (data) {
-                $scope.notTreino = data.length
-            }).error(function (data) {
-                console.log("erro");
-            });
-        }
-        $scope.carregaNotTreino();
       //falta pegar Id do usuario do banco e passar no parametro, pelo token
       //falta salvar id na tabela
       //true ?Ok
