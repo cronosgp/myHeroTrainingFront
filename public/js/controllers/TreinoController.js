@@ -193,7 +193,6 @@ angular
             var idTreino = $scope.fases[ultimo].id
             treinoConjuntoService.checaFinal(IdUsuario,idTreino).success(function (data) {
                 if(data === true){
-                    $location.path('/treino-conjunto/resultado');
                     console.log(idTreino)
                 }else{
                     console.log(false)
