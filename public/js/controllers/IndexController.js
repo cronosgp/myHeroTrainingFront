@@ -106,7 +106,6 @@ angular.module('myHeroTraining')
 							type: "error",
 							icon: "error"
 						})
-						$location.path('/treino-conjunto/');
 					}
 				})
 			})
