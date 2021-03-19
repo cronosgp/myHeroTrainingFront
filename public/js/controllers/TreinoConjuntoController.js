@@ -136,7 +136,6 @@ angular
                             type: "error",
                             icon: "error"
                         })
-                        $location.path('/treino-conjunto/solicitacoes');
                     }
                 })
             })
