@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="pt-br" ng-app="myHeroTraining">
 <head>
+	<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCGyNOT4gPXsEnP-B9jcrXNym1qfoNniMU"></script>
     <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <meta name="viewport" content="width=device-width">
     <script src="./js/lib/angular.min.js"></script>
@@ -65,7 +65,7 @@
 
     <script src="./js/angular-translate/dist/angular-translate.min.js"></script>
              
-            
+    <script type="text/javascript" src="https://www.gstatic.com/s/loader.js"></script>
     <script src="./js/angular-sanitize/angular-sanitize.min.js"></script>
    
     <script src="./js/angular-sanitize/angular-sanitize.min.js"></script>
@@ -175,10 +175,6 @@ function displayNotificationBubble() {
                         <img src="./imagem/logo.png"> MyHeroTraining
             
                     </a>
-                    <a href="#/home" class="navbar-brand" ng-show="exibircomLogin()" title="home">MyHeroTraining
-                        <img src="./imagem/logo.png">
-            
-                    </a>
                     
                     <!-- Sidebar Toggle (Topbar) -->
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
@@ -194,22 +190,6 @@ function displayNotificationBubble() {
 
 
                         <div class="topbar-divider d-none d-sm-block"></div>
-
-                        <!-- <div class="header-menu" >
-                            <button class="btn btn-light dropdown-toggle">{{nome}}</button>
-                            <ul id="dropdownmenu">
-                                <li ng-show="ispagante()"><a href="#/pagamento"><span class="icon icon-user"></span>Seja Premium</a></li>
-                                <li><a href="#perfil"><span class="icon icon-user"></span>Perfil</a></li>
-                                <li><a href="#desempenho"><span class="icon icon-user-tie"></span>Desempenho</a></li>
-                                <li><a href="#caminhada"><span class="icon icon-user"></span>Caminhada</a></li>
-                                <li><a href="#amigos"><span class="icon icon-list"></span>Meus Amigos<span class="not" ng-show="notAmizade>0">{{notAmizade}}</span></a></li>
-                                <li><a href="#classificacao"><span class="icon icon-users2"></span>Classificação</a></li>
-                                <li ng-show="exibePersonalizado()"><a href="#meu-treino"><span class="icon icon-stopwatch"></span>Treino Personalizado</a></li>
-                                <li ng-hide="false"><a href="#treino-conjunto/"><span class="icon icon-stopwatch"></span>Treino Conjunto<span class="not" ng-show="notTreino>0">{{notTreino}}</span></a></li>
-                                <li><a href="#/descricaoTreino"><span class="icon icon-stopwatch"></span>Exercícios</a></li>
-                                <li><a href="#/" ng-click="logout()" type="submit"><span class="icon icon-exit"></span>Sign Out</a></li>
-                            </ul>
-                        </div> -->
 
                         
 
@@ -309,6 +289,7 @@ function displayNotificationBubble() {
 
                         <!-- Earnings (Monthly) Card Example -->
                         <div class="col-xl-12 col-md-12 mb-4">
+                            teste
                             <ng-view>
                             </ng-view>
                         </div>
@@ -402,22 +383,12 @@ function displayNotificationBubble() {
     </div>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="./public/js/jquey/jquery.min.js"></script>
+    <script src="./public/js/bootstrap/bootstrap.bundle.min.js"></script>
 
-    <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
+    <script src="./public/js/jquey/jquery.easing.min.js"></script>
     <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
-
-    <!-- Page level plugins -->
-    <script src="vendor/chart.js/Chart.min.js"></script>
-
-    <!-- Page level custom scripts -->
-    <script src="js/demo/chart-area-demo.js"></script>
-    <script src="js/demo/chart-pie-demo.js"></script>
-
+    <script src="./public/js/sb-admin-2.js"></script>
     
 </body>
 
