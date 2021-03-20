@@ -167,8 +167,19 @@ function displayNotificationBubble() {
             <div id="content">
 
                 <!-- Topbar -->
-                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow,"
 
+                    ng-controller="PageCtrl">
+
+                    <a href="#/principal" class="navbar-brand " ng-show="exibirSemLogin()" title="home">
+                        <img src="./imagem/logo.png"> MyHeroTraining
+            
+                    </a>
+                    <a href="#/home" class="navbar-brand" ng-show="exibircomLogin()" title="home">MyHeroTraining
+                        <img src="./imagem/logo.png">
+            
+                    </a>
+                    
                     <!-- Sidebar Toggle (Topbar) -->
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                         <i class="fa fa-bars"></i>
@@ -210,21 +221,72 @@ function displayNotificationBubble() {
                                 <img class="img-profile rounded-circle"
                                     src="img/undraw_profile.svg">
                             </a>
+                            
+                            
+                            
                             <!-- Dropdown - User Information -->
+                        
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
                                 <a class="dropdown-item" href="#/login">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Login
                                 </a>
-                                <a class="dropdown-item" href="#">
+                               <!-- <a class="dropdown-item" ng-show="ispagante()" href="#pagamento">
                                     <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Settings
+                                    Seja Premium
+                                </a> -->
+                                <a class="dropdown-item" href="#perfil">
+                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Perfil
                                 </a>
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="#desempenho">
+                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Desempenho
+                                </a>
+                                <a class="dropdown-item" href="#caminhada">
+                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Caminhada
+                                </a>
+                           
+                                <a class="dropdown-item" href="#amigos">
+                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    <span class="not" ng-show="notAmizade>0">{{notAmizade}}</span>
+                                    Meus Amigos
+                                </a>
+                                
+
+                                <a class="dropdown-item" href="#classificacao">
+                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Classificação
+                                </a>
+
+                              
+                                <a class="dropdown-item" ng-show="exibePersonalizado()" href="#meu-treino">
+                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Treino Personalizado
+                                </a>
+                                
+                             
+                                <a class="dropdown-item" ng-hide="false" href="#treino-conjunto">
+                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    <span class="not" ng-show="notTreino>0">{{notTreino}}</span>
+                                    Treino Conjunto
+                                </a>
+
+
+                                <a class="dropdown-item" href="#descricaoTreino">
+                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Descrição Exercícios
+                                </a>
+
+                               
+
+                                
+                                <!-- <a class="dropdown-item" href="#">
                                     <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Activity Log
-                                </a>
+                                </a> -->
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
@@ -262,13 +324,50 @@ function displayNotificationBubble() {
             <!-- End of Main Content -->
 
             <!-- Footer -->
-            <footer class="sticky-footer bg-white">
+            <!-- <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
                         <span>Copyright &copy; Your Website 2020</span>
                     </div>
-                </div>
-            </footer>
+                </div> -->
+                <footer class="sticky-footer bg-white" >
+                    <div class="container">
+                        <div class="row my-auto">
+                            <div class="col-12 col-md my-auto">
+                                <img src="./imagem/logo.png">
+                                <small class="d-block mb-3 text-muted"> 2020-2021
+                                </small>
+                            </div>
+                            <div class="col-6 col-md">
+                                <h5>Twitter</h5>
+                                <ul class="list-unstyled text-small">
+                                    <li><a class="text-muted" href="https://twitter.com/MyHeroTraining">@MyHeroTraining</a></li>
+                
+                                </ul>
+                            </div>
+                          
+                            <div class="col-6 col-md">
+                                <h5>Contato</h5>
+                                <ul class="list-unstyled text-small">
+                                    <li><a class="text-muted" href="">projetomyhero@gmail.com</a></li>
+                
+                                </ul>
+                            </div>
+                
+                            <div class="col-6 col-md">
+                                <h5>Cadastre-se</h5>
+                                <ul class="list-unstyled text-small">
+                                    <li><a class="text-muted" href="#Cadastro">Comece a Treinar</a></li>
+                
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                            
+                                </footer>
+                
+
             <!-- End of Footer -->
 
         </div>
