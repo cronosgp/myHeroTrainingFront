@@ -630,4 +630,8 @@ angular
 
           }
           setTimeout(function(){ resize(); }, 500);
+<<<<<<< HEAD
+=======
+
+>>>>>>> ajustes_desempenho_grafico
     });

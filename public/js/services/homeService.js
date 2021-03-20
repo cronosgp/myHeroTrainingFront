@@ -18,7 +18,13 @@ angular.module('myHeroTraining').factory('homeService', function ($http) {
   };*/
 
   var pagamento = function(id){
+<<<<<<< HEAD
     return $http.get('https://mhtrainingback.herokuapp.com/usuario/pagamento', {
+=======
+
+    return $http.get('https://mhtrainingback.herokuapp/usuario/pagamento', {
+
+>>>>>>> ajustes_desempenho_grafico
       params: {
         id: id,
       },
