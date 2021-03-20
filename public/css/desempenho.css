@@ -1,0 +1,52 @@
+#chartDonut{
+    width: 30%;
+    position: relative;
+    float: rigth;
+    left: 25%;
+    display: inline-block;
+
+}
+#combobox_filtro{
+    position: relative;
+    display: inline-block;
+    left: 45%;
+    bottom: 68px;
+}
+#chart{
+    width: 30%;
+    position: relative;
+    display: inline-block;
+
+    left: 15%;
+}
+#btn_pagnicao{
+position: relative;;
+width: 500px;
+padding: auto;
+display: inline-block;
+left: 40%;
+top: 15px;
+z-index: 100000000;
+display: none;
+margin: 0 auto;
+
+
+}
+#table_dados{
+  font-size:x-small;
+  
+  width: 90%;
+  
+  position: relative;
+  
+  left:5%;
+
+  align-items: center;
+  align-self: center;
+  background-color: #eee;
+  border-collapse: collapse;
+border: 2px solid rgb(200, 200, 200);
+}
+#data_historico{
+  right: 4%;
+}

@@ -1,364 +1,81 @@
-<html>
-  <body>
-    <style>
-      #btn_pagnicao{
-      position: absolute;
-      width: 100%;
-      padding: auto;
-      left: 5%;
- margin-top: 4%;
- 
-    }
-      #table_dados{
-        font-size: small;
-        position: absolute;
-        width: 80%;
-        margin-top: 85px;
-        left: 10%;
-        align-items: center;
-        align-self: center;
-        background-color: #eee;
-        border-collapse: collapse;
-    border: 2px solid rgb(200, 200, 200);
-      }
-      #data_historico{
-        position: absolute;
-        bottom: 20%;
-        
-      }
-      #dados2{
-        position: absolute;
-        left:70%;
-        bottom: 8%;
-        width: 100%;
-     z-index: 1000;
-     
-      }
-      body {
-        margin-top: 0;
-        background: #fafafa;
-        font-family: "Lato", Arial, sans-serif;
-        color: #989c9b;
-      }
+
+ <div class="container" id="data_historico">
+  <h5 id="">Período:</h5>
+
+    <form>
+      <label>Inicio:</label>
+      <input type="date" required id="dt_inicio" name="inicio" ng-model="model.dt"/>
+      <!--input type="submit" /-->
+      <label>Fim:</label>
+      <input type="date" required id="dt_fim" name="fim" ng-model="model.df"/>
    
-      .people-nearby .google-maps {
-        background: #f8f8f8;
-        border-radius: 4px;
-        border: 1px solid #f1f2f2;
-        padding: 20px;
-        margin-bottom: 0px;
-      }
-
-      .people-nearby .google-maps .map {
-        height: 300px;
-        width: 100%;
-        border: none;
-      }
-
-      .people-nearby .nearby-user {
-        padding: 20px 0;
-        border-top: 1px solid #f1f2f2;
-        border-bottom: 1px solid #f1f2f2;
-        margin-bottom: 0px;
-      }
-
-      img.profile-photo-lg {
-        height: 80px;
-        width: 80px;
-        border-radius: 50%;
-      }
-
-      img.share {
-        height: 40px;
-        width: 40px;
-      }
-      #imgP{
-        margin-top:0px;
-      }
-
-      .container {
-        margin: 5%;
-      }
-      .row .tabelas {
-        float: left;
-      }
-
-      .p-4 {
-        padding: 1.5rem !important;
-      }
-      .mb-0,
-      .my-0 {
-        margin-bottom: 0 !important;
-      }
-      .shadow-sm {
-        box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
-      }
-
-      /* user-dashboard-info-box */
-      .user-dashboard-info-box .candidates-list .thumb {
-        margin-right: 20px;
-      }
-      .user-dashboard-info-box .candidates-list .thumb img {
-        width: 80px;
-        height: 80px;
-        -o-object-fit: cover;
-        object-fit: cover;
-        overflow: hidden;
-        border-radius: 50%;
-      }
-
-      .user-dashboard-info-box .title {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
-        padding: 30px 0;
-      }
-
-      .user-dashboard-info-box .candidates-list td {
-        vertical-align: middle;
-      }
-
-      .user-dashboard-info-box td li {
-        margin: 0 4px;
-      }
-
-      .user-dashboard-info-box .table thead th {
-        border-bottom: none;
-      }
-
-      .table.manage-candidates-top th {
-        border: 0;
-      }
-
-      .user-dashboard-info-box
-        .candidate-list-favourite-time
-        .candidate-list-favourite {
-        margin-bottom: 10px;
-      }
-
-      .table.manage-candidates-top {
-        min-width: 650px;
-      }
-
-      .user-dashboard-info-box .candidate-list-details ul {
-        color: #969696;
-      }
-
-      /* Candidate List */
-      .candidate-list {
-        background: #ffffff;
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        border-bottom: 1px solid #eeeeee;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
-        padding: 20px;
-        -webkit-transition: all 0.3s ease-in-out;
-        transition: all 0.3s ease-in-out;
-      }
-      .candidate-list:hover {
-        -webkit-box-shadow: 0px 0px 34px 4px rgba(33, 37, 41, 0.06);
-        box-shadow: 0px 0px 34px 4px rgba(33, 37, 41, 0.06);
-        position: relative;
-        z-index: 99;
-      }
-      .candidate-list:hover a.candidate-list-favourite {
-        color: #e74c3c;
-        -webkit-box-shadow: -1px 4px 10px 1px rgba(24, 111, 201, 0.1);
-        box-shadow: -1px 4px 10px 1px rgba(24, 111, 201, 0.1);
-      }
-
-      .candidate-list .candidate-list-image {
-        margin-right: 25px;
-        -webkit-box-flex: 0;
-        -ms-flex: 0 0 80px;
-        flex: 0 0 80px;
-        border: none;
-      }
-      .candidate-list .candidate-list-image img {
-        width: 80px;
-        height: 80px;
-        -o-object-fit: cover;
-        object-fit: cover;
-      }
-
-      .candidate-list-title {
-        margin-bottom: 5px;
-      }
-
-      .candidate-list-details ul {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-        margin-bottom: 0px;
-      }
-      .candidate-list-details ul li {
-        margin: 5px 10px 5px 0px;
-        font-size: 13px;
-      }
-
-      .candidate-list .candidate-list-favourite-time {
-        margin-left: auto;
-        text-align: center;
-        font-size: 13px;
-        -webkit-box-flex: 0;
-        -ms-flex: 0 0 90px;
-        flex: 0 0 90px;
-      }
-      .candidate-list .candidate-list-favourite-time span {
-        display: block;
-        margin: 0 auto;
-      }
-      .candidate-list .candidate-list-favourite-time .candidate-list-favourite {
-        display: inline-block;
-        position: relative;
-        height: 40px;
-        width: 40px;
-        line-height: 40px;
-        border: 1px solid #eeeeee;
-        border-radius: 100%;
-        text-align: center;
-        -webkit-transition: all 0.3s ease-in-out;
-        transition: all 0.3s ease-in-out;
-        margin-bottom: 20px;
-        font-size: 16px;
-        color: #646f79;
-      }
-      .candidate-list
-        .candidate-list-favourite-time
-        .candidate-list-favourite:hover {
-        background: #ffffff;
-        color: #e74c3c;
-      }
-
-      .candidate-banner .candidate-list:hover {
-        position: inherit;
-        -webkit-box-shadow: inherit;
-        box-shadow: inherit;
-        z-index: inherit;
-      }
-
-      .bg-white {
-        background-color: #ffffff !important;
-      }
-      .p-4 {
-        padding: 1.5rem !important;
-      }
-      .mb-0,
-      .my-0 {
-        margin-bottom: 0 !important;
-      }
-      .shadow-sm {
-        box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
-      }
-
-      .user-dashboard-info-box .candidates-list .thumb {
-        margin-right: 20px;
-      }
-
-      table,
-      th,
-      td {
-        border: 1px solid black;
-        color: black;
-        padding: 0.5%;
-      }
-
-      .tab-content {
-        margin-top: 15px;
-      }
-    </style>
-
-    <script>
-      jQuery(function () {
-        jQuery("#myTab a:last").tab("show");
-      });
-    </script>
-
-    <div class="container" align="center">
-      <div class="col-md-6">
-        <img
-          src="https://bootdey.com/img/Content/avatar/avatar7.png"
-          alt="user"
-          class="profile-photo-lg"
-        />
-        <div class="col-md-7 col-sm-7 my-0 " ng-repeat="u in usu" id="dados">
-          <h5><a href="#" class="profile-link">{{u.nome_}}</a></h5>
-          <div id="dados2">
-          <p style="display: none;"><b>{{u.email_}}</b></p>
-          <p ><b>Sua pontuação: </b>{{u.pontos_soma}}</p>
-          <!--p><b>Data de início: </b>13/02/2020</p-->
-
-          <b>Compartilhe: </b>
-          <a  target="_blank" 
-          rel="noopener noreferrer"
-          href="https://twitter.com/intent/tweet?hashtags=MyHeroTraning,exercicios,treino&text=Veja%20Minha%20Pontuação:{{u.pontos_soma}}+pontos">
-            <img id="imgP"
-              src="https://imagepng.org/wp-content/uploads/2018/08/twitter-icone.png"
-              alt="twitter"
-              class="share"
-            />
-          </a>   
-        </div>
-            <!-- <a href="https://facebook.com/">
-              <img
-                src="https://cdn.icon-icons.com/icons2/642/PNG/512/facebook_icon-icons.com_59205.png"
-                alt="facebook"
-                class="share"
-              />
-            </a> -->
-          </p>
-        </div>
-      </div>
-    </div>
-    <div class="container" align="center" id="data_historico">
-      <h3 id="">Selecione a data que deseja pesquisar:</h3>
-      <div align="center">
-        <form>
-          <label>Inicio:</label>
-          <input type="date" required id="dt_inicio" name="inicio" ng-model="model.dt"/>
-          <!--input type="submit" /-->
-          <label>Fim:</label>
-          <input type="date" required id="dt_fim" name="fim" ng-model="model.df"/>
-          <input type="submit" ng-click="busca()" />
-        </form>
-      </div>
-    </div>
-
-
-      
+        
     
-    <table
-   id="table_dados"
-      
-      ng-show="exibir()"
-      class="table"
-    >
+    </form>
+  
+   
+</div>
+
+<div id="combobox_filtro">
+
+  <h5 id="">Filtros:</h5>
+  <form>
+    <label for="cars">Tipo:</label>
+  
+    <select name="Treino" id="tipo_treino">
+      <option value="0">Treino</option>
+      <option value="1">Caminhada</option>
+    </select>
+      <input type="submit" ng-click="busca()" />
+    </form>
+
+</div>
+
+
+
+ <div class="">
+<div id="chart" ></div>
+<div id="chartDonut" ></div>
+</div>
+<div>
+<div id="btn_pagnicao">
+  <nav aria-label="Page navigation example">
+  <ul class="pagination" >
+    <li class="page-item"><button  class="page-link"  id="anterior" disabled>&lsaquo; Anterior</button></li>
+    <span  class="page-link" id="numeracao"></span>
+    <li class="page-item" ><button class="page-link" id="proximo" disabled> Próximo &rsaquo;</button></li>
+  </ul>
+
+</nav>
+</div>
+    <table id="table_dados" ng-show="exibir()" class="table">
     <tbody> 
+       <div id="btn_pagnicao">
+    <nav aria-label="Page navigation example">
+    <ul class="pagination" >
+      <li class="page-item"><a  class="page-link"  href="#"id="anterior" disabled>&lsaquo; Anterior</a></li>
+      <span  class="page-link" id="numeracao"></span>
+      <li class="page-item" ><a class="page-link" href="#" id="proximo" disabled> Próximo &rsaquo;</a></li>
+    </ul>
+  
+  </nav>
+  </div>
       <thead class="thead-light">
         <th scope="col">#</th>
       <th scope="col">Data</th>
       <th scope="col">Pontuação</th>
       <th scope="col">Exercício Realizado</th>
-      <th scope="col">Distancia diária de caminhada</th>
-      <th scope="col">Tempo diário de caminhada </th>
+      <th scope="col" id="th_distancia">Parte Trabalhada</th>
+  
+      <th id="th_tempo" style="display: none;" scope="col">Tempo</th>
+    
+    
   </thead>
   </tbody>  
-    
-    </table>
-  
-    <div id="btn_pagnicao" style="display: none;">
-    <button id="anterior" disabled>&lsaquo; Anterior</button>
-    <span id="numeracao"></span>
-    <button id="proximo" disabled>Próximo &rsaquo;</button>
+</table>
 </div>
+  
+
     <div class="tab-content">
       <div class="tab-pane " id="pontuacao">
         <div class="row tabelas">
@@ -384,7 +101,7 @@
           <table
             
             style="width: 40%"
-            align="center"
+          
             class="table manage-candidates-top mb-0"
           >
             <tr >
@@ -397,7 +114,7 @@
         
           </table>
         </div>
-        <div class="text-center mt-3 mt-sm-3" align="center">
+        <div class="text-center mt-3 mt-sm-3" >
           <ul class="pagination justify-content-center mb-0">
             <li class="page-item disabled">
               <span class="page-link">Prev</span>
@@ -416,7 +133,7 @@
         <div class="row">
           <table
             style="width: 40%"
-            align="center"
+          
             class="table manage-candidates-top mb-0"
           >
             <tr>
@@ -435,7 +152,7 @@
           </table>
         </div>
         <div class="text-center mt-3 mt-sm-3" >
-          <ul class="pagination justify-content-center mb-0" >
+          <ul class="class="pager >
             <li class="page-item disabled">
               <span class="page-link">Prev</span>
             </li>
@@ -443,12 +160,11 @@
               <span class="page-link">1 </span>
               <span class="sr-only">(current)</span>
             </li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="" href="#">2</a></li>
             <li class="page-item"><a class="page-link" href="#">3</a></li>
             <li class="page-item"><a class="page-link" href="#">Next</a></li>
           </ul>
         </div>
       </div>
     </div>
-  </body>
-</html>
+  
