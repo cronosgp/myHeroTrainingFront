@@ -37,19 +37,19 @@ angular
         }
 
         $scope.aceitarSolicitacao = function (amizadeid) {
+                amigosService.aceitarSolicitacao(amizadeid, IdUsuario).success(function (data){
+                    swal({
+                        title: "Amigo adicionado!",
+                        type: "success",
+                        icon: "success"
+                    })
+                    $scope.solicitacoes();
+                }).error(function (data){
+                    console.log("erro");
+                    console.log(data);
+                });
+            }
 
-            amigosService.aceitarSolicitacao(amizadeid, IdUsuario).success(function (data){
-                swal({
-                    title: "Amigo adicionado!",
-                    type: "success",
-                    icon: "success"
-                })
-                $scope.solicitacoes();
-            }).error(function (data){
-                console.log("erro");
-                console.log(data);
-            });
-        }
 
         $scope.recusarSolicitacao = function (amizadeid) {
 
