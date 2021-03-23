@@ -21,7 +21,7 @@
        color: grey;
    }
 </style>
-<div class="container" ng-init="liberaHome()">
+<div class="container" ng-init="aviso()">
     <div class="card-deck" id="teste"style="width: 45rem;" >
         <div class="card"  ng-repeat="treino in treinos" >
             <img src="{{treino.urlt}}" class="card-img-top" alt="" >
@@ -36,7 +36,7 @@
                            href="#/treinos/{{treino.idt}}" 
                         >Iniciar Treino</a>                       
     
-                        <a ng-class="{disabled: jaFez}"class="btn btn-sm btn-outline-danger" ng-model="inicio" type="button "
+                        <a ng-class="{disabled: jaSel}"class="btn btn-sm btn-outline-danger" ng-model="inicio" type="button "
                         ng-click ="msg()"
                         href="#/amigos/" 
                      >Treinar em Conjunto</a>                       

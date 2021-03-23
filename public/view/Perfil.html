@@ -25,29 +25,38 @@
     <div class="col-md-9 personal-info">
       <h3>Perfil</h3>
 
-      <form class="form-horizontal" role="form" novalidate name="formulario">
+      <form class="form-horizontal" role="form"  name="formulario">
         <div class="form-group" ng-class="form-group">
-          <label class="col-lg-3 control-label">Nome:</label>
+          <label class="col-lg-3 control-label"  >Nome:</label>
           <div class="col-lg-8">
-            <input ng-model="perfil.nome" class="form-control" type="text" value="{{perfil.nome}}">
+            <input ng-model="perfil.nome" class="form-control" required type="text" value="{{perfil.nome}}">
           </div>
         </div>
         <div class="form-group">
           <label class="col-lg-3 control-label">Email:</label>
           <div class="col-lg-8">
-            <input ng-model="perfil.email" class="form-control" type="text" value="{{perfil.email}}">
+            <input ng-model="perfil.email" class="form-control" type="email" value="{{perfil.email}}">
           </div>
         </div>
         <div class="form-group">
           <label class="col-lg-3 control-label">Contato</label>
           <div class="col-lg-8">
-            <input ng-model="perfil.contato" class="form-control" type="text" value="{{perfil.contato}}">
+            <input ng-model="perfil.contato" class="form-control" required type="text" 
+            minlength="10"
+            maxlength="11"
+            value="{{perfil.contato}}">
           </div>
+        
         </div>
         <div class="form-group">
           <label class="col-lg-3 control-label">Contato 2</label>
           <div class="col-lg-8">
-            <input ng-model="perfil.contato2" class="form-control" type="text" value="{{perfil.contato2}}">
+            <input ng-model="perfil.contato2" class="form-control" type="text" 
+            value="{{perfil.contato2}}"
+            minlength="10"
+            maxlength="11"
+           >
+            
           </div>
         </div>
         <div class="form-group">

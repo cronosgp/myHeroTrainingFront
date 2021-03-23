@@ -193,13 +193,13 @@ angular
             var idTreino = $scope.fases[ultimo].id
             treinoConjuntoService.checaFinal(IdUsuario,idTreino).success(function (data) {
                 if(data === true){
-                    $location.path('/treino-conjunto/resultado');
                     console.log(idTreino)
                 }else{
                     console.log(false)
                 }
             })
         }
+
       //falta pegar Id do usuario do banco e passar no parametro, pelo token
       //falta salvar id na tabela
       //true ?Ok
@@ -274,7 +274,7 @@ angular
         let d = new Date(); 
         var data =  d.setDate(d.getDate() + 90)
         var dadosSalvaFimFase ={
-          id_fase: 1,
+          id_fase: idDaFase,
           idUsuario: IdUsuario,
           data_fim_fase : data
             
@@ -470,7 +470,7 @@ angular
               onClose: () => {
                 clearInterval(timerInterval);
                 Swal.fire({
-                  title: 'Inicar Série',
+                  title: 'Iniciar Série',
                   icon: 'info',
                   text:
                     ' Número de Séries realizadas: ' +
@@ -605,13 +605,13 @@ angular
 
       var resize = function () {
 
-       
+
         var largura = window.innerWidth;
-       
+
         if (largura <= 1000) {
-        
+
        try{
-    
+
             document.getElementsByClassName('cronometro')[0].className = 'cronometro_mobile';
              document.getElementsByClassName('descricao')[0].className = 'descricao_mobile';
             document.getElementsByClassName('repeticao')[0].className = 'repeticao_mobile';
@@ -623,12 +623,15 @@ angular
 
             alert('catch')
 
-          
+
           }
-        
+
         }
-       
+
           }
           setTimeout(function(){ resize(); }, 500);
+<<<<<<< HEAD
+=======
 
+>>>>>>> ajustes_desempenho_grafico
     });
