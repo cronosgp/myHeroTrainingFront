@@ -1,96 +1,79 @@
-<div class="row">
-  <div class="col-xl-12 col-lg-12">
-    <div class="card shadow mb-4">
-        <!-- Card Header - Dropdown -->
-        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-            <h6 class="m-0 font-weight-bold text-primary">Perfil</h6>
+<div class="container">
+
+  <h1>Editar Perfil</h1>
+  <hr>
+  <div class="row">
+    <!-- left column -->
+    <div class="col-md-3">
+      <div class="md-padding dialogdemoBasicUsage text-center" id="popupContainer" ng-cloak="">
+        <img src="{{avatar}}" class="avatar img-circle" alt="avatar"
+             style="width:150px; height: auto;">
+        <div class="text-center" style="padding-top: 0.5em">
+
+          <br>
+          <select ng-init="selecionado = todosAvatares[avInit]"
+                  ng-options="selecao as selecao.name for selecao in todosAvatares" ng-model="selecionado" ng-change="trocarAvatar()">
+          </select>
+          <br>
+
+        <!--<a href="#/avatar" class="btn btn-primary" >Change Icon</a>-->
         </div>
-        <!-- Card Body -->
-        <div class="card-body">
-          <div class="row">
-            <div class="col-sm-12 col-md-3 col-xl-2 mb-2">
-              <div class="card border-left-success shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="md-padding dialogdemoBasicUsage text-center" id="popupContainer" ng-cloak="">
-                    <img src="{{avatar}}" class="avatar img-circle" alt="avatar" style="width:150px; height: auto;">
-                    <div class="text-center" style="padding-top: 0.5em">
-      
-                      <br>
-                      <select ng-init="selecionado = todosAvatares[avInit]"
-                        ng-options="selecao as selecao.name for selecao in todosAvatares" ng-model="selecionado"
-                        ng-change="trocarAvatar()">
-                      </select>
-                      <br>
-      
-                      <!--<a href="#/avatar" class="btn btn-primary" >Change Icon</a>-->
-                    </div>
-                  </div>
-                </div>
-            </div>
+      </div>
+    </div>
 
-              
-            </div>
-            <div class="col-sm-12 col-md-9 col-xl-10">
+    <!-- edit form column -->
+    <div class="col-md-9 personal-info">
+      <h3>Perfil</h3>
 
-              <div class="card border-left-warning shadow h-100 py-2">
-                <div class="card-body">
-                  <form class="form-horizontal" role="form" novalidate name="formulario">
-                    <div class="row">
-                      <div class="form-group col-sm-12 col-md-6 col-xl-4" ng-class="form-group">
-                        <label class="col-lg-3  control-label">Nome:</label>
-                        <div class="col-lg-10">
-                          <input ng-model="perfil.nome" class="form-control form-control-user" type="text" value="{{perfil.nome}}">
-                        </div>
-                      </div>
-                      <div class="form-group col-sm-12 col-md-6 col-xl-4">
-                        <label class="col-lg-3 control-label">Email:</label>
-                        <div class="col-10">
-                          <input ng-model="perfil.email" class="form-control form-control-user" type="text" value="{{perfil.email}}">
-                        </div>
-                      </div>
-                      <div class="form-group col-sm-12 col-md-6 col-xl-4">
-                        <label class="col-lg-3 control-label">Contato</label>
-                        <div class="col-10">
-                          <input ng-model="perfil.contato" class="form-control form-control-user" type="text" value="{{perfil.contato}}">
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="form-group col-sm-12 col-md-6 col-xl-4">
-                        <label class="col-lg-3 control-label">Contato 2</label>
-                        <div class="col-lg-10">
-                          <input ng-model="perfil.contato2" class="form-control form-control-user" type="text" value="{{perfil.contato2}}">
-                        </div>
-                      </div>
-                      <div class="form-group col-sm-12 col-md-6 col-xl-4">
-                        <label class="col-md-3 control-label">Senha</label>
-                        <div class="col-md-8">
-                          <a class="btn-sm btn-secondary" href="#/forgot-password">Trocar Senha</a>
-                        </div>
-                      </div>
-                      
-                    </div>
-                    <div class="form-group col-sm-12 col-md-6 col-xl-4">
-                      <label class="col-md-3 control-label"></label>
-                      <div class="col-md-8">
-                        <button class="btn btn-primary" ng-click="salvarPerfil()">Salvar Mudanças</button>
-                        <span></span>
-                      </div>
-                    </div>
-                   
-                   
-                    
-                    
-                    
-                    
-                  </form>
-                </div>
-            </div>
-              
-            </div>
+      <form class="form-horizontal" role="form"  name="formulario">
+        <div class="form-group" ng-class="form-group">
+          <label class="col-lg-3 control-label"  >Nome:</label>
+          <div class="col-lg-8">
+            <input ng-model="perfil.nome" class="form-control" required type="text" value="{{perfil.nome}}">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-lg-3 control-label">Email:</label>
+          <div class="col-lg-8">
+            <input ng-model="perfil.email" class="form-control" type="email" value="{{perfil.email}}">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-lg-3 control-label">Contato</label>
+          <div class="col-lg-8">
+            <input ng-model="perfil.contato" class="form-control" required type="text" 
+            minlength="10"
+            maxlength="11"
+            value="{{perfil.contato}}">
           </div>
         
         </div>
+        <div class="form-group">
+          <label class="col-lg-3 control-label">Contato 2</label>
+          <div class="col-lg-8">
+            <input ng-model="perfil.contato2" class="form-control" type="text" 
+            value="{{perfil.contato2}}"
+            minlength="10"
+            maxlength="11"
+           >
+            
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-3 control-label">Senha</label>
+          <div class="col-md-8">
+           <a class="btn-sm btn-secondary" href="#/forgot-password">Trocar Senha</a>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-3 control-label"></label>
+          <div class="col-md-8">
+            <button class="btn btn-primary" ng-click="salvarPerfil()" >Salvar Mudanças</button>
+            <span></span>
+          </div>
+        </div>
+      </form>
     </div>
+  </div>
 </div>
-
+<hr>
