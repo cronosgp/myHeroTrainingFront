@@ -58,13 +58,21 @@ angular
         }
 
         $scope.aceitarSolicitacao = function (usuarioid) {
-
-            treinoConjuntoService.aceitarSolicitacao(usuarioid, IdUsuario).success(function (data){
-                $scope.carregaSolicitacoes();
-            }).error(function (data){
-                console.log("erro");
-                console.log(data);
-            });
+            libera();
+            if ($scope.jaFez === true || $scope.jaSel === true) {
+                swal({
+                    title: "Você já esta realizando um treino conjunto!",
+                    type: "error",
+                    icon: "error"
+                })
+            } else {
+                treinoConjuntoService.aceitarSolicitacao(usuarioid, IdUsuario).success(function (data) {
+                    $scope.carregaSolicitacoes();
+                }).error(function (data) {
+                    console.log("erro");
+                    console.log(data);
+                });
+            }
         }
 
         var libera = function (callback) {
