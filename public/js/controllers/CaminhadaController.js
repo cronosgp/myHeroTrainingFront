@@ -34,6 +34,7 @@ angular
         zoomControl: true,
         mapTypeControl: false,
         autoRefresh:true,
+        
         styles: [
           { elementType: "geometry", stylers: [{ color: "#242f3e" }] },
           { elementType: "labels.text.stroke", stylers: [{ color: "#242f3e" }] },
@@ -178,12 +179,14 @@ function setaTempo(){
  
 }
        function setaDistancia(){
-         if(flightPlanCoordinates.length-1 > 0){
+         var distancia_conta;
+        if(flightPlanCoordinates.length-1 > 0){
         for(var i=0;i< flightPlanCoordinates.length-1; i++){
-          distancia = Number(distancia + getDistanceFromLatLonInKm(flightPlanCoordinates[i], flightPlanCoordinates[i+1]) )
+        distancia_conta =Number(getDistanceFromLatLonInKm(flightPlanCoordinates[i], flightPlanCoordinates[i+1]) )/1000
+          distancia += parseFloat(distancia_conta.toFixed(2));
   
           }
-          document.querySelector('#distanciaCaminhada').innerText = distancia;
+          document.querySelector('#distanciaCaminhada').innerText = parseFloat(distancia.toFixed(2));
         }
        }
 
@@ -204,15 +207,3 @@ function setaTempo(){
     
    
     });
-    
-     
-     
-     
-     
- 
-      
-
-
-
-    
-    

@@ -6,9 +6,20 @@ angular
       $scope.model = {};   
       var exibe = 0;
       var IdUsuario = sessionStorage.getItem('id');
-
+ 
      $scope.busca = function(){
-      var filtro = document.getElementById('tipo_treino').value;
+
+
+     
+       var data = $scope.model.dt;
+       var dataf = $scope.model.df;
+      
+       var dados_paginar;
+      
+        let dataFormatada =  ((data.getFullYear())) + "/" + (("0" + (data.getMonth() + 1)).slice(-2)) + "/" + data.getDate();
+        let dataFormatadaf =  ((dataf.getFullYear())) + "/" + (("0" + (dataf.getMonth() + 1)).slice(-2)) + "/" + dataf.getDate();
+        
+        var filtro = document.getElementById('tipo_treino').value;
    
       if(filtro !=0){
        
@@ -23,19 +34,14 @@ angular
        document.getElementById('btn_pagnicao').style.display="block";
        
       var filtro = document.getElementById('tipo_treino').value;
-    
-       var data = $scope.model.dt;
-       var dataf = $scope.model.df;
-       var dados_paginar;
-        let dataFormatada =  ((data.getFullYear())) + "/" + (("0" + (data.getMonth() + 1)).slice(-2)) + "/" + data.getDate();
-        let dataFormatadaf =  ((dataf.getFullYear())) + "/" + (("0" + (dataf.getMonth() + 1)).slice(-2)) + "/" + dataf.getDate();
+      
+ 
         desempenhoService.busca(IdUsuario,dataFormatada, dataFormatadaf,filtro).success(function(data)
 
           {   
+          
             donutChart(data);
-       lineChart(data);
-    
-            
+            lineChart(data);
    dados_paginar =data;
      var table = document.getElementById('table_dados');
      var tbody = table.getElementsByTagName("tbody")[0]
@@ -148,29 +154,34 @@ angular
 
       }
 
-      var lineChart = function(data){
+      var lineChart = async function(data){
         var pts_grafico=[];
         var dias_grafico=[];
         var result = [];
         document.querySelector("#chart").innerText=""
      //analise de dados para montagem do graficod e linha
+     if(typeof data !== "undefined"){
       data.reduce(function(res, value) {
-      
-          if (!res[value.data_realizada]) {
-            res[value.data_realizada] = { data_realizada: value.data_realizada, qtd_pontos: 0 };
-            result.push(res[value.data_realizada])
-          }
-          res[value.data_realizada].qtd_pontos += value.qtd_pontos;
-          return res;
-        }, {});
 
-        for(j = result.length-1; j>=0; j--){
-          document.querySelector("#chart").innerText=""
-          document.querySelector("#chart").innerHTML=""
-          dias_grafico.push(result[j].data_realizada)
-        
-          pts_grafico.push(result[j].qtd_pontos)
+        if (!res[value.data_realizada]) {
+          res[value.data_realizada] = { data_realizada: value.data_realizada, qtd_pontos: 0 };
+          result.push(res[value.data_realizada])
         }
+        res[value.data_realizada].qtd_pontos += value.qtd_pontos;
+        return res;
+      }, {});
+
+      for(j = result.length-1; j>=0; j--){
+        document.querySelector("#chart").innerText=""
+        document.querySelector("#chart").innerHTML=""
+        dias_grafico.push(result[j].data_realizada)
+      
+        pts_grafico.push(result[j].qtd_pontos)
+      }
+  
+     }
+     
+       
       
         var options = {
           chart: {
@@ -189,20 +200,25 @@ angular
             categories: dias_grafico
           }
         }
-       
+           document.querySelector("#chart").innerText="";
+        document.querySelector("#chart").innerHTML="";
         var chart = new ApexCharts(document.querySelector("#chart"), options);
-        
+    
         chart.render();
-      }
 
+      }
+      
+  
       var donutChart = function(data){
         var pts_grafico=[];
         var nome_exc=[];
         var result = [];
         var total=0;
-
-        document.querySelector("#chartDonut").innerText=""
-     
+        var chartDonut="";
+      
+        if(typeof data !== "undefined"){
+       
+    
         data.reduce(function(res, value) {
           if (!res[value.parte_trabalhada]) {
             res[value.parte_trabalhada] = { parte_trabalhada: value.parte_trabalhada, qtd_pontos: 0 };
@@ -215,11 +231,12 @@ angular
         }, {});
        
         for(j = result.length-1; j>=0; j--){
-          document.querySelector("#chartDonut").innerText=""
+         
           nome_exc.push(result[j].parte_trabalhada)
         
           pts_grafico.push(result[j].qtd_pontos)
         }
+      }
         var  options = {
           series: pts_grafico,
           labels: nome_exc,
@@ -243,15 +260,24 @@ angular
             }
           }
         }
-
        
-      
-      
+     
         var chartDonut = new ApexCharts(document.querySelector("#chartDonut"), options);
-        chartDonut.render();
+      
+        //chartDonut.refresh();
+       chartDonut.render();
+      
       
       }
-     var carregaDados = function() {
+
+      function removeData(chart) {
+        chart.data.labels.pop();
+        chart.data.datasets.forEach((dataset) => {
+            dataset.data.pop();
+        });
+        chart.update();
+    }
+     var  carregaDados = function() {
       desempenhoService.carregaDados(IdUsuario).success(function(data)
       {
         $scope.usu = data;
