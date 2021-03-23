@@ -1,5 +1,5 @@
 angular.module('myHeroTraining').factory('desempenhoService', function ($http) {
-    var busca = function (id, data, dataf) {
+    var busca = function (id, data, dataf, filtro) {
  //    var jwt = localStorage.getItem('Bearer');
   
    //  $http.defaults.headers.common.Authorization = 'Bearer ' + jwt;
@@ -8,6 +8,7 @@ angular.module('myHeroTraining').factory('desempenhoService', function ($http) {
           id: id,
          d_ini : data ,
           dt_fim : dataf ,
+          filtro: filtro
         },
       });
     };
