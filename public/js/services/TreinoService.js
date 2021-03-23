@@ -14,7 +14,7 @@ angular.module('myHeroTraining').factory('TreinoService', function ($http) {
   };
   var atualizapontosUsu = function(id){
  //   var jwt = localStorage.getItem('Bearer');
-    return $http.get('https://mhtrainingback.herokuapp.com/atualiza',{
+    return $http.get('https://mhtrainingback.herokuapp.com/exercicio/atualiza',{
       
       params: {
       id: id,
