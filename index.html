@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="pt-br" ng-app="myHeroTraining">
 <head>
-
+	<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCGyNOT4gPXsEnP-B9jcrXNym1qfoNniMU"></script>
+  
     <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <meta name="viewport" content="width=device-width">
     <script src="./js/lib/angular.min.js"></script>
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCGyNOT4gPXsEnP-B9jcrXNym1qfoNniMU"></script>
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"> -->
           <script src="https://secure.mlstatic.com/sdk/javascript/v1/mercadopago.js"></script>
-    <link href="./css/bootstrap.min.css"></link>
+    <!-- <link href="./css/bootstrap.min.css"></link> -->
     <script src="./js/main.js"></script>
     <script src="./js/services/TreinoService.js"></script>
     <script src="./js/services/homeService.js"></script>    
@@ -20,7 +23,7 @@
 
     <script src="./js/services/desempenhoService.js"></script>
     <script src="./js/controllers/desempenhoController.js"></script>
-
+    <link rel="stylesheet" href="./css/desempenho.css">
     <script src="./js/services/loginService.js"></script>
     <script src="./js/services/amigosService.js"></script>
     <script src="./js/services/perfilService.js"></script>
@@ -44,11 +47,15 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="./js/controllers/CadastroUsuarioController.js"></script>
     <script src="./js/lib/angular-route.min.js"></script>
-<link rel="stylesheet" href="./css/pagamento.css">
-    <link rel="stylesheet" href="./css/internacionalizacao.css">
+
+
+
+    
+
+
     <script src="./js/utilitarios/internacionalizacao.js"></script>
 
-    <link href="./css/homeEstilo.css"></link>
+    
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
             integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
             crossorigin="anonymous"></script>
@@ -61,7 +68,7 @@
 
     <script src="./js/angular-translate/dist/angular-translate.min.js"></script>
              
-            
+    <script type="text/javascript" src="https://www.gstatic.com/s/loader.js"></script>
     <script src="./js/angular-sanitize/angular-sanitize.min.js"></script>
    
     <script src="./js/angular-sanitize/angular-sanitize.min.js"></script>
@@ -135,332 +142,319 @@ function displayNotificationBubble() {
 }); 
    </script>
 
+
+
+
+
+
+    <!-- <link rel="stylesheet" href="./css/pagamento.css">
+    <link rel="stylesheet" href="./css/internacionalizacao.css">
+    <link href="./css/homeEstilo.css"></link>
+     -->
+
+    <link href="./css/bootstrapEdited.css" rel="stylesheet">
+    
+
+
 </head>
-<body>
-    <style>
-header > h1 {
-	color: rgba(255, 255, 255, .6);
-	display: inline-block;
-	font-weight: normal;
-	margin: 0px;
-}
-header > a {
-	color: rgba(255, 255, 255, .5);
-	display: inline-block;
-	margin: 0px 0px 0px 20px;
-}
-header > a {
-	color: rgba(255, 255, 255, .5);
-	display: inline-block;
-	margin: 0px 0px 0px 20px;
-}
+<body id="page-top">
 
-/* user menu */
-.header-avatar {
-	background-color: rgba(255, 255, 255, .6);
-	background-position: center center;
-	background-repeat: no-repeat;
-	background-size: 110%;
-	border: 1px solid rgba(255, 255, 255, 1); 
-	border-radius: 50%;
-	box-shadow: 0px 0px 1px #ffffff;
-	color: #fff;
-	float: right;
-	font-size: 20px;
-/* 	opacity: .2; */
-	position: relative;
-	text-align: center;
-	height: 40px;
-	width: 40px;
-	z-index: 500;
-}
-@media (max-width: 425px) {
-	.header-avatar {
-		height: 30px;
-		width: 30px;
-		top: 4px;
-	}
-}
-.notification-bubble {
-	background-color: #007bff;
-	background-color: #007bff(245, 166, 35, .9);
-	border-radius: 50px;
-	color: #ffffff;
-	display: inline-block;
-	font-size: 18px;
-	height: 42px;
-	line-height: 2.3em;
-	overflow: hidden;
-	position: absolute;
-	text-indent: 8px;
-	width: 42px;
-}
-@media (max-width: 425px) {
-	.notification-bubble {
-		height: 30px;
-		width: 30px;
-	}
-}
-.header-menu:hover {
-	cursor: pointer;
-}
-.header-menu:hover > span.icon {
-	color: #ffffff;
-}
-.header-menu > span.icon {
-	color: rgba(255, 255, 255, .8);
-	font-size: 26px;
-	position: relative;
-	left: 30px;
-	top: 5px;
-}
-@media (max-width: 425px) {
-	.header-menu > span.icon {
-		font-size: 20px;
-		top: -2px;
-	}
-}
-/* header avatar menu */
-.header-menu {
-	float: right;
-	margin: 0px 20px 0px 20px;
-	position: relative;
-}
-.avatar-menu {
-    float: right;
-    margin: 0px 0px 0px 20px;
-    position: relative;
-}
-.header-menu > a {
-	background-color: rgba(101, 170, 173, .9);
-	float: right;
-	padding: 10px 20px;
-	position: relative;
-}
-.header-menu > ul:before {
-	content: '';
-	width: 0; 
-	height: 0; 
-	display: inline-block;
-	border-left: 15px solid transparent;
-	border-right: 15px solid transparent;
-	border-bottom: 15px solid #fefefe;
-	position: absolute;
-	right: 4px;
-	top: -10px;
-	z-index: 99999;
-}
-.header-menu > ul {
-	background-color: #fefefe;
-	box-shadow: 0px 4px 5px 0px rgba(50, 50, 50, 0.5);
-	clear: both;
-	display: none;
-	position: absolute;
-	list-style-type: none;
-	mmargin-top: 20px 0px 0px 0px;
-	padding: 0px;
-	top: 40px;
-	right: 1px;
-	width: 200px;
-	z-index: 9999;
-}
-@media (max-width: 425px) {
-	.header-menu > ul {
-		top: 44px;
-		right: 27px;
-	}
-}
-.header-menu > ul > li {
-
-}
-.header-menu > ul > li > a {
-	color: #555;
-	display: block;
-	font-size: 14px;
-	padding: 15px 20px;
-	transition: all 0.2s ease-in-out;
-}
-.header-menu > ul > li > a span.icon {
-	font-size: 16px;
-	margin-right: 10px;
-}
-.header-menu > ul > li > a span.icon-ellipsis-v {
-	margin-right: 2px;
-}
-.header-menu > ul > li > a:hover {
-	background-color: rgba(101, 170, 173, .1);
-	color: rgba(0, 0, 0, .9);
-	text-decoration: none;
-}
-.header-menu > span.filled {
-	background-color: white;
-	border-radius: 20px;
-	color: black;
-	font-size: 16px;
-	line-height: 14px;
-	opacity: .75;
-	position: relative;
-	left: 20px;
-	width: 15px;
-	height: 15px;
-	text-align: center;
-}
-.header-menu > span.overlayed {
-	font-size: 24px;
-	position: relative;
-	left: 20px;
-}
-
-/* fim */
-
-.dropbtn {
-  border: none;
-  padding: 8px;
-}
-
-/* The container <div> - needed to position the dropdown content */
-.dropdown {
-  /* position: relative; */
-  display: inline-block;
-}
-
-/* Dropdown Content (Hidden by Default) */
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f1f1f1;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
-
-/* Links inside the dropdown */
-.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
-
-/* Change color of dropdown links on hover */
-.dropdown-content a:hover {background-color: #ddd;}
-
-/* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {display: block;}
-
-.not {
-    padding: 5px 10px;
-    border-radius: 50%;
-    background: dodgerblue;
-    color: white;
-}
-
-    </style>
-<header>
+    <!-- Page Wrapper -->
+    <div id="wrapper">
 
 
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
 
-    <!-- header normal -->
+            <!-- Main Content -->
+            <div id="content">
 
-    <nav class="navbar navbar-expand navbar-light bg-light" style="background-color: #e3f2fd;"
-         ng-controller="PageCtrl">
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow,"
 
-        <a href="#/principal" class="navbar-brand " ng-show="exibirSemLogin()" title="home">
-            <img src="./imagem/logo.png"> MyHeroTraining
+                    ng-controller="PageCtrl">
 
-        </a>
-        <a href="#/home" class="navbar-brand" ng-show="exibircomLogin()" title="home">MyHeroTraining
-            <img src="./imagem/logo.png">
+                    <a href="#/principal" class="navbar-brand " ng-show="exibirSemLogin()" title="home">
+                        <img src="./imagem/logo.png"> MyHeroTraining
+            
+                    </a>
+                    <a href="#/home" class="navbar-brand" ng-show="exibircomLogin()" title="home">MyHeroTraining
+                        <img src="./imagem/logo.png">
+            
+                    </a>
 
-        </a>
-        </div>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+                    <!-- menu com e sem login -->
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
                 aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav mr-auto" ng-show="exibirSemLogin()">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#/login">Login <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item active">
-                    <a translate="HEADER.MENU.REGISTER" class="nav-link" href="#/Cadastro">Cadastre-se <span class="sr-only">(current)</span></a>
-                </li>
-            </ul>
-
-            <div class="collapse navbar-collapse" ng-show="exibircomLogin()">
-                <ul class="navbar-nav mr-auto">
-                    <!--li class="nav-item active">
-                        <a class="nav-link" href="">Bem vindo! <span class="sr-only">(current)</span></a>
-                    </li-->
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav mr-auto" ng-show="exibirSemLogin()">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#/login">Login <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a translate="HEADER.MENU.REGISTER" class="nav-link" href="#/Cadastro">Cadastre-se <span class="sr-only">(current)</span></a>
+                    </li>
                 </ul>
 
 
-                <div class="dropdown" ng-controller="PageCtrl">
+                <div class="dropdown " ng-controller="PageCtrl">
                     <button class="btn btn-light dropdown-toggle" type="button"
                         id="dropdownMenuButton" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">Selecione o
                         Idioma</button>
-                        <div id="google_translate_element"></div>
+                        <div id="google_translate_element" style="display: none;"></div>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="combobox_idioma" >
                         <a href="javascript:trocarIdioma('pt')" class="dropdown-item">Português</a>
-                        <a href="javascript:trocarIdioma('es')" class="dropdown-item">Espanhol</a>
+                      <!--   <a href="javascript:trocarIdioma('es')" class="dropdown-item">Espanhol</a> -->
                         <a href="javascript:trocarIdioma('en')" class="dropdown-item">Inglês</a>
-                        <a href="javascript:trocarIdioma('fr')" class="dropdown-item">Francês</a>
+                      <!--   <a href="javascript:trocarIdioma('fr')" class="dropdown-item">Francês</a> -->
 
                     </div>
 
                  </div>
+                    
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
 
-                 <!-- aqui menu avatar -->
-<!-- <h1>teste</h1> -->
+                   
 
-                <div class="header-menu" id="header-menu" ng-show="exibircomLogin()">
-                    <button class="btn btn-light dropdown-toggle">{{nome}}</button>
-                    <ul id="dropdownmenu">
-                        <li ng-show="ispagante()"><a href="#/pagamento"><span class="icon icon-user"></span>Seja Premium</a></li>
-                        <li><a href="#perfil"><span class="icon icon-user"></span>Perfil</a></li>
-                        <li><a href="#desempenho"><span class="icon icon-user-tie"></span>Desempenho</a></li>
-                        <li><a href="#caminhada"><span class="icon icon-user"></span>Caminhada</a></li>
-                        <li><a href="#amigos"><span class="icon icon-list"></span>Meus Amigos<span class="not" ng-show="notAmizade>0">{{notAmizade}}</span></a></li>
-                        <li><a href="#classificacao"><span class="icon icon-users2"></span>Classificação</a></li>
-                        <li ng-show="exibePersonalizado()"><a href="#meu-treino"><span class="icon icon-stopwatch"></span>Treino Personalizado</a></li>
-                        <li ng-hide="false"><a href="#treino-conjunto/"><span class="icon icon-stopwatch"></span>Treino Conjunto<span class="not" ng-show="notTreino>0">{{notTreino}}</span></a></li>
-                        <li><a href="#/descricaoTreino"><span class="icon icon-stopwatch"></span>Exercícios</a></li>
-                        <li><a href="#/" ng-click="logout()" type="submit"><span class="icon icon-exit"></span>Sign Out</a></li>
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+
+                        
+
+
+                        <div class="topbar-divider d-none d-sm-block"></div>
+
+                        <!-- <div class="header-menu" >
+                            <button class="btn btn-light dropdown-toggle">{{nome}}</button>
+                            <ul id="dropdownmenu">
+                                <li ng-show="ispagante()"><a href="#/pagamento"><span class="icon icon-user"></span>Seja Premium</a></li>
+                                <li><a href="#perfil"><span class="icon icon-user"></span>Perfil</a></li>
+                                <li><a href="#desempenho"><span class="icon icon-user-tie"></span>Desempenho</a></li>
+                                <li><a href="#caminhada"><span class="icon icon-user"></span>Caminhada</a></li>
+                                <li><a href="#amigos"><span class="icon icon-list"></span>Meus Amigos<span class="not" ng-show="notAmizade>0">{{notAmizade}}</span></a></li>
+                                <li><a href="#classificacao"><span class="icon icon-users2"></span>Classificação</a></li>
+                                <li ng-show="exibePersonalizado()"><a href="#meu-treino"><span class="icon icon-stopwatch"></span>Treino Personalizado</a></li>
+                                <li ng-hide="false"><a href="#treino-conjunto/"><span class="icon icon-stopwatch"></span>Treino Conjunto<span class="not" ng-show="notTreino>0">{{notTreino}}</span></a></li>
+                                <li><a href="#/descricaoTreino"><span class="icon icon-stopwatch"></span>Exercícios</a></li>
+                                <li><a href="#/" ng-click="logout()" type="submit"><span class="icon icon-exit"></span>Sign Out</a></li>
+                            </ul>
+                        </div> -->
+
+                        
+
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{nome}}</span>
+                                <img ng-init="carregaAvatar()" class="header-avatar img-profile rounded-circle" id="header-avatar"
+                                    src="{{avatar}}">
+                            </a>
+                            
+                            
+                            
+                            <!-- Dropdown - User Information -->
+                        
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" ng-show="exibircomLogin()"
+                                aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="#/login">
+                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Login
+                                </a>
+                               <!-- <a class="dropdown-item" ng-show="ispagante()" href="#pagamento">
+                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Seja Premium
+                                </a> -->
+                                <a class="dropdown-item" href="#perfil">
+                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Perfil
+                                </a>
+                                <a class="dropdown-item" href="#desempenho">
+                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Desempenho
+                                </a>
+                                <a class="dropdown-item" href="#caminhada">
+                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Caminhada
+                                </a>
+                           
+                                <a class="dropdown-item" href="#amigos">
+                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    <span class="not" ng-show="notAmizade>0">{{notAmizade}}</span>
+                                    Meus Amigos
+                                </a>
+                                
+
+                                <a class="dropdown-item" href="#classificacao">
+                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Classificação
+                                </a>
+
+                              
+                                <a class="dropdown-item" ng-show="exibePersonalizado()" href="#meu-treino">
+                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Treino Personalizado
+                                </a>
+                                
+                             
+                                <a class="dropdown-item" ng-hide="false" href="#treino-conjunto">
+                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    <span class="not" ng-show="notTreino>0">{{notTreino}}</span>
+                                    Treino Conjunto
+                                </a>
+
+
+                                <a class="dropdown-item" href="#descricaoTreino">
+                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Descrição Exercícios
+                                </a>
+
+                               
+
+                                
+                                <!-- <a class="dropdown-item" href="#">
+                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Activity Log
+                                </a> -->
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#/" ng-click="logout()" type="submit">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Logout
+                                </a>
+                            </div>
+                        </li>
+
                     </ul>
-                </div>
 
-                <div class="avatar-menu" id="avatar-menu" ng-show="exibircomLogin()">
-                    <div ng-init="carregaAvatar()" class="header-avatar" id="header-avatar"
-                         style="background-image: url({{avatar}})">
+                </nav>
+                <!-- End of Topbar -->
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                
+                    <!-- Content Row -->
+                    <div class="row">
+
+                        <!-- Earnings (Monthly) Card Example -->
+                        <div class="col-xl-12 col-md-12 mb-4">
+                            <ng-view>
+                            </ng-view>
+                        </div>
                     </div>
-                    <!-- <div class="notification-bubble" id="notification-bubble"><span>9</span></div> -->
-                </div>
-<!-- <div class="alpha-search">
-    <input type="text" placeholder="Search by Name, Bib, E-mail, etc.">
-    <button type="submit" class="icon icon-search"></button>
-</div> -->
 
-                </span>
+                    <!-- Content Row -->
+
+
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <!-- <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; Your Website 2020</span>
+                    </div>
+                </div> -->
+                <footer class="sticky-footer bg-white" >
+                    <div class="container">
+                        <div class="row my-auto">
+                            <div class="col-12 col-md my-auto">
+                                <img src="./imagem/logo.png">
+                                <small class="d-block mb-3 text-muted"> 2020-2021
+                                </small>
+                            </div>
+                            <div class="col-6 col-md">
+                                <h5>Twitter</h5>
+                                <ul class="list-unstyled text-small">
+                                    <li><a class="text-muted" href="https://twitter.com/MyHeroTraining">@MyHeroTraining</a></li>
+                
+                                </ul>
+                            </div>
+                          
+                            <div class="col-6 col-md">
+                                <h5>Contato</h5>
+                                <ul class="list-unstyled text-small">
+                                    <li><a class="text-muted" href="">projetomyhero@gmail.com</a></li>
+                
+                                </ul>
+                            </div>
+                
+                            <div class="col-6 col-md">
+                                <h5>Cadastre-se</h5>
+                                <ul class="list-unstyled text-small">
+                                    <li><a class="text-muted" href="#Cadastro">Comece a Treinar</a></li>
+                
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                            
+                                </footer>
+                
+
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+   <!--  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Deseja sair?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Selecione "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="login.html">Logout</a>
+                </div>
             </div>
         </div>
-    </nav>
+    </div> -->
 
-    <style>
-        .nav-link {
-            color: #3c3c3c;
-        }
-    </style>
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-   <!-- <ul class="nav nav-tabs" ng-controller="HomeController" ng-show="exibirSemLogin()">
-        <li class="nav-item">
-            <a class="nav-link active" href="#/principal">Treinos Para você</a>
-        </li>
-    </ul>-->
-</header>
-<ng-view>
-</ng-view>
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="vendor/chart.js/Chart.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="js/demo/chart-area-demo.js"></script>
+    <script src="js/demo/chart-pie-demo.js"></script>
+
+    
 </body>
+
 </html>

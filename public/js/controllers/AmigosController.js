@@ -9,15 +9,29 @@ angular
         $location
     ) {
         var IdUsuario = sessionStorage.getItem('id');
+        
+        var carregaDadosAmigos = function () {
+            amigosService.carregarAmigosData(IdUsuario).success(function (data) {
+                          
+                for(var i=0; i<data.length; i++){
 
-        $scope.InitAmigos = function () {
-            amigosService.carregarAmigos(IdUsuario).success(function (data) {
+               data[i].avatar = "data:image/png;base64," +data[i].avatar
+
+                   
+                }
+             
                 $scope.amigos = data;
+
+               
+                
             }).error(function (data) {
                 console.log("erro");
                 console.log(data);
             });
         }
+
+        carregaDadosAmigos();
+
         $scope.InitAmigosData = function () {
             amigosService.carregarAmigosData(IdUsuario).success(function (data) {
                 $scope.amgData = data;
@@ -36,15 +50,20 @@ angular
         }
         $scope.carregaNotAmizade();
 
-        $scope.pegaAvatar = function (id) {
-            avatarService.carregarAvatar(id).success(function (data) {
-                let img = avatarService.arrayBufferToBase64(data)
-                $scope.avatar = "data:image/png;base64,"+img;
-            }).error(function (data) {
-                console.log("erro");
-            });
-        }
+        var avatar;
 
+        var pegaAvatar = function (id) {
+                    avatarService.carregarAvatar(id).success(function (data) {
+                  
+                    let img = avatarService.arrayBufferToBase64(data)
+                    
+                     avatar = "data:image/png;base64,"+img;
+              
+        });
+    }
+
+
+  
         $scope.enviarConviteTreino = function (conviteid){
             treinoConjuntoService.enviarSolicitacao(IdUsuario, conviteid).success(function(data){
                 console.log("funciono");
@@ -69,6 +88,6 @@ angular
             });
         }
 
-        $scope.InitAmigos();
+      //  $scope.InitAmigos();
         $scope.InitAmigosData();
     });

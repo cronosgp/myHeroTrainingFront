@@ -222,9 +222,11 @@
                 <tbody>
                   <tr class="candidates-list" ng-repeat="amigo in amigos">
                     <td class="title">
-                      <div class="thumb" ng-init="pegaAvatar(amigo.id)">
-                        <img class="img-fluid" src="{{avatar}}" alt="">
-                      </div>
+                      <div class="thumb" >
+                      
+                        <img class="img-fluid" src="{{amigo.avatar}}" alt="">
+                     
+                    </div>
                       <div class="candidate-list-details">
                         <div class="candidate-list-info">
                           <div class="candidate-list-title">
@@ -232,7 +234,7 @@
                           </div>
                           <div class="candidate-list-option">
                             <ul class="list-unstyled">
-                              <li><i class="fas fa-calendar-check"></i>Amizade em {{amgData[amigo.id]}}</li>
+                              <li><i class="fas fa-calendar-check"></i> Amizade em {{amigo.dataami}}</li>
                               <li><i class="fas fa-star"></i></li>
                             </ul>
                           </div>

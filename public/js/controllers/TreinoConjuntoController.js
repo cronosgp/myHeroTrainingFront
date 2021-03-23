@@ -545,7 +545,7 @@ angular
                         onClose: () => {
                             clearInterval(timerInterval);
                             Swal.fire({
-                                title: 'Inicar Série',
+                                title: 'Iniciar Série',
                                 icon: 'info',
                                 text:
                                     ' Número de Séries realizadas: ' +
