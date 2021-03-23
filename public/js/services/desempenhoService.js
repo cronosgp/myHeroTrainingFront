@@ -11,6 +11,7 @@ angular.module('myHeroTraining').factory('desempenhoService', function ($http) {
           filtro: filtro
         },
       });
+      
     };
     var carregaDados = function(id){
       //var jwt = localStorage.getItem('Bearer');
