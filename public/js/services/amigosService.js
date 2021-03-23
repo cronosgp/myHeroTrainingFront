@@ -43,9 +43,9 @@ angular.module('myHeroTraining').factory('amigosService', function ($http) {
     };
 
     var carregarAmigosData = function (id) {
-        var jwt = localStorage.getItem('Bearer');
+    //    var jwt = localStorage.getItem('Bearer');
 
-        $http.defaults.headers.common.Authorization = 'Bearer ' + jwt;
+      //  $http.defaults.headers.common.Authorization = 'Bearer ' + jwt;
         return $http.get('https://mhtrainingback.herokuapp.com/friend/data', {
             params: {
                 id: id

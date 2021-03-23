@@ -53,10 +53,11 @@ angular
 
         $scope.salvarPerfil = function () {
             $scope.perfil.id = IdUsuario;
-            if ($scope.formulario.$valid) {
+           if ($scope.formulario.$valid) {
+               if($scope.selecionado != undefined){
                 $scope.perfil.avatar = $scope.selecionado.id
-                perfilService
-                    .incluir($scope.perfil)
+               }
+                perfilService.incluir($scope.perfil)
                     .success(function (data) {
                         //alert('Cadastro realizado com sucesso!');
                         swal(
@@ -69,9 +70,9 @@ angular
                         $route.reload();
                     });
                 //fazer tratamento de erro caso não retorno com sucess
-            } else if ($scope.formulario.$invalid) {
-                alert('Dados inválidos');
-            }
+      //      } else if ($scope.formulario.$invalid) {
+             //   alert('Dados inválidos');
+           }
         };
 
 

@@ -18,9 +18,11 @@ angular
 
         $scope.enviar = function () {
             amigosService.enviarSolicitacao(usuarioid, $scope.email).success(function (data) {
-                swal(
-                    'Convite enviado!','', 'success'
-                );
+                console.log(data)
+                
+                    swal(
+                        'email já existe!','', 'success'
+                    )
                 location.reload();
             }).error(function (data){
                 console.log("erro");

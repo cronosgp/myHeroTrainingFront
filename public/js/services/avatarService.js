@@ -1,9 +1,9 @@
 angular.module('myHeroTraining').factory('avatarService', function ($http) {
 
     var carregarAvatar = function (id) {
-        var jwt = localStorage.getItem('Bearer');
+   //     var jwt = localStorage.getItem('Bearer');
 
-        $http.defaults.headers.common.Authorization = 'Bearer ' + jwt;
+    //    $http.defaults.headers.common.Authorization = 'Bearer ' + jwt;
         return $http.get('https://mhtrainingback.herokuapp.com/perfil/avatar/id', {
             params: {
                 id: id
