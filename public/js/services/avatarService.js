@@ -1,9 +1,9 @@
 angular.module('myHeroTraining').factory('avatarService', function ($http) {
 
     var carregarAvatar = function (id) {
-   //     var jwt = localStorage.getItem('Bearer');
+        var jwt = localStorage.getItem('Bearer');
 
-    //    $http.defaults.headers.common.Authorization = 'Bearer ' + jwt;
+        $http.defaults.headers.common.Authorization = 'Bearer ' + jwt;
         return $http.get('https://mhtrainingback.herokuapp.com/perfil/avatar/id', {
             params: {
                 id: id
@@ -15,7 +15,7 @@ angular.module('myHeroTraining').factory('avatarService', function ($http) {
         var jwt = localStorage.getItem('Bearer');
 
         $http.defaults.headers.common.Authorization = 'Bearer ' + jwt;
-        return $http.get('http://localhost:8080/perfil/avatar/userid', {
+        return $http.get('https://mhtrainingback.herokuapp.com/perfil/avatar/userid', {
             params: {
                 id: id
             },
@@ -26,7 +26,7 @@ angular.module('myHeroTraining').factory('avatarService', function ($http) {
         var jwt = localStorage.getItem('Bearer');
 
         $http.defaults.headers.common.Authorization = 'Bearer ' + jwt;
-        return $http.get('http://localhost:8080/perfil/avatar/', {
+        return $http.get('https://mhtrainingback.herokuapp.com/perfil/avatar/', {
         });
     };
 

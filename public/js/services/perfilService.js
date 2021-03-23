@@ -5,7 +5,7 @@ angular.module('myHeroTraining').factory('perfilService', function ($http) {
 
       //  $http.defaults.headers.common.Authorization = 'Bearer ' + jwt;
         return $http.post(
-            'http://localhost:8080/perfil/alterar',
+            'https://mhtrainingback.herokuapp.com/perfil/alterar',
             perfil
         );
     };
@@ -15,7 +15,7 @@ angular.module('myHeroTraining').factory('perfilService', function ($http) {
         var jwt = localStorage.getItem('Bearer');
 
         $http.defaults.headers.common.Authorization = 'Bearer ' + jwt;
-        return $http.get('http://localhost:8080/perfil/id', {
+        return $http.get('https://mhtrainingback.herokuapp.com/perfil/id', {
             params: {
                 id: id
             },
