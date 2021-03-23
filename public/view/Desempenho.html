@@ -9,31 +9,32 @@
       <label>Fim:</label>
       <input type="date" required  id="dt_fim" name="fim" ng-model="model.df"/>
  
+      <div id="combobox_filtro">
+
+        <h5 id="">Filtros:</h5>
+        <form>
+          <label for="cars">Tipo:</label>
         
+          <select  name="Treino" id="tipo_treino">
+    
+            <option value="0">Treino</option>
+            <option value="1">Caminhada</option>
+          </select>
+            <input type="submit" ng-click="busca()" />
+          </form>
+      
+      </div>
     
     </form>
   
    
 </div>
 
-<div id="combobox_filtro">
-
-  <h5 id="">Filtros:</h5>
-  <form>
-    <label for="cars">Tipo:</label>
-  
-    <select name="Treino" id="tipo_treino">
-      <option value="0">Treino</option>
-      <option value="1">Caminhada</option>
-    </select>
-      <input type="submit" ng-click="busca()" />
-    </form>
-
-</div>
 
 
 
- <div class="">
+
+ <div id="position_chart">
 <div id="chart" ></div>
 <div id="chartDonut" ></div>
 </div>

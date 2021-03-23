@@ -7,7 +7,8 @@ angular
       var exibe = 0;
       var IdUsuario = sessionStorage.getItem('id');
  
-     $scope.busca = function(){
+ 
+     $scope.busca = function (){
 
 
      
@@ -20,7 +21,7 @@ angular
         let dataFormatadaf =  ((dataf.getFullYear())) + "/" + (("0" + (dataf.getMonth() + 1)).slice(-2)) + "/" + dataf.getDate();
         
         var filtro = document.getElementById('tipo_treino').value;
-   
+ 
       if(filtro !=0){
        
         document.getElementById('th_tempo').style.display="block";
@@ -40,6 +41,20 @@ angular
 
           {   
           
+            var removeChart = document.getElementById('chart');
+            removeChart.remove(); 
+            var divNova = document.createElement("div");
+            divNova.setAttribute('id', 'chart');
+            divNova.setAttribute('Style', 'chart');
+            document.getElementById('position_chart').appendChild(divNova);
+  
+  
+            var removeDonut = document.getElementById('chartDonut');
+            removeDonut.remove(); 
+           var divNova2 = document.createElement("div");
+            divNova2.setAttribute('id', 'chartDonut');
+            divNova2.setAttribute('Style', 'chart');
+            document.getElementById('position_chart').appendChild(divNova2);
             donutChart(data);
             lineChart(data);
    dados_paginar =data;
@@ -85,7 +100,7 @@ angular
                         .append($('<td scope="col" style="border: 1px solid rgb(190, 190, 190);">').append(dados_paginar[i].parte_trabalhada))
                       )
            
-                      document.getElementById('th_distancia').innerText="Distancia";
+                      document.getElementById('th_distancia').innerText="Parte Trabalhada";
               }else{
 
             
@@ -101,7 +116,7 @@ angular
                      
                       .append($('<td scope="col" style="border: 1px solid rgb(190, 190, 190);">').append(dados_paginar[i].tempo_caminhada))
                       )
-                      document.getElementById('th_distancia').innerText="Parte Trabalhada";
+                      document.getElementById('th_distancia').innerText="Distancia";
                    
               }
             }
@@ -210,6 +225,7 @@ angular
       
   
       var donutChart = function(data){
+  
         var pts_grafico=[];
         var nome_exc=[];
         var result = [];
