@@ -97,15 +97,9 @@ angular.module('myHeroTraining')
 		$scope.aviso = async () => {
 			liberadia((resultado) => {
 				libera((resultado) => {
-					console.log($scope.jaFez)
-					console.log($scope.jaSel)
+					
 					if($scope.jaFez === false && $scope.jaSel === true){
-						swal({
-							title: "Erro!",
-							text: "Você está fazendo um treino em conjunto!",
-							type: "error",
-							icon: "error"
-						})
+						return true;
 					}
 				})
 			})

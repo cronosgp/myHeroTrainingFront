@@ -12,6 +12,7 @@ angular
         
         var carregaDadosAmigos = function () {
             amigosService.carregarAmigosData(IdUsuario).success(function (data) {
+                console.log(data)
                           
                 for(var i=0; i<data.length; i++){
 
@@ -62,6 +63,20 @@ angular
         });
     }
 
+        $scope.bloquea = function(){
+            treinoConjuntoService.liberaTreino().success(function(data){
+                if(data === 'false'){
+                return true;
+                }
+                else{
+                    return false;
+                }
+
+            }).error(function(data)
+            {
+            
+        });
+    }
 
   
         $scope.enviarConviteTreino = function (conviteid){

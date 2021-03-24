@@ -89,6 +89,9 @@
 
      <!-- listar solicitações pendentes para usuario aceitar -->
 <h2>Solicitações de amizade</h2>
+        <div class="alert alert-warning" role="alert" ng-show="exibir()">
+         Você não possui solicitações!
+        </div>
     <div class="container">
       <div class="row">
         <div class="col-md-10">
@@ -108,8 +111,8 @@
                   <p>{{usuario.email}}</p>
                 </div>
                 <div class="col-md-3 col-sm-3">
-                  <button class="btn btn-primary pull-right" ng-click="aceitarSolicitacao(usuario.id)">Aceitar</button>
-                  <button class="btn btn-danger pull-right" ng-click="recusarSolicitacao(usuario.id)">Recusar</button>
+                  <button class="btn btn-primary pull-right" ng-disabled="bloquea()" ng-click="aceitarSolicitacao(usuario.id)">Aceitar</button>
+                  <button class="btn btn-danger pull-right" ng-disabled="bloquea()"ng-click="recusarSolicitacao(usuario.id)">Recusar</button>
                 </div>
               </div>
             </div>

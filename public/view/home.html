@@ -21,7 +21,11 @@
        color: grey;
    }
 </style>
+<div class="alert alert-warning" role="alert"ng-show="aviso()">
+   Você está realizando um treino em conjunto!
+  </div>
 <div class="container" ng-init="aviso()">
+    
     <div class="card-deck" id="teste"style="width: 45rem;" >
         <div class="card"  ng-repeat="treino in treinos" >
             <img src="{{treino.urlt}}" class="card-img-top" alt="" >

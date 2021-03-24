@@ -19,7 +19,7 @@ angular.module('myHeroTraining').factory('homeService', function ($http) {
 
   var pagamento = function(id){
 
-    return $http.get('https://mhtrainingback.herokuapp/usuario/pagamento', {
+    return $http.get('http://localhost:8080/usuario/pagamento', {
 
       params: {
         id: id,
