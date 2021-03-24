@@ -86,4 +86,18 @@ angular
     var usuarioCadastro = function () {
       cadastroService.usuario($scope.model);
     };
+ 
+window.onload = function(){
+  document.getElementById('zp').addEventListener('keyup',(v)=>{
+   
+  
+		mascara( document.getElementById('zp'), mtel );
+  })
+  document.getElementById('tel2').addEventListener('keyup',(v)=>{
+   
+
+		mascara( document.getElementById('tel2'), mtel );
+  })
+  
+}
   });
