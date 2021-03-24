@@ -17,19 +17,30 @@ angular
         }
 
         $scope.enviar = function () {
-            amigosService.enviarSolicitacao(usuarioid, $scope.email).success(function (data) {
-                console.log(data)
-                
+            amigosService.enviarSolicitacao(usuarioid, $scope.email).then(success,error)
+
+            function success(data) {
                     swal(
-                        'email já existe!','', 'success'
+                        'Convite enviado com sucesso!','', 'success'
                     )
                 location.reload();
-            }).error(function (data){
-                console.log("erro");
-                swal(
-                    'Convite já enviado a este amigo!','', 'error'
-                );
-            });
+            }
+
+            function error (data){
+                if(data.status === 400){
+                    swal(
+                        'Convite já enviado a este amigo!','', 'error'
+                    );
+                }else if(data.status === 404){
+                    swal(
+                        'Este usuario não existe!','', 'error'
+                    );
+                }else{
+                    swal(
+                        'Algum erro ocorreu!','', 'error'
+                    );
+                }
+            }
         }
 
     });

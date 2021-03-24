@@ -31,6 +31,13 @@ angular.module('myHeroTraining').factory('amigosService', function ($http) {
         });
     };
 
+    var delAmigo = function (usuarioid, amizadeid) {
+        return $http.post('http://localhost:8080/friend/reject-friend', {
+            usuarioid: usuarioid,
+            amizadeid: amizadeid
+        });
+    };
+
     var carregarAmigos = function (id) {
    //     var jwt = localStorage.getItem('Bearer');
 
@@ -54,6 +61,7 @@ angular.module('myHeroTraining').factory('amigosService', function ($http) {
     };
 
     return {
+        delAmigo: delAmigo,
         carregarAmigosData: carregarAmigosData,
         carregarAmigos: carregarAmigos,
         carregarSolicitacoes: carregarSolicitacoes,

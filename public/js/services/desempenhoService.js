@@ -3,7 +3,7 @@ angular.module('myHeroTraining').factory('desempenhoService', function ($http) {
  //    var jwt = localStorage.getItem('Bearer');
   
    //  $http.defaults.headers.common.Authorization = 'Bearer ' + jwt;
-      return $http.get('https://mhtrainingback.herokuapp.com/desempenho', {
+      return $http.get('http://localhost:8080/desempenho', {
         params: {
           id: id,
          d_ini : data ,
@@ -17,7 +17,7 @@ angular.module('myHeroTraining').factory('desempenhoService', function ($http) {
       //var jwt = localStorage.getItem('Bearer');
   
      // $http.defaults.headers.common.Authorization = 'Bearer ' + jwt;
-      return $http.get('https://mhtrainingback.herokuapp.com/desempenho/dado', {
+      return $http.get('http://localhost:8080/desempenho/dado', {
         params: {
           id: id,
         

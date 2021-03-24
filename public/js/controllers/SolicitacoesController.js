@@ -67,7 +67,12 @@ angular
 
         $scope.recusarSolicitacao = function (amizadeid) {
 
-            amigosService.recusarSolicitacao(amizadeid, IdUsuario).success(function (data){
+            amigosService.recusarSolicitacao(IdUsuario, amizadeid).success(function (data){
+                swal({
+                    title: "Solicitação Recusada!",
+                    type: "success",
+                    icon: "success"
+                })
                 $scope.solicitacoes();
             }).error(function (data){
                 console.log("erro");

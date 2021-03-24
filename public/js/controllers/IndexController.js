@@ -9,13 +9,15 @@ angular.module('myHeroTraining')
 		 perfilService,
 		 treinoConjuntoService,
 		 TreinoService,
-		 $location ) {
+		 $location,
+		 $interval) {
 		$scope.model = {};
 		var IdUsuario = sessionStorage.getItem('id');
 
 		/*$scope.msg = function(){
 			return sweetAlert("Você não possui amigos adicionados ou solicitações aceitas para essa opção. Convide novos amigos")
 		}*/
+
 
 		var pagante = 0;
 
@@ -55,13 +57,12 @@ angular.module('myHeroTraining')
               });
             };
             isUsuariopagante();
-		
+
 		
 		$scope.alterarIdioma = function(chave) {
 
 			$translate.use(chave);
 		}
-
 
 		var libera = function (callback) {
 			treinoConjuntoService.liberaTreino(IdUsuario).success(function (data){
@@ -72,7 +73,7 @@ angular.module('myHeroTraining')
 			});
 		}
 
-		var liberadia = function (callback) {
+		/*var liberadia = function (callback) {
 			homeService.carregarTreinos(IdUsuario).success(function (data) {
 				var treino = data[0].idt;
 				TreinoService.carregaFasesTreino(treino).success(function (data) {
@@ -91,10 +92,9 @@ angular.module('myHeroTraining')
 			}).error(function (){
 				console.log("erro");
 			});
-		}
+		}*/
 
-
-		$scope.aviso = async () => {
+		/*$scope.aviso = async () => {
 			liberadia((resultado) => {
 				libera((resultado) => {
 					
@@ -103,7 +103,7 @@ angular.module('myHeroTraining')
 					}
 				})
 			})
-		}
+		} */
 
 
 		var oculta= false;
