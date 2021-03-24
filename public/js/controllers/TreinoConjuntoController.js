@@ -67,7 +67,14 @@ angular
                 })
             } else {
                 treinoConjuntoService.aceitarSolicitacao(usuarioid, IdUsuario).success(function (data) {
+                    swal({
+                        title: "Convite aceito com sucesso!",
+                        type: "success",
+                        icon: "success"
+                    })
                     $scope.carregaSolicitacoes();
+                    $route.reload();
+
                 }).error(function (data) {
                     console.log("erro");
                     console.log(data);

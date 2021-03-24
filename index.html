@@ -2,8 +2,7 @@
 <html lang="pt-br" ng-app="myHeroTraining">
 <head>
 	<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCGyNOT4gPXsEnP-B9jcrXNym1qfoNniMU"></script>
-  
+
     <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <meta name="viewport" content="width=device-width">
     <script src="./js/lib/angular.min.js"></script>
@@ -23,7 +22,7 @@
 
     <script src="./js/services/desempenhoService.js"></script>
     <script src="./js/controllers/desempenhoController.js"></script>
-    <link rel="stylesheet" href="./css/desempenho.css">
+
     <script src="./js/services/loginService.js"></script>
     <script src="./js/services/amigosService.js"></script>
     <script src="./js/services/perfilService.js"></script>
@@ -254,11 +253,15 @@ function displayNotificationBubble() {
                             <a class="nav-link dropdown-toggle" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{nome}}</span>
-                                <img ng-init="carregaAvatar()" class="header-avatar img-profile rounded-circle" id="header-avatar"
+                                <img class="img-profile rounded-circle"
                                     src="{{avatar}}">
                             </a>
                             
                             
+                            <div class="avatar-menu" id="avatar-menu" ng-show="exibircomLogin()">
+                                <div ng-init="carregaAvatar()" class="header-avatar" id="header-avatar"
+                                     style="background-image: url({{avatar}})">
+                                </div>
                             
                             <!-- Dropdown - User Information -->
                         

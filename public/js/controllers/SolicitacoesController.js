@@ -7,15 +7,29 @@ angular
         avatarService
     ) {
         var IdUsuario = sessionStorage.getItem('id');
+        var exibir=0;
 
         $scope.solicitacoes = function () {
             amigosService.carregarSolicitacoes(IdUsuario).success(function (data) {
+                console.log(data.length)
+                if(data.length===0){
+                    exibir = 1;
+                }
+
                 $scope.usuarios = data;
+                
                 console.log($scope.usuarios);
             }).error(function(data){
                 console.log("erro");
                 console.log(data);
             });
+        }
+
+        $scope.exibir = function(){
+            if(exibir ===1){
+                return true;
+
+            }
         }
 
         $scope.carregaNotAmizade = function () {
