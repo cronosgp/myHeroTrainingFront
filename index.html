@@ -289,7 +289,7 @@ function displayNotificationBubble() {
                            
                                 <a class="dropdown-item" href="#amigos">
                                     <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    <span class="not" ng-show="notAmizade>0">{{notAmizade}}</span>
+                                    <span ng-controller="NotController" class="not" ng-show="notAmizade>0">{{notAmizade}}</span>
                                     Meus Amigos
                                 </a>
                                 
@@ -308,7 +308,7 @@ function displayNotificationBubble() {
                              
                                 <a class="dropdown-item" ng-hide="false" href="#treino-conjunto">
                                     <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    <span class="not" ng-show="notTreino>0">{{notTreino}}</span>
+                                    <span ng-controller="NotController" class="not" ng-show="notTreino>0">{{notTreino}}</span>
                                     Treino Conjunto
                                 </a>
 

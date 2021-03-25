@@ -44,7 +44,7 @@ angular.module('myHeroTraining').factory('amigosService', function ($http) {
     };
 
     var delAmigo = function (usuarioid, amizadeid) {
-        return $http.post('http://localhost:8080/friend/reject-friend', {
+        return $http.post('http://localhost:8080/friend/reject', {
             usuarioid: usuarioid,
             amizadeid: amizadeid
         });
@@ -72,7 +72,19 @@ angular.module('myHeroTraining').factory('amigosService', function ($http) {
         });
     };
 
+    var carregarSolData = function (id) {
+        //    var jwt = localStorage.getItem('Bearer');
+
+        //  $http.defaults.headers.common.Authorization = 'Bearer ' + jwt;
+        return $http.get('http://localhost:8080/friend/request', {
+            params: {
+                id: id
+            },
+        });
+    };
+
     return {
+        carregarSolData: carregarSolData,
         delAmigo: delAmigo,
         carregarAmigosData: carregarAmigosData,
         carregarAmigos: carregarAmigos,

@@ -36,26 +36,21 @@ angular
         var IdUsuario = sessionStorage.getItem('id');
 
 
-  
-            
-        $scope.carregaSolicitacoes = function () {
+        var carregaSolTreino = function () {
             treinoConjuntoService.carregarSolicitacoes(IdUsuario).success(function (data) {
-                $scope.solicitacoes = data;
-                console.log(data);
-            }).error(function(data){
-                console.log("erro");
-                console.log(data);
-            });
-        }
+                console.log(data)
 
-        $scope.pegaAvatar = function (id) {
-            avatarService.carregarAvatar(id).success(function (data) {
-                let img = avatarService.arrayBufferToBase64(data)
-                $scope.avatar = "data:image/png;base64,"+img;
+                for(var i=0; i<data.length; i++){
+                    data[i].avatar = "data:image/png;base64," +data[i].avatar
+                }
+                $scope.solicitacoes = data;
+
             }).error(function (data) {
                 console.log("erro");
+                console.log(data);
             });
         }
+        carregaSolTreino();
 
         
         $scope.aguardando = function () {
@@ -692,7 +687,6 @@ angular
 
         $scope.aguardando();
         $scope.pegaResultado();
-        $scope.carregaSolicitacoes();
 
         
     });
