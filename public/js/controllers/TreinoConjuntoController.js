@@ -57,62 +57,7 @@ angular
             });
         }
 
-        $scope.aceitarSolicitacao = function (usuarioid) {
-            libera();
-            if ($scope.jaFez === true || $scope.jaSel === true) {
-                swal({
-                    title: "Você já esta realizando um treino conjunto!",
-                    type: "error",
-                    icon: "error"
-                })
-            } else {
-                treinoConjuntoService.aceitarSolicitacao(usuarioid, IdUsuario).success(function (data) {
-                    swal({
-                        title: "Convite aceito com sucesso!",
-                        type: "success",
-                        icon: "success"
-                    })
-                    $scope.carregaSolicitacoes();
-                    $route.reload();
-
-                }).error(function (data) {
-                    console.log("erro");
-                    console.log(data);
-                });
-            }
-        }
-
-        var libera = function (callback) {
-            treinoConjuntoService.liberaTreino(IdUsuario).success(function (data){
-                $scope.jaSel = data !== true;
-                return callback(data !== true);
-            }).error(function (data){
-                console.log("erro");
-            });
-        }
-
-        var liberadia = function (callback) {
-            homeService.carregarTreinos(IdUsuario).success(function (data) {
-                var treino = data[0].idt;
-                TreinoService.carregaFasesTreino(treino).success(function (data) {
-                    $scope.fases = data;
-                    var ultimo = $scope.fases.length - 1;
-                    var idTreino = $scope.fases[ultimo].id
-                    treinoConjuntoService.checaFinal(IdUsuario, idTreino).success(function (data) {
-                        $scope.jaFez = data === true;
-                        return callback(data !== true);
-                    }).error(function (){
-                        console.log("erro");
-                    })
-                }).error(function (data) {
-                    console.log("erro");
-                });
-            }).error(function (){
-                console.log("erro");
-            });
-        }
-
-
+        
         $scope.aguardando = function () {
             treinoConjuntoService.amigoAguardando(IdUsuario).success(function (data){
                 $scope.amigoAguardando = data !== true;
@@ -131,48 +76,7 @@ angular
 
 
 
-        $scope.aviso = async () => {
-            liberadia((resultado) => {
-                libera((resultado) => {
-                    console.log($scope.jaFez)
-                    console.log($scope.jaSel)
-
-                    if($scope.jaFez === true){
-                        swal({
-                            title: "Erro!",
-                            text: "Você já fez o treino diario!",
-                            type: "error",
-                            icon: "error"
-                        })
-                    }else if($scope.jaFez === false && $scope.jaSel === false){
-                        swal({
-                            title: "Erro!",
-                            text: "Selecione um treino em conjunto!",
-                            type: "error",
-                            icon: "error"
-                        })
-                    }
-                })
-            })
-        }
-
-        $scope.aviso2 = async () => {
-            liberadia((resultado) => {
-                $scope.aguardando()
-                console.log($scope.jaFez)
-                console.log($scope.jaSel)
-
-                if($scope.amigoAguardando === true){
-                    swal({
-                        title: "Erro!",
-                        text: "Aguardando seu amigo finalizar o treino dele!",
-                        type: "error",
-                        icon: "error"
-                    })
-                }
-            })
-        }
-
+     
         $scope.carregaNotTreino = function () {
             treinoConjuntoService.carregarSolicitacoes(IdUsuario).success(function (data) {
                 $scope.notTreino = data.length
@@ -213,6 +117,7 @@ angular
         };
         //função botão iniciar
 
+        console.log("Bruno",faseTerminadas)
         $scope.desabilita = function(dados) {
 
             var ProximaFase = faseTerminadas[faseTerminadas.length - 1];
@@ -321,13 +226,20 @@ angular
         //falta pegar Id do usuario do banco e passar no parametro, pelo token
         //falta salvar id na tabela
         //true ?Ok
-        var buscaTreinosFeito = function () {
+        var conjunto;
+        var buscaTreinosFeitoPersonalizado = function () {
             var dataAtual = new Date();
             let data = new Date();
             let dataFormatada =  ((data.getFullYear())) + "/" + (("0" + (data.getMonth() + 1)).slice(-2)) + "/" + data.getDate();
-            TreinoService.buscaTreinosFeitos(IdUsuario,dataFormatada).success(function (data) {
+            TreinoService.buscaTreinoPersonalizadoFeitos(IdUsuario,dataFormatada).success(function (data) {
+               
                 for (var j = 0; j < data.length; j++) {
                     faseTerminadas.push(data[j].id_exercicio);
+                }
+
+                if(data.length !=0){
+                    conjunto = true;
+
                 }
             }).error(function(data){
                 if(data.status === 403){
@@ -335,6 +247,75 @@ angular
                 }
             });
         };
+
+        
+
+
+
+
+
+        buscaTreinosFeitoPersonalizado();
+        var libera;
+        var convite = function(){
+            let data = new Date();
+            let dataFormatada =  ((data.getFullYear())) + "/" + (("0" + (data.getMonth() + 1)).slice(-2)) + "/" + data.getDate();
+            amigosService.buscaConvite(IdUsuario,dataFormatada).success(function (data)
+            {
+                if(data.length !==0){
+                   libera = true;
+                }
+            });
+
+
+        }
+        convite();
+
+        $scope.dados = function(){
+
+            console.log("Lari e Bru",temTreino)
+
+            if(temTreino === true || conjunto === true){
+                return true;
+
+            }
+        }
+
+        var temTreino;
+        var buscaTreinosFeito = function () {
+            var dataAtual = new Date();
+            let data = new Date();
+            let dataFormatada =  ((data.getFullYear())) + "/" + (("0" + (data.getMonth() + 1)).slice(-2)) + "/" + data.getDate();
+            TreinoService.buscaTreinosFeitos(IdUsuario,dataFormatada).success(function (data) {
+
+                               
+              if(data.length!=0){
+                temTreino = true;
+
+              }
+
+             }).error(function(data){
+              if(data.status === 403){
+                $location.path('/login');
+              }
+            });
+          };
+          buscaTreinosFeito();
+
+        $scope.bloqueia = function(){
+            
+
+            if(libera === true && temTreino!=true){
+
+               
+
+                return false;
+            }
+            else{
+                return true;
+            }
+         
+        }
+
         buscaTreinosFeito();
         var exerciciosFase = function () {
             TreinoService.carregaExercicios(id).success(function (data) {
@@ -392,7 +373,9 @@ angular
             var dadosTreino = {
                 id_usuario: IdUsuario,
                 dataRealizada: new Date(),
-                id_exercicio :id
+                id_exercicio :id,
+                conjunto :'true'
+
             };
 
             var calculaDatafimFase = function(){
@@ -407,6 +390,8 @@ angular
             TreinoService.atualizaIdusuarioTreino(dadosTreino).success(function (
                 data
             ) {
+
+                
             }).error(function(data){
                 if(data.status === 403){
                     $location.path('/login');
@@ -479,7 +464,6 @@ angular
 
 
             }
-
             document.getElementById('p_cronometro').style.display = 'none';
             document.getElementById('btn_finalizar').style.display = 'none';
             document.getElementById('btn_iniciar').style.display = 'block';
@@ -562,7 +546,7 @@ angular
 
                             document.getElementById('img').style.filter = '';
                             let id_treino = $routeParams.id;
-                            $location.path('treino/inicio/' + id_treino);
+                            $location.path('treino-conjunto-executa/' + id_treino);
                         },
                     }).then((result) => {
                         //  Read more about handling dismissals below
@@ -585,7 +569,7 @@ angular
                     // atualizaIdusuarioTreino();
                     //   atualizaFaseBanco(id);
 
-                    $location.path('treinos/' + idFase);
+                    $location.path('treinoconjuntoinicio/' + idFase);
 
                     function refresh() {
                         setTimeout(function () {
@@ -593,7 +577,7 @@ angular
                         }, 200);
                     }
                     refresh();
-                    $location.path('treinos/' + idFase);
+                    $location.path('treinoconjuntoinicio/' + idFase);
                     setTimeout(location.reload.bind(location), 2000);
                     // window.location.reload();
                 });

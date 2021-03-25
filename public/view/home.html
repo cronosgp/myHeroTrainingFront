@@ -21,8 +21,8 @@
        color: grey;
    }
 </style>
-<div class="alert alert-warning" role="alert"ng-show="aviso()">
-   Você está realizando um treino em conjunto!
+<div class="alert alert-warning" role="alert"ng-show="bloqueia()">
+   Você está em um treino em conjunto!
   </div>
 <div class="container" ng-init="aviso()">
     
@@ -35,17 +35,20 @@
                 <p class="card-text" ><span translate="HEADER.HOME.INTENSIDADE">Intensidade:</span> <b>{{treino.intensidadet}}</b></p>
                 <p class="card-text"> <span translate="HEADER.HOME.NIVEL">Nível: </span> <b>{{treino.nivelt}}</b></p>
                 <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                        <a class="btn btn-sm btn-outline-success" ng-model="inicio" type="button"
+
+                <button button
+                type="button"
+                class="btn btn-link" ng-disabled="bloqueia()">
+                        <a  class="btn btn-sm btn-outline-success" ng-model="inicio" type="button"
                            href="#/treinos/{{treino.idt}}" 
                         >Iniciar Treino</a>                       
     
-                        <a class="btn btn-sm btn-outline-danger" ng-model="inicio" type="button "
+                        <a ng-class="{disabled: jaSel}"class="btn btn-sm btn-outline-danger" ng-model="inicio" type="button "
                         ng-click ="msg()"
                         href="#/amigos/" 
                      >Treinar em Conjunto</a>                       
       
-                    </div>
+                </button>
                     
                     <small class="text-muted" id="" ><span translate="HEADER.HOME.TEMPOESTIMADO">Tempo estimado:</span><b> {{treino.horast}}</b></small>
                      <small class="text-muted" id="id_tempo_feito" style="display: none;" >Tempo feito: {{treino.tempot}}

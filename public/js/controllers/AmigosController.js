@@ -31,6 +31,37 @@ angular
             });
         }
 
+            var bloqueia;
+
+        var buscaConviteen = function(){
+            
+            var data = new Date();
+            let dataFormatada =  ((data.getFullYear())) + "/" + (("0" + (data.getMonth() + 1)).slice(-2)) + "/" + data.getDate();
+            amigosService.buscaConvite(IdUsuario,dataFormatada).success(function(data){
+
+                
+
+                if(data.length!=0){
+                    bloqueia = true;
+                }
+              
+            });
+
+        }
+
+         buscaConviteen();
+
+        $scope.enviado = function(){
+
+            if(bloqueia === true){
+
+                
+
+                return true;
+
+            }
+        }
+
         carregaDadosAmigos();
 
         $scope.InitAmigosData = function () {
@@ -63,7 +94,7 @@ angular
         });
     }
 
-        $scope.bloquea = function(){
+       $scope.bloquea = function(){
             treinoConjuntoService.liberaTreino().success(function(data){
                 if(data === 'false'){
                 return true;

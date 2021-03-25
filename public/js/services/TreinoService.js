@@ -97,6 +97,23 @@ angular.module('myHeroTraining').factory('TreinoService', function ($http) {
   var buscaIdUsuario = function (token) {
     return $http.get('/usuario', token);
   };
+    var buscaTreinoPersonalizadoFeitos = function(IdUsuario,data){
+      return $http.get(
+
+      'http://localhost:8080/treinousuario/recupera/conjunto',
+      {
+        params: {
+          id: IdUsuario,
+          data : data
+
+        },
+      }
+    );
+    
+    }
+  
+
+
   var buscaTreinosFeitos = function (IdUsuario,data) {
   //  var jwt = localStorage.getItem('Bearer');
 
@@ -176,7 +193,9 @@ angular.module('myHeroTraining').factory('TreinoService', function ($http) {
     salvaDataFimFase : salvaDataFimFase,
     atualizapontosUsu : atualizapontosUsu,
    buscaPersonlizado : buscaPersonlizado,
-    salvaDadosPersonalizado: salvaDadosPersonalizado
+    salvaDadosPersonalizado: salvaDadosPersonalizado,
+    buscaTreinoPersonalizadoFeitos: buscaTreinoPersonalizadoFeitos
+
 
    
     
