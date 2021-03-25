@@ -81,7 +81,7 @@ angular
         var jaSelecionou = function () {
             treinoConjuntoService.liberaTreino(IdUsuario).success(function (data){
                 $scope.jaSel = data !== true;
-                return callback(data !== true);
+                return data !== true;
             }).error(function (data){
                 console.log("erro");
             });
