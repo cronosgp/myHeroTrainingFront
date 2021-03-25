@@ -9,6 +9,7 @@ angular
         var IdUsuario = sessionStorage.getItem('id');
         var exibir=0;
 
+        
         $scope.solicitacoes = function () {
             amigosService.carregarSolicitacoes(IdUsuario).success(function (data) {
                 console.log(data.length)
@@ -24,6 +25,17 @@ angular
                 console.log(data);
             });
         }
+      
+         $scope.dados = function(){
+
+            if(bloqueia === true){
+
+               
+
+           
+                return true;
+            }
+         }
 
         $scope.exibir = function(){
             if(exibir ===1){

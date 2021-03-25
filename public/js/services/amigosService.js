@@ -10,6 +10,18 @@ angular.module('myHeroTraining').factory('amigosService', function ($http) {
         });
     };
 
+    var buscaConvite = function(id, data){
+        return $http.get('http://localhost:8080/treino-conjunto/convite', {
+        params:{   
+            id: id,
+            data: data
+        },
+    });
+
+    }
+
+    
+
     var enviarSolicitacao = function (usuarioid, email) {
         return $http.post('http://localhost:8080/friend/request', {
                 usuarioid: usuarioid,
@@ -59,6 +71,7 @@ angular.module('myHeroTraining').factory('amigosService', function ($http) {
         carregarSolicitacoes: carregarSolicitacoes,
         enviarSolicitacao: enviarSolicitacao,
         aceitarSolicitacao: aceitarSolicitacao,
-        recusarSolicitacao: recusarSolicitacao
+        recusarSolicitacao: recusarSolicitacao,
+        buscaConvite : buscaConvite
     };
 });

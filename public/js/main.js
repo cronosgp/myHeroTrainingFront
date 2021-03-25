@@ -391,8 +391,20 @@ angular
       templateUrl: "./view/Pagamento.html",
       controller: "PagamentoController",
     });
+
+    $routeProvider.when("/treino-conjunto-executa/:id", {
+      templateUrl: "./view/treinoconjuntoexecuta.html",
+      controller: "TreinoConjuntoController",
+    });
+
+
+
     $routeProvider.when("/treino-conjunto/", {
       templateUrl: "./view/TreinoConjunto.html",
+      controller: "TreinoConjuntoController",
+    });
+    $routeProvider.when("/treinoconjuntoinicio/:id", {
+      templateUrl: "./view/treinoconjuntoinicio.html",
       controller: "TreinoConjuntoController",
     });
     $routeProvider.when("/treino-conjunto/solicitacoes", {

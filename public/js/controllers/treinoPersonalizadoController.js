@@ -10,6 +10,7 @@ angular
       var tamanhofor;
       var oculta=0;
       var faseTerminadas2=[];
+      var faseTerminadas3 =[];
       var IdUsuario = sessionStorage.getItem('id');
       var desab =0;
         $scope.model={
@@ -204,7 +205,7 @@ angular
      }
      $scope.desabilitas = function(){
     
-      if(temPersonalizado == true || faseTerminadas2.length!=0 ){  
+      if(temPersonalizado == true || faseTerminadas2.length!=0 || faseTerminadas3.length!=0){  
 
         return true;
       }
@@ -225,6 +226,24 @@ angular
       });
     };
     buscaTreinosFeito();
+
+    var buscaTreinosConj = function () {
+      var dataAtual = new Date();
+      let data = new Date();
+      let dataFormatada =  ((data.getFullYear())) + "/" + (("0" + (data.getMonth() + 1)).slice(-2)) + "/" + data.getDate();
+      TreinoService.buscaTreinoPersonalizadoFeitos(IdUsuario,dataFormatada).success(function (data) {
+        for (var j = 0; j < data.length; j++) {   
+          faseTerminadas3.push(data[j].id_exercicio);
+        }
+       }).error(function(data){
+        if(data.status === 403){
+          $location.path('/login');
+        }
+      });
+    };
+    buscaTreinosConj();
+
+
      var buscaPersonlizado = function(){
        var data = new Date() 
       let dataFormatada =  ((data.getFullYear())) + "/" + (("0" + (data.getMonth() + 1)).slice(-2)) + "/" + data.getDate();

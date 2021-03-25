@@ -65,12 +65,12 @@ angular.module('myHeroTraining').factory('treinoConjuntoService', function ($htt
     };
 
     var checaFinal = function (id, idTreino){
-        return $http.get('http://localhost:8080/treino-conjunto/request/last', {
+        /*return $http.get('http://localhost:8080/treino-conjunto/request/last', {
             params: {
                 id: id,
                 idTreino: idTreino
             },
-        });
+        });*/
     };
 
 
