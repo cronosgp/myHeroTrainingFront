@@ -1,15 +1,17 @@
-
+<body>
+ 
  <div class="container" id="data_historico">
-  <h5 id="">Período:</h5>
+  
 
-    <form>
+    <form style="bottom: 10px;">
+      <h5 id="">Período:</h5>
       <label>Inicio:</label>
       <input type="date" required id="dt_inicio" name="inicio" ng-model="model.dt"/>
       <!--input type="submit" /-->
       <label>Fim:</label>
       <input type="date" required  id="dt_fim" name="fim" ng-model="model.df"/>
  
-      <div id="combobox_filtro">
+      <div id="combobox_filtro" ng-repeat="u in usu" id="dados" >
 
         <h5 id="">Filtros:</h5>
         <form>
@@ -21,12 +23,50 @@
             <option value="1">Caminhada</option>
           </select>
             <input type="submit" ng-click="busca()" />
+          
           </form>
+          
+      </div>
+      <div class=".container_card_" id="card_center">
+      <div class="card_"  style="height:10%; border-radius: 18%; left: 35%; top: 25px; background-color: 	#B8B8B8; position: relative;" ng-repeat="u in usu" id="dados"> 
+        <img style="border-color:#B8B8B8 ;"src="" id="img_center" alt="Person" class="card__image">
+        <b> <p class="card__name" style="font-size:medium;">{{u.nome_}}</p></b>
+        <div class="grid-container_card_">
+    
+          <div class="grid-child-posts">
+            <b>Pontuação geral:{{u.pontos_soma}} pontos</b>
+          </div>
+    
+          
+    
+        </div>
+        
+         
+         
+         
+            <img id="imgP"
+              src="https://imagepng.org/wp-content/uploads/2018/08/twitter-icone.png"
+              alt="twitter"
+              class="share"
+              style="width:15%;"
+            />
+     
+              <span>Twitter</span>
+            </a>
+          </li>
+                
+          <a  class="btn draw-border"  style="color:white;" href="https://twitter.com/intent/tweet?hashtags=MyHeroTraning,exercicios,treino&text=Veja%20Minha%20Pontuação:{{u.pontos_soma}}+pontos">Compartilhar</a>
+                
+          </ul>
+        
+        
       
       </div>
-      <div class="col-md-7 col-sm-7 my-0 "  style="left: 70%; display: none;" id="twitter_compartilhar"ng-repeat="u in usu" id="dados" > 
+    </div>
+  
+      <div class="col-md-7 col-sm-7 my-0 "  style="left: 70%; display: inline-block;; display: none;" id="twitter_compartilhar" ng-repeat="u in usu" id="dados" > 
         
-
+        <div><span><b>Sua pontuação geral: </b>{{u.pontos_soma}}</span></div>
         <b>Compartilhe: </b>
         <a id="link_twitter" target="_blank" 
         rel="noopener noreferrer"
@@ -37,11 +77,15 @@
             class="share"
             style="width:5%;"
           />
-        </a>   
+        </a>  
+      
+        
+     
+ 
       </div>
     </form>
   
-   
+    
 </div>
 
 
@@ -183,3 +227,5 @@
       </div>
     </div>
   
+    
+  </body>
