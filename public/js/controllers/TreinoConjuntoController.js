@@ -68,9 +68,6 @@ angular
                 console.log("erro");
             });
         }
-
-
-
      
         $scope.carregaNotTreino = function () {
             treinoConjuntoService.carregarSolicitacoes(IdUsuario).success(function (data) {
@@ -81,10 +78,40 @@ angular
         }
         $scope.carregaNotTreino();
 
+        $scope.aceitarSolicitacao = function (usuarioid) {
+            libera();
+            if ($scope.jaFez === true || $scope.jaSel === true) {
+                swal({
+                    title: "Você já esta realizando um treino conjunto!",
+                    type: "error",
+                    icon: "error"
+                })
+            } else {
+                treinoConjuntoService.aceitarSolicitacao(usuarioid, IdUsuario).success(function (data) {
+                    swal({
+                        title: "Convite aceito com sucesso!",
+                        type: "success",
+                        icon: "success"
+                    })
+                    carregaSolTreino();
+                    $route.reload();
+
+                }).error(function (data) {
+                    console.log("erro");
+                    console.log(data);
+                });
+            }
+        }
+
         $scope.recusarSolicitacao = function (usuarioid) {
 
             treinoConjuntoService.recusarSolicitacao(usuarioid, IdUsuario).success(function (data){
-                $scope.carregaSolicitacoes();
+                swal({
+                    title: "Convite recusado!",
+                    type: "success",
+                    icon: "success"
+                })
+                carregaSolTreino();
             }).error(function (data){
                 console.log("erro");
                 console.log(data);
