@@ -179,24 +179,6 @@ angular.module('myHeroTraining')
 		}
 		$scope.carregarNome();
 
-		$scope.carregaNotAmizade = function () {
-			amigosService.carregarSolicitacoes(IdUsuario).success(function (data) {
-				$scope.notAmizade = data.length
-			}).error(function (data) {
-				console.log("erro");
-			});
-		}
-		$scope.carregaNotAmizade();
-
-		$scope.carregaNotTreino = function () {
-			treinoConjuntoService.carregarSolicitacoes(IdUsuario).success(function (data) {
-				$scope.notTreino = data.length
-			}).error(function (data) {
-				console.log("erro");
-			});
-		}
-		$scope.carregaNotTreino();
-
 
 		$scope.pagante = function(){
 				if(oculta == true){

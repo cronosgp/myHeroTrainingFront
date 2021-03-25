@@ -9,22 +9,22 @@ angular
         var IdUsuario = sessionStorage.getItem('id');
         var exibir=0;
 
-        
-        $scope.solicitacoes = function () {
-            amigosService.carregarSolicitacoes(IdUsuario).success(function (data) {
-                console.log(data.length)
-                if(data.length===0){
-                    exibir = 1;
-                }
+        var carregaSolAmigos = function () {
+            amigosService.carregarSolData(IdUsuario).success(function (data) {
+                console.log(data)
 
+                for(var i=0; i<data.length; i++){
+                    data[i].avatar = "data:image/png;base64," +data[i].avatar
+                }
                 $scope.usuarios = data;
-                
-                console.log($scope.usuarios);
-            }).error(function(data){
+
+            }).error(function (data) {
                 console.log("erro");
                 console.log(data);
             });
         }
+        carregaSolAmigos();
+
       
          $scope.dados = function(){
 
@@ -92,6 +92,5 @@ angular
             });
         }
 
-        $scope.solicitacoes();
     });
 

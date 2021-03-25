@@ -36,26 +36,21 @@ angular
         var IdUsuario = sessionStorage.getItem('id');
 
 
-  
-            
-        $scope.carregaSolicitacoes = function () {
+        var carregaSolTreino = function () {
             treinoConjuntoService.carregarSolicitacoes(IdUsuario).success(function (data) {
-                $scope.solicitacoes = data;
-                console.log(data);
-            }).error(function(data){
-                console.log("erro");
-                console.log(data);
-            });
-        }
+                console.log(data)
 
-        $scope.pegaAvatar = function (id) {
-            avatarService.carregarAvatar(id).success(function (data) {
-                let img = avatarService.arrayBufferToBase64(data)
-                $scope.avatar = "data:image/png;base64,"+img;
+                for(var i=0; i<data.length; i++){
+                    data[i].avatar = "data:image/png;base64," +data[i].avatar
+                }
+                $scope.solicitacoes = data;
+
             }).error(function (data) {
                 console.log("erro");
+                console.log(data);
             });
         }
+        carregaSolTreino();
 
         
         $scope.aguardando = function () {
@@ -73,9 +68,6 @@ angular
                 console.log("erro");
             });
         }
-
-
-
      
         $scope.carregaNotTreino = function () {
             treinoConjuntoService.carregarSolicitacoes(IdUsuario).success(function (data) {
@@ -86,10 +78,40 @@ angular
         }
         $scope.carregaNotTreino();
 
+        $scope.aceitarSolicitacao = function (usuarioid) {
+            libera();
+            if ($scope.jaFez === true || $scope.jaSel === true) {
+                swal({
+                    title: "Você já esta realizando um treino conjunto!",
+                    type: "error",
+                    icon: "error"
+                })
+            } else {
+                treinoConjuntoService.aceitarSolicitacao(usuarioid, IdUsuario).success(function (data) {
+                    swal({
+                        title: "Convite aceito com sucesso!",
+                        type: "success",
+                        icon: "success"
+                    })
+                    carregaSolTreino();
+                    $route.reload();
+
+                }).error(function (data) {
+                    console.log("erro");
+                    console.log(data);
+                });
+            }
+        }
+
         $scope.recusarSolicitacao = function (usuarioid) {
 
             treinoConjuntoService.recusarSolicitacao(usuarioid, IdUsuario).success(function (data){
-                $scope.carregaSolicitacoes();
+                swal({
+                    title: "Convite recusado!",
+                    type: "success",
+                    icon: "success"
+                })
+                carregaSolTreino();
             }).error(function (data){
                 console.log("erro");
                 console.log(data);
@@ -692,7 +714,6 @@ angular
 
         $scope.aguardando();
         $scope.pegaResultado();
-        $scope.carregaSolicitacoes();
 
         
     });
