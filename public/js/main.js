@@ -423,7 +423,7 @@ angular
       lenguage = "en-US";
     }
     
-    $routeProvider.otherwise({ redirectTo: "/principal" });
+    $routeProvider.otherwise({ redirectTo: "/login" });
     $translateProvider.preferredLanguage(lenguage);
     $translateProvider.useSanitizeValueStrategy("escape");
   });
