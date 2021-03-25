@@ -11,7 +11,6 @@ angular
 
         var carregaSolAmigos = function () {
             amigosService.carregarSolData(IdUsuario).success(function (data) {
-                console.log(data)
 
                 for(var i=0; i<data.length; i++){
                     data[i].avatar = "data:image/png;base64," +data[i].avatar
@@ -69,7 +68,7 @@ angular
                         type: "success",
                         icon: "success"
                     })
-                    $scope.solicitacoes();
+                    carregaSolAmigos();
                 }).error(function (data){
                     console.log("erro");
                     console.log(data);
@@ -85,7 +84,7 @@ angular
                     type: "success",
                     icon: "success"
                 })
-                $scope.solicitacoes();
+                carregaSolAmigos();
             }).error(function (data){
                 console.log("erro");
                 console.log(data);

@@ -31,14 +31,17 @@ angular
                     swal(
                         'Convite já enviado a este amigo!','', 'error'
                     );
+                    location.reload();
                 }else if(data.status === 404){
                     swal(
                         'Este usuario não existe!','', 'error'
                     );
+                    location.reload();
                 }else{
                     swal(
                         'Algum erro ocorreu!','', 'error'
                     );
+                    location.reload();
                 }
             }
         }
