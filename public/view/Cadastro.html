@@ -301,17 +301,17 @@
                   >Telefone de Contato 1
                 </label>
                 <input
-                  translate
-                  translate-attr-placeholder="HEADER.CADASTRO.PTELEFONE"
-                  type="tel"
+          
+                  type="text"
                   name="telefone1"
                   class="form-control"
                   id="zp"
                   ng-model="model.contato"
                   aria-describedby="emailHelp"
                   minlength="10"
-                  maxlength="11"
+                  maxlength="15"
                   placeholder="Seu contato (xx)xxxxxxxxx"
+                 
                   required
                 />
                 <span
@@ -335,14 +335,15 @@
                   >Telefone de Contato 2
                 </label>
                 <input
-                  translate
-                  translate-attr-placeholder="HEADER.CADASTRO.PTELEFONE"
-                  type="tel"
+                  id="tel2"
+                 
+                  type="text"
                   class="form-control"
                   ng-model="model.contato2"
                   aria-describedby="emailHelp"
                   placeholder="Seu contato (xx)xxxxxxxx"
-                  maxlength="11"
+                 
+                  maxlength="15"
                   minlength="10"
                 />
                 <span
