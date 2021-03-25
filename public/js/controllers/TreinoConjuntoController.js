@@ -78,14 +78,16 @@ angular
         }
         $scope.carregaNotTreino();
 
+        var jaSelecionou = function () {
+            treinoConjuntoService.liberaTreino(IdUsuario).success(function (data){
+                $scope.jaSel = data !== true;
+                return callback(data !== true);
+            }).error(function (data){
+                console.log("erro");
+            });
+        }
+
         $scope.aceitarSolicitacao = function (usuarioid) {
-            if ($scope.jaFez === true || $scope.jaSel === true) {
-                swal({
-                    title: "Você já esta realizando um treino conjunto!",
-                    type: "error",
-                    icon: "error"
-                })
-            } else {
                 treinoConjuntoService.aceitarSolicitacao(usuarioid, IdUsuario).success(function (data) {
                     swal({
                         title: "Convite aceito com sucesso!",
@@ -99,7 +101,6 @@ angular
                     console.log("erro");
                     console.log(data);
                 });
-            }
         }
 
         $scope.recusarSolicitacao = function (usuarioid) {
@@ -323,11 +324,8 @@ angular
           buscaTreinosFeito();
 
         $scope.bloqueia = function(){
-            
 
             if(libera === true && temTreino!=true){
-
-               
 
                 return false;
             }
@@ -709,7 +707,7 @@ angular
         carregaTreinoUsuario();
         exerciciosFase();
         fasesTreinos();
-
+        jaSelecionou();
 
         $scope.aguardando();
         $scope.pegaResultado();
