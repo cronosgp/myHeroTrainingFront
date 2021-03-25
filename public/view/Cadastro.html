@@ -213,7 +213,7 @@
 
         <div class="form-group">
           <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-6">
               <label translate="HEADER.CADASTRO.NASCIMENTO"
                 >Data de Nascimento</label
               >
@@ -237,61 +237,8 @@
               </span>
             </div>
 
-            <div class="col-md-4">
-              <label translate="HEADER.CADASTRO.PESO">Peso</label>
-              <input
-                translate
-                translate-attr-placeholder="HEADER.CADASTRO.PPESO"
-                type="number"
-                name="peso"
-                class="form-control"
-                id="pp"
-                ng-model="model.peso"
-                aria-describedby="emailHelp"
-                placeholder="peso"
-                required
-              />
-              <span
-                translate="HEADER.CADASTRO.EALTURA"
-                translate="HEADER.CADASTRO.EPESO"
-                ng-show="formulario.$submitted && formulario.peso.$error.required"
-                class="form-control alert-danger"
-              >
-                Peso obrigatório
-              </span>
-            </div>
-            <div class="col-md-4">
-              <label translate="HEADER.CADASTRO.ALTURA">Altura</label>
-              <input
-                translate
-                translate-attr-placeholder="HEADER.CADASTRO.PALTURA"
-                type="number"
-                name="altura3"
-                class="form-control"
-                id="pap"
-                ng-model="model.altura"
-                aria-describedby="emailHelp"
-                minlength="3"
-                maxlength="4"
-                placeholder="altura"
-                required
-              />
-              <span
-                translate="HEADER.CADASTRO.EALTURA"
-                ng-show="formulario.$submitted && formulario.altura3.$error.required"
-                class="form-control alert-danger"
-              >
-                altura obrigatória
-              </span>
-
-              <span
-                translate="HEADER.CADASTRO.EALTURA"
-                ng-show="formulario.$submitted && formulario.altura3.$error.minlength || formulario.altura3.$error.maxlength"
-                class="form-control alert-danger"
-              >
-                Informe uma altura válida
-              </span>
-            </div>
+         
+            
           </div>
 
           <div class="form-group">
