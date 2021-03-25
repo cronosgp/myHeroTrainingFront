@@ -10,6 +10,18 @@ angular.module('myHeroTraining').factory('amigosService', function ($http) {
         });
     };
 
+    var buscaConvite = function(id, data){
+        return $http.get('https://mhtrainingback.herokuapp.com/treino-conjunto/convite', {
+        params:{   
+            id: id,
+            data: data
+        },
+    });
+
+    }
+
+    
+
     var enviarSolicitacao = function (usuarioid, email) {
         return $http.post('https://mhtrainingback.herokuapp.com/friend/request', {
                 usuarioid: usuarioid,
@@ -31,6 +43,13 @@ angular.module('myHeroTraining').factory('amigosService', function ($http) {
         });
     };
 
+    var delAmigo = function (usuarioid, amizadeid) {
+        return $http.post('https://mhtrainingback.herokuapp.com/friend/reject-friend', {
+            usuarioid: usuarioid,
+            amizadeid: amizadeid
+        });
+    };
+
     var carregarAmigos = function (id) {
    //     var jwt = localStorage.getItem('Bearer');
 
@@ -43,9 +62,9 @@ angular.module('myHeroTraining').factory('amigosService', function ($http) {
     };
 
     var carregarAmigosData = function (id) {
-        var jwt = localStorage.getItem('Bearer');
+    //    var jwt = localStorage.getItem('Bearer');
 
-        $http.defaults.headers.common.Authorization = 'Bearer ' + jwt;
+      //  $http.defaults.headers.common.Authorization = 'Bearer ' + jwt;
         return $http.get('https://mhtrainingback.herokuapp.com/friend/data', {
             params: {
                 id: id
@@ -54,11 +73,13 @@ angular.module('myHeroTraining').factory('amigosService', function ($http) {
     };
 
     return {
+        delAmigo: delAmigo,
         carregarAmigosData: carregarAmigosData,
         carregarAmigos: carregarAmigos,
         carregarSolicitacoes: carregarSolicitacoes,
         enviarSolicitacao: enviarSolicitacao,
         aceitarSolicitacao: aceitarSolicitacao,
-        recusarSolicitacao: recusarSolicitacao
+        recusarSolicitacao: recusarSolicitacao,
+        buscaConvite : buscaConvite
     };
 });

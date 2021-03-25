@@ -184,21 +184,11 @@ angular
           $scope.fases = data;
             dados = data;
           arrayExercicio = data
-            checaFinalTreinoConjunto();
+            
         });
       };
 
-      var checaFinalTreinoConjunto = function (){
-            var ultimo = $scope.fases.length-1;
-            var idTreino = $scope.fases[ultimo].id
-            treinoConjuntoService.checaFinal(IdUsuario,idTreino).success(function (data) {
-                if(data === true){
-                    console.log(idTreino)
-                }else{
-                    console.log(false)
-                }
-            })
-        }
+    
 
       //falta pegar Id do usuario do banco e passar no parametro, pelo token
       //falta salvar id na tabela
@@ -535,6 +525,8 @@ angular
         });
       };
 
+       
+
       var carregaDdos = function () {
         TreinoService.dadosCadastro(IdUsuario).success(function (data) {
           $scope.infos = data;
@@ -630,8 +622,6 @@ angular
 
           }
           setTimeout(function(){ resize(); }, 500);
-<<<<<<< HEAD
-=======
 
->>>>>>> ajustes_desempenho_grafico
+
     });

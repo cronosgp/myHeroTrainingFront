@@ -241,17 +241,24 @@
                         </div>
                       </div>
                     </td>
+                    
                     <td class="candidate-list-favourite-time text-center">
-                      <a class="candidate-list-favourite order-2" ng-click="enviarConviteTreino(amigo.id)">
+                      <button button
+                      type="button"
+                      ng-disabled="enviado()"
+                      class="btn btn-link">
+                      <a class="candidate-list-favourite order-2" ng-click="enviarConviteTreino(amigo.amg)">
                         <i class="far fa-handshake"></i>
-                      <span class="candidate-list-time order-1" ng-disabled="enviado">Convidar</span>
+                      <span class="candidate-list-time order-1" >Convidar</span>
                       </a>
+                    </button>
                     </td>
                     <td>
+                    
                       <ul class="list-unstyled mb-0 d-flex justify-content-end">
                         <!-- <li><a href="#" class="text-primary" data-toggle="tooltip" title="" data-original-title="view"><i class="far fa-eye"></i></a></li>
                         <li><a href="#" class="text-info" data-toggle="tooltip" title="" data-original-title="Edit"><i class="fas fa-pencil-alt"></i></a></li> -->
-                        <li><a href="#" class="text-danger" data-toggle="tooltip" title="" data-original-title="Delete" ng-click="removerAmigo(amigo.id)"><i class="far fa-trash-alt"></i></a></li>
+                        <li><a class="text-danger" data-toggle="tooltip" title="" data-original-title="Delete" ng-click="removerAmigo(amigo.amg)"><i class="far fa-trash-alt"></i></a></li>
                       </ul>
                     </td>
                   </tr>

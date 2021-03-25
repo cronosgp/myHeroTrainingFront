@@ -2,8 +2,7 @@
 <html lang="pt-br" ng-app="myHeroTraining">
 <head>
 	<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCGyNOT4gPXsEnP-B9jcrXNym1qfoNniMU"></script>
-  
+
     <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <meta name="viewport" content="width=device-width">
     <script src="./js/lib/angular.min.js"></script>
@@ -23,7 +22,7 @@
 <script src="./js/utilitarios/mascaratelefone.js"></script>
     <script src="./js/services/desempenhoService.js"></script>
     <script src="./js/controllers/desempenhoController.js"></script>
-    <link rel="stylesheet" href="./css/desempenho.css">
+
     <script src="./js/services/loginService.js"></script>
     <script src="./js/services/amigosService.js"></script>
     <script src="./js/services/perfilService.js"></script>
@@ -41,6 +40,7 @@
     <script src="./js/controllers/TreinoController.js"></script>
     <script src="./js/controllers/TreinoConjuntoController.js"></script>
     <script src="./js/controllers/classificacaoController.js"></script>
+    <script src="./js/controllers/NotController.js"></script>
     <script src="./js/controllers/modal.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
@@ -170,9 +170,7 @@ function displayNotificationBubble() {
             <div id="content">
 
                 <!-- Topbar -->
-                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow,"
-
-                    ng-controller="PageCtrl">
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow" ng-controller="PageCtrl">
 
                     <a href="#/principal" class="navbar-brand " ng-show="exibirSemLogin()" title="home">
                         <img src="./imagem/logo.png"> MyHeroTraining
@@ -200,7 +198,7 @@ function displayNotificationBubble() {
                 </ul>
 
 
-                <div class="dropdown " ng-controller="PageCtrl">
+                <div class="dropdown ">
                     <button class="btn btn-light dropdown-toggle" type="button"
                         id="dropdownMenuButton" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">Selecione o
@@ -250,15 +248,19 @@ function displayNotificationBubble() {
                         
 
                         <!-- Nav Item - User Information -->
-                        <li class="nav-item dropdown no-arrow">
+                        <li class="nav-item dropdown no-arrow"ng-show="exibircomLogin()">
                             <a class="nav-link dropdown-toggle" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{nome}}</span>
-                                <img ng-init="carregaAvatar()" class="header-avatar img-profile rounded-circle" id="header-avatar"
+                                <img class="img-profile rounded-circle"
                                     src="{{avatar}}">
                             </a>
                             
                             
+                            <div class="avatar-menu" id="avatar-menu" ng-show="exibircomLogin()">
+                                <div ng-init="carregaAvatar()" class="header-avatar" id="header-avatar"
+                                     style="background-image: url({{avatar}})">
+                                </div>
                             
                             <!-- Dropdown - User Information -->
                         
@@ -268,10 +270,10 @@ function displayNotificationBubble() {
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Login
                                 </a>
-                               <!-- <a class="dropdown-item" ng-show="ispagante()" href="#pagamento">
+                                <a class="dropdown-item" ng-show="ispagante()" href="#pagamento">
                                     <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Seja Premium
-                                </a> -->
+                                </a> 
                                 <a class="dropdown-item" href="#perfil">
                                     <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Perfil
@@ -335,7 +337,14 @@ function displayNotificationBubble() {
 
                 </nav>
                 <!-- End of Topbar -->
-
+                <div ng-controller="NotController">
+                    <div class="alert alert-warning alert-dismissible fade show" close="closeAlert($index)" ng-repeat="noti in nots">
+                        {{noti.conteudo}}
+                        <button ng-click="fechar(noti.id)" type="button" class="close" data-dismiss="alert" aria-label="Close" >
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                </div>
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 

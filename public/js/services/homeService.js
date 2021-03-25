@@ -20,13 +20,26 @@ angular.module('myHeroTraining').factory('homeService', function ($http) {
   
   var pagamento = function(id){
 
-    return $http.get('https://mhtrainingback.herokuapp/usuario/pagamento', {
+    return $http.get('https://mhtrainingback.herokuapp.com/usuario/pagamento', {
 
       params: {
         id: id,
       },
     });
   };
+
+  var pegaNot = function (id){
+    return $http.get('https://mhtrainingback.herokuapp.com/not', {
+      params: {
+        id: id,
+      },
+    });
+  }
+
+  var fechaNot = function (id){
+    return $http.post('https://mhtrainingback.herokuapp.com/not', id)
+    };
+
   var getTimeCronometroService = function (id_usuario, id_fase) {
     var jwt = localStorage.getItem('Bearer');
 
@@ -39,6 +52,8 @@ angular.module('myHeroTraining').factory('homeService', function ($http) {
     });
   };
   return {
+    fechaNot: fechaNot,
+    pegaNot: pegaNot,
     getTimeCronometroService: getTimeCronometroService,
     carregarTreinos: carregaTreinos,
     pagamento:pagamento

@@ -7,15 +7,41 @@ angular
         avatarService
     ) {
         var IdUsuario = sessionStorage.getItem('id');
+        var exibir=0;
 
+        
         $scope.solicitacoes = function () {
             amigosService.carregarSolicitacoes(IdUsuario).success(function (data) {
+                console.log(data.length)
+                if(data.length===0){
+                    exibir = 1;
+                }
+
                 $scope.usuarios = data;
+                
                 console.log($scope.usuarios);
             }).error(function(data){
                 console.log("erro");
                 console.log(data);
             });
+        }
+      
+         $scope.dados = function(){
+
+            if(bloqueia === true){
+
+               
+
+           
+                return true;
+            }
+         }
+
+        $scope.exibir = function(){
+            if(exibir ===1){
+                return true;
+
+            }
         }
 
         $scope.carregaNotAmizade = function () {
@@ -53,7 +79,12 @@ angular
 
         $scope.recusarSolicitacao = function (amizadeid) {
 
-            amigosService.recusarSolicitacao(amizadeid, IdUsuario).success(function (data){
+            amigosService.recusarSolicitacao(IdUsuario, amizadeid).success(function (data){
+                swal({
+                    title: "Solicitação Recusada!",
+                    type: "success",
+                    icon: "success"
+                })
                 $scope.solicitacoes();
             }).error(function (data){
                 console.log("erro");

@@ -9,13 +9,15 @@ angular.module('myHeroTraining')
 		 perfilService,
 		 treinoConjuntoService,
 		 TreinoService,
-		 $location ) {
+		 $location,
+		 $interval) {
 		$scope.model = {};
 		var IdUsuario = sessionStorage.getItem('id');
 
 		/*$scope.msg = function(){
 			return sweetAlert("Você não possui amigos adicionados ou solicitações aceitas para essa opção. Convide novos amigos")
 		}*/
+
 
 		var pagante = 0;
 
@@ -55,13 +57,12 @@ angular.module('myHeroTraining')
               });
             };
             isUsuariopagante();
-		
+
 		
 		$scope.alterarIdioma = function(chave) {
 
 			$translate.use(chave);
 		}
-
 
 		var libera = function (callback) {
 			treinoConjuntoService.liberaTreino(IdUsuario).success(function (data){
@@ -72,7 +73,7 @@ angular.module('myHeroTraining')
 			});
 		}
 
-		var liberadia = function (callback) {
+	/*	var liberadia = function (callback) {
 			homeService.carregarTreinos(IdUsuario).success(function (data) {
 				var treino = data[0].idt;
 				TreinoService.carregaFasesTreino(treino).success(function (data) {
@@ -91,26 +92,43 @@ angular.module('myHeroTraining')
 			}).error(function (){
 				console.log("erro");
 			});
-		}
+		}*/
 
-
-		$scope.aviso = async () => {
+		/*$scope.aviso = async () => {
 			liberadia((resultado) => {
 				libera((resultado) => {
-					console.log($scope.jaFez)
-					console.log($scope.jaSel)
+					
 					if($scope.jaFez === false && $scope.jaSel === true){
-						swal({
-							title: "Erro!",
-							text: "Você está fazendo um treino em conjunto!",
-							type: "error",
-							icon: "error"
-						})
+						return true;
 					}
 				})
 			})
-		}
+		} */
 
+		var bloqueia=0;
+
+
+
+        var buscaTreinosFeito = function () {
+          var dataAtual = new Date();
+          let data = new Date();
+          let dataFormatada =  ((data.getFullYear())) + "/" + (("0" + (data.getMonth() + 1)).slice(-2)) + "/" + data.getDate();
+          TreinoService.buscaTreinoPersonalizadoFeitos(IdUsuario,dataFormatada).success(function (data) {
+
+
+              if(data.length !==0)
+              {
+
+                bloqueia = 1;
+
+              }
+          }).error(function(data){
+              if(data.status === 403){
+                  $location.path('/login');
+              }
+          });
+        };
+        buscaTreinosFeito();
 
 		var oculta= false;
 			var exibe=false;
@@ -137,6 +155,20 @@ angular.module('myHeroTraining')
 				console.log("erro");
 			});
 		}
+
+		$scope.bloqueia = function(){
+			console.log(bloqueia)
+
+			if(bloqueia === 1){
+
+				return true;
+			}
+			else {
+				return false
+
+			}
+		}
+
 
 		$scope.carregarNome = function(){
 			perfilService.carregarPerfil(IdUsuario).success(function (data){

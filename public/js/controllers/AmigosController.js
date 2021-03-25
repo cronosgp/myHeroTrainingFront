@@ -12,6 +12,7 @@ angular
         
         var carregaDadosAmigos = function () {
             amigosService.carregarAmigosData(IdUsuario).success(function (data) {
+                console.log(data)
                           
                 for(var i=0; i<data.length; i++){
 
@@ -28,6 +29,37 @@ angular
                 console.log("erro");
                 console.log(data);
             });
+        }
+
+            var bloqueia;
+
+        var buscaConviteen = function(){
+            
+            var data = new Date();
+            let dataFormatada =  ((data.getFullYear())) + "/" + (("0" + (data.getMonth() + 1)).slice(-2)) + "/" + data.getDate();
+            amigosService.buscaConvite(IdUsuario,dataFormatada).success(function(data){
+
+                
+
+                if(data.length!=0){
+                    bloqueia = true;
+                }
+              
+            });
+
+        }
+
+         buscaConviteen();
+
+        $scope.enviado = function(){
+
+            if(bloqueia === true){
+
+                
+
+                return true;
+
+            }
         }
 
         carregaDadosAmigos();
@@ -62,6 +94,20 @@ angular
         });
     }
 
+       $scope.bloquea = function(){
+            treinoConjuntoService.liberaTreino().success(function(data){
+                if(data === 'false'){
+                return true;
+                }
+                else{
+                    return false;
+                }
+
+            }).error(function(data)
+            {
+            
+        });
+    }
 
   
         $scope.enviarConviteTreino = function (conviteid){
@@ -79,9 +125,9 @@ angular
         }
 
         $scope.removerAmigo = function (amizadeid) {
-            amigosService.recusarSolicitacao(amizadeid, IdUsuario).success(function (data){
+            amigosService.delAmigo(IdUsuario, amizadeid).success(function (data){
                 console.log(data);
-                $scope.InitAmigos();
+                carregaDadosAmigos();
             }).error(function (data){
                 console.log("erro");
                 console.log(data);
