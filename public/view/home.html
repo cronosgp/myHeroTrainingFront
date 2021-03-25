@@ -22,8 +22,27 @@
    }
 </style>
 <div class="alert alert-warning" role="alert"ng-show="bloqueia()">
-   Você está em um treino em conjunto!
+    Você está em um treino em conjunto!
+   </div>
+<div class="card border-primary">
+    <h5 class="card-header">Treinos</h5>
+    <div class="card-body text-primary">
+      <h5 class="card-title">Seu treino do dia!</h5>
+      <p class="card-text">Clique no botão "inicar treino" para começar seu treino do dia.
+         Ele será composto por uma série de exercícios que você deve completar hoje sequencialmente,
+         os gifs irão demonstrar como realizar da forma adequada. Quando você finalizar o card com seu treino do dia
+         deverá aguardar o dia seguinte para ser disponibilizado novo treino.
+
+         <p>Você pode convidar amigos da sua lista de amizade para realizar o treino com você, basta clicar
+             no botão "treinar em conjunto". Caso realize treino em conjunto não poderá realizar o treino individual
+            no mesmo dia. </p>
+       
+      <p>Analise o desempenho de seus treinos e caminhadas acesando o menu em 'Desempenho' ou
+        <a class="btn-link" style="color: #646f79;" href="#/desempenho">clique aqui para ser redirecionado.</a>     
+    </p></p>
+    </div>
   </div>
+
 <div class="container" ng-init="aviso()">
     
     <div class="card-deck" id="teste"style="width: 45rem;" >
