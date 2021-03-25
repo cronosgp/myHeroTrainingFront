@@ -226,6 +226,7 @@ angular
   
       var donutChart = function(data){
   
+        var twitter = document.getElementById('twitter_compartilhar').style.display="block";
         var pts_grafico=[];
         var nome_exc=[];
         var result = [];
@@ -245,7 +246,11 @@ angular
           return res;
         
         }, {});
-       
+        if(total=="" ||total=="undefined"){
+          total=0;
+        }
+        
+        document.getElementById("link_twitter").href ="https://twitter.com/intent/tweet?hashtags=MyHeroTraning,exercicios,treino&text=Veja%20Minha%20Pontuação:"+total+"pontos";
         for(j = result.length-1; j>=0; j--){
          
           nome_exc.push(result[j].parte_trabalhada)
