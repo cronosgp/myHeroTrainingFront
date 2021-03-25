@@ -8,21 +8,10 @@ angular
       var IdUsuario = sessionStorage.getItem('id');
       
 
-      document.getElementsByClassName('img-profile rounded-circle')[0].addEventListener('load',()=>{
-        document.getElementById('img_center').src = document.getElementsByClassName('img-profile rounded-circle')[0].src;
-      })
-
-      setTimeout(function(){
-            if(document.getElementById('img_center').src == "" || document.getElementById('img_center').src == "http://localhost:5000/"){
-              document.getElementById('img_center').src = document.getElementsByClassName('img-profile rounded-circle')[0].src;
-
-            }else{
-             
-            }
-      },1300)
+  
      $scope.busca = function (){
 
-document.getElementById('card_center').style.display="none"
+
      
        var data = $scope.model.dt;
        var dataf = $scope.model.df;
