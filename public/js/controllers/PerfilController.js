@@ -8,6 +8,26 @@ angular
         avatarService
     ) {
         var IdUsuario = sessionStorage.getItem('id');
+       
+       
+//ajustando mascaras
+setTimeout( function(){document.getElementById('perfil_contato').value = document.getElementById('perfil_contato').value.replace(/^(\d{2})(\d{5})(\d{4}).*/,"($1) $2-$3")},2000);
+     
+setTimeout( function(){document.getElementById('perfil_contato2').value = document.getElementById('perfil_contato2').value.replace(/^(\d{2})(\d{5})(\d{4}).*/,"($1) $2-$3")},2000);
+        window.onload = function(){
+            document.getElementById('perfil_contato').addEventListener('keyup',(v)=>{
+             
+           
+                  mascara( document.getElementById('perfil_contato'), mtel );
+            })
+            document.getElementById('perfil_contato2').addEventListener('keyup',(v)=>{
+             
+          
+                  mascara( document.getElementById('perfil_contato2'), mtel );
+            })
+            
+          }
+         
 
         $scope.InitPerfil = function () {
             perfilService.carregarPerfil(IdUsuario).success(function (data) {
@@ -77,4 +97,6 @@ angular
 
 
         $scope.InitPerfil();
+
+        
     })

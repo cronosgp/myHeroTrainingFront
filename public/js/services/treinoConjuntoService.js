@@ -2,7 +2,7 @@ angular.module('myHeroTraining').factory('treinoConjuntoService', function ($htt
 
     var carregarSolicitacoes = function (id) {
 
-        return $http.get('http://localhost:8080/treino-conjunto/request', {
+        return $http.get('https://mhtrainingback.herokuapp.com/treino-conjunto/request', {
             params: {
                 id: id
             },
@@ -10,7 +10,7 @@ angular.module('myHeroTraining').factory('treinoConjuntoService', function ($htt
     };
 
     var enviarSolicitacao = function (usuarioid, conviteid) {
-        return $http.post('http://localhost:8080/treino-conjunto/request', {
+        return $http.post('https://mhtrainingback.herokuapp.com/treino-conjunto/request', {
             usuarioid: usuarioid,
             conviteid: conviteid
 
@@ -18,21 +18,21 @@ angular.module('myHeroTraining').factory('treinoConjuntoService', function ($htt
     };
 
     var aceitarSolicitacao = function (usuarioid, conviteid) {
-        return $http.post('http://localhost:8080/treino-conjunto/accept', {
+        return $http.post('https://mhtrainingback.herokuapp.com/treino-conjunto/accept', {
             usuarioid: usuarioid,
             conviteid: conviteid
         });
     };
 
     var recusarSolicitacao = function (conviteid, usuarioid) {
-        return $http.post('http://localhost:8080/treino-conjunto/reject', {
+        return $http.post('https://mhtrainingback.herokuapp.com/treino-conjunto/reject', {
             usuarioid: usuarioid,
             conviteid: conviteid
         });
     };
 
     var liberaTreino = function (id) {
-        return $http.get('http://localhost:8080/treino-conjunto/request/free', {
+        return $http.get('https://mhtrainingback.herokuapp.com/treino-conjunto/request/free', {
             params: {
                 id: id
             },
@@ -41,7 +41,7 @@ angular.module('myHeroTraining').factory('treinoConjuntoService', function ($htt
 
 
     var liberaTreinoDia = function (id) {
-        return $http.get('http://localhost:8080/treino-conjunto/request/day', {
+        return $http.get('https://mhtrainingback.herokuapp.com/treino-conjunto/request/day', {
             params: {
                 id: id
             },
@@ -49,7 +49,7 @@ angular.module('myHeroTraining').factory('treinoConjuntoService', function ($htt
     };
 
     var amigoAguardando = function (id) {
-        return $http.get('http://localhost:8080/treino-conjunto/request/friend', {
+        return $http.get('https://mhtrainingback.herokuapp.com/treino-conjunto/request/friend', {
             params: {
                 id: id
             },
@@ -57,7 +57,7 @@ angular.module('myHeroTraining').factory('treinoConjuntoService', function ($htt
     };
 
     var resultado = function (id) {
-        return $http.get('http://localhost:8080/treino-conjunto/resultado', {
+        return $http.get('https://mhtrainingback.herokuapp.com/treino-conjunto/resultado', {
             params: {
                 id: id
             },
@@ -65,7 +65,7 @@ angular.module('myHeroTraining').factory('treinoConjuntoService', function ($htt
     };
 
     var checaFinal = function (id, idTreino){
-        return $http.get('http://localhost:8080/treino-conjunto/request/last', {
+        return $http.get('https://mhtrainingback.herokuapp.com/treino-conjunto/request/last', {
             params: {
                 id: id,
                 idTreino: idTreino
@@ -78,7 +78,7 @@ angular.module('myHeroTraining').factory('treinoConjuntoService', function ($htt
         var jwt = localStorage.getItem('Bearer');
 
         $http.defaults.headers.common.Authorization = 'Bearer ' + jwt;
-        return $http.get('http://localhost:8080/treino-conjunto', {
+        return $http.get('https://mhtrainingback.herokuapp.com/treino-conjunto', {
             params: {
                 id: id
             },

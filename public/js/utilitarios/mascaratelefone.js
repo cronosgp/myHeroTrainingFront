@@ -7,7 +7,7 @@ function mascara(o,f){
 function mascara(o,f){
   v_obj=o
   v_fun=f
-  setTimeout(execmascara(),1)
+  setTimeout(execmascara(),500)
 }
 function execmascara(){
   v_obj.value=v_fun(v_obj.value)
