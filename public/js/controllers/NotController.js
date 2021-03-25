@@ -3,7 +3,9 @@ angular
     .controller('NotController', function (
         $scope,
         $interval,
-        homeService
+        homeService,
+        amigosService,
+        treinoConjuntoService
     ) {
         var IdUsuario = sessionStorage.getItem('id');
 
@@ -36,4 +38,21 @@ angular
         }
         $interval(notificacoes, 5000);
 
+        var carregaNotAmizade = function () {
+            amigosService.carregarSolicitacoes(IdUsuario).success(function (data) {
+                $scope.notAmizade = data.length
+            }).error(function (data) {
+                console.log("erro");
+            });
+        }
+        $interval(carregaNotAmizade(), 5000);
+
+       var carregaNotTreino = function () {
+            treinoConjuntoService.carregarSolicitacoes(IdUsuario).success(function (data) {
+                $scope.notTreino = data.length
+            }).error(function (data) {
+                console.log("erro");
+            });
+        }
+        $interval(carregaNotTreino(), 5000);
     });

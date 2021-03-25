@@ -76,9 +76,9 @@
 
                 <div class="nearby-user" ng-repeat="solicitacao in solicitacoes">
                     <div class="row">
-                        <div class="col-md-2 col-sm-2" ng-init="pegaAvatar(solicitacao.id)">
+                        <div class="col-md-2 col-sm-2">
                             <img
-                                    src="{{avatar}}"
+                                    src="{{solicitacao.avatar}}"
                                     alt="user"
                                     class="profile-photo-lg"
                             />
@@ -89,8 +89,8 @@
                             <p class="text-muted"></p>
                         </div>
                         <div class="col-md-3 col-sm-3">
-                            <button class="btn btn-primary pull-right" ng-disabled="dados()" ng-click="aceitarSolicitacao(solicitacao.id)">Aceitar</button>
-                            <button class="btn btn-danger pull-right"  ng-click="recusarSolicitacao(solicitacao.id)">Recusar</button>
+                            <button class="btn btn-primary pull-right" ng-disabled="dados()" ng-click="aceitarSolicitacao(solicitacao.amg)">Aceitar</button>
+                            <button class="btn btn-danger pull-right"  ng-click="recusarSolicitacao(solicitacao.amg)">Recusar</button>
                         </div>
                     </div>
                 </div>

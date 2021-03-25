@@ -97,22 +97,18 @@
         <div class="col-md-10">
           <div class="people-nearby">
 
-            <div class="nearby-user" ng-repeat="usuario in usuarios">
+            <div class="nearby-user" ng-repeat="amigo in usuarios">
               <div class="row">
-                <div class="col-md-2 col-sm-2" ng-init="pegaAvatar(usuario.id)">
-                  <img
-                    src="{{avatar}}"
-                    alt="user"
-                    class="profile-photo-lg"
-                  />
+                <div class="col-md-2 col-sm-2">
+                   <img class="img-fluid" src="{{amigo.avatar}}" alt="">
                 </div>
                 <div class="col-md-7 col-sm-7">
-                  <h5><a href="#" class="profile-link">{{usuario.nome}}</a></h5>
-                  <p>{{usuario.email}}</p>
+                  <h5><a href="#" class="profile-link">{{amigo.nome}}</a></h5>
+                  <p>{{amigo.email}}</p>
                 </div>
                 <div class="col-md-3 col-sm-3">
-                  <button class="btn btn-primary pull-right"  ng-click="aceitarSolicitacao(usuario.id)">Aceitar</button>
-                  <button class="btn btn-danger pull-right" ng-click="recusarSolicitacao(usuario.id)">Recusar</button>
+                  <button class="btn btn-primary pull-right"  ng-click="aceitarSolicitacao(amigo.amg)">Aceitar</button>
+                  <button class="btn btn-danger pull-right" ng-click="recusarSolicitacao(amigo.amg)">Recusar</button>
                 </div>
               </div>
             </div>
