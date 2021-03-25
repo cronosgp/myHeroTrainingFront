@@ -6,6 +6,7 @@ angular
         amigosService,
         avatarService,
         treinoConjuntoService,
+        TreinoService,
         $location
     ) {
         var IdUsuario = sessionStorage.getItem('id');
@@ -53,7 +54,7 @@ angular
 
         $scope.enviado = function(){
 
-            if(bloqueia === true){
+            if(bloqueia === true || temTreino === true){
 
                 
 
@@ -61,6 +62,27 @@ angular
 
             }
         }
+
+        var temTreino;
+        var buscaTreinosFeito = function () {
+            var dataAtual = new Date();
+            let data = new Date();
+            let dataFormatada =  ((data.getFullYear())) + "/" + (("0" + (data.getMonth() + 1)).slice(-2)) + "/" + data.getDate();
+            TreinoService.buscaTreinosFeitos(IdUsuario,dataFormatada).success(function (data) {
+
+                               
+              if(data.length!=0){
+                temTreino = true;
+
+              }
+
+             }).error(function(data){
+              if(data.status === 403){
+                $location.path('/login');
+              }
+            });
+          };
+          buscaTreinosFeito();
 
         carregaDadosAmigos();
 
