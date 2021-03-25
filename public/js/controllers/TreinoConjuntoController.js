@@ -79,7 +79,6 @@ angular
         $scope.carregaNotTreino();
 
         $scope.aceitarSolicitacao = function (usuarioid) {
-            libera();
             if ($scope.jaFez === true || $scope.jaSel === true) {
                 swal({
                     title: "Você já esta realizando um treino conjunto!",
@@ -714,7 +713,5 @@ angular
 
         $scope.aguardando();
         $scope.pegaResultado();
-
-        
     });
 
