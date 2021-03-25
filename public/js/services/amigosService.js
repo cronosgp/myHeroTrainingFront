@@ -19,7 +19,6 @@ angular.module('myHeroTraining').factory('amigosService', function ($http) {
     });
 
     }
-
     
 
     var enviarSolicitacao = function (usuarioid, email) {
@@ -76,7 +75,7 @@ angular.module('myHeroTraining').factory('amigosService', function ($http) {
         //    var jwt = localStorage.getItem('Bearer');
 
         //  $http.defaults.headers.common.Authorization = 'Bearer ' + jwt;
-        return $http.get('http://localhost:8080/friend/request', {
+        return $http.get('https://mhtrainingback.herokuapp.com/friend/request', {
             params: {
                 id: id
             },
