@@ -294,7 +294,6 @@ angular
 
         $scope.dados = function(){
 
-            console.log("Lari e Bru",temTreino)
 
             if(temTreino === true || conjunto === true){
                 return true;
